@@ -347,37 +347,37 @@ export default function WaterfallDetail() {
           {weather && (
             <div 
               onClick={() => setShowForecast(true)}
-              className="bg-emerald-950 p-5 rounded-lg shadow-lg border border-emerald-800 space-y-3 relative overflow-hidden text-white cursor-pointer hover:border-emerald-500 hover:shadow-emerald-900/50 transition group"
+              className="bg-emerald-950 p-3 sm:p-4 rounded-lg shadow-lg border border-emerald-800 space-y-2 relative overflow-hidden text-white cursor-pointer hover:border-emerald-500 hover:shadow-emerald-900/50 transition group"
             >
-              <div className="absolute -right-4 -top-4 opacity-10 text-8xl group-hover:scale-110 transition-transform duration-500">
+              <div className="absolute -right-4 -top-4 opacity-10 text-7xl group-hover:scale-110 transition-transform duration-500">
                 {getWeatherInfo(weather.weathercode).icon}
               </div>
               <div className="relative z-10 flex justify-between items-start">
                 <div>
-                  <h4 className="font-serif text-sm font-bold text-emerald-400 uppercase tracking-widest mb-1 flex items-center gap-2">
+                  <h4 className="font-serif text-xs font-bold text-emerald-400 uppercase tracking-widest mb-0.5 flex items-center gap-1.5">
                     Live Conditions 
                   </h4>
-                  <div className="flex items-center gap-3">
-                    <span className="text-4xl font-extrabold">{Math.round(weather.temperature)}°F</span>
-                    <div className="flex flex-col text-sm font-semibold leading-tight text-emerald-100">
+                  <div className="flex items-center gap-2.5">
+                    <span className="text-3xl font-extrabold">{Math.round(weather.temperature)}°</span>
+                    <div className="flex flex-col text-xs font-semibold leading-tight text-emerald-100">
                       <span>{getWeatherInfo(weather.weathercode).icon} {getWeatherInfo(weather.weathercode).text}</span>
-                      <span className="text-emerald-300 text-xs mt-0.5">Wind: {weather.windspeed} mph</span>
+                      <span className="text-emerald-300 text-[10px] mt-0.5">Wind: {weather.windspeed} mph</span>
                     </div>
                   </div>
                 </div>
-                <div className="bg-white/10 p-2 rounded-full backdrop-blur group-hover:bg-emerald-500 transition">
-                  <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div className="bg-white/10 p-1.5 rounded-full backdrop-blur group-hover:bg-emerald-500 transition">
+                  <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
               </div>
               
               {getWeatherInfo(weather.weathercode).trailWarning ? (
-                <div className="relative z-10 mt-3 bg-red-900/40 border border-red-500/50 rounded p-2 text-xs text-red-200 font-semibold flex items-center gap-2">
+                <div className="relative z-10 mt-2 bg-red-900/40 border border-red-500/50 rounded py-1.5 px-2 text-[10px] sm:text-xs text-red-200 font-semibold flex items-center gap-1.5">
                   <span>⚠️</span> {getWeatherInfo(weather.weathercode).trailWarning}
                 </div>
               ) : (
-                <div className="relative z-10 mt-3 text-xs text-emerald-200 font-medium flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition">
+                <div className="relative z-10 mt-2 text-[10px] sm:text-xs text-emerald-200 font-medium flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition">
                   <span>📅</span> View 14-Day Forecast
                 </div>
               )}
@@ -443,54 +443,54 @@ export default function WaterfallDetail() {
 
       {/* 14-DAY FORECAST MODAL OVERLAY (iOS Safe) */}
       {showForecast && (
-        <div className="fixed inset-0 z-[110] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 animate-in fade-in duration-200" style={{ width: '100%', height: '100%' }}>
-          <div className="bg-emerald-950 w-full max-w-2xl rounded-xl shadow-2xl border border-emerald-800 flex flex-col overflow-hidden max-h-[90%]">
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-sm p-3 animate-in fade-in duration-200" style={{ width: '100%', height: '100%' }}>
+          <div className="bg-emerald-950 w-full max-w-sm rounded-xl shadow-2xl border border-emerald-800 flex flex-col overflow-hidden max-h-[85%]">
             
             {/* Modal Header */}
-            <div className="bg-emerald-900/90 px-5 py-4 border-b border-emerald-800 flex items-center justify-between sticky top-0 z-10">
+            <div className="bg-emerald-900/90 px-4 py-3 border-b border-emerald-800 flex items-center justify-between sticky top-0 z-10">
               <div>
-                <h3 className="font-serif text-xl font-bold text-white flex items-center gap-2">
-                  <span>📅</span> 14-Day Trail Forecast
+                <h3 className="font-serif text-lg font-bold text-white flex items-center gap-2">
+                  <span>📅</span> 14-Day Forecast
                 </h3>
-                <p className="text-xs text-emerald-300 mt-1 uppercase tracking-wider font-semibold">
+                <p className="text-[10px] text-emerald-300 mt-0.5 uppercase tracking-wider font-semibold truncate max-w-[200px]">
                   {waterfall.name}
                 </p>
               </div>
               <button 
                 onClick={() => setShowForecast(false)}
-                className="text-emerald-400 hover:text-white transition p-2 bg-emerald-950/50 hover:bg-emerald-800 rounded-full"
+                className="text-emerald-400 hover:text-white transition p-1.5 bg-emerald-950/50 hover:bg-emerald-800 rounded-full"
               >
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
             </div>
 
             {/* Modal Body (Scrollable) */}
-            <div className="p-4 sm:p-5 overflow-y-auto" style={{ WebkitOverflowScrolling: 'touch' }}>
-              <div className="space-y-2">
+            <div className="p-3 overflow-y-auto" style={{ WebkitOverflowScrolling: 'touch' }}>
+              <div className="space-y-1.5">
                 {dailyForecast.map((day, idx) => {
                   const info = getWeatherInfo(day.weathercode)
                   return (
-                    <div key={idx} className="bg-emerald-900/40 border border-emerald-800/50 rounded-lg p-3 sm:p-4 flex items-center justify-between hover:bg-emerald-900/60 transition">
+                    <div key={idx} className="bg-emerald-900/40 border border-emerald-800/50 rounded-lg p-2.5 flex items-center justify-between hover:bg-emerald-900/60 transition">
                       
-                      <div className="flex items-center gap-4 w-1/3 min-w-[100px]">
-                        <span className="text-emerald-100 font-bold text-sm sm:text-base">{day.date}</span>
+                      <div className="flex items-center gap-3 w-1/3 min-w-[80px]">
+                        <span className="text-emerald-100 font-bold text-xs sm:text-sm">{day.date}</span>
                       </div>
                       
                       <div className="flex flex-col items-center justify-center w-1/3">
-                        <span className="text-2xl sm:text-3xl mb-1">{info.icon}</span>
-                        <span className="text-[10px] sm:text-xs text-emerald-300 font-semibold uppercase tracking-wider text-center">{info.text}</span>
+                        <span className="text-xl mb-0.5">{info.icon}</span>
+                        <span className="text-[9px] text-emerald-300 font-semibold uppercase tracking-wider text-center">{info.text}</span>
                       </div>
                       
-                      <div className="flex items-center justify-end gap-3 sm:gap-4 w-1/3">
+                      <div className="flex items-center justify-end gap-3 w-1/3">
                         <div className="flex flex-col items-end">
-                          <span className="text-xs text-emerald-400/70 font-semibold uppercase">High</span>
-                          <span className="text-base sm:text-lg text-white font-bold">{day.maxTemp}°</span>
+                          <span className="text-[9px] text-emerald-400/70 font-semibold uppercase">Hi</span>
+                          <span className="text-sm text-white font-bold">{day.maxTemp}°</span>
                         </div>
                         <div className="flex flex-col items-end">
-                          <span className="text-xs text-blue-400/70 font-semibold uppercase">Low</span>
-                          <span className="text-base sm:text-lg text-blue-200 font-bold">{day.minTemp}°</span>
+                          <span className="text-[9px] text-blue-400/70 font-semibold uppercase">Lo</span>
+                          <span className="text-sm text-blue-200 font-bold">{day.minTemp}°</span>
                         </div>
                       </div>
 
