@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import { useTrip } from '../lib/TripContext'
 
 interface LayoutProps {
@@ -7,6 +8,7 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const { tripItems } = useTrip()
+  const [showChangelog, setShowChangelog] = useState(false)
 
   return (
     <div className="bg-parchment font-sans text-slate-800 antialiased min-h-screen flex flex-col relative">
@@ -60,73 +62,90 @@ export default function Layout({ children }: LayoutProps) {
             </div>
           </div>
 
-          <div className="space-y-4 bg-emerald-900/30 p-5 rounded-lg border border-emerald-800/50">
-            <h4 className="font-serif text-lg font-bold text-white flex items-center gap-2">
-              <span>📋</span> Version History & Changelog
-            </h4>
-            <div className="space-y-3">
-              
-              <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4 pb-3 border-b border-emerald-800/50">
-                <span className="bg-copper-orange text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
+          <div className="space-y-4">
+            {/* INLINE TOGGLE BUTTON (No Modals) */}
+            <button 
+              onClick={() => setShowChangelog(!showChangelog)}
+              className="w-full bg-emerald-900/40 hover:bg-emerald-900/60 p-4 rounded-lg border border-emerald-800/50 flex items-center justify-between transition-colors focus:outline-none focus:ring-2 focus:ring-copper-orange text-left"
+            >
+              <div className="flex items-center gap-3">
+                <span className="bg-copper-orange text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shadow">
                   Beta 0.5.0
                 </span>
-                <div>
-                  <p className="text-sm font-semibold text-white">Stage 1 Scaling & Hub Redesign</p>
-                  <p className="text-xs text-emerald-100/70 mt-1 leading-relaxed">
-                    Redesigned the homepage into a scalable County Hub Card grid to support hundreds of waterfalls. Added 8 new major waterfalls and optimized search functionality.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4 pb-3 border-b border-emerald-800/50">
-                <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
-                  Beta 0.4.0
+                <span className="font-serif text-lg font-bold text-white">
+                  Version History & Changelog
                 </span>
-                <div>
-                  <p className="text-sm font-semibold text-white">County Hubs & Dynamic Photos</p>
-                  <p className="text-xs text-emerald-100/70 mt-1 leading-relaxed">
-                    Grouped home page into dynamic County Hubs. Added full photo integration using Wikimedia Commons imagery, with an Inline Hero Photo Gallery on detail pages.
-                  </p>
-                </div>
               </div>
+              <span className="text-copper-orange font-bold text-xl">
+                {showChangelog ? '−' : '+'}
+              </span>
+            </button>
 
-              <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4 pb-3 border-b border-emerald-800/50">
-                <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
-                  Beta 0.3.0
-                </span>
-                <div>
-                  <p className="text-sm font-semibold text-white">Interactive Trip Planner</p>
-                  <p className="text-xs text-emerald-100/70 mt-1 leading-relaxed">
-                    Added local storage anonymous Trip Planner allowing users to save and build itineraries. Added dynamic nearby attractions fetching from Supabase.
-                  </p>
+            {/* EXPANDABLE INLINE ACCORDION */}
+            {showChangelog && (
+              <div className="bg-emerald-900/20 p-5 rounded-lg border border-emerald-800/50 space-y-3 animate-in fade-in slide-in-from-top-2 duration-300">
+                <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4 pb-3 border-b border-emerald-800/50">
+                  <span className="bg-copper-orange text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
+                    Beta 0.5.0
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-white">Stage 1 Scaling & Hub Redesign</p>
+                    <p className="text-xs text-emerald-100/70 mt-1 leading-relaxed">
+                      Redesigned the homepage into a scalable County Hub Card grid to support hundreds of waterfalls. Added 8 new major waterfalls and optimized search functionality.
+                    </p>
+                  </div>
                 </div>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4 pb-3 border-b border-emerald-800/50">
-                <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
-                  Beta 0.2.0
-                </span>
-                <div>
-                  <p className="text-sm font-semibold text-slate-300">Database Integration</p>
-                  <p className="text-xs text-emerald-100/70 mt-1 leading-relaxed">
-                    Wired up Supabase backend for dynamic fetching. Added real UP waterfalls data. Established CI/CD pipeline via GitHub Desktop & Vercel.
-                  </p>
-                </div>
-              </div>
 
-              <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4 pb-1">
-                <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
-                  Beta 0.1.0
-                </span>
-                <div>
-                  <p className="text-sm font-semibold text-slate-300">Initial Scaffolding</p>
-                  <p className="text-xs text-emerald-100/50 mt-1 leading-relaxed">
-                    Created base rustic UI, setup Tailwind CSS 4.0, built routing and detail views.
-                  </p>
+                <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4 pb-3 border-b border-emerald-800/50">
+                  <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
+                    Beta 0.4.0
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-white">County Hubs & Dynamic Photos</p>
+                    <p className="text-xs text-emerald-100/70 mt-1 leading-relaxed">
+                      Grouped home page into dynamic County Hubs. Added full photo integration using Wikimedia Commons imagery, with an Inline Hero Photo Gallery on detail pages.
+                    </p>
+                  </div>
                 </div>
-              </div>
 
-            </div>
+                <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4 pb-3 border-b border-emerald-800/50">
+                  <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
+                    Beta 0.3.0
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-white">Interactive Trip Planner</p>
+                    <p className="text-xs text-emerald-100/70 mt-1 leading-relaxed">
+                      Added local storage anonymous Trip Planner allowing users to save and build itineraries. Added dynamic nearby attractions fetching from Supabase.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4 pb-3 border-b border-emerald-800/50">
+                  <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
+                    Beta 0.2.0
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-300">Database Integration</p>
+                    <p className="text-xs text-emerald-100/70 mt-1 leading-relaxed">
+                      Wired up Supabase backend for dynamic fetching. Added real UP waterfalls data. Established CI/CD pipeline via GitHub Desktop & Vercel.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4 pb-1">
+                  <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
+                    Beta 0.1.0
+                  </span>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-300">Initial Scaffolding</p>
+                    <p className="text-xs text-emerald-100/50 mt-1 leading-relaxed">
+                      Created base rustic UI, setup Tailwind CSS 4.0, built routing and detail views.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            )}
           </div>
 
         </div>
