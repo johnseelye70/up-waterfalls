@@ -101,9 +101,6 @@ export default function WaterfallDetail() {
       
       if (wfError) {
         console.error('Error fetching waterfall:', wfError)
-      } else {
-        setWaterfall(wfData)
-        
         // Fetch Weather Data from Open-Meteo
         try {
           const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${wfData.latitude}&longitude=${wfData.longitude}&current_weather=true&daily=weathercode,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&windspeed_unit=mph&forecast_days=14&timezone=America%2FDetroit`)
@@ -216,25 +213,25 @@ export default function WaterfallDetail() {
         )}
       </div>
 
-      <div className="relative rounded-xl overflow-hidden shadow-xl border-2 border-pinery-green transition-all duration-500">
-        <div className="h-[450px] bg-cover bg-center relative transition-all duration-700 ease-in-out" style={{ backgroundImage: `url('${activePhoto}')` }}>
-          <div className="absolute inset-0 bg-gradient-to-t from-superior-navy via-superior-navy/40 to-transparent transition-opacity"></div>
+      <div className="relative rounded-xl overflow-hidden shadow-xl border-2 border-pinery-green">
+        <div className="h-[450px] bg-cover bg-center relative" style={{ backgroundImage: `url('${activePhoto}')` }}>
+          <div className="absolute inset-0 bg-gradient-to-t from-superior-navy via-superior-navy/40 to-transparent"></div>
           
           <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
             <div className="flex flex-wrap items-center gap-2 text-xs">
               <span className="bg-copper-orange text-white px-2.5 py-0.5 rounded font-medium shadow">{waterfall.region}</span>
               <span className="bg-pinery-green/90 text-white px-2.5 py-0.5 rounded shadow">{waterfall.county} County</span>
-              <span className="bg-black/60 backdrop-blur text-slate-200 px-2.5 py-0.5 rounded">GPS: {waterfall.latitude}° N, {waterfall.longitude}° W</span>
+              <span className="bg-black/60 text-slate-200 px-2.5 py-0.5 rounded">GPS: {waterfall.latitude}° N, {waterfall.longitude}° W</span>
             </div>
             
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-parchment drop-shadow-lg">{waterfall.name}</h2>
             <p className="text-xs sm:text-sm text-slate-300 drop-shadow max-w-2xl">{waterfall.description}</p>
             
             <div className="pt-2 flex flex-wrap gap-3 text-xs font-medium">
-              <span className="bg-parchment/20 backdrop-blur px-3 py-1 rounded text-white flex items-center gap-1 border border-white/20">
+              <span className="bg-white/20 px-3 py-1 rounded text-white flex items-center gap-1 border border-white/20">
                 🥾 Trail: {waterfall.hike_difficulty}
               </span>
-              <span className="bg-parchment/20 backdrop-blur px-3 py-1 rounded text-white flex items-center gap-1 border border-white/20">
+              <span className="bg-white/20 px-3 py-1 rounded text-white flex items-center gap-1 border border-white/20">
                 📏 Distance: {waterfall.trail_length_miles} Mi Roundtrip
               </span>
               <span className="bg-emerald-950/80 text-emerald-300 px-3 py-1 rounded flex items-center gap-1 border border-emerald-500/30">
@@ -349,9 +346,6 @@ export default function WaterfallDetail() {
               onClick={() => setShowForecast(true)}
               className="bg-emerald-950 p-3 sm:p-4 rounded-lg shadow-lg border border-emerald-800 space-y-2 relative overflow-hidden text-white cursor-pointer hover:border-emerald-500 hover:shadow-emerald-900/50 transition group"
             >
-              <div className="absolute right-0 top-0 opacity-10 text-7xl group-hover:scale-110 transition-transform duration-500 pointer-events-none origin-top-right">
-                {getWeatherInfo(weather.weathercode).icon}
-              </div>
               <div className="relative z-10 flex justify-between items-start">
                 <div>
                   <h4 className="font-serif text-xs font-bold text-emerald-400 uppercase tracking-widest mb-0.5 flex items-center gap-1.5">

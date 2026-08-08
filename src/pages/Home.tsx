@@ -264,7 +264,7 @@ export default function Home() {
                       className="group relative h-40 rounded-xl overflow-hidden shadow-md border-2 border-transparent hover:border-copper-orange transition-all text-left flex items-end p-4 focus:outline-none focus:ring-4 focus:ring-copper-orange/30"
                     >
                       <div 
-                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        className="absolute inset-0 bg-cover bg-center"
                         style={{ 
                           backgroundImage: heroImg 
                             ? `url('${heroImg}')` 
@@ -276,11 +276,11 @@ export default function Home() {
                       <div className="relative z-10 w-full flex justify-between items-end">
                         <div>
                           <h4 className="font-serif font-bold text-xl text-white drop-shadow-md">{county}</h4>
-                          <span className="text-[10px] uppercase font-bold tracking-widest text-copper-orange bg-black/40 px-2 py-0.5 rounded backdrop-blur border border-white/10">
+                          <span className="text-[10px] uppercase font-bold tracking-widest text-copper-orange bg-black/40 px-2 py-0.5 rounded border border-white/10">
                             {falls.length} Waterfalls
                           </span>
                         </div>
-                        <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur flex items-center justify-center text-white border border-white/40 group-hover:bg-copper-orange group-hover:border-transparent transition-colors">
+                        <div className="w-8 h-8 rounded-full bg-white/20 flex items-center justify-center text-white border border-white/40 group-hover:bg-copper-orange group-hover:border-transparent transition-colors">
                           ➔
                         </div>
                       </div>
