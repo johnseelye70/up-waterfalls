@@ -349,7 +349,7 @@ export default function WaterfallDetail() {
               onClick={() => setShowForecast(true)}
               className="bg-emerald-950 p-3 sm:p-4 rounded-lg shadow-lg border border-emerald-800 space-y-2 relative overflow-hidden text-white cursor-pointer hover:border-emerald-500 hover:shadow-emerald-900/50 transition group"
             >
-              <div className="absolute -right-4 -top-4 opacity-10 text-7xl group-hover:scale-110 transition-transform duration-500">
+              <div className="absolute right-0 top-0 opacity-10 text-7xl group-hover:scale-110 transition-transform duration-500 pointer-events-none origin-top-right">
                 {getWeatherInfo(weather.weathercode).icon}
               </div>
               <div className="relative z-10 flex justify-between items-start">
@@ -467,7 +467,7 @@ export default function WaterfallDetail() {
             </div>
 
             {/* Modal Body (Scrollable) */}
-            <div className="p-3 overflow-y-auto" style={{ WebkitOverflowScrolling: 'touch' }}>
+            <div className="p-3 overflow-y-auto">
               <div className="space-y-1.5">
                 {dailyForecast.map((day, idx) => {
                   const info = getWeatherInfo(day.weathercode)
