@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+@theme {
+  --color-pinery-green: #1C3A27;
+  --color-superior-navy: #1B2E3C;
+  --color-copper-orange: #C06C38;
+  --color-tahquamenon-amber: #8C5023;
+  --color-parchment: #F7F4EE;
+  --color-slate-rock: #4A5568;
+  
+  --font-serif: 'Bitter', serif;
+  --font-sans: 'Inter', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-parchment font-sans text-slate-800 antialiased min-h-screen flex flex-col;
+  }
+}
