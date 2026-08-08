@@ -65,9 +65,21 @@ export default function Layout({ children }: LayoutProps) {
               <span>📋</span> Version History & Changelog
             </h4>
             <div className="space-y-3">
-
+              
               <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4 pb-3 border-b border-emerald-800/50">
                 <span className="bg-copper-orange text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
+                  Beta 0.5.0
+                </span>
+                <div>
+                  <p className="text-sm font-semibold text-white">Stage 1 Scaling & Hub Redesign</p>
+                  <p className="text-xs text-emerald-100/70 mt-1 leading-relaxed">
+                    Redesigned the homepage into a scalable County Hub Card grid to support hundreds of waterfalls. Added 8 new major waterfalls and optimized search functionality.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4 pb-3 border-b border-emerald-800/50">
+                <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
                   Beta 0.4.0
                 </span>
                 <div>
