@@ -1,15 +1,12 @@
 export function getThumbnailUrl(url: string, width: number = 800): string {
   if (!url) return url
 
-  // Handle Wikimedia Commons images
-  if (url.includes('upload.wikimedia.org/wikipedia/commons/') && !url.includes('/thumb/')) {
-    try {
-      const parts = url.split('/')
-      const filename = parts[parts.length - 1]
-      return url.replace('/commons/', '/commons/thumb/') + `/${width}px-` + filename
-    } catch (e) {
-      return url
-    }
+  // Handle Wikimedia Commons images via public resizing proxy
+  if (url.includes('upload.wikimedia.org/wikipedia/commons/')) {
+    // Strip https:// or http:// for the proxy
+    const cleanUrl = url.replace(/^https?:\/\//, '')
+    // Use wsrv.nl (Images.weserv.nl) public caching and resizing proxy
+    return `https://wsrv.nl/?url=${encodeURIComponent(cleanUrl)}&w=${width}&output=webp`
   }
 
   // Handle Unsplash images
