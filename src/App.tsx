@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import Directory from './pages/Directory'
 import WaterfallDetail from './pages/WaterfallDetail'
 import TripPlanner from './pages/TripPlanner'
+import Changelog from './pages/Changelog'
 import { TripProvider } from './lib/TripContext'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
             <Route path="/directory" element={<Directory />} />
             <Route path="/waterfall/:slug" element={<WaterfallDetail />} />
             <Route path="/trip" element={<TripPlanner />} />
+            <Route path="/changelog" element={<Changelog />} />
           </Routes>
         </Layout>
       </Router>

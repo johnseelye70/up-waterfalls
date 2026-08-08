@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
 import { useTrip } from '../lib/TripContext'
 
 interface LayoutProps {
@@ -8,7 +7,6 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const { tripItems } = useTrip()
-  const [showChangelog, setShowChangelog] = useState(false)
 
   return (
     <div className="bg-parchment font-sans text-slate-800 antialiased min-h-[100dvh] flex flex-col relative">
@@ -72,210 +70,16 @@ export default function Layout({ children }: LayoutProps) {
           </div>
 
           <div className="flex-shrink-0">
-            <button 
-              onClick={() => setShowChangelog(true)}
+            <Link 
+              to="/changelog"
               className="bg-emerald-900/60 hover:bg-emerald-800 text-white px-6 py-3 rounded-lg border border-emerald-800/50 shadow-lg transition flex items-center gap-3 font-semibold"
             >
-              <span>📋</span> Beta 0.6.5
-            </button>
+              <span>📋</span> Beta 0.7.0
+            </Link>
           </div>
 
         </div>
       </footer>
-
-      {/* CHANGELOG MODAL OVERLAY */}
-      {showChangelog && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-200">
-          <div className="bg-emerald-950 w-full max-w-2xl rounded-xl shadow-2xl border border-emerald-800 flex flex-col overflow-hidden max-h-[90vh]">
-            
-            {/* Modal Header */}
-            <div className="bg-emerald-900/80 px-6 py-4 border-b border-emerald-800 flex items-center justify-between">
-              <h3 className="font-serif text-xl font-bold text-white flex items-center gap-2">
-                <span>📋</span> Version History & Changelog
-              </h3>
-              <button 
-                onClick={() => setShowChangelog(false)}
-                className="text-emerald-400 hover:text-white transition p-1 bg-emerald-950 rounded"
-              >
-                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-
-            {/* Modal Body (Scrollable) */}
-            <div className="p-6 overflow-y-auto space-y-6">
-
-              <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 pb-4 border-b border-emerald-800/50">
-                <span className="bg-copper-orange text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
-                  Beta 0.6.5
-                </span>
-                <div>
-                  <p className="text-base font-semibold text-white">14-Day Weather Forecast</p>
-                  <p className="text-sm text-emerald-100/70 mt-1 leading-relaxed">
-                    Expanded the Live Weather widget to include an interactive, full-screen modal displaying a detailed 14-day trail forecast for the waterfall.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 pb-4 border-b border-emerald-800/50">
-                <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
-                  Beta 0.6.4
-                </span>
-                <div>
-                  <p className="text-base font-semibold text-white">Live Weather Integration</p>
-                  <p className="text-sm text-emerald-100/70 mt-1 leading-relaxed">
-                    Added real-time weather and estimated trail conditions to Waterfall Detail pages using coordinate-based fetches from Open-Meteo.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 pb-4 border-b border-emerald-800/50">
-                <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
-                  Beta 0.6.3
-                </span>
-                <div>
-                  <p className="text-base font-semibold text-white">Travel Blogs & Guides Integration</p>
-                  <p className="text-sm text-emerald-100/70 mt-1 leading-relaxed">
-                    Activated the `waterfall_blogs` data layer to dynamically display curated articles, external travel guides, and historic write-ups directly on the Waterfall detail pages.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 pb-4 border-b border-emerald-800/50">
-                <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
-                  Beta 0.6.2
-                </span>
-                <div>
-                  <p className="text-base font-semibold text-white">Manual Video Support</p>
-                  <p className="text-sm text-emerald-100/70 mt-1 leading-relaxed">
-                    Added database schema support for manual YouTube video assignments and a new Video player modal on the Directory page.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 pb-4 border-b border-emerald-800/50">
-                <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
-                  Beta 0.6.1
-                </span>
-                <div>
-                  <p className="text-base font-semibold text-white">Full-Screen Gallery Lightbox</p>
-                  <p className="text-sm text-emerald-100/70 mt-1 leading-relaxed">
-                    Added a full-screen, interactive photo gallery modal to the Waterfall Directory, allowing users to scroll through imagery without navigating away.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 pb-4 border-b border-emerald-800/50">
-                <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
-                  Beta 0.6.0
-                </span>
-                <div>
-                  <p className="text-base font-semibold text-white">Waterfall Directory Listing</p>
-                  <p className="text-sm text-emerald-100/70 mt-1 leading-relaxed">
-                    Created a dedicated Waterfall Directory page featuring an A-Z scannable index of all waterfalls, utilizing the new massive database schema.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 pb-4 border-b border-emerald-800/50">
-                <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
-                  Beta 0.5.2
-                </span>
-                <div>
-                  <p className="text-base font-semibold text-white">Portal Integration & Data Clean-up</p>
-                  <p className="text-sm text-emerald-100/70 mt-1 leading-relaxed">
-                    Tied the application back to the main Seelye.info Portal Hub by introducing the universal home button into the header navigation. Handled database deduplication.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 pb-4 border-b border-emerald-800/50">
-                <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
-                  Beta 0.5.1
-                </span>
-                <div>
-                  <p className="text-base font-semibold text-white">Changelog Modal UI</p>
-                  <p className="text-sm text-emerald-100/70 mt-1 leading-relaxed">
-                    Refactored the changelog into a dedicated floating modal dialog overlay accessible via a clean version button in the footer.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 pb-4 border-b border-emerald-800/50">
-                <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
-                  Beta 0.5.0
-                </span>
-                <div>
-                  <p className="text-base font-semibold text-white">Stage 1 Scaling & Hub Redesign</p>
-                  <p className="text-sm text-emerald-100/70 mt-1 leading-relaxed">
-                    Redesigned the homepage into a scalable County Hub Card grid to support hundreds of waterfalls. Added 8 new major waterfalls and optimized search functionality.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 pb-4 border-b border-emerald-800/50">
-                <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
-                  Beta 0.4.0
-                </span>
-                <div>
-                  <p className="text-base font-semibold text-white">County Hubs & Dynamic Photos</p>
-                  <p className="text-sm text-emerald-100/70 mt-1 leading-relaxed">
-                    Grouped home page into dynamic County Hubs. Added full photo integration using Wikimedia Commons imagery, with an Inline Hero Photo Gallery on detail pages.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 pb-4 border-b border-emerald-800/50">
-                <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
-                  Beta 0.3.0
-                </span>
-                <div>
-                  <p className="text-base font-semibold text-white">Interactive Trip Planner</p>
-                  <p className="text-sm text-emerald-100/70 mt-1 leading-relaxed">
-                    Added local storage anonymous Trip Planner allowing users to save and build itineraries. Added dynamic nearby attractions fetching from Supabase.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 pb-4 border-b border-emerald-800/50">
-                <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
-                  Beta 0.2.0
-                </span>
-                <div>
-                  <p className="text-base font-semibold text-slate-300">Database Integration</p>
-                  <p className="text-sm text-emerald-100/70 mt-1 leading-relaxed">
-                    Wired up Supabase backend for dynamic fetching. Added real UP waterfalls data. Established CI/CD pipeline via GitHub Desktop & Vercel.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 pb-1">
-                <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
-                  Beta 0.1.0
-                </span>
-                <div>
-                  <p className="text-base font-semibold text-slate-300">Initial Scaffolding</p>
-                  <p className="text-sm text-emerald-100/50 mt-1 leading-relaxed">
-                    Created base rustic UI, setup Tailwind CSS 4.0, built routing and detail views.
-                  </p>
-                </div>
-              </div>
-
-            </div>
-
-            {/* Modal Footer */}
-            <div className="bg-emerald-900/50 p-4 border-t border-emerald-800 text-center">
-              <button 
-                onClick={() => setShowChangelog(false)}
-                className="bg-emerald-800 hover:bg-emerald-700 text-white px-6 py-2 rounded font-semibold transition"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   )
 }
