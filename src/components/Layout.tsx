@@ -28,9 +28,18 @@ export default function Layout({ children }: LayoutProps) {
             <Link to="/trip" className="hover:text-copper-orange transition">Trip Planner</Link>
           </nav>
 
-          <Link to="/trip" className="bg-copper-orange hover:bg-tahquamenon-amber text-white px-3.5 py-1.5 rounded text-xs font-semibold shadow transition">
-            🧭 Active Trip ({tripItems.length})
-          </Link>
+          <div className="flex items-center space-x-4">
+            <a 
+              href="https://seelye.info" 
+              className="flex items-center justify-center w-8 h-8 rounded-full border border-emerald-700/50 hover:bg-emerald-800/50 transition text-[1.1rem] leading-none"
+              title="Seelye.info Home"
+            >
+              🏠
+            </a>
+            <Link to="/trip" className="bg-copper-orange hover:bg-tahquamenon-amber text-white px-3.5 py-1.5 rounded text-xs font-semibold shadow transition">
+              🧭 Active Trip ({tripItems.length})
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -67,7 +76,7 @@ export default function Layout({ children }: LayoutProps) {
               onClick={() => setShowChangelog(true)}
               className="bg-emerald-900/60 hover:bg-emerald-800 text-white px-6 py-3 rounded-lg border border-emerald-800/50 shadow-lg transition flex items-center gap-3 font-semibold"
             >
-              <span>📋</span> Beta 0.5.1
+              <span>📋</span> Beta 0.5.2
             </button>
           </div>
 
@@ -99,6 +108,18 @@ export default function Layout({ children }: LayoutProps) {
               
               <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 pb-4 border-b border-emerald-800/50">
                 <span className="bg-copper-orange text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
+                  Beta 0.5.2
+                </span>
+                <div>
+                  <p className="text-base font-semibold text-white">Portal Integration</p>
+                  <p className="text-sm text-emerald-100/70 mt-1 leading-relaxed">
+                    Tied the application back to the main Seelye.info Portal Hub by introducing the universal home button into the header navigation.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 pb-4 border-b border-emerald-800/50">
+                <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
                   Beta 0.5.1
                 </span>
                 <div>
