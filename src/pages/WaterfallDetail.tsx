@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Map from '../components/Map'
 import { supabase } from '../lib/supabase'
 import { useTrip } from '../lib/TripContext'
+import { getThumbnailUrl } from '../lib/utils'
 
 interface Waterfall {
   id: string
@@ -216,7 +217,7 @@ export default function WaterfallDetail() {
       </div>
 
       <div className="relative rounded-xl overflow-hidden shadow-xl border-2 border-pinery-green">
-        <div className="h-[450px] bg-cover bg-center relative" style={{ backgroundImage: `url('${activePhoto}')` }}>
+        <div className="h-[450px] bg-cover bg-center relative" style={{ backgroundImage: `url('${getThumbnailUrl(activePhoto, 1200)}')` }}>
           <div className="absolute inset-0 bg-gradient-to-t from-superior-navy via-superior-navy/40 to-transparent"></div>
           
           <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
@@ -287,7 +288,7 @@ export default function WaterfallDetail() {
                       onClick={() => setActivePhoto(photo.image_url)}
                       className={`relative h-24 w-full rounded overflow-hidden cursor-pointer shadow hover:opacity-90 transition group border-2 ${activePhoto === photo.image_url ? 'border-copper-orange' : 'border-transparent'}`}
                     >
-                      <img src={photo.image_url} className="w-full h-full object-cover" alt={photo.caption || 'Waterfall photo'} />
+                      <img src={getThumbnailUrl(photo.image_url, 400)} className="w-full h-full object-cover" alt={photo.caption || 'Waterfall photo'} />
                       <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                         <span className="text-white text-xs font-bold uppercase tracking-widest drop-shadow">View Large</span>
                       </div>

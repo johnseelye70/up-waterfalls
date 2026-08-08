@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
+import { getThumbnailUrl } from '../lib/utils'
 
 interface Photo {
   image_url: string
@@ -192,7 +193,7 @@ export default function Directory() {
             ) : (
               <>
                 <img 
-                  src={selectedWaterfall.waterfall_photos[currentPhotoIndex].image_url} 
+                  src={getThumbnailUrl(selectedWaterfall.waterfall_photos[currentPhotoIndex].image_url, 1200)} 
                   alt={selectedWaterfall.name}
                   className="max-w-full max-h-full object-contain rounded shadow-2xl transition-opacity duration-300"
                 />

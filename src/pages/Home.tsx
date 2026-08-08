@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useEffect, useState, useMemo } from 'react'
 import { supabase } from '../lib/supabase'
+import { getThumbnailUrl } from '../lib/utils'
 
 interface Waterfall {
   id: string
@@ -73,7 +74,7 @@ export default function Home() {
     
     if (allHeroPhotos.length > 0) {
       // Pick a consistent but "random" looking one based on the array length
-      return allHeroPhotos[0]
+      return getThumbnailUrl(allHeroPhotos[0], 600)
     }
     return undefined // Will fallback to default style if none exist
   }
@@ -87,7 +88,7 @@ export default function Home() {
         <div>
           <div 
             className="h-44 bg-pinery-green p-4 relative flex flex-col justify-between text-white bg-cover bg-center overflow-hidden"
-            style={{ backgroundImage: heroPhoto ? `url('${heroPhoto}')` : undefined }}
+            style={{ backgroundImage: heroPhoto ? `url('${getThumbnailUrl(heroPhoto, 600)}')` : undefined }}
           >
             <div className="absolute inset-0 bg-gradient-to-t from-superior-navy via-superior-navy/40 to-transparent"></div>
             
