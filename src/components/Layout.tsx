@@ -11,7 +11,7 @@ export default function Layout({ children }: LayoutProps) {
   const [showChangelog, setShowChangelog] = useState(false)
 
   return (
-    <div className="bg-parchment font-sans text-slate-800 antialiased min-h-screen flex flex-col relative">
+    <div className="bg-parchment font-sans text-slate-800 antialiased min-h-[100dvh] flex flex-col relative">
       <header className="bg-pinery-green text-parchment sticky top-0 z-50 shadow-lg border-b-4 border-copper-orange">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-3">

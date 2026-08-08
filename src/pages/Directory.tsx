@@ -98,7 +98,7 @@ export default function Directory() {
           Loading directory...
         </div>
       ) : (
-        <div className="bg-white rounded-lg shadow-lg border border-slate-200 overflow-hidden">
+        <div className="bg-white rounded-lg shadow-lg border border-slate-200 overflow-x-auto">
           <table className="w-full text-left border-collapse" style={{ tableLayout: 'fixed' }}>
             <thead className="bg-pinery-green text-parchment text-[10px] sm:text-xs uppercase tracking-wider">
               <tr>
