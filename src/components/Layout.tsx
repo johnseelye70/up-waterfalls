@@ -76,7 +76,7 @@ export default function Layout({ children }: LayoutProps) {
               onClick={() => setShowChangelog(true)}
               className="bg-emerald-900/60 hover:bg-emerald-800 text-white px-6 py-3 rounded-lg border border-emerald-800/50 shadow-lg transition flex items-center gap-3 font-semibold"
             >
-              <span>📋</span> Beta 0.6.2
+              <span>📋</span> Beta 0.6.3
             </button>
           </div>
 
@@ -105,9 +105,21 @@ export default function Layout({ children }: LayoutProps) {
 
             {/* Modal Body (Scrollable) */}
             <div className="p-6 overflow-y-auto space-y-6">
-              
+
               <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 pb-4 border-b border-emerald-800/50">
                 <span className="bg-copper-orange text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
+                  Beta 0.6.3
+                </span>
+                <div>
+                  <p className="text-base font-semibold text-white">Travel Blogs & Guides Integration</p>
+                  <p className="text-sm text-emerald-100/70 mt-1 leading-relaxed">
+                    Activated the `waterfall_blogs` data layer to dynamically display curated articles, external travel guides, and historic write-ups directly on the Waterfall detail pages.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 pb-4 border-b border-emerald-800/50">
+                <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
                   Beta 0.6.2
                 </span>
                 <div>

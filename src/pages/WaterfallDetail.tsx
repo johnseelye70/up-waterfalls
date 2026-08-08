@@ -36,11 +36,22 @@ interface WaterfallPhoto {
   is_hero: boolean
 }
 
+interface WaterfallBlog {
+  id: string
+  title: string
+  source_site: string
+  url: string
+  cover_image_url: string
+  snippet: string
+  published_date: string
+}
+
 export default function WaterfallDetail() {
   const { slug } = useParams<{ slug: string }>()
   const [waterfall, setWaterfall] = useState<Waterfall | null>(null)
   const [places, setPlaces] = useState<NearbyPlace[]>([])
   const [photos, setPhotos] = useState<WaterfallPhoto[]>([])
+  const [blogs, setBlogs] = useState<WaterfallBlog[]>([])
   const [activePhoto, setActivePhoto] = useState<string>('')
   const [loading, setLoading] = useState(true)
   
@@ -91,6 +102,18 @@ export default function WaterfallDetail() {
       } else {
         // Fallback default image if no photos exist
         setActivePhoto('https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80')
+      }
+
+      const { data: blogsData, error: blogsError } = await supabase
+        .from('waterfall_blogs')
+        .select('*')
+        .eq('waterfall_id', slug)
+        .order('published_date', { ascending: false })
+
+      if (blogsError) {
+        console.error('Error fetching blogs:', blogsError)
+      } else {
+        setBlogs(blogsData || [])
       }
 
       setLoading(false)
@@ -231,32 +254,36 @@ export default function WaterfallDetail() {
               <h3 className="font-serif text-xl font-bold text-pinery-green flex items-center gap-2">
                 <span>📰</span> In The Blogs & Travel Guides
               </h3>
-              <span className="text-xs text-copper-orange font-semibold">2 Curated Articles</span>
+              {blogs.length > 0 && (
+                <span className="text-xs text-copper-orange font-semibold">{blogs.length} Curated Articles</span>
+              )}
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div className="border border-slate-200 rounded overflow-hidden flex flex-col bg-parchment hover:border-copper-orange transition">
-                <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80" className="h-32 w-full object-cover" alt="Blog cover" />
-                <div className="p-3 flex-grow flex flex-col justify-between space-y-2">
-                  <span className="text-[10px] text-copper-orange font-bold uppercase tracking-wider">Mitten State Wanderer</span>
-                  <h4 className="font-serif text-xs font-bold text-slate-900 leading-snug">Exploring {waterfall.name}</h4>
-                  <a href="#" className="text-[11px] text-pinery-green font-semibold hover:underline flex items-center gap-1">
-                    Read Article <span>↗</span>
-                  </a>
-                </div>
+            {blogs.length === 0 ? (
+              <div className="text-sm text-slate-500 italic p-4 bg-parchment border border-slate-200 rounded">
+                No curated articles or travel guides linked yet.
               </div>
-
-              <div className="border border-slate-200 rounded overflow-hidden flex flex-col bg-parchment hover:border-copper-orange transition">
-                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80" className="h-32 w-full object-cover" alt="Blog cover" />
-                <div className="p-3 flex-grow flex flex-col justify-between space-y-2">
-                  <span className="text-[10px] text-copper-orange font-bold uppercase tracking-wider">Pure Michigan Logs</span>
-                  <h4 className="font-serif text-xs font-bold text-slate-900 leading-snug">Spring Waterfall Hunting</h4>
-                  <a href="#" className="text-[11px] text-pinery-green font-semibold hover:underline flex items-center gap-1">
-                    Read Article <span>↗</span>
-                  </a>
-                </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {blogs.map(blog => (
+                  <div key={blog.id} className="border border-slate-200 rounded overflow-hidden flex flex-col bg-parchment hover:border-copper-orange transition">
+                    {blog.cover_image_url && (
+                      <img src={blog.cover_image_url} className="h-32 w-full object-cover" alt="Blog cover" />
+                    )}
+                    <div className="p-3 flex-grow flex flex-col justify-between space-y-2">
+                      <span className="text-[10px] text-copper-orange font-bold uppercase tracking-wider">{blog.source_site}</span>
+                      <h4 className="font-serif text-xs font-bold text-slate-900 leading-snug">{blog.title}</h4>
+                      {blog.snippet && (
+                        <p className="text-[11px] text-slate-600 line-clamp-2">{blog.snippet}</p>
+                      )}
+                      <a href={blog.url} target="_blank" rel="noopener noreferrer" className="text-[11px] text-pinery-green font-semibold hover:underline flex items-center gap-1 mt-2">
+                        Read Article <span>↗</span>
+                      </a>
+                    </div>
+                  </div>
+                ))}
               </div>
-            </div>
+            )}
           </div>
         </div>
 
