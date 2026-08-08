@@ -1,4 +1,4 @@
--- Seed Data for Waterfall Photos & RLS Setup
+-- Seed Data for Waterfall Photos (Authentic Wikimedia Commons Images) & RLS Setup
 
 -- Ensure the public can read the photos
 ALTER TABLE waterfall_photos ENABLE ROW LEVEL SECURITY;
@@ -13,70 +13,84 @@ VALUES
 -- Miners Falls
 (
     (SELECT id FROM waterfalls WHERE name = 'Miners Falls' LIMIT 1),
-    'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80',
+    'https://commons.wikimedia.org/wiki/Special:FilePath/Miners''_Falls,_Michigan1.jpg',
     'Miners Falls dropping over the sandstone ledge',
-    'Unsplash',
+    'Wikimedia Commons (MJCdetroit)',
     true
 ),
 (
     (SELECT id FROM waterfalls WHERE name = 'Miners Falls' LIMIT 1),
-    'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80',
-    'The boardwalk trail leading up to the falls',
-    'Unsplash',
+    'https://commons.wikimedia.org/wiki/Special:FilePath/Miners_Falls_(Miners_River,_Pictured_Rocks_National_Lakeshore,_Upper_Peninsula_of_Michigan,_USA)_3_(21476941185).jpg',
+    'Close up of the rushing water',
+    'Wikimedia Commons (James St. John)',
     false
 ),
 (
     (SELECT id FROM waterfalls WHERE name = 'Miners Falls' LIMIT 1),
-    'https://images.unsplash.com/photo-1511497584788-876761c11969?auto=format&fit=crop&w=1200&q=80',
-    'Close up of the rushing water',
-    'Unsplash',
+    'https://commons.wikimedia.org/wiki/Special:FilePath/Gfp-michigan-pictured-rocks-national-lakeshore-top-of-miners-falls.jpg',
+    'Top of Miners Falls view',
+    'Wikimedia Commons (Yinan Chen)',
     false
 ),
 
 -- Tahquamenon Falls (Upper)
 (
     (SELECT id FROM waterfalls WHERE name = 'Tahquamenon Falls (Upper)' LIMIT 1),
-    'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
+    'https://commons.wikimedia.org/wiki/Special:FilePath/Upper_Tahquamenon_Falls.jpg',
     'The Upper Falls showing its famous rootbeer color',
-    'Unsplash',
+    'Wikimedia Commons',
     true
 ),
 (
     (SELECT id FROM waterfalls WHERE name = 'Tahquamenon Falls (Upper)' LIMIT 1),
-    'https://images.unsplash.com/photo-1469122312224-c5846569feb1?auto=format&fit=crop&w=1200&q=80',
-    'Looking down river from the viewing deck',
-    'Unsplash',
+    'https://commons.wikimedia.org/wiki/Special:FilePath/Upper_Tahquamenon_falls_Panoramic_view.jpg',
+    'Panoramic view of the falls in early spring',
+    'Wikimedia Commons',
+    false
+),
+(
+    (SELECT id FROM waterfalls WHERE name = 'Tahquamenon Falls (Upper)' LIMIT 1),
+    'https://commons.wikimedia.org/wiki/Special:FilePath/Tahquamenon_falls_upper.jpg',
+    'Close up of the amber water',
+    'Wikimedia Commons',
     false
 ),
 
 -- Bond Falls
 (
     (SELECT id FROM waterfalls WHERE name = 'Bond Falls' LIMIT 1),
-    'https://images.unsplash.com/photo-1493246507139-91e8fad9978e?auto=format&fit=crop&w=1200&q=80',
+    'https://commons.wikimedia.org/wiki/Special:FilePath/Bond_falls.jpg',
     'Bond Falls wide cascading flow',
-    'Unsplash',
+    'Wikimedia Commons (Mr.Z-man)',
     true
 ),
 (
     (SELECT id FROM waterfalls WHERE name = 'Bond Falls' LIMIT 1),
-    'https://images.unsplash.com/photo-1444492417251-9c84a5fa18e0?auto=format&fit=crop&w=1200&q=80',
-    'Autumn colors surrounding Bond Falls',
-    'Unsplash',
+    'https://commons.wikimedia.org/wiki/Special:FilePath/Ontonagon_River_downstream_of_Bond_Falls_1.jpg',
+    'Ontonagon River downstream of Bond Falls',
+    'Wikimedia Commons',
     false
 ),
 
 -- Hungarian Falls
 (
     (SELECT id FROM waterfalls WHERE name = 'Hungarian Falls' LIMIT 1),
-    'https://images.unsplash.com/photo-1473448912268-2022ce9509d8?auto=format&fit=crop&w=1200&q=80',
-    'The upper drop at Hungarian Falls',
-    'Unsplash',
+    'https://commons.wikimedia.org/wiki/Special:FilePath/Hungarian_Falls,_Middle_Falls.png',
+    'The middle drop at Hungarian Falls',
+    'Wikimedia Commons',
     true
 ),
 (
     (SELECT id FROM waterfalls WHERE name = 'Hungarian Falls' LIMIT 1),
-    'https://images.unsplash.com/photo-1506443432602-ac2fcd6f54e0?auto=format&fit=crop&w=1200&q=80',
-    'Hiking trail alongside the gorge',
-    'Unsplash',
+    'https://commons.wikimedia.org/wiki/Special:FilePath/Hungarian_Falls,_Upper_Falls.png',
+    'The upper drop at Hungarian Falls',
+    'Wikimedia Commons',
+    false
+),
+(
+    (SELECT id FROM waterfalls WHERE name = 'Hungarian Falls' LIMIT 1),
+    'https://commons.wikimedia.org/wiki/Special:FilePath/Lower_falls.jpg',
+    'The lower waterfalls',
+    'Wikimedia Commons',
     false
 );
