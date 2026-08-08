@@ -365,7 +365,7 @@ export default function WaterfallDetail() {
                     </div>
                   </div>
                 </div>
-                <div className="bg-white/10 p-1.5 rounded-full backdrop-blur group-hover:bg-emerald-500 transition">
+                <div className="bg-white/10 p-1.5 rounded-full group-hover:bg-emerald-500 transition">
                   <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -443,7 +443,7 @@ export default function WaterfallDetail() {
 
       {/* 14-DAY FORECAST MODAL OVERLAY (iOS Safe) */}
       {showForecast && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/70 backdrop-blur-sm p-3 animate-in fade-in duration-200" style={{ width: '100%', height: '100%' }}>
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-3 animate-in fade-in duration-200">
           <div className="bg-emerald-950 w-full max-w-sm rounded-xl shadow-2xl border border-emerald-800 flex flex-col overflow-hidden max-h-[85%]">
             
             {/* Modal Header */}
