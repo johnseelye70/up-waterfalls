@@ -98,9 +98,11 @@ export default function WaterfallDetail() {
         .select('*')
         .eq('id', slug)
         .single()
-      
       if (wfError) {
         console.error('Error fetching waterfall:', wfError)
+      } else {
+        setWaterfall(wfData)
+        
         // Fetch Weather Data from Open-Meteo
         try {
           const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${wfData.latitude}&longitude=${wfData.longitude}&current_weather=true&daily=weathercode,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&windspeed_unit=mph&forecast_days=14&timezone=America%2FDetroit`)
