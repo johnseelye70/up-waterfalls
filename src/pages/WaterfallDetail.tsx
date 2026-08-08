@@ -52,6 +52,13 @@ interface WeatherData {
   weathercode: number
 }
 
+interface DailyWeather {
+  date: string
+  maxTemp: number
+  minTemp: number
+  weathercode: number
+}
+
 // WMO Weather Code Mapper
 function getWeatherInfo(code: number): { text: string; icon: string; trailWarning: string | null } {
   if (code === 0) return { text: 'Clear Sky', icon: '☀️', trailWarning: null }
@@ -73,6 +80,8 @@ export default function WaterfallDetail() {
   const [photos, setPhotos] = useState<WaterfallPhoto[]>([])
   const [blogs, setBlogs] = useState<WaterfallBlog[]>([])
   const [weather, setWeather] = useState<WeatherData | null>(null)
+  const [dailyForecast, setDailyForecast] = useState<DailyWeather[]>([])
+  const [showForecast, setShowForecast] = useState(false)
   const [activePhoto, setActivePhoto] = useState<string>('')
   const [loading, setLoading] = useState(true)
   
@@ -97,11 +106,23 @@ export default function WaterfallDetail() {
         
         // Fetch Weather Data from Open-Meteo
         try {
-          const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${wfData.latitude}&longitude=${wfData.longitude}&current_weather=true&temperature_unit=fahrenheit&windspeed_unit=mph`)
+          const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${wfData.latitude}&longitude=${wfData.longitude}&current_weather=true&daily=weathercode,temperature_2m_max,temperature_2m_min&temperature_unit=fahrenheit&windspeed_unit=mph&forecast_days=14&timezone=America%2FDetroit`)
           const weatherData = await res.json()
+          
           if (weatherData.current_weather) {
             setWeather(weatherData.current_weather)
           }
+
+          if (weatherData.daily) {
+            const parsedDaily = weatherData.daily.time.map((timeStr: string, index: number) => ({
+              date: new Date(timeStr + 'T00:00:00').toLocaleDateString('en-US', { weekday: 'short', month: 'short', day: 'numeric' }),
+              maxTemp: Math.round(weatherData.daily.temperature_2m_max[index]),
+              minTemp: Math.round(weatherData.daily.temperature_2m_min[index]),
+              weathercode: weatherData.daily.weathercode[index]
+            }))
+            setDailyForecast(parsedDaily)
+          }
+
         } catch (err) {
           console.error("Failed to fetch weather", err)
         }
@@ -324,14 +345,17 @@ export default function WaterfallDetail() {
           
           {/* Live Weather Widget */}
           {weather && (
-            <div className="bg-emerald-950 p-5 rounded-lg shadow-lg border border-emerald-800 space-y-3 relative overflow-hidden text-white">
-              <div className="absolute -right-4 -top-4 opacity-10 text-8xl">
+            <div 
+              onClick={() => setShowForecast(true)}
+              className="bg-emerald-950 p-5 rounded-lg shadow-lg border border-emerald-800 space-y-3 relative overflow-hidden text-white cursor-pointer hover:border-emerald-500 hover:shadow-emerald-900/50 transition group"
+            >
+              <div className="absolute -right-4 -top-4 opacity-10 text-8xl group-hover:scale-110 transition-transform duration-500">
                 {getWeatherInfo(weather.weathercode).icon}
               </div>
               <div className="relative z-10 flex justify-between items-start">
                 <div>
-                  <h4 className="font-serif text-sm font-bold text-emerald-400 uppercase tracking-widest mb-1">
-                    Live Conditions
+                  <h4 className="font-serif text-sm font-bold text-emerald-400 uppercase tracking-widest mb-1 flex items-center gap-2">
+                    Live Conditions 
                   </h4>
                   <div className="flex items-center gap-3">
                     <span className="text-4xl font-extrabold">{Math.round(weather.temperature)}°F</span>
@@ -341,11 +365,20 @@ export default function WaterfallDetail() {
                     </div>
                   </div>
                 </div>
+                <div className="bg-white/10 p-2 rounded-full backdrop-blur group-hover:bg-emerald-500 transition">
+                  <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
               </div>
               
-              {getWeatherInfo(weather.weathercode).trailWarning && (
+              {getWeatherInfo(weather.weathercode).trailWarning ? (
                 <div className="relative z-10 mt-3 bg-red-900/40 border border-red-500/50 rounded p-2 text-xs text-red-200 font-semibold flex items-center gap-2">
                   <span>⚠️</span> {getWeatherInfo(weather.weathercode).trailWarning}
+                </div>
+              ) : (
+                <div className="relative z-10 mt-3 text-xs text-emerald-200 font-medium flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition">
+                  <span>📅</span> View 14-Day Forecast
                 </div>
               )}
             </div>
@@ -407,6 +440,69 @@ export default function WaterfallDetail() {
 
         </div>
       </div>
+
+      {/* 14-DAY FORECAST MODAL OVERLAY (iOS Safe) */}
+      {showForecast && (
+        <div className="fixed inset-0 z-[110] flex items-center justify-center bg-black/70 backdrop-blur-sm p-4 animate-in fade-in duration-200" style={{ width: '100%', height: '100%' }}>
+          <div className="bg-emerald-950 w-full max-w-2xl rounded-xl shadow-2xl border border-emerald-800 flex flex-col overflow-hidden max-h-[90%]">
+            
+            {/* Modal Header */}
+            <div className="bg-emerald-900/90 px-5 py-4 border-b border-emerald-800 flex items-center justify-between sticky top-0 z-10">
+              <div>
+                <h3 className="font-serif text-xl font-bold text-white flex items-center gap-2">
+                  <span>📅</span> 14-Day Trail Forecast
+                </h3>
+                <p className="text-xs text-emerald-300 mt-1 uppercase tracking-wider font-semibold">
+                  {waterfall.name}
+                </p>
+              </div>
+              <button 
+                onClick={() => setShowForecast(false)}
+                className="text-emerald-400 hover:text-white transition p-2 bg-emerald-950/50 hover:bg-emerald-800 rounded-full"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Modal Body (Scrollable) */}
+            <div className="p-4 sm:p-5 overflow-y-auto" style={{ WebkitOverflowScrolling: 'touch' }}>
+              <div className="space-y-2">
+                {dailyForecast.map((day, idx) => {
+                  const info = getWeatherInfo(day.weathercode)
+                  return (
+                    <div key={idx} className="bg-emerald-900/40 border border-emerald-800/50 rounded-lg p-3 sm:p-4 flex items-center justify-between hover:bg-emerald-900/60 transition">
+                      
+                      <div className="flex items-center gap-4 w-1/3 min-w-[100px]">
+                        <span className="text-emerald-100 font-bold text-sm sm:text-base">{day.date}</span>
+                      </div>
+                      
+                      <div className="flex flex-col items-center justify-center w-1/3">
+                        <span className="text-2xl sm:text-3xl mb-1">{info.icon}</span>
+                        <span className="text-[10px] sm:text-xs text-emerald-300 font-semibold uppercase tracking-wider text-center">{info.text}</span>
+                      </div>
+                      
+                      <div className="flex items-center justify-end gap-3 sm:gap-4 w-1/3">
+                        <div className="flex flex-col items-end">
+                          <span className="text-xs text-emerald-400/70 font-semibold uppercase">High</span>
+                          <span className="text-base sm:text-lg text-white font-bold">{day.maxTemp}°</span>
+                        </div>
+                        <div className="flex flex-col items-end">
+                          <span className="text-xs text-blue-400/70 font-semibold uppercase">Low</span>
+                          <span className="text-base sm:text-lg text-blue-200 font-bold">{day.minTemp}°</span>
+                        </div>
+                      </div>
+
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
     </div>
   )
 }
