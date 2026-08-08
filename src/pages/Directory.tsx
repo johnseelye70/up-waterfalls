@@ -2,6 +2,11 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 
+interface Photo {
+  image_url: string
+  caption: string
+}
+
 interface Waterfall {
   id: string
   name: string
@@ -10,17 +15,22 @@ interface Waterfall {
   drop_height: string
   hike_difficulty: string
   trail_length_miles: number
+  waterfall_photos?: Photo[]
 }
 
 export default function Directory() {
   const [waterfalls, setWaterfalls] = useState<Waterfall[]>([])
   const [loading, setLoading] = useState(true)
 
+  // Gallery Modal State
+  const [selectedWaterfall, setSelectedWaterfall] = useState<Waterfall | null>(null)
+  const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
+
   useEffect(() => {
     async function fetchWaterfalls() {
       const { data, error } = await supabase
         .from('waterfalls')
-        .select('*')
+        .select('*, waterfall_photos(image_url, caption)')
         .order('name', { ascending: true })
       
       if (error) {
@@ -33,6 +43,31 @@ export default function Directory() {
 
     fetchWaterfalls()
   }, [])
+
+  const openGallery = (wf: Waterfall) => {
+    setSelectedWaterfall(wf)
+    setCurrentPhotoIndex(0)
+  }
+
+  const closeGallery = () => {
+    setSelectedWaterfall(null)
+  }
+
+  const nextPhoto = () => {
+    if (selectedWaterfall?.waterfall_photos) {
+      setCurrentPhotoIndex((prev) => 
+        (prev + 1) % selectedWaterfall.waterfall_photos!.length
+      )
+    }
+  }
+
+  const prevPhoto = () => {
+    if (selectedWaterfall?.waterfall_photos) {
+      setCurrentPhotoIndex((prev) => 
+        (prev - 1 + selectedWaterfall.waterfall_photos!.length) % selectedWaterfall.waterfall_photos!.length
+      )
+    }
+  }
 
   return (
     <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-12 flex-grow w-full relative">
@@ -82,9 +117,15 @@ export default function Directory() {
                     {wf.hike_difficulty} ({wf.trail_length_miles}m)
                   </td>
                   <td className="p-2 sm:p-4 text-right sm:text-left truncate">
+                    <button 
+                      onClick={() => openGallery(wf)}
+                      className="inline-block bg-copper-orange hover:bg-tahquamenon-amber text-white text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded transition shadow mr-2"
+                    >
+                      Gallery
+                    </button>
                     <Link 
                       to={`/waterfall/${wf.id}`} 
-                      className="inline-block bg-copper-orange hover:bg-tahquamenon-amber text-white text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded transition shadow"
+                      className="inline-block bg-pinery-green hover:bg-superior-navy text-white text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded transition shadow"
                     >
                       View
                     </Link>
@@ -93,6 +134,107 @@ export default function Directory() {
               ))}
             </tbody>
           </table>
+        </div>
+      )}
+
+      {/* FULL-SCREEN IMAGE GALLERY MODAL */}
+      {selectedWaterfall && (
+        <div className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex flex-col animate-in fade-in duration-300">
+          {/* Header Bar */}
+          <div className="absolute top-0 left-0 right-0 p-4 sm:p-6 flex justify-between items-start z-10 bg-gradient-to-b from-black/80 to-transparent">
+            <div>
+              <h3 className="font-serif text-2xl sm:text-4xl font-bold text-white drop-shadow-lg">
+                {selectedWaterfall.name}
+              </h3>
+              <p className="text-copper-orange font-semibold tracking-widest text-xs uppercase mt-1 drop-shadow">
+                {selectedWaterfall.county} County
+              </p>
+            </div>
+            
+            <button 
+              onClick={closeGallery}
+              className="bg-white/10 hover:bg-copper-orange text-white rounded-full p-2 backdrop-blur transition border border-white/20"
+              title="Close Gallery"
+            >
+              <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Image Container */}
+          <div className="flex-grow flex items-center justify-center relative p-4 sm:p-12 mt-16 sm:mt-0">
+            {(!selectedWaterfall.waterfall_photos || selectedWaterfall.waterfall_photos.length === 0) ? (
+              <div className="text-center text-slate-400 font-serif italic text-lg sm:text-xl border border-slate-700 bg-slate-900/50 p-8 rounded-xl backdrop-blur">
+                No photos available for this waterfall yet.
+                <div className="mt-4">
+                  <Link 
+                    to={`/waterfall/${selectedWaterfall.id}`} 
+                    onClick={closeGallery}
+                    className="inline-block bg-copper-orange text-white px-6 py-2 rounded text-sm font-sans not-italic font-bold"
+                  >
+                    Go to Details Page
+                  </Link>
+                </div>
+              </div>
+            ) : (
+              <>
+                <img 
+                  src={selectedWaterfall.waterfall_photos[currentPhotoIndex].image_url} 
+                  alt={selectedWaterfall.name}
+                  className="max-w-full max-h-full object-contain rounded shadow-2xl transition-opacity duration-300"
+                />
+
+                {/* Left Arrow */}
+                {selectedWaterfall.waterfall_photos.length > 1 && (
+                  <button 
+                    onClick={prevPhoto}
+                    className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-copper-orange text-white rounded-full p-3 sm:p-4 backdrop-blur border border-white/10 transition group"
+                  >
+                    <span className="sr-only">Previous</span>
+                    <svg className="w-6 h-6 sm:w-8 sm:h-8 transform group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                )}
+
+                {/* Right Arrow */}
+                {selectedWaterfall.waterfall_photos.length > 1 && (
+                  <button 
+                    onClick={nextPhoto}
+                    className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-copper-orange text-white rounded-full p-3 sm:p-4 backdrop-blur border border-white/10 transition group"
+                  >
+                    <span className="sr-only">Next</span>
+                    <svg className="w-6 h-6 sm:w-8 sm:h-8 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                )}
+              </>
+            )}
+          </div>
+
+          {/* Footer Bar / Caption */}
+          {selectedWaterfall.waterfall_photos && selectedWaterfall.waterfall_photos.length > 0 && (
+            <div className="p-4 sm:p-6 bg-gradient-to-t from-black/90 to-transparent flex flex-col items-center text-center">
+              <p className="text-slate-200 text-sm sm:text-base max-w-3xl font-medium drop-shadow">
+                {selectedWaterfall.waterfall_photos[currentPhotoIndex].caption || `A beautiful view of ${selectedWaterfall.name}`}
+              </p>
+              <div className="flex gap-1.5 mt-4">
+                {selectedWaterfall.waterfall_photos.map((_, idx) => (
+                  <button 
+                    key={idx}
+                    onClick={() => setCurrentPhotoIndex(idx)}
+                    className={`w-2.5 h-2.5 rounded-full transition-all ${
+                      idx === currentPhotoIndex 
+                        ? 'bg-copper-orange scale-125' 
+                        : 'bg-white/40 hover:bg-white/80'
+                    }`}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       )}
     </div>
