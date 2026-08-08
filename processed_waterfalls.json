@@ -1,0 +1,110 @@
+[
+  {
+    "name": "Miners Falls",
+    "latitude": 46.4747247,
+    "longitude": -86.5314088,
+    "county": "Alger",
+    "region": "Upper Peninsula",
+    "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Miner%20Falls.jpg",
+    "description": "A beautiful natural waterfall located in Alger County."
+  },
+  {
+    "name": "Laughing White Fish Falls",
+    "latitude": 46.3837502,
+    "longitude": -87.0689279,
+    "county": "Alger",
+    "region": "Upper Peninsula",
+    "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Laughingwhitefish013.jpg",
+    "description": "A beautiful natural waterfall located in Alger County."
+  },
+  {
+    "name": "Munising Falls",
+    "latitude": 46.4227454,
+    "longitude": -86.6211925,
+    "county": "Alger",
+    "region": "Upper Peninsula",
+    "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Munising%20Falls.jpg",
+    "description": "A beautiful natural waterfall located in Alger County."
+  },
+  {
+    "name": "Lower Hungarian Falls",
+    "latitude": 47.1714705,
+    "longitude": -88.4471678,
+    "county": "Houghton",
+    "region": "Upper Peninsula",
+    "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Middle%20falls.jpg",
+    "description": "A beautiful natural waterfall located in Houghton County."
+  },
+  {
+    "name": "Bond Falls",
+    "latitude": 46.4096728,
+    "longitude": -89.1326541,
+    "county": "Ontonagon",
+    "region": "Upper Peninsula",
+    "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Bond%20falls.jpg",
+    "description": "A beautiful natural waterfall located in Ontonagon County."
+  },
+  {
+    "name": "Manido Falls",
+    "latitude": 46.7040258,
+    "longitude": -89.9706764,
+    "county": "Gogebic",
+    "region": "Upper Peninsula",
+    "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Manido%20Falls%202%20edit.jpg",
+    "description": "A beautiful natural waterfall located in Gogebic County."
+  },
+  {
+    "name": "Alger Falls",
+    "latitude": 46.3930841,
+    "longitude": -86.6476392,
+    "county": "Alger",
+    "region": "Upper Peninsula",
+    "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Alger%20Falls%206.jpg",
+    "description": "A beautiful natural waterfall located in Alger County."
+  },
+  {
+    "name": "Nawadaha Falls",
+    "latitude": 46.6996083,
+    "longitude": -89.9734499,
+    "county": "Gogebic",
+    "region": "Upper Peninsula",
+    "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Nawadaha%20Falls.jpg",
+    "description": "A beautiful natural waterfall located in Gogebic County."
+  },
+  {
+    "name": "Bridalveil Falls",
+    "latitude": 46.5087915,
+    "longitude": -86.5238046,
+    "county": "Alger",
+    "region": "Upper Peninsula",
+    "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Pictured%20Rocks%20Bridalveil%20Falls.jpg",
+    "description": "A beautiful natural waterfall located in Alger County."
+  },
+  {
+    "name": "Upper Hungarian Falls",
+    "latitude": 47.1739642,
+    "longitude": -88.451546,
+    "county": "Houghton",
+    "region": "Upper Peninsula",
+    "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Middle%20falls.jpg",
+    "description": "A beautiful natural waterfall located in Houghton County."
+  },
+  {
+    "name": "Middle Hungarian Falls",
+    "latitude": 47.171932,
+    "longitude": -88.4478136,
+    "county": "Houghton",
+    "region": "Upper Peninsula",
+    "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Middle%20falls.jpg",
+    "description": "A beautiful natural waterfall located in Houghton County."
+  },
+  {
+    "name": "Superior Falls",
+    "latitude": 46.5627549,
+    "longitude": -90.4152124,
+    "county": "Unknown",
+    "region": "Upper Peninsula",
+    "image_url": "http://commons.wikimedia.org/wiki/Special:FilePath/Superior%20Falls%20on%20the%20Montreal%20River%20near%20the%20Wisconsin-Michigan%20border.gif",
+    "description": "A beautiful natural waterfall located in Unknown County."
+  }
+]

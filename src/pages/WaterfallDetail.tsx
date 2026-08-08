@@ -347,18 +347,18 @@ export default function WaterfallDetail() {
           {weather && (
             <div 
               onClick={() => setShowForecast(true)}
-              className="bg-emerald-950 p-3 sm:p-4 rounded-lg shadow-lg border border-emerald-800 space-y-2 relative overflow-hidden text-white cursor-pointer hover:border-emerald-500 hover:shadow-emerald-900/50 transition group"
+              className="bg-emerald-950 p-2.5 sm:p-3 rounded-lg shadow-lg border border-emerald-800 space-y-1.5 relative overflow-hidden text-white cursor-pointer hover:border-emerald-500 hover:shadow-emerald-900/50 transition group"
             >
               <div className="relative z-10 flex justify-between items-start">
                 <div>
-                  <h4 className="font-serif text-xs font-bold text-emerald-400 uppercase tracking-widest mb-0.5 flex items-center gap-1.5">
+                  <h4 className="font-serif text-[11px] font-bold text-emerald-400 uppercase tracking-widest flex items-center gap-1.5">
                     Live Conditions 
                   </h4>
-                  <div className="flex items-center gap-2.5">
-                    <span className="text-3xl font-extrabold">{Math.round(weather.temperature)}°</span>
-                    <div className="flex flex-col text-xs font-semibold leading-tight text-emerald-100">
+                  <div className="flex items-center gap-2 mt-0.5">
+                    <span className="text-2xl font-extrabold">{Math.round(weather.temperature)}°</span>
+                    <div className="flex flex-col text-[11px] font-semibold leading-tight text-emerald-100">
                       <span>{getWeatherInfo(weather.weathercode).icon} {getWeatherInfo(weather.weathercode).text}</span>
-                      <span className="text-emerald-300 text-[10px] mt-0.5">Wind: {weather.windspeed} mph</span>
+                      <span className="text-emerald-300 text-[9px]">Wind: {weather.windspeed} mph</span>
                     </div>
                   </div>
                 </div>
@@ -370,11 +370,11 @@ export default function WaterfallDetail() {
               </div>
               
               {getWeatherInfo(weather.weathercode).trailWarning ? (
-                <div className="relative z-10 mt-2 bg-red-900/40 border border-red-500/50 rounded py-1.5 px-2 text-[10px] sm:text-xs text-red-200 font-semibold flex items-center gap-1.5">
+                <div className="relative z-10 mt-1.5 bg-red-900/40 border border-red-500/50 rounded py-1 px-1.5 text-[10px] sm:text-[11px] text-red-200 font-semibold flex items-center gap-1.5">
                   <span>⚠️</span> {getWeatherInfo(weather.weathercode).trailWarning}
                 </div>
               ) : (
-                <div className="relative z-10 mt-2 text-[10px] sm:text-xs text-emerald-200 font-medium flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition">
+                <div className="relative z-10 mt-1.5 text-[10px] text-emerald-200 font-medium flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition">
                   <span>📅</span> View 14-Day Forecast
                 </div>
               )}
@@ -441,15 +441,15 @@ export default function WaterfallDetail() {
       {/* 14-DAY FORECAST MODAL OVERLAY (iOS Safe) */}
       {showForecast && (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-3 animate-in fade-in duration-200">
-          <div className="bg-emerald-950 w-full max-w-sm rounded-xl shadow-2xl border border-emerald-800 flex flex-col overflow-hidden max-h-[85%]">
+          <div className="bg-emerald-950 w-full max-w-sm rounded-xl shadow-2xl border border-emerald-800 flex flex-col overflow-hidden max-h-[80%]">
             
             {/* Modal Header */}
-            <div className="bg-emerald-900/90 px-4 py-3 border-b border-emerald-800 flex items-center justify-between sticky top-0 z-10">
+            <div className="bg-emerald-900/90 px-3 py-2.5 border-b border-emerald-800 flex items-center justify-between sticky top-0 z-10">
               <div>
-                <h3 className="font-serif text-lg font-bold text-white flex items-center gap-2">
+                <h3 className="font-serif text-base font-bold text-white flex items-center gap-1.5">
                   <span>📅</span> 14-Day Forecast
                 </h3>
-                <p className="text-[10px] text-emerald-300 mt-0.5 uppercase tracking-wider font-semibold truncate max-w-[200px]">
+                <p className="text-[9px] text-emerald-300 mt-0.5 uppercase tracking-wider font-semibold truncate max-w-[200px]">
                   {waterfall.name}
                 </p>
               </div>
@@ -464,30 +464,30 @@ export default function WaterfallDetail() {
             </div>
 
             {/* Modal Body (Scrollable) */}
-            <div className="p-3 overflow-y-auto">
-              <div className="space-y-1.5">
+            <div className="p-2.5 overflow-y-auto">
+              <div className="space-y-1">
                 {dailyForecast.map((day, idx) => {
                   const info = getWeatherInfo(day.weathercode)
                   return (
-                    <div key={idx} className="bg-emerald-900/40 border border-emerald-800/50 rounded-lg p-2.5 flex items-center justify-between hover:bg-emerald-900/60 transition">
+                    <div key={idx} className="bg-emerald-900/40 border border-emerald-800/50 rounded-lg py-1.5 px-2.5 flex items-center justify-between hover:bg-emerald-900/60 transition">
                       
-                      <div className="flex items-center gap-3 w-1/3 min-w-[80px]">
-                        <span className="text-emerald-100 font-bold text-xs sm:text-sm">{day.date}</span>
+                      <div className="flex items-center gap-2 w-1/3 min-w-[70px]">
+                        <span className="text-emerald-100 font-bold text-[11px] sm:text-xs">{day.date}</span>
                       </div>
                       
                       <div className="flex flex-col items-center justify-center w-1/3">
-                        <span className="text-xl mb-0.5">{info.icon}</span>
-                        <span className="text-[9px] text-emerald-300 font-semibold uppercase tracking-wider text-center">{info.text}</span>
+                        <span className="text-base">{info.icon}</span>
+                        <span className="text-[8px] text-emerald-300 font-semibold uppercase tracking-wider text-center leading-tight mt-0.5">{info.text}</span>
                       </div>
                       
-                      <div className="flex items-center justify-end gap-3 w-1/3">
+                      <div className="flex items-center justify-end gap-2.5 w-1/3">
                         <div className="flex flex-col items-end">
-                          <span className="text-[9px] text-emerald-400/70 font-semibold uppercase">Hi</span>
-                          <span className="text-sm text-white font-bold">{day.maxTemp}°</span>
+                          <span className="text-[8px] text-emerald-400/70 font-semibold uppercase leading-none mb-0.5">Hi</span>
+                          <span className="text-xs text-white font-bold leading-none">{day.maxTemp}°</span>
                         </div>
                         <div className="flex flex-col items-end">
-                          <span className="text-[9px] text-blue-400/70 font-semibold uppercase">Lo</span>
-                          <span className="text-sm text-blue-200 font-bold">{day.minTemp}°</span>
+                          <span className="text-[8px] text-blue-400/70 font-semibold uppercase leading-none mb-0.5">Lo</span>
+                          <span className="text-xs text-blue-200 font-bold leading-none">{day.minTemp}°</span>
                         </div>
                       </div>
 
