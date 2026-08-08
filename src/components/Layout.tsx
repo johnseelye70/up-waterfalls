@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom'
+import { useTrip } from '../lib/TripContext'
 
 interface LayoutProps {
   children: React.ReactNode
 }
 
 export default function Layout({ children }: LayoutProps) {
+  const { tripItems } = useTrip()
+
   return (
     <div className="bg-parchment font-sans text-slate-800 antialiased min-h-screen flex flex-col relative">
       <header className="bg-pinery-green text-parchment sticky top-0 z-50 shadow-lg border-b-4 border-copper-orange">
@@ -24,7 +27,7 @@ export default function Layout({ children }: LayoutProps) {
           </nav>
 
           <Link to="/trip" className="bg-copper-orange hover:bg-tahquamenon-amber text-white px-3.5 py-1.5 rounded text-xs font-semibold shadow transition">
-            🧭 Active Trip (2)
+            🧭 Active Trip ({tripItems.length})
           </Link>
         </div>
       </header>
@@ -62,13 +65,25 @@ export default function Layout({ children }: LayoutProps) {
               <span>📋</span> Version History & Changelog
             </h4>
             <div className="space-y-3">
-              
+
               <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4 pb-3 border-b border-emerald-800/50">
                 <span className="bg-copper-orange text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
+                  Beta 0.3.0
+                </span>
+                <div>
+                  <p className="text-sm font-semibold text-white">Interactive Trip Planner</p>
+                  <p className="text-xs text-emerald-100/70 mt-1 leading-relaxed">
+                    Added local storage anonymous Trip Planner allowing users to save and build itineraries. Added dynamic nearby attractions fetching from Supabase.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-4 pb-3 border-b border-emerald-800/50">
+                <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
                   Beta 0.2.0
                 </span>
                 <div>
-                  <p className="text-sm font-semibold text-white">Database Integration</p>
+                  <p className="text-sm font-semibold text-slate-300">Database Integration</p>
                   <p className="text-xs text-emerald-100/70 mt-1 leading-relaxed">
                     Wired up Supabase backend for dynamic fetching. Added real UP waterfalls data. Established CI/CD pipeline via GitHub Desktop & Vercel.
                   </p>

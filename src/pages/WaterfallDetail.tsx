@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import Map from '../components/Map'
 import { supabase } from '../lib/supabase'
+import { useTrip } from '../lib/TripContext'
 
 interface Waterfall {
   id: string
@@ -19,30 +20,56 @@ interface Waterfall {
   description: string
 }
 
+interface NearbyPlace {
+  id: string
+  category: string
+  name: string
+  description: string
+  distance_miles: number
+}
+
 export default function WaterfallDetail() {
   const { slug } = useParams<{ slug: string }>()
   const [waterfall, setWaterfall] = useState<Waterfall | null>(null)
+  const [places, setPlaces] = useState<NearbyPlace[]>([])
   const [loading, setLoading] = useState(true)
+  
+  const { addToTrip, tripItems } = useTrip()
+  
+  const isAdded = waterfall ? tripItems.some(i => i.id === waterfall.id) : false
 
   useEffect(() => {
-    async function fetchWaterfall() {
+    async function fetchData() {
       if (!slug) return
       
-      const { data, error } = await supabase
+      const { data: wfData, error: wfError } = await supabase
         .from('waterfalls')
         .select('*')
         .eq('id', slug)
         .single()
       
-      if (error) {
-        console.error('Error fetching waterfall:', error)
+      if (wfError) {
+        console.error('Error fetching waterfall:', wfError)
       } else {
-        setWaterfall(data)
+        setWaterfall(wfData)
       }
+
+      const { data: placesData, error: placesError } = await supabase
+        .from('nearby_places')
+        .select('*')
+        .eq('waterfall_id', slug)
+        .order('distance_miles', { ascending: true })
+
+      if (placesError) {
+        console.error('Error fetching nearby places:', placesError)
+      } else {
+        setPlaces(placesData || [])
+      }
+
       setLoading(false)
     }
 
-    fetchWaterfall()
+    fetchData()
   }, [slug])
 
   if (loading) {
@@ -59,6 +86,14 @@ export default function WaterfallDetail() {
         Waterfall not found.
       </div>
     )
+  }
+
+  const handleAddToTrip = () => {
+    addToTrip({
+      id: waterfall.id,
+      name: waterfall.name,
+      region: waterfall.region
+    })
   }
 
   return (
@@ -177,35 +212,48 @@ export default function WaterfallDetail() {
             <div className="h-48">
               <Map lat={waterfall.latitude} lng={waterfall.longitude} />
             </div>
-            <button className="w-full bg-copper-orange hover:bg-tahquamenon-amber text-white font-semibold py-2 rounded text-xs transition shadow">
-              ➕ Add to My Trip Itinerary
-            </button>
+            {isAdded ? (
+              <button disabled className="w-full bg-slate-300 text-slate-600 font-semibold py-2 rounded text-xs shadow flex items-center justify-center gap-1">
+                <span>✓</span> Added to Itinerary
+              </button>
+            ) : (
+              <button onClick={handleAddToTrip} className="w-full bg-copper-orange hover:bg-tahquamenon-amber text-white font-semibold py-2 rounded text-xs transition shadow">
+                ➕ Add to My Trip Itinerary
+              </button>
+            )}
           </div>
 
           <div className="bg-white p-5 rounded-lg shadow border border-slate-200 space-y-4">
-            <div className="border-b border-slate-200 pb-2">
+            <div className="border-b border-slate-200 pb-2 flex justify-between items-end">
               <h4 className="font-serif text-base font-bold text-pinery-green flex items-center gap-2">
-                <span>🥧</span> Nearby Eats
+                <span>🥧</span> Nearby Attractions
               </h4>
-              <p className="text-[11px] text-slate-500">Curated within 12 miles of trailhead</p>
+              <p className="text-[11px] text-slate-500">Within {Math.max(...places.map(p => p.distance_miles), 12)} miles</p>
             </div>
 
             <div className="space-y-3 text-xs">
-              <div className="p-2.5 rounded bg-parchment border border-slate-200">
-                <span className="text-copper-orange font-bold text-[10px] uppercase block tracking-wider">🍳 Breakfast</span>
-                <span className="font-bold text-slate-900 block">Local Diner</span>
-                <span className="text-slate-600">Great local spot for morning fuel.</span>
-              </div>
-              <div className="p-2.5 rounded bg-parchment border border-slate-200">
-                <span className="text-copper-orange font-bold text-[10px] uppercase block tracking-wider">🥧 Lunch</span>
-                <span className="font-bold text-slate-900 block">UP Pasties</span>
-                <span className="text-slate-600">Traditional U.P. beef & rutabaga pasties.</span>
-              </div>
-              <div className="p-2.5 rounded bg-parchment border border-slate-200">
-                <span className="text-copper-orange font-bold text-[10px] uppercase block tracking-wider">🍺 Dinner</span>
-                <span className="font-bold text-slate-900 block">Local Tavern</span>
-                <span className="text-slate-600">Craft brews & pub food.</span>
-              </div>
+              {places.length === 0 ? (
+                <div className="p-3 text-slate-500 italic bg-parchment rounded border border-slate-200 text-center">
+                  No nearby attractions listed for this waterfall yet.
+                </div>
+              ) : (
+                places.map(place => (
+                  <div key={place.id} className="p-2.5 rounded bg-parchment border border-slate-200 relative">
+                    <span className="text-copper-orange font-bold text-[10px] uppercase block tracking-wider">
+                      {place.category === 'Breakfast' && '🍳 '}
+                      {place.category === 'Lunch' && '🥧 '}
+                      {place.category === 'Dinner' && '🍺 '}
+                      {place.category === 'Lodging' && '🏡 '}
+                      {place.category}
+                    </span>
+                    <span className="font-bold text-slate-900 block">{place.name}</span>
+                    <span className="text-slate-600">{place.description}</span>
+                    <span className="absolute top-2.5 right-2.5 text-[10px] font-semibold text-pinery-green bg-pinery-green/10 px-1.5 py-0.5 rounded">
+                      {place.distance_miles} mi
+                    </span>
+                  </div>
+                ))
+              )}
             </div>
           </div>
 
