@@ -46,12 +46,33 @@ interface WaterfallBlog {
   published_date: string
 }
 
+interface WeatherData {
+  temperature: number
+  windspeed: number
+  weathercode: number
+}
+
+// WMO Weather Code Mapper
+function getWeatherInfo(code: number): { text: string; icon: string; trailWarning: string | null } {
+  if (code === 0) return { text: 'Clear Sky', icon: '☀️', trailWarning: null }
+  if (code === 1) return { text: 'Mainly Clear', icon: '🌤️', trailWarning: null }
+  if (code === 2) return { text: 'Partly Cloudy', icon: '⛅', trailWarning: null }
+  if (code === 3) return { text: 'Overcast', icon: '☁️', trailWarning: null }
+  if ([45, 48].includes(code)) return { text: 'Fog', icon: '🌫️', trailWarning: 'Low visibility' }
+  if ([51, 53, 55, 56, 57].includes(code)) return { text: 'Drizzle', icon: '🌧️', trailWarning: 'Trail may be slick' }
+  if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return { text: 'Rain', icon: '🌧️', trailWarning: 'Trail likely muddy & slippery' }
+  if ([71, 73, 75, 77, 85, 86].includes(code)) return { text: 'Snow', icon: '❄️', trailWarning: 'Snow/Ice on trail' }
+  if ([95, 96, 99].includes(code)) return { text: 'Thunderstorm', icon: '⛈️', trailWarning: 'Hazardous conditions' }
+  return { text: 'Unknown', icon: '🌡️', trailWarning: null }
+}
+
 export default function WaterfallDetail() {
   const { slug } = useParams<{ slug: string }>()
   const [waterfall, setWaterfall] = useState<Waterfall | null>(null)
   const [places, setPlaces] = useState<NearbyPlace[]>([])
   const [photos, setPhotos] = useState<WaterfallPhoto[]>([])
   const [blogs, setBlogs] = useState<WaterfallBlog[]>([])
+  const [weather, setWeather] = useState<WeatherData | null>(null)
   const [activePhoto, setActivePhoto] = useState<string>('')
   const [loading, setLoading] = useState(true)
   
@@ -73,6 +94,17 @@ export default function WaterfallDetail() {
         console.error('Error fetching waterfall:', wfError)
       } else {
         setWaterfall(wfData)
+        
+        // Fetch Weather Data from Open-Meteo
+        try {
+          const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${wfData.latitude}&longitude=${wfData.longitude}&current_weather=true&temperature_unit=fahrenheit&windspeed_unit=mph`)
+          const weatherData = await res.json()
+          if (weatherData.current_weather) {
+            setWeather(weatherData.current_weather)
+          }
+        } catch (err) {
+          console.error("Failed to fetch weather", err)
+        }
       }
 
       const { data: placesData, error: placesError } = await supabase
@@ -289,6 +321,36 @@ export default function WaterfallDetail() {
 
         {/* Right Sidebar */}
         <div className="space-y-6">
+          
+          {/* Live Weather Widget */}
+          {weather && (
+            <div className="bg-emerald-950 p-5 rounded-lg shadow-lg border border-emerald-800 space-y-3 relative overflow-hidden text-white">
+              <div className="absolute -right-4 -top-4 opacity-10 text-8xl">
+                {getWeatherInfo(weather.weathercode).icon}
+              </div>
+              <div className="relative z-10 flex justify-between items-start">
+                <div>
+                  <h4 className="font-serif text-sm font-bold text-emerald-400 uppercase tracking-widest mb-1">
+                    Live Conditions
+                  </h4>
+                  <div className="flex items-center gap-3">
+                    <span className="text-4xl font-extrabold">{Math.round(weather.temperature)}°F</span>
+                    <div className="flex flex-col text-sm font-semibold leading-tight text-emerald-100">
+                      <span>{getWeatherInfo(weather.weathercode).icon} {getWeatherInfo(weather.weathercode).text}</span>
+                      <span className="text-emerald-300 text-xs mt-0.5">Wind: {weather.windspeed} mph</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              {getWeatherInfo(weather.weathercode).trailWarning && (
+                <div className="relative z-10 mt-3 bg-red-900/40 border border-red-500/50 rounded p-2 text-xs text-red-200 font-semibold flex items-center gap-2">
+                  <span>⚠️</span> {getWeatherInfo(weather.weathercode).trailWarning}
+                </div>
+              )}
+            </div>
+          )}
+
           <div className="bg-white p-4 rounded-lg shadow border border-slate-200 space-y-3">
             <h4 className="font-serif text-sm font-bold text-pinery-green flex items-center gap-1.5">
               <span>🗺️</span> Location Map & Trailhead
