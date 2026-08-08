@@ -15,6 +15,7 @@ interface Waterfall {
   drop_height: string
   hike_difficulty: string
   trail_length_miles: number
+  youtube_video_id?: string | null
   waterfall_photos?: Photo[]
 }
 
@@ -25,6 +26,9 @@ export default function Directory() {
   // Gallery Modal State
   const [selectedWaterfall, setSelectedWaterfall] = useState<Waterfall | null>(null)
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
+
+  // Video Modal State
+  const [selectedVideo, setSelectedVideo] = useState<Waterfall | null>(null)
 
   useEffect(() => {
     async function fetchWaterfalls() {
@@ -117,6 +121,14 @@ export default function Directory() {
                     {wf.hike_difficulty} ({wf.trail_length_miles}m)
                   </td>
                   <td className="p-2 sm:p-4 text-right sm:text-left truncate">
+                    {wf.youtube_video_id && (
+                      <button 
+                        onClick={() => setSelectedVideo(wf)}
+                        className="inline-block bg-emerald-700 hover:bg-emerald-600 text-white text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded transition shadow mr-2"
+                      >
+                        Video
+                      </button>
+                    )}
                     <button 
                       onClick={() => openGallery(wf)}
                       className="inline-block bg-copper-orange hover:bg-tahquamenon-amber text-white text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded transition shadow mr-2"
@@ -235,6 +247,42 @@ export default function Directory() {
               </div>
             </div>
           )}
+        </div>
+      )}
+
+      {/* FULL-SCREEN VIDEO MODAL */}
+      {selectedVideo && selectedVideo.youtube_video_id && (
+        <div className="fixed inset-0 z-[110] bg-black/95 backdrop-blur-md flex flex-col items-center justify-center animate-in fade-in duration-300">
+          <div className="absolute top-0 left-0 right-0 p-4 sm:p-6 flex justify-between items-start z-10">
+            <div>
+              <h3 className="font-serif text-2xl sm:text-4xl font-bold text-white drop-shadow-lg">
+                {selectedVideo.name}
+              </h3>
+              <p className="text-emerald-400 font-semibold tracking-widest text-xs uppercase mt-1 drop-shadow">
+                Video Presentation
+              </p>
+            </div>
+            <button 
+              onClick={() => setSelectedVideo(null)}
+              className="bg-white/10 hover:bg-emerald-600 text-white rounded-full p-2 backdrop-blur transition border border-white/20"
+              title="Close Video"
+            >
+              <svg className="w-6 h-6 sm:w-8 sm:h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+
+          <div className="w-full max-w-5xl aspect-video px-4 sm:px-6">
+            <iframe
+              className="w-full h-full rounded shadow-2xl border border-white/10"
+              src={`https://www.youtube.com/embed/${selectedVideo.youtube_video_id}?autoplay=1&rel=0`}
+              title={`${selectedVideo.name} Video`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
       )}
     </div>
