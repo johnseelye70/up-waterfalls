@@ -24,7 +24,7 @@ export default function Layout({ children }: LayoutProps) {
           
           <nav className="hidden md:flex space-x-6 text-sm font-medium text-parchment">
             <Link to="/" className="hover:text-copper-orange transition">Hubs & Loops</Link>
-            <Link to="/" className="hover:text-copper-orange transition">Waterfall Directory</Link>
+            <Link to="/directory" className="hover:text-copper-orange transition">Waterfall Directory</Link>
             <Link to="/trip" className="hover:text-copper-orange transition">Trip Planner</Link>
           </nav>
 
@@ -76,7 +76,7 @@ export default function Layout({ children }: LayoutProps) {
               onClick={() => setShowChangelog(true)}
               className="bg-emerald-900/60 hover:bg-emerald-800 text-white px-6 py-3 rounded-lg border border-emerald-800/50 shadow-lg transition flex items-center gap-3 font-semibold"
             >
-              <span>📋</span> Beta 0.5.2
+              <span>📋</span> Beta 0.6.0
             </button>
           </div>
 
@@ -108,12 +108,24 @@ export default function Layout({ children }: LayoutProps) {
               
               <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 pb-4 border-b border-emerald-800/50">
                 <span className="bg-copper-orange text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
+                  Beta 0.6.0
+                </span>
+                <div>
+                  <p className="text-base font-semibold text-white">Waterfall Directory Listing</p>
+                  <p className="text-sm text-emerald-100/70 mt-1 leading-relaxed">
+                    Created a dedicated Waterfall Directory page featuring an A-Z scannable index of all waterfalls, utilizing the new massive database schema.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-5 pb-4 border-b border-emerald-800/50">
+                <span className="bg-slate-700 text-slate-300 text-[10px] font-bold uppercase tracking-wider px-2 py-1 rounded shrink-0 self-start">
                   Beta 0.5.2
                 </span>
                 <div>
-                  <p className="text-base font-semibold text-white">Portal Integration</p>
+                  <p className="text-base font-semibold text-white">Portal Integration & Data Clean-up</p>
                   <p className="text-sm text-emerald-100/70 mt-1 leading-relaxed">
-                    Tied the application back to the main Seelye.info Portal Hub by introducing the universal home button into the header navigation.
+                    Tied the application back to the main Seelye.info Portal Hub by introducing the universal home button into the header navigation. Handled database deduplication.
                   </p>
                 </div>
               </div>
