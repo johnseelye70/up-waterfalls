@@ -28,10 +28,20 @@ interface NearbyPlace {
   distance_miles: number
 }
 
+interface WaterfallPhoto {
+  id: string
+  image_url: string
+  caption: string
+  credit_name: string
+  is_hero: boolean
+}
+
 export default function WaterfallDetail() {
   const { slug } = useParams<{ slug: string }>()
   const [waterfall, setWaterfall] = useState<Waterfall | null>(null)
   const [places, setPlaces] = useState<NearbyPlace[]>([])
+  const [photos, setPhotos] = useState<WaterfallPhoto[]>([])
+  const [activePhoto, setActivePhoto] = useState<string>('')
   const [loading, setLoading] = useState(true)
   
   const { addToTrip, tripItems } = useTrip()
@@ -66,6 +76,23 @@ export default function WaterfallDetail() {
         setPlaces(placesData || [])
       }
 
+      const { data: photosData, error: photosError } = await supabase
+        .from('waterfall_photos')
+        .select('*')
+        .eq('waterfall_id', slug)
+        .order('is_hero', { ascending: false })
+
+      if (photosError) {
+        console.error('Error fetching photos:', photosError)
+      } else if (photosData && photosData.length > 0) {
+        setPhotos(photosData)
+        // Set initial active photo to the hero (or the first one)
+        setActivePhoto(photosData[0].image_url)
+      } else {
+        // Fallback default image if no photos exist
+        setActivePhoto('https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80')
+      }
+
       setLoading(false)
     }
 
@@ -98,25 +125,34 @@ export default function WaterfallDetail() {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6 flex-grow w-full">
-      <div className="flex items-center gap-2 text-sm text-slate-500 font-medium">
-        <Link to="/" className="hover:text-copper-orange">{'< Back to Hubs'}</Link>
-        <span>|</span>
-        <span className="text-slate-800 uppercase">{waterfall.name} HUB PAGE</span>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center gap-2 text-sm text-slate-500 font-medium">
+          <Link to="/" className="hover:text-copper-orange">{'< Back to Hubs'}</Link>
+          <span>|</span>
+          <span className="text-slate-800 uppercase">{waterfall.name} HUB PAGE</span>
+        </div>
+        
+        {/* Helper instruction for user to know the image is a dynamic hero gallery */}
+        {photos.length > 0 && (
+          <div className="text-[10px] uppercase font-bold tracking-wider text-slate-400 bg-slate-100 px-2 py-1 rounded border border-slate-200">
+            Inline Hero Gallery Active
+          </div>
+        )}
       </div>
 
-      <div className="relative rounded-xl overflow-hidden shadow-xl border-2 border-pinery-green">
-        <div className="h-80 bg-cover bg-center relative" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80')" }}>
-          <div className="absolute inset-0 bg-gradient-to-t from-superior-navy via-superior-navy/40 to-transparent"></div>
+      <div className="relative rounded-xl overflow-hidden shadow-xl border-2 border-pinery-green transition-all duration-500">
+        <div className="h-[450px] bg-cover bg-center relative transition-all duration-700 ease-in-out" style={{ backgroundImage: `url('${activePhoto}')` }}>
+          <div className="absolute inset-0 bg-gradient-to-t from-superior-navy via-superior-navy/40 to-transparent transition-opacity"></div>
           
           <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
             <div className="flex flex-wrap items-center gap-2 text-xs">
-              <span className="bg-copper-orange text-white px-2.5 py-0.5 rounded font-medium">{waterfall.region}</span>
-              <span className="bg-pinery-green/90 text-white px-2.5 py-0.5 rounded">{waterfall.county} County</span>
+              <span className="bg-copper-orange text-white px-2.5 py-0.5 rounded font-medium shadow">{waterfall.region}</span>
+              <span className="bg-pinery-green/90 text-white px-2.5 py-0.5 rounded shadow">{waterfall.county} County</span>
               <span className="bg-black/60 backdrop-blur text-slate-200 px-2.5 py-0.5 rounded">GPS: {waterfall.latitude}° N, {waterfall.longitude}° W</span>
             </div>
             
-            <h2 className="font-serif text-3xl sm:text-4xl font-extrabold text-parchment">{waterfall.name}</h2>
-            <p className="text-xs sm:text-sm text-slate-300">{waterfall.description}</p>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-parchment drop-shadow-lg">{waterfall.name}</h2>
+            <p className="text-xs sm:text-sm text-slate-300 drop-shadow max-w-2xl">{waterfall.description}</p>
             
             <div className="pt-2 flex flex-wrap gap-3 text-xs font-medium">
               <span className="bg-parchment/20 backdrop-blur px-3 py-1 rounded text-white flex items-center gap-1 border border-white/20">
@@ -159,6 +195,38 @@ export default function WaterfallDetail() {
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow border border-slate-200 space-y-4">
+            <h3 className="font-serif text-xl font-bold text-pinery-green border-b border-slate-200 pb-2 flex items-center gap-2">
+              <span>📸</span> Visitor Photo Gallery
+            </h3>
+            <p className="text-xs text-slate-500 pb-2">Click any thumbnail to expand the image in the hero viewer above.</p>
+            
+            {photos.length === 0 ? (
+              <div className="text-sm text-slate-500 italic p-4 bg-parchment border border-slate-200 rounded">
+                No visitor photos uploaded yet.
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                {photos.map((photo) => (
+                  <div key={photo.id} className="space-y-1">
+                    <div 
+                      onClick={() => setActivePhoto(photo.image_url)}
+                      className={`relative h-24 w-full rounded overflow-hidden cursor-pointer shadow hover:opacity-90 transition group border-2 ${activePhoto === photo.image_url ? 'border-copper-orange' : 'border-transparent'}`}
+                    >
+                      <img src={photo.image_url} className="w-full h-full object-cover" alt={photo.caption || 'Waterfall photo'} />
+                      <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                        <span className="text-white text-xs font-bold uppercase tracking-widest drop-shadow">View Large</span>
+                      </div>
+                    </div>
+                    {photo.caption && (
+                      <p className="text-[10px] text-slate-500 truncate" title={photo.caption}>{photo.caption}</p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className="bg-white p-6 rounded-lg shadow border border-slate-200 space-y-4">
             <div className="flex items-center justify-between border-b border-slate-200 pb-2">
               <h3 className="font-serif text-xl font-bold text-pinery-green flex items-center gap-2">
                 <span>📰</span> In The Blogs & Travel Guides
@@ -190,17 +258,6 @@ export default function WaterfallDetail() {
               </div>
             </div>
           </div>
-
-          <div className="bg-white p-6 rounded-lg shadow border border-slate-200 space-y-4">
-            <h3 className="font-serif text-xl font-bold text-pinery-green border-b border-slate-200 pb-2">
-              📸 Visitor Photo Gallery
-            </h3>
-            <div className="grid grid-cols-3 gap-2">
-              <img src="https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=400&q=80" className="rounded h-24 w-full object-cover shadow hover:opacity-90 cursor-pointer" alt="Falls 1" />
-              <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=400&q=80" className="rounded h-24 w-full object-cover shadow hover:opacity-90 cursor-pointer" alt="Falls 2" />
-              <img src="https://images.unsplash.com/photo-1511497584788-876761c11969?auto=format&fit=crop&w=400&q=80" className="rounded h-24 w-full object-cover shadow hover:opacity-90 cursor-pointer" alt="Falls 3" />
-            </div>
-          </div>
         </div>
 
         {/* Right Sidebar */}
@@ -228,7 +285,9 @@ export default function WaterfallDetail() {
               <h4 className="font-serif text-base font-bold text-pinery-green flex items-center gap-2">
                 <span>🥧</span> Nearby Attractions
               </h4>
-              <p className="text-[11px] text-slate-500">Within {Math.max(...places.map(p => p.distance_miles), 12)} miles</p>
+              <p className="text-[11px] text-slate-500">
+                {places.length > 0 ? `Within ${Math.max(...places.map(p => p.distance_miles), 12)} miles` : 'Within 12 miles'}
+              </p>
             </div>
 
             <div className="space-y-3 text-xs">
