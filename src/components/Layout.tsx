@@ -60,7 +60,7 @@ export default function Layout({ children }: LayoutProps) {
               <span className="text-copper-orange">🌲</span> UP Waterfalls
             </div>
             <p className="text-sm max-w-sm leading-relaxed text-emerald-100/70">
-              The ultimate wilderness travel planner for Michigan's Upper Peninsula waterfalls and historic sites. Hosted on seelye.info.
+              The ultimate wilderness travel planner for Michigan's Upper Peninsula waterfalls and historic sites.
             </p>
             <p className="text-xs text-emerald-100/50 mt-2">
               © {new Date().getFullYear()} John J Seelye / Seelye.info. All rights reserved.
@@ -78,7 +78,7 @@ export default function Layout({ children }: LayoutProps) {
               to="/changelog"
               className="bg-emerald-900/60 hover:bg-emerald-800 text-white px-6 py-3 rounded-lg border border-emerald-800/50 shadow-lg transition flex items-center gap-3 font-semibold"
             >
-              <span>📋</span> Beta 0.10.1
+              <span>📋</span> Beta 0.10.2
             </Link>
           </div>
 
