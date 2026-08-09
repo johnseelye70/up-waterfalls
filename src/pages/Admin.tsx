@@ -145,7 +145,10 @@ export default function Admin() {
         
       const publicUrl = publicUrlData.publicUrl
 
-      // 3. Insert into waterfall_photos using anon client
+      // 3. Unset previous heroes so we don't have multiple
+      await supabase.from('waterfall_photos').update({ is_hero: false }).eq('waterfall_id', selectedWaterfall)
+
+      // 4. Insert into waterfall_photos using anon client
       const { error: dbError } = await supabase.from('waterfall_photos').insert({
         waterfall_id: selectedWaterfall,
         image_url: publicUrl,
@@ -169,31 +172,57 @@ export default function Admin() {
   }
 
   const handleSetWaterfallPrimary = async (photoId: string) => {
-    // Unset all hero flags for this waterfall, then set the selected one
-    await supabase.from('waterfall_photos').update({ is_hero: false }).eq('waterfall_id', selectedWaterfall)
-    await supabase.from('waterfall_photos').update({ is_hero: true }).eq('id', photoId)
-    // Refresh photos
-    const { data } = await supabase.from('waterfall_photos').select('*').eq('waterfall_id', selectedWaterfall)
-    if (data) setPhotos(data)
+    try {
+      setUploadStatus('Updating...')
+      // Unset all hero flags for this waterfall, then set the selected one
+      const { error: e1 } = await supabase.from('waterfall_photos').update({ is_hero: false }).eq('waterfall_id', selectedWaterfall)
+      if (e1) throw e1
+      
+      const { error: e2 } = await supabase.from('waterfall_photos').update({ is_hero: true }).eq('id', photoId)
+      if (e2) throw e2
+      
+      // Refresh photos
+      const { data, error: e3 } = await supabase.from('waterfall_photos').select('*').eq('waterfall_id', selectedWaterfall)
+      if (e3) throw e3
+      
+      if (data) setPhotos(data)
+      setUploadStatus('✅ Waterfall Primary updated!')
+    } catch (err: any) {
+      console.error(err)
+      setUploadStatus(`❌ Update failed: ${err.message}`)
+    }
   }
 
   const handleSetCountyPrimary = async (photoId: string) => {
-    const wf = waterfalls.find(w => w.id === selectedWaterfall)
-    if (!wf) return
-    
-    // Get all waterfalls in this county
-    const { data: countyFalls } = await supabase.from('waterfalls').select('id').eq('county', wf.county)
-    if (!countyFalls) return
-    
-    // Unset county hero flags for all photos belonging to any waterfall in this county
-    const fallIds = countyFalls.map(f => f.id)
-    await supabase.from('waterfall_photos').update({ is_county_hero: false }).in('waterfall_id', fallIds)
-    
-    // Set the selected one
-    await supabase.from('waterfall_photos').update({ is_county_hero: true }).eq('id', photoId)
-    // Refresh photos
-    const { data } = await supabase.from('waterfall_photos').select('*').eq('waterfall_id', selectedWaterfall)
-    if (data) setPhotos(data)
+    try {
+      setUploadStatus('Updating...')
+      const wf = waterfalls.find(w => w.id === selectedWaterfall)
+      if (!wf) return
+      
+      // Get all waterfalls in this county
+      const { data: countyFalls, error: cErr } = await supabase.from('waterfalls').select('id').eq('county', wf.county)
+      if (cErr) throw cErr
+      if (!countyFalls) return
+      
+      // Unset county hero flags for all photos belonging to any waterfall in this county
+      const fallIds = countyFalls.map(f => f.id)
+      const { error: e1 } = await supabase.from('waterfall_photos').update({ is_county_hero: false }).in('waterfall_id', fallIds)
+      if (e1) throw e1
+      
+      // Set the selected one
+      const { error: e2 } = await supabase.from('waterfall_photos').update({ is_county_hero: true }).eq('id', photoId)
+      if (e2) throw e2
+      
+      // Refresh photos
+      const { data, error: e3 } = await supabase.from('waterfall_photos').select('*').eq('waterfall_id', selectedWaterfall)
+      if (e3) throw e3
+      
+      if (data) setPhotos(data)
+      setUploadStatus('✅ County Primary updated!')
+    } catch (err: any) {
+      console.error(err)
+      setUploadStatus(`❌ Update failed: ${err.message}`)
+    }
   }
 
   if (!adminKey) {
@@ -337,9 +366,16 @@ export default function Admin() {
 
       {selectedWaterfall && photos.length > 0 && (
         <div className="bg-white p-6 rounded-xl shadow border border-slate-200 animate-in fade-in slide-in-from-bottom-4 duration-500">
-          <h3 className="font-serif text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
-            <span>🖼️</span> Manage Gallery Photos
-          </h3>
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="font-serif text-xl font-bold text-slate-800 flex items-center gap-2">
+              <span>🖼️</span> Manage Gallery Photos
+            </h3>
+            {uploadStatus && uploadStatus.includes('Primary') && (
+              <span className={`px-3 py-1 rounded text-xs font-bold ${uploadStatus.includes('✅') ? 'bg-emerald-100 text-emerald-800' : 'bg-red-100 text-red-800'}`}>
+                {uploadStatus}
+              </span>
+            )}
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {photos.map(p => (
               <div key={p.id} className="border border-slate-200 rounded overflow-hidden flex flex-col">
