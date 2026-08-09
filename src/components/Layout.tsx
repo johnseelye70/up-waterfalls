@@ -66,6 +66,7 @@ export default function Layout({ children }: LayoutProps) {
               <a href="#" className="hover:text-copper-orange transition">Terms</a>
               <a href="#" className="hover:text-copper-orange transition">Privacy</a>
               <a href="#" className="hover:text-copper-orange transition">Contact</a>
+              <Link to="/admin" className="hover:text-copper-orange transition ml-4 opacity-50">Admin</Link>
             </div>
           </div>
 
