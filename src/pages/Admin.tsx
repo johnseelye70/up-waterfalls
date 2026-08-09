@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '../lib/supabase'
-import { createClient } from '@supabase/supabase-js'
 
 // Helper to hash passcode
 async function hashPasscode(passcode: string) {
