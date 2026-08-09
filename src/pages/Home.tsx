@@ -12,7 +12,7 @@ interface Waterfall {
   hike_difficulty: string
   trail_length_miles: number
   description: string
-  waterfall_photos?: { image_url: string; is_hero: boolean }[]
+  waterfall_photos?: { image_url: string; is_hero: boolean; is_county_hero: boolean }[]
 }
 
 export default function Home() {
@@ -29,7 +29,7 @@ export default function Home() {
         .from('waterfalls')
         .select(`
           *,
-          waterfall_photos ( image_url, is_hero )
+          waterfall_photos ( image_url, is_hero, is_county_hero )
         `)
         .order('name', { ascending: true })
       
@@ -64,18 +64,18 @@ export default function Home() {
     )
   }, [waterfalls, searchQuery])
 
-  // Helper to get a random hero image for a county card
+  // Helper to get the hero image for a county card
   const getCountyHeroImage = (falls: Waterfall[]) => {
-    // Collect all hero photos from the county
-    const allHeroPhotos = falls
-      .flatMap(wf => wf.waterfall_photos || [])
-      .filter(p => p.is_hero)
-      .map(p => p.image_url)
+    const photos = falls.flatMap(wf => wf.waterfall_photos || [])
     
-    if (allHeroPhotos.length > 0) {
-      // Pick a consistent but "random" looking one based on the array length
-      return getThumbnailUrl(allHeroPhotos[0], 600)
-    }
+    // 1. Try to find the specific photo explicitly marked as the county hero
+    const countyHero = photos.find(p => p.is_county_hero)
+    if (countyHero) return getThumbnailUrl(countyHero.image_url, 600)
+
+    // 2. Fallback to any photo marked as a waterfall hero
+    const fallHero = photos.find(p => p.is_hero)
+    if (fallHero) return getThumbnailUrl(fallHero.image_url, 600)
+
     return undefined // Will fallback to default style if none exist
   }
 

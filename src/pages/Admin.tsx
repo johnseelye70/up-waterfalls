@@ -35,8 +35,9 @@ export default function Admin() {
   const [credit, setCredit] = useState('Admin Upload')
   const [isUploading, setIsUploading] = useState(false)
   const [uploadStatus, setUploadStatus] = useState('')
-
-  // Handle brute-force lockout timer
+  
+  // Gallery Management State
+  const [photos, setPhotos] = useState<any[]>([])
   useEffect(() => {
     if (lockoutTime) {
       const interval = setInterval(() => {
@@ -63,6 +64,19 @@ export default function Admin() {
       fetchWaterfalls()
     }
   }, [adminKey])
+
+  // Fetch photos when a waterfall is selected or an upload succeeds
+  useEffect(() => {
+    if (selectedWaterfall) {
+      const fetchPhotos = async () => {
+        const { data } = await supabase.from('waterfall_photos').select('*').eq('waterfall_id', selectedWaterfall)
+        if (data) setPhotos(data)
+      }
+      fetchPhotos()
+    } else {
+      setPhotos([])
+    }
+  }, [selectedWaterfall, uploadStatus])
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -152,6 +166,34 @@ export default function Admin() {
     } finally {
       setIsUploading(false)
     }
+  }
+
+  const handleSetWaterfallPrimary = async (photoId: string) => {
+    // Unset all hero flags for this waterfall, then set the selected one
+    await supabase.from('waterfall_photos').update({ is_hero: false }).eq('waterfall_id', selectedWaterfall)
+    await supabase.from('waterfall_photos').update({ is_hero: true }).eq('id', photoId)
+    // Refresh photos
+    const { data } = await supabase.from('waterfall_photos').select('*').eq('waterfall_id', selectedWaterfall)
+    if (data) setPhotos(data)
+  }
+
+  const handleSetCountyPrimary = async (photoId: string) => {
+    const wf = waterfalls.find(w => w.id === selectedWaterfall)
+    if (!wf) return
+    
+    // Get all waterfalls in this county
+    const { data: countyFalls } = await supabase.from('waterfalls').select('id').eq('county', wf.county)
+    if (!countyFalls) return
+    
+    // Unset county hero flags for all photos belonging to any waterfall in this county
+    const fallIds = countyFalls.map(f => f.id)
+    await supabase.from('waterfall_photos').update({ is_county_hero: false }).in('waterfall_id', fallIds)
+    
+    // Set the selected one
+    await supabase.from('waterfall_photos').update({ is_county_hero: true }).eq('id', photoId)
+    // Refresh photos
+    const { data } = await supabase.from('waterfall_photos').select('*').eq('waterfall_id', selectedWaterfall)
+    if (data) setPhotos(data)
   }
 
   if (!adminKey) {
@@ -292,6 +334,38 @@ export default function Admin() {
           </div>
         </form>
       </div>
+
+      {selectedWaterfall && photos.length > 0 && (
+        <div className="bg-white p-6 rounded-xl shadow border border-slate-200 animate-in fade-in slide-in-from-bottom-4 duration-500">
+          <h3 className="font-serif text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+            <span>🖼️</span> Manage Gallery Photos
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {photos.map(p => (
+              <div key={p.id} className="border border-slate-200 rounded overflow-hidden flex flex-col">
+                <img src={p.image_url} alt={p.caption || 'Waterfall'} className="w-full h-48 object-cover" />
+                <div className="p-3 bg-slate-50 space-y-3 flex-grow flex flex-col justify-end">
+                  {p.caption && <p className="text-xs text-slate-600 line-clamp-2">{p.caption}</p>}
+                  <div className="flex gap-2 w-full">
+                    <button 
+                      onClick={(e) => { e.preventDefault(); handleSetWaterfallPrimary(p.id) }}
+                      className={`flex-1 text-[10px] font-bold py-2 rounded border transition ${p.is_hero ? 'bg-copper-orange text-white border-copper-orange' : 'bg-white text-slate-600 border-slate-300 hover:bg-slate-100 shadow-sm'}`}
+                    >
+                      {p.is_hero ? '⭐ Waterfall Primary' : 'Set Waterfall Primary'}
+                    </button>
+                    <button 
+                      onClick={(e) => { e.preventDefault(); handleSetCountyPrimary(p.id) }}
+                      className={`flex-1 text-[10px] font-bold py-2 rounded border transition ${p.is_county_hero ? 'bg-tahquamenon-amber text-white border-tahquamenon-amber' : 'bg-white text-slate-600 border-slate-300 hover:bg-slate-100 shadow-sm'}`}
+                    >
+                      {p.is_county_hero ? '🗺️ County Primary' : 'Set County Primary'}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   )
 }
