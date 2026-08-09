@@ -112,14 +112,13 @@ export default function Admin() {
     setUploadStatus('')
     
     try {
-      const url = import.meta.env.VITE_SUPABASE_URL
       const fileExt = file.name.split('.').pop()
       const fileName = `${selectedWaterfall}-${Date.now()}.${fileExt}`
       const filePath = `waterfall_photos/${fileName}`
       
       // 1. Upload file to Storage using the standard anon client
       // (The Supabase API Gateway strictly blocks service_role keys if an Origin header is present)
-      const { data: uploadData, error: uploadError } = await supabase.storage
+      const { error: uploadError } = await supabase.storage
         .from('waterfall_uploads')
         .upload(filePath, file)
         
