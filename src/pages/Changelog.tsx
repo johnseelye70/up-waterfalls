@@ -19,14 +19,27 @@ export default function Changelog() {
         
         <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
           <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-parchment bg-copper-orange text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
-            🌲
+            🔐
           </div>
           <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-emerald-900/20 bg-white/50 backdrop-blur shadow-sm">
             <div className="flex items-center justify-between mb-1">
-              <span className="font-bold text-emerald-950 text-lg">Beta 0.7.0</span>
+              <span className="font-bold text-emerald-950 text-lg">Beta 0.8.0</span>
               <span className="text-xs font-semibold text-copper-orange bg-copper-orange/10 px-2 py-0.5 rounded">Latest</span>
             </div>
-            <p className="text-base font-semibold text-slate-800">Comprehensive Waterfall Dataset & Inline UI</p>
+            <p className="text-base font-semibold text-slate-800">Admin Upload Portal & System Security</p>
+            <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+              Implemented a zero-plaintext passcode system with SHA-256 local hashing and brute-force protection to allow secure, owner-only uploads of waterfall photos.
+            </p>
+          </div>
+        </div>
+
+        <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+          <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-parchment bg-slate-400 text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
+            🌲
+          </div>
+          <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-slate-200 bg-white/40">
+            <div className="font-bold text-slate-700 text-lg mb-1">Beta 0.7.0</div>
+            <p className="text-base font-semibold text-slate-700">Comprehensive Waterfall Dataset & Inline UI</p>
             <p className="text-sm text-slate-600 mt-2 leading-relaxed">
               Injected 291 authentic, verified waterfalls with precise coordinates. Removed modal overlays per inline architecture requirements.
             </p>
