@@ -224,6 +224,30 @@ export default function Admin() {
     }
   }
 
+  const handleDeletePhoto = async (photoId: string) => {
+    if (!window.confirm("Are you sure you want to delete this photo from the database?")) return;
+    
+    try {
+      setUploadStatus('Deleting photo...')
+      
+      const { error } = await supabase.rpc('admin_delete_photo', {
+        p_secret: adminKey,
+        p_photo_id: photoId
+      })
+      if (error) throw error
+      
+      // Refresh photos
+      const { data, error: e3 } = await supabase.from('waterfall_photos').select('*').eq('waterfall_id', selectedWaterfall)
+      if (e3) throw e3
+      
+      if (data) setPhotos(data)
+      setUploadStatus('✅ Photo deleted successfully!')
+    } catch (err: any) {
+      console.error(err)
+      setUploadStatus(`❌ Delete failed: ${err.message}`)
+    }
+  }
+
   const handleChangePassword = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!newPassword || !adminKey) return
@@ -398,7 +422,16 @@ export default function Admin() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {photos.map(p => (
-              <div key={p.id} className="border border-slate-200 rounded overflow-hidden flex flex-col">
+              <div key={p.id} className="border border-slate-200 rounded overflow-hidden flex flex-col relative group">
+                <button 
+                  onClick={(e) => { e.preventDefault(); handleDeletePhoto(p.id) }}
+                  className="absolute top-2 right-2 bg-red-600/90 hover:bg-red-700 text-white p-2 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition focus:opacity-100"
+                  title="Delete Photo"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                  </svg>
+                </button>
                 <img src={p.image_url} alt={p.caption || 'Waterfall'} className="w-full h-48 object-cover" />
                 <div className="p-3 bg-slate-50 space-y-3 flex-grow flex flex-col justify-end">
                   {p.caption && <p className="text-xs text-slate-600 line-clamp-2">{p.caption}</p>}
