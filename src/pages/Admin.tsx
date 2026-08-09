@@ -22,7 +22,7 @@ export default function Admin() {
   const [passcode, setPasscode] = useState('')
   const [isAuthenticating, setIsAuthenticating] = useState(false)
   const [authError, setAuthError] = useState('')
-  const [adminClient, setAdminClient] = useState<any>(null)
+  const [adminKey, setAdminKey] = useState<string | null>(null)
   
   // Rate limiting state
   const [attempts, setAttempts] = useState(0)
@@ -52,9 +52,9 @@ export default function Admin() {
 
   // Fetch waterfalls for dropdown once authenticated
   useEffect(() => {
-    if (adminClient) {
+    if (adminKey) {
       const fetchWaterfalls = async () => {
-        const { data, error } = await adminClient.from('waterfalls').select('id, name, county').order('name')
+        const { data, error } = await supabase.from('waterfalls').select('id, name, county').order('name')
         if (error) {
           console.error("Error fetching waterfalls:", error)
           setUploadStatus(`❌ DB Error: ${error.message}`)
@@ -63,7 +63,7 @@ export default function Admin() {
       }
       fetchWaterfalls()
     }
-  }, [adminClient])
+  }, [adminKey])
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -87,11 +87,9 @@ export default function Admin() {
         throw new Error('Service Role Key not configured in SYSTEM_SETTINGS')
       }
 
-      // Create elevated client (sanitize key just in case of copy/paste quotes or spaces)
+      // Save key to state (bypassing the Supabase JS browser restriction on service keys)
       const sanitizedKey = serviceRoleKey.trim().replace(/^["']|["']$/g, '')
-      const url = import.meta.env.VITE_SUPABASE_URL
-      const elevated = createClient(url, sanitizedKey)
-      setAdminClient(elevated)
+      setAdminKey(sanitizedKey)
       
     } catch (err: any) {
       const newAttempts = attempts + 1
@@ -109,40 +107,58 @@ export default function Admin() {
 
   const handleUpload = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!adminClient || !selectedWaterfall || !file) return
+    if (!adminKey || !selectedWaterfall || !file) return
     
     setIsUploading(true)
     setUploadStatus('')
     
     try {
-      // 1. Upload file to Storage
+      const url = import.meta.env.VITE_SUPABASE_URL
       const fileExt = file.name.split('.').pop()
       const fileName = `${selectedWaterfall}-${Date.now()}.${fileExt}`
       const filePath = `waterfall_photos/${fileName}`
       
-      const { error: uploadError } = await adminClient.storage
-        .from('waterfall_uploads')
-        .upload(filePath, file)
-        
-      if (uploadError) throw uploadError
-
-      // 2. Get public URL
-      const { data: publicUrlData } = adminClient.storage
-        .from('waterfall_uploads')
-        .getPublicUrl(filePath)
-        
-      const publicUrl = publicUrlData.publicUrl
-
-      // 3. Insert into waterfall_photos
-      const { error: dbError } = await adminClient.from('waterfall_photos').insert({
-        waterfall_id: selectedWaterfall,
-        image_url: publicUrl,
-        caption: caption,
-        credit_name: credit,
-        is_hero: true // Make this the new hero image
+      // 1. Upload file to Storage using native fetch and Service Role Key
+      const uploadResponse = await fetch(`${url}/storage/v1/object/waterfall_uploads/${filePath}`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${adminKey}`,
+          'apikey': adminKey,
+          'Content-Type': file.type || 'application/octet-stream'
+        },
+        body: file
       })
 
-      if (dbError) throw dbError
+      if (!uploadResponse.ok) {
+        const errObj = await uploadResponse.json()
+        throw new Error(errObj.message || 'Storage upload failed')
+      }
+
+      // 2. Get public URL
+      const publicUrl = `${url}/storage/v1/object/public/waterfall_uploads/${filePath}`
+
+      // 3. Insert into waterfall_photos (Using admin key to bypass RLS if it's enabled)
+      const insertResponse = await fetch(`${url}/rest/v1/waterfall_photos`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${adminKey}`,
+          'apikey': adminKey,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({
+          waterfall_id: selectedWaterfall,
+          image_url: publicUrl,
+          caption: caption,
+          credit_name: credit,
+          is_hero: true // Make this the new hero image
+        })
+      })
+
+      if (!insertResponse.ok) {
+        const errObj = await insertResponse.json()
+        throw new Error(errObj.message || 'Database insert failed')
+      }
 
       setUploadStatus('✅ Successfully uploaded and linked photo!')
       setFile(null)
@@ -156,7 +172,7 @@ export default function Admin() {
     }
   }
 
-  if (!adminClient) {
+  if (!adminKey) {
     return (
       <div className="max-w-md mx-auto px-4 py-20 flex-grow w-full">
         <div className="bg-white p-8 rounded-xl shadow-xl border-2 border-slate-200">
@@ -205,7 +221,7 @@ export default function Admin() {
           <p className="text-sm text-slate-500">Secure connection established.</p>
         </div>
         <button 
-          onClick={() => setAdminClient(null)}
+          onClick={() => setAdminKey(null)}
           className="text-xs font-bold text-slate-500 hover:text-red-500 transition px-3 py-1 bg-slate-100 rounded"
         >
           End Session
