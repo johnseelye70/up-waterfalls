@@ -10,9 +10,9 @@ CREATE TABLE IF NOT EXISTS system_settings (
 ALTER TABLE system_settings ENABLE ROW LEVEL SECURITY;
 
 -- Insert default Admin Passcode Hash 
--- (Default Passcode: "upwaterfalls2026", SHA-256: 052e42426027aefbcda50cbead28bb5a81665a2512f43fb24cb0b2302bb633fa)
+-- (Default Passcode: "upwaterfalls2026", SHA-256: 17364553daf892a794b18b2665a94eb236be211a883ede7a7d8c8be06776c4c3)
 INSERT INTO system_settings (setting_name, setting_value, description)
-VALUES ('admin_passcode_hash', '052e42426027aefbcda50cbead28bb5a81665a2512f43fb24cb0b2302bb633fa', 'SHA-256 hash of the admin passcode')
+VALUES ('admin_passcode_hash', '17364553daf892a794b18b2665a94eb236be211a883ede7a7d8c8be06776c4c3', 'SHA-256 hash of the admin passcode')
 ON CONFLICT (setting_name) DO UPDATE SET setting_value = EXCLUDED.setting_value;
 
 -- Note: User will need to manually insert 'service_role_key' into this table via Supabase SQL Editor for security.

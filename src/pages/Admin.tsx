@@ -54,7 +54,11 @@ export default function Admin() {
   useEffect(() => {
     if (adminClient) {
       const fetchWaterfalls = async () => {
-        const { data } = await adminClient.from('waterfalls').select('id, name, county').order('name')
+        const { data, error } = await adminClient.from('waterfalls').select('id, name, county').order('name')
+        if (error) {
+          console.error("Error fetching waterfalls:", error)
+          setUploadStatus(`❌ DB Error: ${error.message}`)
+        }
         if (data) setWaterfalls(data)
       }
       fetchWaterfalls()
@@ -83,9 +87,10 @@ export default function Admin() {
         throw new Error('Service Role Key not configured in SYSTEM_SETTINGS')
       }
 
-      // Create elevated client
+      // Create elevated client (sanitize key just in case of copy/paste quotes or spaces)
+      const sanitizedKey = serviceRoleKey.trim().replace(/^["']|["']$/g, '')
       const url = import.meta.env.VITE_SUPABASE_URL
-      const elevated = createClient(url, serviceRoleKey)
+      const elevated = createClient(url, sanitizedKey)
       setAdminClient(elevated)
       
     } catch (err: any) {
