@@ -117,47 +117,31 @@ export default function Admin() {
       const fileName = `${selectedWaterfall}-${Date.now()}.${fileExt}`
       const filePath = `waterfall_photos/${fileName}`
       
-      // 1. Upload file to Storage using native fetch and Service Role Key
-      const uploadResponse = await fetch(`${url}/storage/v1/object/waterfall_uploads/${filePath}`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${adminKey}`,
-          'apikey': adminKey,
-          'Content-Type': file.type || 'application/octet-stream'
-        },
-        body: file
-      })
-
-      if (!uploadResponse.ok) {
-        const errObj = await uploadResponse.json()
-        throw new Error(errObj.message || 'Storage upload failed')
-      }
+      // 1. Upload file to Storage using the standard anon client
+      // (The Supabase API Gateway strictly blocks service_role keys if an Origin header is present)
+      const { data: uploadData, error: uploadError } = await supabase.storage
+        .from('waterfall_uploads')
+        .upload(filePath, file)
+        
+      if (uploadError) throw uploadError
 
       // 2. Get public URL
-      const publicUrl = `${url}/storage/v1/object/public/waterfall_uploads/${filePath}`
+      const { data: publicUrlData } = supabase.storage
+        .from('waterfall_uploads')
+        .getPublicUrl(filePath)
+        
+      const publicUrl = publicUrlData.publicUrl
 
-      // 3. Insert into waterfall_photos (Using admin key to bypass RLS if it's enabled)
-      const insertResponse = await fetch(`${url}/rest/v1/waterfall_photos`, {
-        method: 'POST',
-        headers: {
-          'Authorization': `Bearer ${adminKey}`,
-          'apikey': adminKey,
-          'Content-Type': 'application/json',
-          'Prefer': 'return=minimal'
-        },
-        body: JSON.stringify({
-          waterfall_id: selectedWaterfall,
-          image_url: publicUrl,
-          caption: caption,
-          credit_name: credit,
-          is_hero: true // Make this the new hero image
-        })
+      // 3. Insert into waterfall_photos using anon client
+      const { error: dbError } = await supabase.from('waterfall_photos').insert({
+        waterfall_id: selectedWaterfall,
+        image_url: publicUrl,
+        caption: caption,
+        credit_name: credit,
+        is_hero: true // Make this the new hero image
       })
 
-      if (!insertResponse.ok) {
-        const errObj = await insertResponse.json()
-        throw new Error(errObj.message || 'Database insert failed')
-      }
+      if (dbError) throw dbError
 
       setUploadStatus('✅ Successfully uploaded and linked photo!')
       setFile(null)
