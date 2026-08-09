@@ -76,7 +76,7 @@ export default function Layout({ children }: LayoutProps) {
               to="/changelog"
               className="bg-emerald-900/60 hover:bg-emerald-800 text-white px-6 py-3 rounded-lg border border-emerald-800/50 shadow-lg transition flex items-center gap-3 font-semibold"
             >
-              <span>📋</span> Beta 0.9.0
+              <span>📋</span> Beta 0.9.1
             </Link>
           </div>
 

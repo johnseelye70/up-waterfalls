@@ -21,16 +21,42 @@ export default function Changelog() {
           <div className="flex items-center justify-center w-10 h-10 rounded-full border-4 border-parchment bg-copper-orange text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 z-10">
             🔐
           </div>
-          <div className="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-4 rounded-xl border border-emerald-900/20 bg-white/50 backdrop-blur shadow-sm">
-            <div className="flex items-center justify-between mb-1">
-              <span className="font-bold text-emerald-950 text-lg">Beta 0.8.0</span>
-              <span className="text-xs font-semibold text-copper-orange bg-copper-orange/10 px-2 py-0.5 rounded">Latest</span>
+          <div className="space-y-12">
+          {/* Version 0.9.1 */}
+          <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+            <div className="bg-pinery-green px-6 py-4 border-b border-emerald-800">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="font-serif text-2xl font-bold text-white flex items-center gap-2">
+                  <span className="text-copper-orange">★</span> Beta 0.9.1
+                </h3>
+                <span className="text-emerald-100 font-semibold text-sm">August 2026</span>
+              </div>
             </div>
-            <p className="text-base font-semibold text-slate-800">Admin Upload Portal & System Security</p>
-            <p className="text-sm text-slate-600 mt-2 leading-relaxed">
-              Implemented a zero-plaintext passcode system with SHA-256 local hashing and brute-force protection to allow secure, owner-only uploads of waterfall photos.
-            </p>
+            <div className="p-6 md:p-8 space-y-6">
+              <p className="text-slate-700 leading-relaxed font-medium">
+                Applied a critical hotfix to the Admin Portal's photo gallery logic. The frontend was silently failing to trigger the secure RPC updates. It is now properly wired up to bypass database RLS restrictions when authenticated with the Master Passcode.
+              </p>
+            </div>
           </div>
+
+          {/* Version 0.9.0 */}
+          <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="font-serif text-2xl font-bold text-slate-800 flex items-center gap-2">
+                  Beta 0.9.0
+                </h3>
+                <span className="text-slate-500 font-semibold text-sm">August 2026</span>
+              </div>
+            </div>
+            <div className="p-6 md:p-8 space-y-6">
+              <p className="text-base font-semibold text-slate-800">Admin Upload Portal & System Security</p>
+              <p className="text-sm text-slate-600 mt-2 leading-relaxed">
+                Implemented a zero-plaintext passcode system with SHA-256 local hashing and brute-force protection to allow secure, owner-only uploads of waterfall photos.
+              </p>
+            </div>
+          </div>
+        </div>
         </div>
 
         <div className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">

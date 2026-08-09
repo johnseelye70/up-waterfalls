@@ -145,8 +145,9 @@ export default function Admin() {
         
       const publicUrl = publicUrlData.publicUrl
 
-      // 3. Unset previous heroes so we don't have multiple
-      await supabase.from('waterfall_photos').update({ is_hero: false }).eq('waterfall_id', selectedWaterfall)
+      // 3. Check if there are existing photos
+      const { count } = await supabase.from('waterfall_photos').select('id', { count: 'exact', head: true }).eq('waterfall_id', selectedWaterfall)
+      const isFirstPhoto = count === 0
 
       // 4. Insert into waterfall_photos using anon client
       const { error: dbError } = await supabase.from('waterfall_photos').insert({
@@ -154,7 +155,7 @@ export default function Admin() {
         image_url: publicUrl,
         caption: caption,
         credit_name: credit,
-        is_hero: true // Make this the new hero image
+        is_hero: isFirstPhoto // Only make hero if it's the very first photo
       })
 
       if (dbError) throw dbError
@@ -174,12 +175,13 @@ export default function Admin() {
   const handleSetWaterfallPrimary = async (photoId: string) => {
     try {
       setUploadStatus('Updating...')
-      // Unset all hero flags for this waterfall, then set the selected one
-      const { error: e1 } = await supabase.from('waterfall_photos').update({ is_hero: false }).eq('waterfall_id', selectedWaterfall)
-      if (e1) throw e1
       
-      const { error: e2 } = await supabase.from('waterfall_photos').update({ is_hero: true }).eq('id', photoId)
-      if (e2) throw e2
+      const { error } = await supabase.rpc('admin_set_waterfall_primary', {
+        p_secret: adminKey,
+        p_waterfall_id: selectedWaterfall,
+        p_photo_id: photoId
+      })
+      if (error) throw error
       
       // Refresh photos
       const { data, error: e3 } = await supabase.from('waterfall_photos').select('*').eq('waterfall_id', selectedWaterfall)
@@ -199,19 +201,12 @@ export default function Admin() {
       const wf = waterfalls.find(w => w.id === selectedWaterfall)
       if (!wf) return
       
-      // Get all waterfalls in this county
-      const { data: countyFalls, error: cErr } = await supabase.from('waterfalls').select('id').eq('county', wf.county)
-      if (cErr) throw cErr
-      if (!countyFalls) return
-      
-      // Unset county hero flags for all photos belonging to any waterfall in this county
-      const fallIds = countyFalls.map(f => f.id)
-      const { error: e1 } = await supabase.from('waterfall_photos').update({ is_county_hero: false }).in('waterfall_id', fallIds)
-      if (e1) throw e1
-      
-      // Set the selected one
-      const { error: e2 } = await supabase.from('waterfall_photos').update({ is_county_hero: true }).eq('id', photoId)
-      if (e2) throw e2
+      const { error } = await supabase.rpc('admin_set_county_primary', {
+        p_secret: adminKey,
+        p_county: wf.county,
+        p_photo_id: photoId
+      })
+      if (error) throw error
       
       // Refresh photos
       const { data, error: e3 } = await supabase.from('waterfall_photos').select('*').eq('waterfall_id', selectedWaterfall)
