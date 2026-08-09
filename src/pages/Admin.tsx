@@ -38,6 +38,10 @@ export default function Admin() {
   
   // Gallery Management State
   const [photos, setPhotos] = useState<any[]>([])
+  
+  // Password Management State
+  const [newPassword, setNewPassword] = useState('')
+  const [passwordStatus, setPasswordStatus] = useState('')
   useEffect(() => {
     if (lockoutTime) {
       const interval = setInterval(() => {
@@ -220,6 +224,27 @@ export default function Admin() {
     }
   }
 
+  const handleChangePassword = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!newPassword || !adminKey) return
+    
+    setPasswordStatus('Updating...')
+    try {
+      const newHash = await hashPasscode(newPassword)
+      const { error } = await supabase.rpc('admin_update_passcode', {
+        p_secret: adminKey,
+        p_new_hash: newHash
+      })
+      if (error) throw error
+      
+      setPasswordStatus('✅ Password changed successfully!')
+      setNewPassword('')
+    } catch (err: any) {
+      console.error(err)
+      setPasswordStatus(`❌ Failed: ${err.message}`)
+    }
+  }
+
   if (!adminKey) {
     return (
       <div className="max-w-md mx-auto px-4 py-20 flex-grow w-full">
@@ -397,6 +422,38 @@ export default function Admin() {
           </div>
         </div>
       )}
+
+      <div className="bg-white p-6 rounded-xl shadow border border-slate-200">
+        <h3 className="font-serif text-xl font-bold text-slate-800 mb-4 flex items-center gap-2">
+          <span>🔒</span> Change Master Passcode
+        </h3>
+        <form onSubmit={handleChangePassword} className="space-y-4">
+          <div>
+            <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">New Passcode</label>
+            <input 
+              type="password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              placeholder="Enter new passcode"
+              className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded text-sm focus:ring-2 focus:ring-copper-orange outline-none"
+              required
+            />
+          </div>
+          {passwordStatus && (
+            <div className={`p-3 rounded text-sm font-semibold ${passwordStatus.includes('✅') ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-red-50 text-red-700 border border-red-200'}`}>
+              {passwordStatus}
+            </div>
+          )}
+          <button
+            type="submit"
+            disabled={!newPassword}
+            className="w-full bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 rounded shadow transition disabled:opacity-50"
+          >
+            Update Passcode
+          </button>
+        </form>
+      </div>
+
     </div>
   )
 }
