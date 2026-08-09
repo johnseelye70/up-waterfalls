@@ -24,7 +24,6 @@ export default function Layout({ children }: LayoutProps) {
             <Link to="/" className="hover:text-copper-orange transition">Hubs & Loops</Link>
             <Link to="/directory" className="hover:text-copper-orange transition">Waterfall Directory</Link>
             <Link to="/trip" className="hover:text-copper-orange transition">Trip Planner</Link>
-            <p>© {new Date().getFullYear()} UP Waterfalls Directory. All rights reserved. | <Link to="/changelog" className="hover:text-copper-orange transition">Version Beta 0.9.0</Link></p>
           </nav>
 
           <div className="flex items-center space-x-4">
@@ -63,6 +62,9 @@ export default function Layout({ children }: LayoutProps) {
             <p className="text-sm max-w-sm leading-relaxed text-emerald-100/70">
               The ultimate wilderness travel planner for Michigan's Upper Peninsula waterfalls and historic sites. Hosted on seelye.info.
             </p>
+            <p className="text-xs text-emerald-100/50 mt-2">
+              © {new Date().getFullYear()} John J Seelye / Seelye.info. All rights reserved.
+            </p>
             <div className="text-xs space-x-4 pt-4 border-t border-emerald-900/50 flex justify-center md:justify-start">
               <a href="#" className="hover:text-copper-orange transition">Terms</a>
               <a href="#" className="hover:text-copper-orange transition">Privacy</a>
@@ -76,7 +78,7 @@ export default function Layout({ children }: LayoutProps) {
               to="/changelog"
               className="bg-emerald-900/60 hover:bg-emerald-800 text-white px-6 py-3 rounded-lg border border-emerald-800/50 shadow-lg transition flex items-center gap-3 font-semibold"
             >
-              <span>📋</span> Beta 0.10.0
+              <span>📋</span> Beta 0.10.1
             </Link>
           </div>
 

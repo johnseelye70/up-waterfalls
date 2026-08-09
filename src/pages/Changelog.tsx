@@ -22,14 +22,30 @@ export default function Changelog() {
             🔐
           </div>
           <div className="space-y-12">
-          {/* Version 0.10.0 */}
+          {/* Version 0.10.1 */}
           <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
             <div className="bg-pinery-green px-6 py-4 border-b border-emerald-800">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <h3 className="font-serif text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-copper-orange">★</span> Beta 0.10.0
+                  <span className="text-copper-orange">★</span> Beta 0.10.1
                 </h3>
                 <span className="text-emerald-100 font-semibold text-sm">August 2026</span>
+              </div>
+            </div>
+            <div className="p-6 md:p-8 space-y-6">
+              <p className="text-slate-700 leading-relaxed font-medium">
+                Cleaned up layout presentation by removing the duplicate copyright text from the top header navigation and consolidating it in the footer with updated branding for Seelye.info.
+              </p>
+            </div>
+          </div>
+          {/* Version 0.10.0 */}
+          <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="font-serif text-2xl font-bold text-slate-800 flex items-center gap-2">
+                  Beta 0.10.0
+                </h3>
+                <span className="text-slate-500 font-semibold text-sm">August 2026</span>
               </div>
             </div>
             <div className="p-6 md:p-8 space-y-6">
