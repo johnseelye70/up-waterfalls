@@ -146,6 +146,115 @@ export const CURATED_EXPEDITIONS: CuratedExpedition[] = [
       '9e15a7c5-8573-4c26-8c63-ac6498830d0b', // Yellow Dog Falls
       '4d721036-5878-4ed7-96a7-f8af07db9d14'  // Warner Falls
     ]
+  },
+  {
+    id: 'tahquamenon-eastern-wilderness',
+    title: 'The Tahquamenon Amber Giant & Eastern Wilderness',
+    subtitle: 'The roaring amber waters of Michigan\'s largest waterfall, island cascades, and Lake Superior pine barrens',
+    region: 'Eastern UP (Luce & Alger Border)',
+    badge: 'Iconic Amber Cataracts',
+    estimatedDays: '1 Full Day',
+    description: 'Journey across the eastern Upper Peninsula wilderness to witness the sheer power of Upper Tahquamenon Falls—a 200-foot-wide amber curtain dropping 50,000 gallons per second. Continue downstream to the idyllic island cascades of Lower Tahquamenon Falls, and cross into the eastern Pictured Rocks corridor to explore the massive dune staircase of Sable Falls overlooking Lake Superior.',
+    highlights: [
+      'Upper Tahquamenon Falls 200-ft wide amber veil, Michigan\'s largest cataract',
+      'Lower Tahquamenon Falls scenic island boardwalk and river cascades',
+      'Sable Falls 168-step staircase descent beside the Grand Sable Dunes',
+      'Lake Superior shoreline along the historic Great Lakes Shipwreck Coast'
+    ],
+    pitstops: [
+      { name: 'Tahquamenon Falls Brewery & Pub', type: 'Lunch & Microbrewery', note: 'Paradise - On-site brewery inside the state park; Porcupine Pale Ale and Lake Superior whitefish' },
+      { name: 'Brown Fisheries Fish House', type: 'Authentic Fresh Catch', note: 'Paradise - Famous fresh whitefish and lake trout baskets straight off the fishing boat' },
+      { name: 'The Dunes Saloon Lake Superior Brewing Co.', type: 'Dinner & Craft Ales', note: 'Grand Marais - Historic tavern serving hearty whitefish chowder and artisan brews' }
+    ],
+    stopIds: [
+      '2ab152d2-a814-478d-b01a-e88f7ea22719', // Upper Tahquamenon Falls
+      '8664d95b-2df6-4813-9439-404102b86e31', // Lower Tahquamenon Falls
+      'fcd86b67-70a7-4c02-8225-e4eb1944e694'  // Sable Falls
+    ]
+  },
+  {
+    id: 'canyon-falls-sturgeon-gorge',
+    title: 'Canyon Falls & Sturgeon River Grandeur',
+    subtitle: 'The "Grand Canyon of the U.P.", ancient slate box canyons, and Keweenaw Bay river drops',
+    region: 'Baraga & Southern Houghton Counties',
+    badge: 'Ancient Slate Chasm',
+    estimatedDays: '1 Full Day (5-6 Hours)',
+    description: 'Explore the rugged interior of Baraga County, carved by the wild waters of the Sturgeon and Falls rivers. Hike into Canyon Falls through dramatic Jacobsville slate box walls, marvel at the remote 300-ft gorge plunge of Sturgeon Falls, and stroll the urban wilderness cascades along L\'Anse\'s Falls River as it flows into Keweenaw Bay.',
+    highlights: [
+      'Canyon Falls "The Grand Canyon of Michigan" roaring through a vertical slate box canyon',
+      'Sturgeon Falls 30-ft wilderness plunge within the massive 300-ft deep Sturgeon River Gorge',
+      'Power House Falls tiered bedrock rapids on the historic Falls River in L\'Anse',
+      'Lower Falls River Falls scenic drop framed by municipal boardwalks on Keweenaw Bay',
+      'Slate River Falls tranquil mossy cascade hidden in secluded mixed hemlock timber'
+    ],
+    pitstops: [
+      { name: 'The Hilltop Restaurant', type: 'Legendary Bakery', note: 'L\'Anse - Home of the world-famous one-pound sweet cinnamon rolls' },
+      { name: 'Carriage Cove Lounge', type: 'Lakefront Dining', note: 'L\'Anse - Classic Northwoods fare with picturesque views across Keweenaw Bay' },
+      { name: 'Hardwood Steakhouse', type: 'Dinner & Pasties', note: 'Covington - Renowned charbroiled steaks and warm pasties at the US-41/US-141 junction' }
+    ],
+    stopIds: [
+      '30cbe235-452e-4298-af64-30255cc4ec63', // Canyon Falls
+      '1c288e5a-a4b1-4882-af68-450bde588974', // Sturgeon Falls
+      '778a6058-b0d2-473b-ba6c-3a44399a0dc0', // Power House Falls
+      '9bc3ade8-4072-4f05-a25a-c8eb2327c9c4', // Lower Falls River Falls
+      'dd0595dd-e79e-4204-a904-9d7528f2fae0'  // Slate River Falls
+    ]
+  },
+  {
+    id: 'ironwood-montreal-river-rift',
+    title: 'Ironwood Border Cataracts & Montreal River Rift',
+    subtitle: 'Volcanic basalt rifts, border chasm drops, and massive ski-country cataracts',
+    region: 'Western UP (Gogebic County)',
+    badge: 'Border Volcanic Rift',
+    estimatedDays: 'Half-Day to 1 Day',
+    description: 'Trace the extreme western rim of Michigan along the Wisconsin state line. Encounter Gabbro Falls surging violently through volcanic dark basalt, the massive 100-ft sheer stone gorge framing Superior Falls at Lake Superior, and the scenic suspension footbridge overlooking Interstate Falls on the Montreal River border.',
+    highlights: [
+      'Gabbro Falls (Baker Falls) 60-ft multi-pitch cataract boiling through volcanic bedrock',
+      'Superior Falls sheer 50-ft drop into a colossal 100-ft canyon at the Montreal River mouth',
+      'Interstate Falls scenic boundary cascade and newly built border footbridge',
+      'Kakabika Falls wide S-curve cascades on the Cisco Branch Ontonagon River',
+      'Yondota Falls secluded 15-ft cataract pouring over tilted quartzite bedrock'
+    ],
+    pitstops: [
+      { name: 'Rigoni\'s Bakery', type: 'Italian Bakery & Pasties', note: 'Ironwood - Authentic saffron buns, hard-crust bread, and traditional pasties since 1929' },
+      { name: 'The White Cross Pharmacy Soda Fountain', type: 'Vintage Lunch', note: 'Ironwood - 1920s soda fountain with hand-crafted malts and deli sandwiches' },
+      { name: 'Gogebic Lodge Restaurant', type: 'Lakefront Dining', note: 'Lake Gogebic - Fresh pan-fried walleye and Northwoods hospitality right on the water' }
+    ],
+    stopIds: [
+      '405af946-276f-45b7-a41c-e1231190718f', // Gabbro Falls
+      'd3992fd5-c852-464a-b75a-869c7a034ce0', // Superior Falls
+      '210dae4c-957c-4070-9b55-79a0651f9dd1', // Interstate Falls
+      '01f3bdf2-2b3b-4acf-bd9b-e405a8148dce', // Kakabika Falls
+      '0fd6e446-bff7-4c8b-958a-e6b5924ce786'  // Yondota Falls
+    ]
+  },
+  {
+    id: 'munising-escarpment-gateway',
+    title: 'Munising Escarpment & Grand Island Gateway',
+    subtitle: 'The 100-ft limestone stair, hidden amphitheater grottoes, and roadside lakefront veils',
+    region: 'Central UP (Alger County)',
+    badge: 'Limestone Escarpment',
+    estimatedDays: '1 Full Day (5-6 Hours)',
+    description: 'Discover the extraordinary geologic diversity of the Munising area beyond the lakeshore cliffs. Climb the wooden observation deck at Laughing Whitefish Falls—a breathtaking 100-ft limestone stair cascade. Experience the intimate hemlock canopy at Wagner Falls, duck behind the roadside curtain of Scott Falls, and explore the secret sandstone grotto of Tannery Falls.',
+    highlights: [
+      'Laughing Whitefish Falls 100-ft limestone sliding shelf cascade, one of Michigan\'s tallest',
+      'Wagner Falls State Scenic Site boardwalk winding beneath mossy virgin hemlocks',
+      'Scott Falls roadside curtain where hikers can step directly behind the falling water',
+      'Au Train Falls broad stepped river cascade roaring over sandstone bedrock',
+      'Tannery Falls secluded 40-ft sandstone amphitheater grotto preserved by MNA'
+    ],
+    pitstops: [
+      { name: 'Johnny Dogs', type: 'Casual Lunch', note: 'Munising - Gourmet specialty hot dogs, artisan sausages, and house-made poutine' },
+      { name: 'Au Train Grocery & Bakery', type: 'Northwoods Market', note: 'Au Train - Warm pasties, homemade bakery items, and fresh smoked Lake Superior fish' },
+      { name: 'Trenary Toast Cafe', type: 'Historic Bakery Cafe', note: 'Trenary - Home of the iconic Upper Peninsula cinnamon-cardamom hard dunking toast' }
+    ],
+    stopIds: [
+      '926d0234-8962-4c36-be79-ce40cacb7588', // Laughing Whitefish Falls
+      '88e9a73f-9e5b-444c-a687-3e6915523d91', // Wagner Falls
+      '05a0a9ef-bf55-4e40-ab89-2f39479c5a7f', // Scott Falls
+      '1f527517-3e39-489e-aea7-8f54052e05f7', // Au Train Falls
+      '08ebbfc4-84b9-4bfb-9ffb-790b176abed8'  // Tannery Falls
+    ]
   }
 ]
 

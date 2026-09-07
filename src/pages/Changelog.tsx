@@ -22,14 +22,36 @@ export default function Changelog() {
             🔐
           </div>
           <div className="space-y-12">
-          {/* Version 0.17.0 */}
+          {/* Version 0.18.0 */}
           <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
             <div className="bg-pinery-green px-6 py-4 border-b border-emerald-800">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <h3 className="font-serif text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-copper-orange">★</span> Beta 0.17.0
+                  <span className="text-copper-orange">★</span> Beta 0.18.0
                 </h3>
                 <span className="text-emerald-100 font-semibold text-sm">September 2026</span>
+              </div>
+            </div>
+            <div className="p-6 md:p-8 space-y-6">
+              <p className="text-base font-semibold text-slate-800">Expanded Field Expeditions Catalog: 4 New Curated Regional Road Trip Expeditions (9 Total)</p>
+              <ul className="text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                <li><strong>The Tahquamenon Amber Giant & Eastern Wilderness:</strong> Added turnkey expedition featuring Upper Tahquamenon Falls (200-ft wide amber curtain, 50,000 gal/sec), Lower Tahquamenon island cascades, and Sable Falls dunes staircase, paired with Tahquamenon Falls Brewery and Brown Fisheries fresh catch.</li>
+                <li><strong>Canyon Falls & Sturgeon River Grandeur:</strong> Added Baraga County expedition navigating "The Grand Canyon of Michigan" (Canyon Falls), the 300-ft deep Sturgeon River Gorge wilderness plunge (Sturgeon Falls), Power House Falls, and Keweenaw Bay waterfront cascades, with stops at The Hilltop's one-pound cinnamon rolls.</li>
+                <li><strong>Ironwood Border Cataracts & Montreal River Rift:</strong> Added western border rift expedition spanning Gabbro Falls (60-ft volcanic gabbro cataract), Superior Falls (50-ft drop into a 100-ft gorge at the river mouth), Interstate Falls on the state line, and Cisco Branch cascades, featuring Rigoni's Bakery and 1920s soda fountains.</li>
+                <li><strong>Munising Escarpment & Grand Island Gateway:</strong> Added central limestone shelf expedition highlighting Laughing Whitefish Falls (100-ft limestone stair cascade), Wagner Falls Scenic Site, Scott Falls walk-behind curtain, and Tannery Falls grotto, with pitstops at Johnny Dogs and the historic Trenary Toast Cafe.</li>
+                <li><strong>Seamless Route Integration:</strong> All 9 expeditions support one-click instant loading or appending directly into the active route itinerary with real-time driving mileage calculation and nearest-neighbor route optimization.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Version 0.17.0 */}
+          <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="font-serif text-2xl font-bold text-slate-800 flex items-center gap-2">
+                  Beta 0.17.0
+                </h3>
+                <span className="text-slate-500 font-semibold text-sm">September 2026</span>
               </div>
             </div>
             <div className="p-6 md:p-8 space-y-6">
