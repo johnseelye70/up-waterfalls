@@ -14,6 +14,7 @@ interface Waterfall {
   id: string
   name: string
   county: string
+  waterfall_photos?: { id: string }[]
 }
 
 export default function Admin() {
@@ -55,16 +56,20 @@ export default function Admin() {
   }, [lockoutTime])
 
   // Fetch waterfalls for dropdown once authenticated
+  const fetchWaterfalls = async () => {
+    const { data, error } = await supabase
+      .from('waterfalls')
+      .select('id, name, county, waterfall_photos(id)')
+      .order('name')
+    if (error) {
+      console.error("Error fetching waterfalls:", error)
+      setUploadStatus(`❌ DB Error: ${error.message}`)
+    }
+    if (data) setWaterfalls(data as any)
+  }
+
   useEffect(() => {
     if (adminKey) {
-      const fetchWaterfalls = async () => {
-        const { data, error } = await supabase.from('waterfalls').select('id, name, county').order('name')
-        if (error) {
-          console.error("Error fetching waterfalls:", error)
-          setUploadStatus(`❌ DB Error: ${error.message}`)
-        }
-        if (data) setWaterfalls(data)
-      }
       fetchWaterfalls()
     }
   }, [adminKey])
@@ -167,6 +172,7 @@ export default function Admin() {
       setUploadStatus('✅ Successfully uploaded and linked photo!')
       setFile(null)
       setCaption('')
+      fetchWaterfalls()
       
     } catch (err: any) {
       console.error(err)
@@ -241,6 +247,7 @@ export default function Admin() {
       if (e3) throw e3
       
       if (data) setPhotos(data)
+      fetchWaterfalls()
       setUploadStatus('✅ Photo deleted successfully!')
     } catch (err: any) {
       console.error(err)
@@ -340,9 +347,15 @@ export default function Admin() {
               className="w-full p-2.5 bg-slate-50 border border-slate-300 rounded text-sm focus:ring-2 focus:ring-copper-orange outline-none"
             >
               <option value="">-- Select a waterfall --</option>
-              {waterfalls.map(wf => (
-                <option key={wf.id} value={wf.id}>{wf.name} ({wf.county})</option>
-              ))}
+              {waterfalls.map(wf => {
+                const count = wf.waterfall_photos?.length || 0
+                return (
+                  <option key={wf.id} value={wf.id}>
+                    {count === 0 ? '⚠️ [Needs Photo] ' : `✅ [${count} photo${count > 1 ? 's' : ''}] `}
+                    {wf.name} ({wf.county})
+                  </option>
+                )
+              })}
             </select>
           </div>
 

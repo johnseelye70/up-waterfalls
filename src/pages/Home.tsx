@@ -265,14 +265,12 @@ export default function Home() {
                       className="group relative h-40 rounded-xl overflow-hidden shadow-md border-2 border-transparent hover:border-copper-orange transition-all text-left flex items-end p-4 focus:outline-none focus:ring-4 focus:ring-copper-orange/30"
                     >
                       <div 
-                        className="absolute inset-0 bg-cover bg-center"
+                        className="absolute inset-0 bg-cover bg-center bg-pinery-green"
                         style={{ 
-                          backgroundImage: heroImg 
-                            ? `url('${heroImg}')` 
-                            : 'url("https://images.unsplash.com/photo-1542273917363-3b1817f69a5d?auto=format&fit=crop&w=800&q=80")' // Default dense forest look
+                          backgroundImage: heroImg ? `url('${heroImg}')` : undefined
                         }}
                       ></div>
-                      <div className="absolute inset-0 bg-gradient-to-t from-superior-navy/90 via-superior-navy/40 to-black/20 group-hover:from-superior-navy transition-colors"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-superior-navy/95 via-superior-navy/50 to-black/30 group-hover:from-superior-navy transition-colors"></div>
                       
                       <div className="relative z-10 w-full flex justify-between items-end">
                         <div>

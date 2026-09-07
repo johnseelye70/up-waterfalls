@@ -22,14 +22,36 @@ export default function Changelog() {
             🔐
           </div>
           <div className="space-y-12">
-          {/* Version 0.10.2 */}
+          {/* Version 0.11.0 */}
           <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
             <div className="bg-pinery-green px-6 py-4 border-b border-emerald-800">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <h3 className="font-serif text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-copper-orange">★</span> Beta 0.10.2
+                  <span className="text-copper-orange">★</span> Beta 0.11.0
                 </h3>
-                <span className="text-emerald-100 font-semibold text-sm">August 2026</span>
+                <span className="text-emerald-100 font-semibold text-sm">September 2026</span>
+              </div>
+            </div>
+            <div className="p-6 md:p-8 space-y-6">
+              <p className="text-base font-semibold text-slate-800">100% Inline Architecture Compliance & Authentic Photo Curation Suite</p>
+              <ul className="text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                <li><strong>Complete Inline Architecture:</strong> Eliminated all full-screen modal popup boxes and fixed overlays across the application. Photo galleries and video presentations in the Directory, as well as the 14-day extended trail forecast in Waterfall Details, now expand 100% inline within the page document stream.</li>
+                <li><strong>Purged Synthetic & Misattributed Content:</strong> Removed generic Unsplash stock photos from hero and county cards. Established authentic UP wilderness state badges inviting visitor contributions when authentic photos are not yet verified.</li>
+                <li><strong>Database Photo Cleaning Suite:</strong> Created <code className="bg-slate-100 px-1 rounded text-slate-700">clean_photos.sql</code> and automated audit tooling to remove non-waterfall artifacts (minerals, signs, maps, distant scenery) and ensure authentic photography.</li>
+                <li><strong>Admin Curation Indicators:</strong> Upgraded the Admin portal waterfall selector to display live photo indicators (<code className="text-amber-700">⚠️ Needs Photo</code> vs <code className="text-emerald-700">✅ X photos</code>) for seamless photo inventory management.</li>
+                <li><strong>iOS Table Layout Optimization:</strong> Adjusted Directory table widths to fixed 100% layout and reduced mobile cell padding to prevent horizontal viewport shift on narrow devices.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Version 0.10.2 */}
+          <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="font-serif text-2xl font-bold text-slate-800 flex items-center gap-2">
+                  Beta 0.10.2
+                </h3>
+                <span className="text-slate-500 font-semibold text-sm">August 2026</span>
               </div>
             </div>
             <div className="p-6 md:p-8 space-y-6">

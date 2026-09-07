@@ -150,11 +150,11 @@ export default function WaterfallDetail() {
         console.error('Error fetching photos:', photosError)
       } else if (photosData && photosData.length > 0) {
         setPhotos(photosData)
-        // Set initial active photo to the hero (or the first one)
+        // Initial active photo to hero or empty if none exist
         setActivePhoto(photosData[0].image_url)
       } else {
-        // Fallback default image if no photos exist
-        setActivePhoto('https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80')
+        // No photos exist yet - keep empty to show authentic UP wilderness placeholder
+        setActivePhoto('')
       }
 
       const { data: blogsData, error: blogsError } = await supabase
@@ -216,10 +216,19 @@ export default function WaterfallDetail() {
         )}
       </div>
 
-      <div className="relative rounded-xl overflow-hidden shadow-xl border-2 border-pinery-green">
-        <div className="h-[450px] bg-cover bg-center relative" style={{ backgroundImage: `url('${getThumbnailUrl(activePhoto, 1200)}')` }}>
+      <div className="relative rounded-xl overflow-hidden shadow-xl border-2 border-pinery-green bg-emerald-950">
+        <div 
+          className="h-[450px] bg-cover bg-center relative" 
+          style={{ backgroundImage: activePhoto ? `url('${getThumbnailUrl(activePhoto, 1200)}')` : undefined }}
+        >
           <div className="absolute inset-0 bg-gradient-to-t from-superior-navy via-superior-navy/40 to-transparent"></div>
           
+          {!activePhoto && (
+            <div className="absolute top-6 right-6 z-20 bg-slate-900/80 backdrop-blur border border-copper-orange/60 text-copper-orange px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-2 shadow">
+              <span>🌲</span> Authentic Photo Needed • <Link to="/admin" className="underline hover:text-white">Upload via Admin</Link>
+            </div>
+          )}
+
           <div className="absolute bottom-6 left-6 right-6 text-white space-y-2">
             <div className="flex flex-wrap items-center gap-2 text-xs">
               <span className="bg-copper-orange text-white px-2.5 py-0.5 rounded font-medium shadow">{waterfall.region}</span>
@@ -277,8 +286,11 @@ export default function WaterfallDetail() {
             <p className="text-xs text-slate-500 pb-2">Click any thumbnail to expand the image in the hero viewer above.</p>
             
             {photos.length === 0 ? (
-              <div className="text-sm text-slate-500 italic p-4 bg-parchment border border-slate-200 rounded">
-                No visitor photos uploaded yet.
+              <div className="text-sm text-slate-500 italic p-5 bg-parchment border border-slate-200 rounded flex flex-col sm:flex-row items-center justify-between gap-3">
+                <span>No verified visitor photos uploaded yet for this waterfall.</span>
+                <Link to="/admin" className="bg-copper-orange hover:bg-tahquamenon-amber text-white text-xs font-bold px-4 py-2 rounded transition shadow shrink-0 not-italic">
+                  Upload Photo
+                </Link>
               </div>
             ) : (
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
@@ -343,39 +355,75 @@ export default function WaterfallDetail() {
         {/* Right Sidebar */}
         <div className="space-y-6">
           
-          {/* Live Weather Widget */}
+          {/* Live Weather Widget & Inline 14-Day Forecast (100% Inline Architecture) */}
           {weather && (
-            <div 
-              onClick={() => setShowForecast(true)}
-              className="bg-emerald-950 p-2.5 sm:p-3 rounded-lg shadow-lg border border-emerald-800 space-y-1.5 relative overflow-hidden text-white cursor-pointer hover:border-emerald-500 hover:shadow-emerald-900/50 transition group"
-            >
-              <div className="relative z-10 flex justify-between items-start">
-                <div>
-                  <h4 className="font-serif text-[11px] font-bold text-emerald-400 uppercase tracking-widest flex items-center gap-1.5">
-                    Live Conditions 
-                  </h4>
-                  <div className="flex items-center gap-2 mt-0.5">
-                    <span className="text-2xl font-extrabold">{Math.round(weather.temperature)}°</span>
-                    <div className="flex flex-col text-[11px] font-semibold leading-tight text-emerald-100">
-                      <span>{getWeatherInfo(weather.weathercode).icon} {getWeatherInfo(weather.weathercode).text}</span>
-                      <span className="text-emerald-300 text-[9px]">Wind: {weather.windspeed} mph</span>
+            <div className="space-y-3">
+              <div 
+                onClick={() => setShowForecast(!showForecast)}
+                className="bg-emerald-950 p-2.5 sm:p-3 rounded-lg shadow-lg border border-emerald-800 space-y-1.5 relative overflow-hidden text-white cursor-pointer hover:border-emerald-500 hover:shadow-emerald-900/50 transition group"
+              >
+                <div className="relative z-10 flex justify-between items-start">
+                  <div>
+                    <h4 className="font-serif text-[11px] font-bold text-emerald-400 uppercase tracking-widest flex items-center gap-1.5">
+                      Live Conditions 
+                    </h4>
+                    <div className="flex items-center gap-2 mt-0.5">
+                      <span className="text-2xl font-extrabold">{Math.round(weather.temperature)}°</span>
+                      <div className="flex flex-col text-[11px] font-semibold leading-tight text-emerald-100">
+                        <span>{getWeatherInfo(weather.weathercode).icon} {getWeatherInfo(weather.weathercode).text}</span>
+                        <span className="text-emerald-300 text-[9px]">Wind: {weather.windspeed} mph</span>
+                      </div>
                     </div>
                   </div>
+                  <div className="bg-white/10 px-2 py-1 rounded text-[10px] font-bold text-emerald-300 group-hover:bg-emerald-500 group-hover:text-white transition flex items-center gap-1">
+                    <span>{showForecast ? 'Hide Forecast ▲' : '14-Day Forecast ▼'}</span>
+                  </div>
                 </div>
-                <div className="bg-white/10 p-1.5 rounded-full group-hover:bg-emerald-500 transition">
-                  <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </div>
+                
+                {getWeatherInfo(weather.weathercode).trailWarning ? (
+                  <div className="relative z-10 mt-1.5 bg-red-900/40 border border-red-500/50 rounded py-1 px-1.5 text-[10px] sm:text-[11px] text-red-200 font-semibold flex items-center gap-1.5">
+                    <span>⚠️</span> {getWeatherInfo(weather.weathercode).trailWarning}
+                  </div>
+                ) : (
+                  <div className="relative z-10 mt-1 text-[10px] text-emerald-300 font-medium">
+                    {showForecast ? 'Extended 14-day trail forecast displayed below' : 'Click to expand 14-day trail forecast inline'}
+                  </div>
+                )}
               </div>
-              
-              {getWeatherInfo(weather.weathercode).trailWarning ? (
-                <div className="relative z-10 mt-1.5 bg-red-900/40 border border-red-500/50 rounded py-1 px-1.5 text-[10px] sm:text-[11px] text-red-200 font-semibold flex items-center gap-1.5">
-                  <span>⚠️</span> {getWeatherInfo(weather.weathercode).trailWarning}
-                </div>
-              ) : (
-                <div className="relative z-10 mt-1.5 text-[10px] text-emerald-200 font-medium flex items-center gap-1.5 opacity-80 group-hover:opacity-100 transition">
-                  <span>📅</span> View 14-Day Forecast
+
+              {/* INLINE 14-DAY FORECAST (100% INLINE ARCHITECTURE - ZERO MODALS) */}
+              {showForecast && (
+                <div className="bg-emerald-950 rounded-xl shadow-xl border border-emerald-800 p-3 text-white space-y-2 animate-in fade-in slide-in-from-top-2 duration-200">
+                  <div className="flex items-center justify-between border-b border-emerald-800/80 pb-2">
+                    <h5 className="font-serif text-xs font-bold text-emerald-200 flex items-center gap-1.5">
+                      <span>📅</span> 14-Day Trail Forecast
+                    </h5>
+                    <button 
+                      onClick={(e) => { e.stopPropagation(); setShowForecast(false); }}
+                      className="text-[10px] text-emerald-400 hover:text-white font-bold"
+                    >
+                      Close
+                    </button>
+                  </div>
+
+                  <div className="space-y-1.5 pt-1 max-h-[380px] overflow-y-auto">
+                    {dailyForecast.map((day, idx) => {
+                      const info = getWeatherInfo(day.weathercode)
+                      return (
+                        <div key={idx} className="bg-emerald-900/40 border border-emerald-800/50 rounded-lg py-1.5 px-2 flex items-center justify-between hover:bg-emerald-900/60 transition text-xs">
+                          <span className="text-emerald-100 font-bold text-[11px] w-24">{day.date}</span>
+                          <div className="flex items-center gap-1.5">
+                            <span className="text-sm">{info.icon}</span>
+                            <span className="text-[9px] text-emerald-300 font-semibold uppercase hidden sm:inline">{info.text}</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-xs text-white font-bold">{day.maxTemp}°</span>
+                            <span className="text-xs text-blue-300 font-semibold">{day.minTemp}°</span>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
                 </div>
               )}
             </div>
@@ -437,68 +485,6 @@ export default function WaterfallDetail() {
 
         </div>
       </div>
-
-      {/* 14-DAY FORECAST MODAL OVERLAY (iOS Safe) */}
-      {showForecast && (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-3 animate-in fade-in duration-200">
-          <div className="bg-emerald-950 w-full max-w-sm rounded-xl shadow-2xl border border-emerald-800 flex flex-col overflow-hidden max-h-[80%]">
-            
-            {/* Modal Header */}
-            <div className="bg-emerald-900/90 px-3 py-2.5 border-b border-emerald-800 flex items-center justify-between sticky top-0 z-10">
-              <div>
-                <h3 className="font-serif text-base font-bold text-white flex items-center gap-1.5">
-                  <span>📅</span> 14-Day Forecast
-                </h3>
-                <p className="text-[9px] text-emerald-300 mt-0.5 uppercase tracking-wider font-semibold truncate max-w-[200px]">
-                  {waterfall.name}
-                </p>
-              </div>
-              <button 
-                onClick={() => setShowForecast(false)}
-                className="text-emerald-400 hover:text-white transition p-1.5 bg-emerald-950/50 hover:bg-emerald-800 rounded-full"
-              >
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
-
-            {/* Modal Body (Scrollable) */}
-            <div className="p-2.5 overflow-y-auto">
-              <div className="space-y-1">
-                {dailyForecast.map((day, idx) => {
-                  const info = getWeatherInfo(day.weathercode)
-                  return (
-                    <div key={idx} className="bg-emerald-900/40 border border-emerald-800/50 rounded-lg py-1.5 px-2.5 flex items-center justify-between hover:bg-emerald-900/60 transition">
-                      
-                      <div className="flex items-center gap-2 w-1/3 min-w-[70px]">
-                        <span className="text-emerald-100 font-bold text-[11px] sm:text-xs">{day.date}</span>
-                      </div>
-                      
-                      <div className="flex flex-col items-center justify-center w-1/3">
-                        <span className="text-base">{info.icon}</span>
-                        <span className="text-[8px] text-emerald-300 font-semibold uppercase tracking-wider text-center leading-tight mt-0.5">{info.text}</span>
-                      </div>
-                      
-                      <div className="flex items-center justify-end gap-2.5 w-1/3">
-                        <div className="flex flex-col items-end">
-                          <span className="text-[8px] text-emerald-400/70 font-semibold uppercase leading-none mb-0.5">Hi</span>
-                          <span className="text-xs text-white font-bold leading-none">{day.maxTemp}°</span>
-                        </div>
-                        <div className="flex flex-col items-end">
-                          <span className="text-[8px] text-blue-400/70 font-semibold uppercase leading-none mb-0.5">Lo</span>
-                          <span className="text-xs text-blue-200 font-bold leading-none">{day.minTemp}°</span>
-                        </div>
-                      </div>
-
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
 
     </div>
   )
