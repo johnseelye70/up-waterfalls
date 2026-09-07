@@ -22,14 +22,50 @@ export default function Changelog() {
             🔐
           </div>
           <div className="space-y-12">
-          {/* Version 0.18.0 */}
+          {/* Version 0.19.0 */}
           <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
             <div className="bg-pinery-green px-6 py-4 border-b border-emerald-800">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <h3 className="font-serif text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-copper-orange">★</span> Beta 0.18.0
+                  <span className="text-copper-orange">★</span> Beta 0.19.0
                 </h3>
                 <span className="text-emerald-100 font-semibold text-sm">September 2026</span>
+              </div>
+            </div>
+            <div className="p-6 md:p-8 space-y-6">
+              <p className="text-base font-semibold text-slate-800">Northwoods Field Guides & Travel Journal Overhaul: Long-Form Multi-Chapter Expeditions, Curated Waterfall Editorial Blogs & 100% Inline Reading Portal</p>
+              <ul className="text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                <li><strong>📚 8 Deep Northwoods Master Field Guides:</strong> Authored extensive, multi-chapter field guides written by seasoned Upper Peninsula wilderness guides and naturalists across 5 core disciplines (Regional Expeditions, Trail Craft & Safety, Seasonal Tactics, Photography, Culinary & Culture). Topics include:
+                  <ul className="list-circle list-inside ml-4 mt-1 space-y-1">
+                    <li><em>The Definitive Guide to Pictured Rocks Waterfall Country</em> (Miners, Chapel, Mosquito, Spray, Munising)</li>
+                    <li><em>The Porcupine Mountains & Presque Isle River Wilderness Expedition</em> (Manido, Nawadaha, Presque Isle, trap rock gorges)</li>
+                    <li><em>Chasing Copper Country Cataracts: The Keweenaw Peninsula Trail</em> (Hungarian, Jacob's, Eagle River, manganese gorges)</li>
+                    <li><em>Spring Snowmelt Torrent Tactics: How to Chase Peak Flow in May & June</em> (Snowpack water equivalent, discharge spikes, hydro graph tactics)</li>
+                    <li><em>The Photographer's Masterclass: Capturing Lake Superior's Wild Waterfalls</em> (ND filter matrices, long exposure water silky effects, polarizer glare cutting)</li>
+                    <li><em>The Northwoods Winter Wonderland: Frozen Ice Caves & Glacial Cataracts</em> (Eben ice caves, crampon safety, frozen blue ice columns)</li>
+                    <li><em>The Upper Peninsula Pasty & Pitstop Trail: Fueling Your Waterfall Road Trip</em> (Rutabaga ratios, Finnish bakeries, legendary pitstops)</li>
+                    <li><em>Bark & Cascades: The Dog-Friendly Waterfall Explorer's Handbook</em> (Canine heat safety, paw protection on volcanic trap rock, leash regulations)</li>
+                  </ul>
+                </li>
+                <li><strong>🧭 Dedicated Field Guides & Travel Journal Portal (`/guides`):</strong> Built a complete guides exploration hub featuring category filter tabs, live full-text search across titles, summaries, tags, and chapter content, and a prominent Featured Hero Master Guide banner.</li>
+                <li><strong>📖 100% Inline Multi-Chapter Interactive Reader:</strong> Adheres strictly to the Zero Modal Popup Boxes rule. Deep reading views render completely inline within the main document flow, featuring chapter navigation anchor links, Ranger Field Advisories, Recommended Gear matrices, and deep FAQ accordions.</li>
+                <li><strong>⚡ Turnkey Trip Planner Route Injection:</strong> Field guides now feature a one-click <em>"🧭 Add All {'{N}'} Waterfalls to Trip"</em> button that instantly appends the guide's curated waterfalls into the user's active expedition itinerary.</li>
+                <li><strong>📰 26 Curated Waterfall Editorial Articles:</strong> Mapped authentic, richly researched blog dispatches directly to UUIDs in the 291-waterfall catalog.</li>
+                <li><strong>🌟 Waterfall Detail Integration:</strong> Overhauled the "In The Blogs & Field Guides" section on every waterfall page. Highlights when a waterfall is featured in a master expedition with a prominent golden badge linking to the full guide, accompanied by rich editorial story cards with cover photos, reading times, publication sources, and excerpts.</li>
+                <li><strong>🏠 Homepage Dispatches Showcase:</strong> Added a featured Field Guides & Travel Dispatches section to the homepage providing immediate entry into the editorial catalog.</li>
+                <li><strong>📱 iOS Safari Compliant Layout:</strong> Clean fluid layouts using 100% widths without 100vw or root scroll restrictions.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Version 0.18.0 */}
+          <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="font-serif text-2xl font-bold text-slate-800 flex items-center gap-2">
+                  Beta 0.18.0
+                </h3>
+                <span className="text-slate-500 font-semibold text-sm">September 2026</span>
               </div>
             </div>
             <div className="p-6 md:p-8 space-y-6">

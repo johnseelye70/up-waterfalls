@@ -1,10 +1,11 @@
 import { Link, useParams } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
 import Map from '../components/Map'
 import { supabase } from '../lib/supabase'
 import { useTrip } from '../lib/TripContext'
 import { getThumbnailUrl } from '../lib/utils'
 import { enrichWaterfall, type EnrichedWaterfall } from '../lib/enrichWaterfall'
+import { TRAVEL_GUIDES, WATERFALL_BLOG_ARTICLES } from '../data/travelGuidesData'
 
 interface NearbyPlace {
   id: string
@@ -160,6 +161,48 @@ export default function WaterfallDetail() {
     fetchData()
   }, [slug])
 
+  const featuredMasterGuides = useMemo(() => {
+    if (!waterfall) return []
+    return TRAVEL_GUIDES.filter(g => g.associatedWaterfallIds.includes(waterfall.id))
+  }, [waterfall])
+
+  const allCuratedArticles = useMemo(() => {
+    if (!waterfall) return []
+    const localArticles = WATERFALL_BLOG_ARTICLES.filter(
+      a => a.waterfallId === waterfall.id || a.waterfallName.toLowerCase() === waterfall.name.toLowerCase()
+    )
+    const dbBlogs = blogs.map(b => ({
+      id: b.id,
+      waterfallId: waterfall.id,
+      waterfallName: waterfall.name,
+      title: b.title,
+      sourceSite: b.source_site,
+      author: 'Staff Writer',
+      url: b.url,
+      coverImageUrl: b.cover_image_url,
+      snippet: b.snippet,
+      publishedDate: b.published_date,
+      readingTime: '5 min read',
+      category: 'Travel Guide'
+    }))
+
+    const seen = new Set<string>()
+    const combined = []
+    for (const art of [...localArticles, ...dbBlogs]) {
+      const key = art.title.toLowerCase()
+      if (!seen.has(key)) {
+        seen.add(key)
+        combined.push(art)
+      }
+    }
+
+    if (combined.length === 0) {
+      return WATERFALL_BLOG_ARTICLES.slice(0, 2)
+    }
+
+    return combined
+  }, [waterfall, blogs])
+
   if (loading) {
     return (
       <div className="flex-grow flex items-center justify-center font-serif text-xl text-slate-500">
@@ -177,11 +220,13 @@ export default function WaterfallDetail() {
   }
 
   const handleAddToTrip = () => {
-    addToTrip({
-      id: waterfall.id,
-      name: waterfall.name,
-      region: waterfall.region
-    })
+    if (waterfall) {
+      addToTrip({
+        id: waterfall.id,
+        name: waterfall.name,
+        region: waterfall.region
+      })
+    }
   }
 
   return (
@@ -389,41 +434,90 @@ export default function WaterfallDetail() {
             )}
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow border border-slate-200 space-y-4">
+          <div className="bg-white p-6 rounded-lg shadow border border-slate-200 space-y-5">
             <div className="flex items-center justify-between border-b border-slate-200 pb-2">
               <h3 className="font-serif text-xl font-bold text-pinery-green flex items-center gap-2">
-                <span>📰</span> In The Blogs & Travel Guides
+                <span>📰</span> In The Blogs & Field Guides
               </h3>
-              {blogs.length > 0 && (
-                <span className="text-xs text-copper-orange font-semibold">{blogs.length} Curated Articles</span>
-              )}
+              <Link
+                to="/guides"
+                className="text-xs font-bold text-copper-orange hover:text-tahquamenon-amber flex items-center gap-1 transition"
+              >
+                <span>Browse All Guides</span> ➔
+              </Link>
             </div>
 
-            {blogs.length === 0 ? (
-              <div className="text-sm text-slate-500 italic p-4 bg-parchment border border-slate-200 rounded">
-                No curated articles or travel guides linked yet.
-              </div>
-            ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {blogs.map(blog => (
-                  <div key={blog.id} className="border border-slate-200 rounded overflow-hidden flex flex-col bg-parchment hover:border-copper-orange transition">
-                    {blog.cover_image_url && (
-                      <img src={blog.cover_image_url} className="h-32 w-full object-cover" alt="Blog cover" />
-                    )}
-                    <div className="p-3 flex-grow flex flex-col justify-between space-y-2">
-                      <span className="text-[10px] text-copper-orange font-bold uppercase tracking-wider">{blog.source_site}</span>
-                      <h4 className="font-serif text-xs font-bold text-slate-900 leading-snug">{blog.title}</h4>
-                      {blog.snippet && (
-                        <p className="text-[11px] text-slate-600 line-clamp-2">{blog.snippet}</p>
-                      )}
-                      <a href={blog.url} target="_blank" rel="noopener noreferrer" className="text-[11px] text-pinery-green font-semibold hover:underline flex items-center gap-1 mt-2">
-                        Read Article <span>↗</span>
-                      </a>
-                    </div>
+            {/* Featured Master Field Guide Banner (if waterfall is in a master guide) */}
+            {featuredMasterGuides.map(guide => (
+              <div
+                key={guide.id}
+                className="bg-emerald-950 text-white p-4 sm:p-5 rounded-xl shadow border border-emerald-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4"
+              >
+                <div className="space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="bg-copper-orange text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
+                      ★ Featured Master Field Guide
+                    </span>
+                    <span className="text-emerald-300 text-xs font-semibold">⏱️ {guide.readTime}</span>
                   </div>
-                ))}
+                  <h4 className="font-serif text-base sm:text-lg font-bold text-white leading-tight">
+                    {guide.title}
+                  </h4>
+                  <p className="text-xs text-emerald-200/80 line-clamp-1">
+                    {guide.subtitle}
+                  </p>
+                </div>
+                <Link
+                  to={`/guides/${guide.id}`}
+                  className="bg-copper-orange hover:bg-tahquamenon-amber text-white text-xs font-bold px-4 py-2.5 rounded shadow transition shrink-0 text-center"
+                >
+                  Read Field Guide ➔
+                </Link>
               </div>
-            )}
+            ))}
+
+            {/* Curated Waterfall Articles Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {allCuratedArticles.map(art => (
+                <div
+                  key={art.id}
+                  className="border border-slate-200 rounded-lg overflow-hidden flex flex-col bg-parchment hover:border-copper-orange transition shadow-sm"
+                >
+                  {art.coverImageUrl && (
+                    <div className="relative h-32 w-full overflow-hidden">
+                      <img src={art.coverImageUrl} className="h-full w-full object-cover" alt="Article cover" loading="lazy" />
+                      <span className="absolute top-2 left-2 bg-black/60 backdrop-blur-sm text-white text-[9px] font-bold uppercase px-1.5 py-0.5 rounded">
+                        {art.category}
+                      </span>
+                    </div>
+                  )}
+                  <div className="p-3.5 flex-grow flex flex-col justify-between space-y-2">
+                    <div className="space-y-1">
+                      <div className="flex items-center justify-between text-[10px] text-slate-500 font-semibold uppercase tracking-wider">
+                        <span className="text-copper-orange font-bold">{art.sourceSite}</span>
+                        <span>{art.readingTime}</span>
+                      </div>
+                      <h4 className="font-serif text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                        {art.title}
+                      </h4>
+                      {art.snippet && (
+                        <p className="text-[11px] text-slate-600 line-clamp-2 leading-relaxed">
+                          {art.snippet}
+                        </p>
+                      )}
+                    </div>
+                    <a
+                      href={art.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[11px] text-pinery-green font-bold hover:underline flex items-center gap-1 mt-1 pt-2 border-t border-slate-200"
+                    >
+                      Read Full Article <span>↗</span>
+                    </a>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 

@@ -23,6 +23,7 @@ export default function Layout({ children }: LayoutProps) {
           <nav className="hidden md:flex space-x-6 text-sm font-medium text-parchment">
             <Link to="/" className="hover:text-copper-orange transition">Hubs & Loops</Link>
             <Link to="/directory" className="hover:text-copper-orange transition">Waterfall Directory</Link>
+            <Link to="/guides" className="hover:text-copper-orange transition">Field Guides</Link>
             <Link to="/trip" className="hover:text-copper-orange transition">Trip Planner</Link>
           </nav>
 
@@ -78,7 +79,7 @@ export default function Layout({ children }: LayoutProps) {
               to="/changelog"
               className="bg-emerald-900/60 hover:bg-emerald-800 text-white px-6 py-3 rounded-lg border border-emerald-800/50 shadow-lg transition flex items-center gap-3 font-semibold"
             >
-              <span>📋</span> Beta 0.18.0
+              <span>📋</span> Beta 0.19.0
             </Link>
           </div>
 

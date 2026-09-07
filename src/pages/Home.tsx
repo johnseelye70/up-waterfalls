@@ -3,6 +3,7 @@ import { useEffect, useState, useMemo } from 'react'
 import { supabase } from '../lib/supabase'
 import { getThumbnailUrl } from '../lib/utils'
 import { enrichWaterfall, type EnrichedWaterfall } from '../lib/enrichWaterfall'
+import { TRAVEL_GUIDES } from '../data/travelGuidesData'
 
 export default function Home() {
   const [waterfalls, setWaterfalls] = useState<EnrichedWaterfall[]>([])
@@ -275,6 +276,72 @@ export default function Home() {
                     </button>
                   )
               })}
+            </div>
+          </div>
+        )}
+
+        {/* Featured Field Guides & Travel Journal Section */}
+        {!selectedCounty && !searchQuery && (
+          <div className="pt-8 border-t-2 border-slate-300/60 space-y-6">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b-2 border-copper-orange/30 pb-2">
+              <div>
+                <h3 className="font-serif text-2xl font-bold text-pinery-green flex items-center gap-2">
+                  <span>📖</span> Field Guides & Travel Dispatches
+                </h3>
+                <p className="text-xs text-slate-600 mt-0.5">
+                  Deep-dive regional dossiers, seasonal tactics, and photography masterclasses by Northwoods trail scouts.
+                </p>
+              </div>
+              <Link
+                to="/guides"
+                className="text-xs font-bold text-copper-orange hover:text-tahquamenon-amber flex items-center gap-1 transition self-start sm:self-auto"
+              >
+                <span>Browse All 8 Guides</span> ➔
+              </Link>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {TRAVEL_GUIDES.slice(0, 3).map(guide => (
+                <Link
+                  key={guide.id}
+                  to={`/guides/${guide.id}`}
+                  className="bg-white rounded-xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md hover:border-copper-orange transition flex flex-col justify-between group"
+                >
+                  <div className="space-y-3">
+                    <div className="relative h-44 overflow-hidden">
+                      <img
+                        src={guide.heroImageUrl}
+                        alt={guide.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-2.5 left-2.5 bg-emerald-950/80 backdrop-blur-sm text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded">
+                        {guide.category}
+                      </div>
+                      <div className="absolute bottom-2.5 right-2.5 bg-black/60 backdrop-blur-sm text-white text-[10px] font-semibold px-2 py-0.5 rounded">
+                        ⏱️ {guide.readTime}
+                      </div>
+                    </div>
+                    <div className="p-4 space-y-2">
+                      <h4 className="font-serif text-base font-bold text-slate-900 group-hover:text-copper-orange transition leading-snug">
+                        {guide.title}
+                      </h4>
+                      <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                        {guide.excerpt}
+                      </p>
+                      <div className="pt-2 flex items-center gap-2 text-[11px] text-slate-500 border-t border-slate-100">
+                        <span>{guide.author.avatarEmoji}</span>
+                        <span className="font-semibold text-slate-800">{guide.author.name}</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-4 pt-0">
+                    <span className="text-xs font-bold text-copper-orange flex items-center gap-1">
+                      Read Field Guide <span>➔</span>
+                    </span>
+                  </div>
+                </Link>
+              ))}
             </div>
           </div>
         )}
