@@ -22,14 +22,34 @@ export default function Changelog() {
             🔐
           </div>
           <div className="space-y-12">
-          {/* Version 0.12.0 */}
+          {/* Version 0.13.0 */}
           <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
             <div className="bg-pinery-green px-6 py-4 border-b border-emerald-800">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <h3 className="font-serif text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-copper-orange">★</span> Beta 0.12.0
+                  <span className="text-copper-orange">★</span> Beta 0.13.0
                 </h3>
                 <span className="text-emerald-100 font-semibold text-sm">September 2026</span>
+              </div>
+            </div>
+            <div className="p-6 md:p-8 space-y-6">
+              <p className="text-base font-semibold text-slate-800">GPS Coordinate Geosearch & Backcountry Waterfall Photo Expansion</p>
+              <ul className="text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                <li><strong>Automated GPS Geocoded Sourcing:</strong> Implemented a coordinate-based geosearch pipeline matching physical camera coordinates within 800m of recorded waterfall locations, bypassing naming ambiguities.</li>
+                <li><strong>14 New Backcountry Waterfalls Covered:</strong> Added verified field photography for Saxon Falls, Lower Saxon Falls, Chippewa Falls, Nelson Canyon Falls, Lower Gleason Creek Falls, Lower Plover Falls, Upper O Kun de Kun Falls, Rocky Forty Falls, Upper Rocky Forty Falls, West Branch Yellow Dog Falls, Granite Rapids Falls, Tobacco Falls, Manganese Gorge Falls, and Little Union Gorge Falls.</li>
+                <li><strong>Expanded Database Coverage:</strong> Increased authentic Upper Peninsula photo coverage to 66 unique waterfalls and 158 verified photos, complete with USFS botanist and field photographer attributions.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Version 0.12.0 */}
+          <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="font-serif text-2xl font-bold text-slate-800 flex items-center gap-2">
+                  Beta 0.12.0
+                </h3>
+                <span className="text-slate-500 font-semibold text-sm">September 2026</span>
               </div>
             </div>
             <div className="p-6 md:p-8 space-y-6">
