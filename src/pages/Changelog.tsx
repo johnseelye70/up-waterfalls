@@ -22,14 +22,48 @@ export default function Changelog() {
             🔐
           </div>
           <div className="space-y-12">
-          {/* Version 0.19.0 */}
+          {/* Version 0.20.0 */}
           <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
             <div className="bg-pinery-green px-6 py-4 border-b border-emerald-800">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <h3 className="font-serif text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-copper-orange">★</span> Beta 0.19.0
+                  <span className="text-copper-orange">★</span> Beta 0.20.0
                 </h3>
                 <span className="text-emerald-100 font-semibold text-sm">September 2026</span>
+              </div>
+            </div>
+            <div className="p-6 md:p-8 space-y-6">
+              <p className="text-base font-semibold text-slate-800">Expanded Master Field Guides Portfolio: 10 New Multi-Chapter Expeditions (18 Total) Across All 5 Disciplines & 12 New Curated Editorial Dispatches (38 Total)</p>
+              <ul className="text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                <li><strong>📚 10 New Comprehensive Master Field Guides (18 Total):</strong> Added 2 high-depth, multi-chapter field guides to every single category:
+                  <ul className="list-circle list-inside ml-4 mt-1 space-y-1">
+                    <li><em>Regional Expeditions:</em> <strong>The Black River Scenic Byway Gorge Odyssey</strong> (Copper Harbor Conglomerate geology, 500+ stair endurance, Great Conglomerate, Potawatomi, Gorge, Sandstone, Rainbow Falls, and harbor estuary).</li>
+                    <li><em>Regional Expeditions:</em> <strong>Marquette Backcountry & The Dead River Gorges</strong> (Archean granite shield scrambles, Dead River multi-pitch canyon, Yellow Dog Wild & Scenic River, Morgan Falls, and Warner Falls).</li>
+                    <li><em>Trail Craft & Safety:</em> <strong>Backcountry Navigation & Zero-Cell Survival</strong> (DeLorme atlas navigation, logging road/CFR etiquette, Jacobsville red clay/sand recovery, satellite SOS protocols, and black bear safety).</li>
+                    <li><em>Trail Craft & Safety:</em> <strong>Blackflies, Mosquitoes & Timber Ticks Defense Blueprint</strong> (Scientific hatch calendars, Permethrin vs. Picaridin vs. DEET chemistry, fine mesh headnet tactics, and deer tick prevention in bracken ferns).</li>
+                    <li><em>Seasonal Tactics:</em> <strong>Autumn Color Explosion: Peak Fall Foliage & Hardwood Cascades</strong> (3 regional foliage microclimates, recharged autumn flow surges, Bond Falls reflections, and wet leaf/frost hazards).</li>
+                    <li><em>Seasonal Tactics:</em> <strong>Summer Low-Flow Secrets: Hidden Grottoes & Plunge Pools</strong> (Prehistoric bedrock potholes, safe plunge pool depth checks and hydraulic undertow avoidance, bedrock creek walking, and watershed protection).</li>
+                    <li><em>Photography:</em> <strong>Drone Flight Tactics in Northwoods River Gorges</strong> (Airspace legality across NPS vs National Forests, canyon GPS loss / ATTI mode survival, rotor mist condensation, and ferrous iron compass anomalies).</li>
+                    <li><em>Photography:</em> <strong>Night Sky & Auroras over Cascades</strong> (Lake Superior Bortle 1 dark skies, solar wind / Bz / Kp space weather forecasting, 500 Rule star exposure math, and Low-Level Landscape Lighting).</li>
+                    <li><em>Culinary & Culture:</em> <strong>Smoked Whitefish, Thimbleberry Preserves & Foraged Wild Flavors</strong> (Lake Superior trap-net fisheries, sugar maple smokehouses, wild Keweenaw thimbleberry harvesting, and spring ramps/morels).</li>
+                    <li><em>Culinary & Culture:</em> <strong>Lumberjack River Drives, Deserted Copper Stamp Mills & Sacred Spirits</strong> (Ojibwe sacred water traditions, 19th-century white pine river drives / peavey hooks, and Hungarian Falls copper stamp mill ruins).</li>
+                  </ul>
+                </li>
+                <li><strong>📰 12 New Curated Waterfall Editorial Articles (38 Total):</strong> Added richly researched editorial story dispatches mapped directly to waterfalls including Great Conglomerate Falls, Gorge Falls, Rainbow Falls, Dead River Falls, Morgan Falls, Warner Falls, Agate Falls, Manabezho Falls, Manido Falls, Eagle River Falls, Manganese Gorge Falls, and Sandstone Falls.</li>
+                <li><strong>⚡ Turnkey Trip Planner Route Integration:</strong> All 10 new guides feature one-click trip addition, instantly injecting all associated waterfalls into the user's active expedition itinerary.</li>
+                <li><strong>📖 100% Inline Architecture & Zero Modals:</strong> All 18 field guides render natively inline in the <code className="bg-slate-100 px-1 rounded">&lt;main&gt;</code> document stream with chapter jump navigation, Ranger Advisories, and Gear Matrices.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Version 0.19.0 */}
+          <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="font-serif text-2xl font-bold text-slate-800 flex items-center gap-2">
+                  Beta 0.19.0
+                </h3>
+                <span className="text-slate-500 font-semibold text-sm">September 2026</span>
               </div>
             </div>
             <div className="p-6 md:p-8 space-y-6">
