@@ -22,14 +22,36 @@ export default function Changelog() {
             🔐
           </div>
           <div className="space-y-12">
-          {/* Version 0.13.0 */}
+          {/* Version 0.14.0 */}
           <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
             <div className="bg-pinery-green px-6 py-4 border-b border-emerald-800">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <h3 className="font-serif text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-copper-orange">★</span> Beta 0.13.0
+                  <span className="text-copper-orange">★</span> Beta 0.14.0
                 </h3>
                 <span className="text-emerald-100 font-semibold text-sm">September 2026</span>
+              </div>
+            </div>
+            <div className="p-6 md:p-8 space-y-6">
+              <p className="text-base font-semibold text-slate-800">Admin Fast-Tagger Dropzone, Top 35 Priority Trail Falls, & Historical Digital Archives</p>
+              <ul className="text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                <li><strong>Admin Multi-Photo Dropzone & Fast-Tagger:</strong> Redesigned the administrator upload workflow with a multi-file drag-and-drop zone. Supports simultaneous multi-image queues, instant thumbnail previews, per-photo waterfall tagging, batch tagging, and sequential Supabase Storage uploads with real-time progress indicators.</li>
+                <li><strong>Top 35 Priority Trail Falls Hit List:</strong> Added a dedicated interactive inline dashboard highlighting essential Upper Peninsula trail destinations awaiting authentic photos (including Jacob's Falls, Sturgeon Falls, Piers Gorge, Rock River Falls, Big Erick's Fall, Silver Falls, and Chicagon Falls). Features real-time coverage badges, instant search, and one-click "Fast-Tag" buttons to pre-populate uploads.</li>
+                <li><strong>Historical & State Digital Archives Integration:</strong> Sourced authentic 19th-century stereographic prints from the Robert N. Dennis Collection (New York Public Library / Library of Congress) and Whitney & Zimmerman for Munising Falls and Interstate Falls (Montreal River).</li>
+                <li><strong>Backcountry & Ottawa National Forest Coverage:</strong> Deployed verified field photography for Douglass - Houghton Falls (Michigan's tallest waterfall at 110 ft), Great Conglomerate Falls, Eagle River Falls, Haven Falls, Greenstone Falls, Kakabika Falls, Yondota Falls, Gabbro Falls, Jumbo Falls, Judson Falls, Hogger Falls, Lepisto Falls, and Ogimakwe Falls.</li>
+                <li><strong>Database Coverage Milestone:</strong> Increased verified authentic photography to 178 photos across 69 unique Upper Peninsula waterfalls while strictly maintaining the administrator's Alger Falls manual photo as hero.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Version 0.13.0 */}
+          <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="font-serif text-2xl font-bold text-slate-800 flex items-center gap-2">
+                  Beta 0.13.0
+                </h3>
+                <span className="text-slate-500 font-semibold text-sm">September 2026</span>
               </div>
             </div>
             <div className="p-6 md:p-8 space-y-6">
