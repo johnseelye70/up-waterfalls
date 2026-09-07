@@ -22,14 +22,40 @@ export default function Changelog() {
             🔐
           </div>
           <div className="space-y-12">
-          {/* Version 0.16.0 */}
+          {/* Version 0.17.0 */}
           <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
             <div className="bg-pinery-green px-6 py-4 border-b border-emerald-800">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <h3 className="font-serif text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-copper-orange">★</span> Beta 0.16.0
+                  <span className="text-copper-orange">★</span> Beta 0.17.0
                 </h3>
                 <span className="text-emerald-100 font-semibold text-sm">September 2026</span>
+              </div>
+            </div>
+            <div className="p-6 md:p-8 space-y-6">
+              <p className="text-base font-semibold text-slate-800">Complete Expedition Route Planner Makeover: Intelligent Route Optimization, Driving Leg Engine, Turnkey Navigation & Offline Wilderness Suite</p>
+              <ul className="text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                <li><strong>⚡ Intelligent Route Optimization:</strong> Integrated a nearest-neighbor heuristic solver that reorganizes stops into the most efficient driving sequence with a single click, eliminating highway backtracking and computing exact road miles saved.</li>
+                <li><strong>🚗 Inter-Stop Driving Leg Engine:</strong> Implemented rural road distance and travel time calculations between consecutive route stops, using a curvature-adjusted Haversine formula (1.28x factor at 48 mph rural pace) designed specifically for Upper Peninsula trunklines and forest roads.</li>
+                <li><strong>🧭 Turnkey Google Maps Navigation:</strong> Added direct multi-stop turn-by-turn route launching into Google Maps, along with single-leg direct navigation links between any two stops on the route.</li>
+                <li><strong>📊 5-Stat Expedition Analytics Dashboard:</strong> Live dashboard computing Total Road Driving (miles & hours), Total Trail Footwork (miles across trailheads), Cumulative Cataract Drop (vertical feet plunge), Pet Accessibility Scorecard (friendly vs restricted), and a deduplicated Park Pass & Permit Checklist.</li>
+                <li><strong>🗺️ 5 Hand-Curated Iconic Road Trip Expeditions:</strong> Instant one-click loading or appending of 5 turnkey regional expeditions (Pictured Rocks Circuit, Black River Scenic Byway, Keweenaw Copper Country Loop, Porcupine Mountains & Western Gorges, Marquette Backcountry Explorer), complete with iconic local pitstops (pasties, monk bakeries, craft breweries).</li>
+                <li><strong>🎒 Wilderness Waterfall Packing Checklist:</strong> An interactive, offline-persisted 16-item gear checklist tailored specifically for UP waterfall expeditions (waterproof footwear, blackfly head nets, bear spray, offline maps, pasties, power banks) with a visual expedition readiness progress bar.</li>
+                <li><strong>🖨️ Zero-Cell-Service Printable Field Sheet:</strong> A print-optimized document table with precise 5-decimal GPS coordinates, trailhead notes, trail distances, and backcountry safety protocols designed for vehicle glovebox storage in remote regions with zero cellular service.</li>
+                <li><strong>↕️ Stop Reordering & Visual Avatars:</strong> Added stop reordering controls (▲ / ▼), remove buttons, and hero photo thumbnails for every stop in the route timeline.</li>
+                <li><strong>100% Inline Architecture:</strong> Adheres strictly to the Zero Modal Popup Boxes rule—all drawers, checklists, and field sheets render inline in the document stream without modal overlays or scroll-traps.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Version 0.16.0 */}
+          <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="font-serif text-2xl font-bold text-slate-800 flex items-center gap-2">
+                  Beta 0.16.0
+                </h3>
+                <span className="text-slate-500 font-semibold text-sm">September 2026</span>
               </div>
             </div>
             <div className="p-6 md:p-8 space-y-6">

@@ -11,6 +11,10 @@ interface TripContextType {
   addToTrip: (item: TripItem) => void
   removeFromTrip: (id: string) => void
   clearTrip: () => void
+  moveStopUp: (id: string) => void
+  moveStopDown: (id: string) => void
+  reorderTrip: (fromIndex: number, toIndex: number) => void
+  loadTrip: (items: TripItem[]) => void
 }
 
 const TripContext = createContext<TripContextType | undefined>(undefined)
@@ -49,8 +53,49 @@ export function TripProvider({ children }: { children: ReactNode }) {
     setTripItems([])
   }
 
+  const moveStopUp = (id: string) => {
+    const index = tripItems.findIndex(i => i.id === id)
+    if (index <= 0) return
+    const newItems = [...tripItems]
+    const temp = newItems[index - 1]
+    newItems[index - 1] = newItems[index]
+    newItems[index] = temp
+    setTripItems(newItems)
+  }
+
+  const moveStopDown = (id: string) => {
+    const index = tripItems.findIndex(i => i.id === id)
+    if (index < 0 || index >= tripItems.length - 1) return
+    const newItems = [...tripItems]
+    const temp = newItems[index + 1]
+    newItems[index + 1] = newItems[index]
+    newItems[index] = temp
+    setTripItems(newItems)
+  }
+
+  const reorderTrip = (fromIndex: number, toIndex: number) => {
+    if (fromIndex === toIndex || fromIndex < 0 || toIndex < 0 || fromIndex >= tripItems.length || toIndex >= tripItems.length) return
+    const newItems = [...tripItems]
+    const [moved] = newItems.splice(fromIndex, 1)
+    newItems.splice(toIndex, 0, moved)
+    setTripItems(newItems)
+  }
+
+  const loadTrip = (items: TripItem[]) => {
+    setTripItems(items)
+  }
+
   return (
-    <TripContext.Provider value={{ tripItems, addToTrip, removeFromTrip, clearTrip }}>
+    <TripContext.Provider value={{
+      tripItems,
+      addToTrip,
+      removeFromTrip,
+      clearTrip,
+      moveStopUp,
+      moveStopDown,
+      reorderTrip,
+      loadTrip
+    }}>
       {children}
     </TripContext.Provider>
   )
