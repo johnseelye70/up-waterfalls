@@ -4,22 +4,7 @@ import Map from '../components/Map'
 import { supabase } from '../lib/supabase'
 import { useTrip } from '../lib/TripContext'
 import { getThumbnailUrl } from '../lib/utils'
-
-interface Waterfall {
-  id: string
-  name: string
-  county: string
-  region: string
-  latitude: number
-  longitude: number
-  drop_height: string
-  hike_difficulty: string
-  trail_length_miles: number
-  parking_type: string
-  pass_required: string
-  historical_notes: string
-  description: string
-}
+import { enrichWaterfall, type EnrichedWaterfall } from '../lib/enrichWaterfall'
 
 interface NearbyPlace {
   id: string
@@ -76,7 +61,7 @@ function getWeatherInfo(code: number): { text: string; icon: string; trailWarnin
 
 export default function WaterfallDetail() {
   const { slug } = useParams<{ slug: string }>()
-  const [waterfall, setWaterfall] = useState<Waterfall | null>(null)
+  const [waterfall, setWaterfall] = useState<EnrichedWaterfall | null>(null)
   const [places, setPlaces] = useState<NearbyPlace[]>([])
   const [photos, setPhotos] = useState<WaterfallPhoto[]>([])
   const [blogs, setBlogs] = useState<WaterfallBlog[]>([])
@@ -102,7 +87,7 @@ export default function WaterfallDetail() {
       if (wfError) {
         console.error('Error fetching waterfall:', wfError)
       } else {
-        setWaterfall(wfData)
+        setWaterfall(enrichWaterfall(wfData))
         
         // Fetch Weather Data from Open-Meteo
         try {
@@ -239,15 +224,26 @@ export default function WaterfallDetail() {
             <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-extrabold text-parchment drop-shadow-lg">{waterfall.name}</h2>
             <p className="text-xs sm:text-sm text-slate-300 drop-shadow max-w-2xl">{waterfall.description}</p>
             
-            <div className="pt-2 flex flex-wrap gap-3 text-xs font-medium">
-              <span className="bg-white/20 px-3 py-1 rounded text-white flex items-center gap-1 border border-white/20">
-                🥾 Trail: {waterfall.hike_difficulty}
+            <div className="pt-2 flex flex-wrap gap-2 text-xs font-semibold">
+              <span className={`px-3 py-1 rounded-full flex items-center gap-1.5 shadow-sm border ${
+                waterfall.hike_difficulty === 'Easy' ? 'bg-emerald-600/90 text-white border-emerald-400/40' :
+                waterfall.hike_difficulty === 'Moderate' ? 'bg-amber-600/90 text-white border-amber-400/40' :
+                waterfall.hike_difficulty === 'Difficult' ? 'bg-orange-600/90 text-white border-orange-400/40' :
+                'bg-red-700/90 text-white border-red-500/40'
+              }`}>
+                🥾 {waterfall.hike_difficulty} Hike
               </span>
-              <span className="bg-white/20 px-3 py-1 rounded text-white flex items-center gap-1 border border-white/20">
-                📏 Distance: {waterfall.trail_length_miles} Mi Roundtrip
+              <span className="bg-black/40 backdrop-blur-sm px-3 py-1 rounded-full text-white flex items-center gap-1.5 border border-white/20">
+                📏 {waterfall.trail_length_miles} Mi Roundtrip
               </span>
-              <span className="bg-emerald-950/80 text-emerald-300 px-3 py-1 rounded flex items-center gap-1 border border-emerald-500/30">
+              <span className="bg-black/40 backdrop-blur-sm px-3 py-1 rounded-full text-white flex items-center gap-1.5 border border-white/20">
+                ⏱️ {waterfall.estimated_time_minutes}
+              </span>
+              <span className="bg-emerald-950/80 text-emerald-300 px-3 py-1 rounded-full flex items-center gap-1.5 border border-emerald-500/30">
                 🌊 Drop: {waterfall.drop_height}
+              </span>
+              <span className="bg-black/40 backdrop-blur-sm text-slate-200 px-3 py-1 rounded-full flex items-center gap-1.5 border border-white/20 hidden sm:flex">
+                🔄 {waterfall.route_type}
               </span>
             </div>
           </div>
@@ -259,22 +255,101 @@ export default function WaterfallDetail() {
         {/* Left Column */}
         <div className="lg:col-span-2 space-y-8">
           
+          {/* Overview Card */}
           <div className="bg-white p-6 rounded-lg shadow border border-slate-200 space-y-4">
-            <h3 className="font-serif text-xl font-bold text-pinery-green border-b border-slate-200 pb-2">
-              🌲 Overview & Wilderness Features
+            <h3 className="font-serif text-xl font-bold text-pinery-green border-b border-slate-200 pb-2 flex items-center gap-2">
+              <span>🌲</span> Overview & Wilderness Features
             </h3>
             <p className="text-sm text-slate-700 leading-relaxed">
-              {waterfall.description} {waterfall.historical_notes}
+              {waterfall.description}
             </p>
-            
-            <div className="grid grid-cols-2 gap-4 pt-2 text-xs">
-              <div className="bg-parchment p-3 rounded border border-slate-200">
-                <span className="font-bold text-slate-900 block">🚗 Parking Access</span>
-                <span className="text-slate-600">{waterfall.parking_type}</span>
+            {waterfall.historical_notes && (
+              <p className="text-xs text-slate-500 italic bg-parchment p-3 rounded border border-slate-200 leading-relaxed">
+                <strong className="text-slate-800 not-italic block mb-0.5">📜 Heritage & Geology:</strong> {waterfall.historical_notes}
+              </p>
+            )}
+          </div>
+
+          {/* Trailhead Specification Dossier */}
+          <div className="bg-white p-6 rounded-lg shadow border border-slate-200 space-y-5">
+            <div className="border-b border-slate-200 pb-2 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+              <h3 className="font-serif text-xl font-bold text-pinery-green flex items-center gap-2">
+                <span>🥾</span> Trailhead Specifications & Access Guide
+              </h3>
+              <span className="text-xs text-copper-orange font-bold uppercase tracking-wider">
+                {waterfall.hike_difficulty} Route • {waterfall.trail_length_miles} Mi
+              </span>
+            </div>
+
+            {/* Spec Matrix */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div className="bg-parchment p-3 rounded-lg border border-slate-200 text-center space-y-1">
+                <span className="text-slate-500 text-[10px] font-bold uppercase tracking-wider block">Roundtrip Hike</span>
+                <span className="text-base font-extrabold text-slate-900 block">{waterfall.trail_length_miles} Mi</span>
+                <span className="text-[10px] text-slate-500">{waterfall.route_type}</span>
               </div>
-              <div className="bg-parchment p-3 rounded border border-slate-200">
-                <span className="font-bold text-slate-900 block">🎫 Pass Required</span>
-                <span className="text-slate-600">{waterfall.pass_required}</span>
+              <div className="bg-parchment p-3 rounded-lg border border-slate-200 text-center space-y-1">
+                <span className="text-slate-500 text-[10px] font-bold uppercase tracking-wider block">Est. Duration</span>
+                <span className="text-base font-extrabold text-slate-900 block">{waterfall.estimated_time_minutes}</span>
+                <span className="text-[10px] text-slate-500">Average Pace</span>
+              </div>
+              <div className="bg-parchment p-3 rounded-lg border border-slate-200 text-center space-y-1">
+                <span className="text-slate-500 text-[10px] font-bold uppercase tracking-wider block">Trail Rating</span>
+                <span className={`text-base font-extrabold block ${
+                  waterfall.hike_difficulty === 'Easy' ? 'text-emerald-700' :
+                  waterfall.hike_difficulty === 'Moderate' ? 'text-amber-700' :
+                  waterfall.hike_difficulty === 'Difficult' ? 'text-orange-700' : 'text-red-700'
+                }`}>
+                  {waterfall.hike_difficulty}
+                </span>
+                <span className="text-[10px] text-slate-500">Physical Grade</span>
+              </div>
+              <div className="bg-parchment p-3 rounded-lg border border-slate-200 text-center space-y-1">
+                <span className="text-slate-500 text-[10px] font-bold uppercase tracking-wider block">Waterfall Drop</span>
+                <span className="text-base font-extrabold text-pinery-green block">{waterfall.drop_height}</span>
+                <span className="text-[10px] text-slate-500">Vertical Relief</span>
+              </div>
+            </div>
+
+            {/* Access & Regulations Detailed Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              <div className="bg-slate-50 p-3.5 rounded-lg border border-slate-200 space-y-1">
+                <span className="font-bold text-slate-900 flex items-center gap-1.5">
+                  <span>🚗</span> Trailhead Parking Access
+                </span>
+                <p className="text-slate-600 leading-relaxed">{waterfall.parking_type}</p>
+              </div>
+              <div className="bg-slate-50 p-3.5 rounded-lg border border-slate-200 space-y-1">
+                <span className="font-bold text-slate-900 flex items-center gap-1.5">
+                  <span>🎫</span> Park Pass & Permits
+                </span>
+                <p className="text-slate-600 leading-relaxed">{waterfall.pass_required}</p>
+              </div>
+              <div className="bg-slate-50 p-3.5 rounded-lg border border-slate-200 space-y-1">
+                <span className="font-bold text-slate-900 flex items-center gap-1.5">
+                  <span>🐕</span> Pet & Dog Regulations
+                </span>
+                <p className="text-slate-600 leading-relaxed">{waterfall.dog_friendly}</p>
+              </div>
+              <div className="bg-slate-50 p-3.5 rounded-lg border border-slate-200 space-y-1">
+                <span className="font-bold text-slate-900 flex items-center gap-1.5">
+                  <span>🦽</span> Trail Surface & Terrain
+                </span>
+                <p className="text-slate-600 leading-relaxed">{waterfall.trail_surface}</p>
+              </div>
+            </div>
+
+            {/* Wilderness Pro-Tips Box */}
+            <div className="bg-emerald-950/5 border border-emerald-900/20 rounded-lg p-4 space-y-2 text-xs">
+              <h4 className="font-serif font-bold text-pinery-green flex items-center gap-2">
+                <span>💡</span> Wilderness Trailhead Advisory & Pro-Tips
+              </h4>
+              <p className="text-slate-700 leading-relaxed">
+                {waterfall.trailhead_tips}
+              </p>
+              <div className="pt-2 border-t border-emerald-900/10 flex items-center gap-2 text-slate-600">
+                <span className="font-bold text-slate-900">🗓️ Optimal Viewing:</span>
+                <span>{waterfall.best_season}</span>
               </div>
             </div>
           </div>

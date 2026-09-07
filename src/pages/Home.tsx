@@ -2,21 +2,10 @@ import { Link } from 'react-router-dom'
 import { useEffect, useState, useMemo } from 'react'
 import { supabase } from '../lib/supabase'
 import { getThumbnailUrl } from '../lib/utils'
-
-interface Waterfall {
-  id: string
-  name: string
-  county: string
-  region: string
-  drop_height: string
-  hike_difficulty: string
-  trail_length_miles: number
-  description: string
-  waterfall_photos?: { image_url: string; is_hero: boolean; is_county_hero: boolean }[]
-}
+import { enrichWaterfall, type EnrichedWaterfall } from '../lib/enrichWaterfall'
 
 export default function Home() {
-  const [waterfalls, setWaterfalls] = useState<Waterfall[]>([])
+  const [waterfalls, setWaterfalls] = useState<EnrichedWaterfall[]>([])
   const [loading, setLoading] = useState(true)
   
   // New UI State
@@ -36,7 +25,7 @@ export default function Home() {
       if (error) {
         console.error('Error fetching waterfalls:', error)
       } else if (data) {
-        setWaterfalls(data)
+        setWaterfalls(data.map(enrichWaterfall))
       }
       setLoading(false)
     }
@@ -46,7 +35,7 @@ export default function Home() {
 
   // Derived state: Grouped by County
   const waterfallsByCounty = useMemo(() => {
-    return waterfalls.reduce((acc: Record<string, Waterfall[]>, wf: Waterfall) => {
+    return waterfalls.reduce((acc: Record<string, EnrichedWaterfall[]>, wf: EnrichedWaterfall) => {
       if (!acc[wf.county]) acc[wf.county] = []
       acc[wf.county].push(wf)
       return acc
@@ -65,7 +54,7 @@ export default function Home() {
   }, [waterfalls, searchQuery])
 
   // Helper to get the hero image for a county card
-  const getCountyHeroImage = (falls: Waterfall[]) => {
+  const getCountyHeroImage = (falls: EnrichedWaterfall[]) => {
     const photos = falls.flatMap(wf => wf.waterfall_photos || [])
     
     // 1. Try to find the specific photo explicitly marked as the county hero
@@ -80,7 +69,7 @@ export default function Home() {
   }
 
   // Render a single waterfall card
-  const renderWaterfallCard = (wf: Waterfall) => {
+  const renderWaterfallCard = (wf: EnrichedWaterfall) => {
     const heroPhoto = wf.waterfall_photos?.find(p => p.is_hero)?.image_url
     
     return (

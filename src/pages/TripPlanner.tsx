@@ -1,21 +1,13 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
+import { Link } from 'react-router-dom'
 import Map from '../components/Map'
 import { useTrip } from '../lib/TripContext'
 import { supabase } from '../lib/supabase'
-
-interface TripWaterfall {
-  id: string
-  name: string
-  region: string
-  latitude: number
-  longitude: number
-  drop_height: string
-  hike_difficulty: string
-}
+import { enrichWaterfall, type EnrichedWaterfall } from '../lib/enrichWaterfall'
 
 export default function TripPlanner() {
   const { tripItems, removeFromTrip, clearTrip } = useTrip()
-  const [tripData, setTripData] = useState<TripWaterfall[]>([])
+  const [tripData, setTripData] = useState<EnrichedWaterfall[]>([])
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -35,9 +27,12 @@ export default function TripPlanner() {
 
       if (error) {
         console.error('Error fetching trip waterfalls:', error)
-      } else {
+      } else if (data) {
+        const enriched = data.map(enrichWaterfall)
         // Sort data to match the order in tripItems
-        const sorted = tripItems.map(item => data.find(d => d.id === item.id)!).filter(Boolean)
+        const sorted = tripItems
+          .map(item => enriched.find(d => d.id === item.id)!)
+          .filter(Boolean)
         setTripData(sorted)
       }
       setLoading(false)
@@ -45,6 +40,10 @@ export default function TripPlanner() {
 
     loadTripData()
   }, [tripItems])
+
+  const totalTrailMiles = useMemo(() => {
+    return tripData.reduce((sum, wf) => sum + (wf.trail_length_miles || 0), 0).toFixed(1)
+  }, [tripData])
 
   const tripMarkers = tripData.map(wf => ({
     id: wf.id,
@@ -63,7 +62,20 @@ export default function TripPlanner() {
           <h3 className="font-serif text-2xl font-bold text-pinery-green flex items-center gap-2">
             <span>🧭</span> My Trip Itinerary
           </h3>
-          <p className="text-xs text-slate-500">Your locally saved waterfall stops and driving route</p>
+          <div className="flex items-center gap-3 mt-1 flex-wrap text-xs text-slate-600">
+            <span>Your locally saved waterfall stops and driving route</span>
+            {tripData.length > 0 && (
+              <>
+                <span className="text-slate-300">•</span>
+                <span className="bg-emerald-100 text-emerald-900 font-bold px-2 py-0.5 rounded">
+                  🥾 Total Trail: {totalTrailMiles} Mi
+                </span>
+                <span className="bg-slate-100 text-slate-800 font-bold px-2 py-0.5 rounded">
+                  🌊 {tripData.length} Stop{tripData.length > 1 ? 's' : ''}
+                </span>
+              </>
+            )}
+          </div>
         </div>
         <div className="flex gap-2">
           {tripItems.length > 0 && (
@@ -98,13 +110,34 @@ export default function TripPlanner() {
                 <div className="flex-grow bg-parchment p-4 rounded border border-slate-200 space-y-2 shadow-sm relative pr-8">
                   <div className="flex justify-between items-start gap-2">
                     <div>
-                      <h4 className="font-serif font-bold text-slate-900 text-sm leading-tight">Stop {index + 1}: {wf.name}</h4>
-                      <p className="text-[10px] text-copper-orange font-semibold uppercase">{wf.region}</p>
+                      <Link 
+                        to={`/waterfall/${wf.id}`}
+                        className="font-serif font-bold text-slate-900 hover:text-copper-orange text-sm leading-tight transition block"
+                      >
+                        Stop {index + 1}: {wf.name}
+                      </Link>
+                      <p className="text-[10px] text-copper-orange font-semibold uppercase">{wf.county} County • {wf.region}</p>
                     </div>
                   </div>
-                  <div className="text-xs text-slate-600 flex gap-3">
-                    <span>🥾 {wf.hike_difficulty}</span>
-                    <span>🌊 {wf.drop_height}</span>
+                  <div className="text-xs text-slate-600 flex flex-wrap gap-2 pt-1">
+                    <span className={`font-semibold px-2 py-0.5 rounded text-[11px] ${
+                      wf.hike_difficulty === 'Easy' ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' :
+                      wf.hike_difficulty === 'Moderate' ? 'bg-amber-50 text-amber-800 border border-amber-200' :
+                      wf.hike_difficulty === 'Difficult' ? 'bg-orange-50 text-orange-800 border border-orange-200' :
+                      'bg-red-50 text-red-800 border border-red-200'
+                    }`}>
+                      🥾 {wf.hike_difficulty}
+                    </span>
+                    <span className="bg-white/80 px-2 py-0.5 rounded border border-slate-200 text-[11px]">
+                      📏 {wf.trail_length_miles} mi • ⏱️ {wf.estimated_time_minutes}
+                    </span>
+                    <span className="bg-white/80 px-2 py-0.5 rounded border border-slate-200 text-[11px]">
+                      🌊 {wf.drop_height}
+                    </span>
+                  </div>
+                  <div className="text-[11px] text-slate-500 pt-1 flex flex-wrap gap-x-3 gap-y-1">
+                    <span>🚗 {wf.parking_type}</span>
+                    <span>🎫 {wf.pass_required}</span>
                   </div>
                   
                   <button 

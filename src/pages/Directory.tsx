@@ -2,36 +2,20 @@ import { useEffect, useState, useMemo, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 import { getThumbnailUrl } from '../lib/utils'
-
-interface Photo {
-  image_url: string
-  caption: string
-}
-
-interface Waterfall {
-  id: string
-  name: string
-  county: string
-  region: string
-  drop_height: string
-  hike_difficulty: string
-  trail_length_miles: number
-  youtube_video_id?: string | null
-  waterfall_photos?: Photo[]
-}
+import { enrichWaterfall, type EnrichedWaterfall } from '../lib/enrichWaterfall'
 
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
 
 export default function Directory() {
-  const [waterfalls, setWaterfalls] = useState<Waterfall[]>([])
+  const [waterfalls, setWaterfalls] = useState<EnrichedWaterfall[]>([])
   const [loading, setLoading] = useState(true)
 
   // Gallery Modal State (100% Inline)
-  const [selectedWaterfall, setSelectedWaterfall] = useState<Waterfall | null>(null)
+  const [selectedWaterfall, setSelectedWaterfall] = useState<EnrichedWaterfall | null>(null)
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
 
   // Video Modal State (100% Inline)
-  const [selectedVideo, setSelectedVideo] = useState<Waterfall | null>(null)
+  const [selectedVideo, setSelectedVideo] = useState<EnrichedWaterfall | null>(null)
 
   // User-Friendly Navigation & Filter States
   const [searchQuery, setSearchQuery] = useState('')
@@ -57,7 +41,7 @@ export default function Directory() {
       if (error) {
         console.error('Error fetching waterfalls:', error)
       } else if (data) {
-        setWaterfalls(data)
+        setWaterfalls(data.map(enrichWaterfall))
       }
       setLoading(false)
     }
@@ -135,7 +119,10 @@ export default function Directory() {
         return cComp !== 0 ? cComp : a.name.localeCompare(b.name)
       }
       if (sortBy === 'difficulty') {
-        return (a.hike_difficulty || '').localeCompare(b.hike_difficulty || '')
+        const order: Record<string, number> = { 'Easy': 1, 'Moderate': 2, 'Difficult': 3, 'Strenuous': 4 }
+        const diffA = order[a.hike_difficulty] || 2
+        const diffB = order[b.hike_difficulty] || 2
+        return diffA !== diffB ? diffA - diffB : a.name.localeCompare(b.name)
       }
       return a.name.localeCompare(b.name)
     })
@@ -164,7 +151,7 @@ export default function Directory() {
     setCurrentPage(1)
   }
 
-  const openGallery = (wf: Waterfall) => {
+  const openGallery = (wf: EnrichedWaterfall) => {
     setSelectedWaterfall(wf)
     setCurrentPhotoIndex(0)
     setSelectedVideo(null)
@@ -174,7 +161,7 @@ export default function Directory() {
     setSelectedWaterfall(null)
   }
 
-  const openVideo = (wf: Waterfall) => {
+  const openVideo = (wf: EnrichedWaterfall) => {
     setSelectedVideo(wf)
     setSelectedWaterfall(null)
   }
@@ -698,11 +685,16 @@ export default function Directory() {
 
                     {/* Column 3: Trail / Hike */}
                     <td className="p-2 sm:p-4 text-xs text-slate-600 hidden sm:table-cell truncate">
-                      <div className="font-semibold text-slate-800">
-                        {wf.hike_difficulty || 'Accessible'}
+                      <div className="flex items-center gap-1.5 font-semibold">
+                        <span className={`inline-block w-2 h-2 rounded-full shrink-0 ${
+                          wf.hike_difficulty === 'Easy' ? 'bg-emerald-500' :
+                          wf.hike_difficulty === 'Moderate' ? 'bg-amber-500' :
+                          wf.hike_difficulty === 'Difficult' ? 'bg-orange-500' : 'bg-red-500'
+                        }`} />
+                        <span className="text-slate-900">{wf.hike_difficulty}</span>
                       </div>
-                      <div className="text-[11px] text-slate-500">
-                        {wf.trail_length_miles ? `${wf.trail_length_miles} mi trail` : 'Roadside'}
+                      <div className="text-[11px] text-slate-500 mt-0.5">
+                        {wf.trail_length_miles} mi • {wf.drop_height}
                       </div>
                     </td>
 
@@ -801,11 +793,16 @@ export default function Directory() {
                       {wf.name}
                     </Link>
                     <div className="flex items-center gap-2 mt-1.5 text-xs text-slate-500 flex-wrap">
-                      <span className="font-semibold text-slate-700 bg-slate-100 px-2 py-0.5 rounded">
-                        🥾 {wf.hike_difficulty || 'Accessible'}
+                      <span className={`font-semibold px-2 py-0.5 rounded text-[11px] ${
+                        wf.hike_difficulty === 'Easy' ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' :
+                        wf.hike_difficulty === 'Moderate' ? 'bg-amber-50 text-amber-800 border border-amber-200' :
+                        wf.hike_difficulty === 'Difficult' ? 'bg-orange-50 text-orange-800 border border-orange-200' :
+                        'bg-red-50 text-red-800 border border-red-200'
+                      }`}>
+                        🥾 {wf.hike_difficulty}
                       </span>
                       <span>
-                        • {wf.trail_length_miles ? `${wf.trail_length_miles} mi roundtrip` : 'Roadside pull-off'}
+                        • {wf.trail_length_miles} mi • 🌊 {wf.drop_height}
                       </span>
                     </div>
                   </div>

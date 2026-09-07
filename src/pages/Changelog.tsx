@@ -22,14 +22,36 @@ export default function Changelog() {
             🔐
           </div>
           <div className="space-y-12">
-          {/* Version 0.15.0 */}
+          {/* Version 0.16.0 */}
           <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
             <div className="bg-pinery-green px-6 py-4 border-b border-emerald-800">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <h3 className="font-serif text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-copper-orange">★</span> Beta 0.15.0
+                  <span className="text-copper-orange">★</span> Beta 0.16.0
                 </h3>
                 <span className="text-emerald-100 font-semibold text-sm">September 2026</span>
+              </div>
+            </div>
+            <div className="p-6 md:p-8 space-y-6">
+              <p className="text-base font-semibold text-slate-800">Complete 291-Waterfall Hiking Catalog, Trailhead Spec Dossiers & Database Synchronization</p>
+              <ul className="text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                <li><strong>Comprehensive 291-Waterfall Hiking Catalog:</strong> Built and curated complete hiking specifications for all 291 Upper Peninsula waterfalls, providing verified trail mileage, drop heights, physical hike difficulty ratings, route classifications, estimated hike times, parking lot access types, park pass requirements, dog/pet regulations, trail surfaces, and seasonal flow advice.</li>
+                <li><strong>Trailhead Specification & Access Dossier:</strong> Overhauled the waterfall detail view with a rich 4-stat matrix (Roundtrip Distance, Est. Duration, Physical Grade, Waterfall Drop), an Access & Regulations guide (Parking, Entry Permits, Pet Policy, ADA / Trail Surface), and a dedicated Wilderness Advisory & Pro-Tips box with optimal viewing seasons and safety guidance.</li>
+                <li><strong>Instant Client-Side Data Enrichment:</strong> Integrated an intelligent enrichment layer (`enrichWaterfall`) across the Directory, Waterfall Detail, Home County Hubs, and Trip Planner. Resolves previously null database columns, normalizes county names, and replaces generic robot descriptions with vivid geological and river overviews.</li>
+                <li><strong>Trip Itinerary Trail Metrics:</strong> Enhanced the Trip Planner to compute total cumulative hiking mileage and trail times across all saved route stops, complete with color-coded difficulty badges and parking specs on each stop card.</li>
+                <li><strong>SQL Migration Suite (`update_all_hiking_info.sql`):</strong> Authored an idempotent, 291-query transaction-safe database migration script ready for execution in the Supabase SQL Editor to permanently sync all hiking fields.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Version 0.15.0 */}
+          <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="font-serif text-2xl font-bold text-slate-800 flex items-center gap-2">
+                  Beta 0.15.0
+                </h3>
+                <span className="text-slate-500 font-semibold text-sm">September 2026</span>
               </div>
             </div>
             <div className="p-6 md:p-8 space-y-6">
