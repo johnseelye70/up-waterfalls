@@ -22,14 +22,35 @@ export default function Changelog() {
             🔐
           </div>
           <div className="space-y-12">
-          {/* Version 0.11.0 */}
+          {/* Version 0.12.0 */}
           <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
             <div className="bg-pinery-green px-6 py-4 border-b border-emerald-800">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <h3 className="font-serif text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-copper-orange">★</span> Beta 0.11.0
+                  <span className="text-copper-orange">★</span> Beta 0.12.0
                 </h3>
                 <span className="text-emerald-100 font-semibold text-sm">September 2026</span>
+              </div>
+            </div>
+            <div className="p-6 md:p-8 space-y-6">
+              <p className="text-base font-semibold text-slate-800">100% Authentic UP Waterfall Photo Restoration & Rigorous Multi-Photo Curation</p>
+              <ul className="text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                <li><strong>Strict Geographic & Visual Curation:</strong> Audited and eliminated all out-of-state waterfalls (Pennsylvania, Wisconsin, Hawaii, Ontario, Virginia) and non-waterfall artifacts (minerals, signs, documents, videos).</li>
+                <li><strong>135 Verified Authentic Waterfall Photos:</strong> Deployed 135 confirmed real photos across 51 major Upper Peninsula waterfalls with authentic photographer credits and descriptive captions.</li>
+                <li><strong>Multiple Authentic Photos Per Waterfall:</strong> Added high-resolution photo sets for premier destinations including Tahquamenon Falls (Upper & Lower), Bond Falls, Miners Falls, Sable Falls, Laughing Whitefish Falls, Canyon Falls, Bridal Veil Falls, Manabezho Falls, Manido Falls, Agate Falls, Bonanza Falls, Tannery Falls, Memorial Falls, Scott Falls, Chapel Falls, Mosquito Falls, Spray Falls, Hungarian Falls, Rainbow Falls, and more.</li>
+                <li><strong>Alger Falls Manual Upload Protection:</strong> Ensured the administrator's original on-site photograph of Alger Falls from M-28 is strictly preserved as the primary Hero photo, complemented by verified secondary gallery views.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Version 0.11.0 */}
+          <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="font-serif text-2xl font-bold text-slate-800 flex items-center gap-2">
+                  Beta 0.11.0
+                </h3>
+                <span className="text-slate-500 font-semibold text-sm">September 2026</span>
               </div>
             </div>
             <div className="p-6 md:p-8 space-y-6">
