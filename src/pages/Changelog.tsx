@@ -22,14 +22,36 @@ export default function Changelog() {
             🔐
           </div>
           <div className="space-y-12">
-          {/* Version 0.14.0 */}
+          {/* Version 0.15.0 */}
           <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
             <div className="bg-pinery-green px-6 py-4 border-b border-emerald-800">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <h3 className="font-serif text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-copper-orange">★</span> Beta 0.14.0
+                  <span className="text-copper-orange">★</span> Beta 0.15.0
                 </h3>
                 <span className="text-emerald-100 font-semibold text-sm">September 2026</span>
+              </div>
+            </div>
+            <div className="p-6 md:p-8 space-y-6">
+              <p className="text-base font-semibold text-slate-800">Interactive Directory Navigation Suite, A-Z Alphabet Quick-Jump, Dual View Modes & Smart Pagination</p>
+              <ul className="text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                <li><strong>A-Z Alphabet Quick-Jump Strip:</strong> Added an interactive 26-letter navigation ribbon with real-time waterfall counts per letter, enabling single-click navigation directly to waterfalls starting with any letter.</li>
+                <li><strong>Multi-Dimensional Filter Bar:</strong> Integrated instant real-time search (matching name, county, region, and notes), dynamic county dropdown with live entry tallies, hike difficulty filter, sort controls (Name A-Z/Z-A, County, Difficulty), and media filters (Verified Photos Only, Video Tour Only).</li>
+                <li><strong>Dual View Modes (Table vs. Visual Card Grid):</strong> Toggle effortlessly between a compact, data-dense table with 44x44 photo thumbnail avatars and a visual card gallery featuring hero photo previews, county badges, difficulty chips, and direct hike metrics.</li>
+                <li><strong>Smart Pagination & Page Size Controls:</strong> Replaced monolithic 291-row continuous scrolling with responsive pagination (configurable to 25, 50, 100, or All items per page) featuring numeric page buttons, windowed ellipsis, and automatic smooth-scroll to directory top on navigation.</li>
+                <li><strong>Zero-Modal Inline Media & iOS Hardened:</strong> Preserved 100% inline photo gallery inspection and YouTube video showcase embedded in &lt;main&gt; without popup overlays or modal traps; enforced fixed table layouts and mobile-responsive widths.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Version 0.14.0 */}
+          <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="font-serif text-2xl font-bold text-slate-800 flex items-center gap-2">
+                  Beta 0.14.0
+                </h3>
+                <span className="text-slate-500 font-semibold text-sm">September 2026</span>
               </div>
             </div>
             <div className="p-6 md:p-8 space-y-6">
