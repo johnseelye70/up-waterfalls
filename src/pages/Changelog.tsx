@@ -22,14 +22,35 @@ export default function Changelog() {
             🔐
           </div>
           <div className="space-y-12">
-          {/* Version 0.20.0 */}
+          {/* Version 0.21.0 */}
           <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
             <div className="bg-pinery-green px-6 py-4 border-b border-emerald-800">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <h3 className="font-serif text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-copper-orange">★</span> Beta 0.20.0
+                  <span className="text-copper-orange">★</span> Beta 0.21.0
                 </h3>
                 <span className="text-emerald-100 font-semibold text-sm">September 2026</span>
+              </div>
+            </div>
+            <div className="p-6 md:p-8 space-y-6">
+              <p className="text-base font-semibold text-slate-800">Baraga County Catalog Refinement: Consolidated Harley Falls Series</p>
+              <ul className="text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                <li><strong>Consolidated Harley Falls:</strong> In Baraga County, retired redundant secondary entries <em>Harley Falls #2</em>, <em>Harley Falls #3</em>, and <em>Harley Falls #4</em>, standardizing <em>Harley Falls #1</em> as the singular, authoritative <strong>Harley Falls</strong>.</li>
+                <li><strong>Preserved Verified Photography:</strong> Maintained all 9 authentic administrator on-site photographs and primary hero status for the canonical Harley Falls on Harley Creek.</li>
+                <li><strong>Application-Wide Data Filtering:</strong> Updated the Directory, Homepage County Hubs, Trip Route Planner, and Admin Management dropdowns to automatically filter out deprecated duplicate IDs and render the canonical "Harley Falls" name.</li>
+                <li><strong>Database Migration Script:</strong> Authored <code className="bg-slate-100 px-1 rounded text-slate-700">delete_harley_duplicates.sql</code> and updated the master <code className="bg-slate-100 px-1 rounded text-slate-700">update_all_hiking_info.sql</code> script for executing the permanent cleanup in Supabase.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Version 0.20.0 */}
+          <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="font-serif text-2xl font-bold text-slate-800 flex items-center gap-2">
+                  Beta 0.20.0
+                </h3>
+                <span className="text-slate-500 font-semibold text-sm">September 2026</span>
               </div>
             </div>
             <div className="p-6 md:p-8 space-y-6">

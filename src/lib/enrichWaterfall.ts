@@ -31,6 +31,12 @@ export interface EnrichedWaterfall {
   }>
 }
 
+export const REMOVED_WATERFALL_IDS = new Set([
+  'f01905c5-54dd-4d9f-9cfb-960e19e889a0', // Harley Falls #2
+  'd4e9aa92-d5cf-4593-ad73-d66a9000e921', // Harley Falls #3
+  'f0a4c8f7-6897-40cf-b967-d21127cf5ba7'  // Harley Falls #4
+])
+
 /**
  * Normalizes county name by stripping trailing " County" if present.
  */
@@ -132,8 +138,14 @@ export function enrichWaterfall(raw: any): EnrichedWaterfall {
       'Preserved within Michigan\'s Upper Peninsula wilderness corridor.'
   }
 
+  let name = raw.name || 'Unknown Waterfall'
+  if (raw.id === '677041e5-cfa4-4cdd-8755-c2e8528f0ff2' || name === 'Harley Falls #1') {
+    name = 'Harley Falls'
+  }
+
   return {
     ...raw,
+    name,
     county,
     drop_height,
     hike_difficulty,

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import Map from '../components/Map'
 import { useTrip, type TripItem } from '../lib/TripContext'
 import { supabase } from '../lib/supabase'
-import { enrichWaterfall, type EnrichedWaterfall } from '../lib/enrichWaterfall'
+import { enrichWaterfall, REMOVED_WATERFALL_IDS, type EnrichedWaterfall } from '../lib/enrichWaterfall'
 import {
   CURATED_EXPEDITIONS,
   calculateDrivingLeg,
@@ -95,7 +95,7 @@ export default function TripPlanner() {
       if (error) {
         console.error('Error fetching trip waterfalls:', error)
       } else if (data) {
-        const enriched = data.map(enrichWaterfall)
+        const enriched = data.filter(w => !REMOVED_WATERFALL_IDS.has(w.id)).map(enrichWaterfall)
         // Sort data to exactly match the order in tripItems
         const sorted = tripItems
           .map(item => enriched.find(d => d.id === item.id)!)

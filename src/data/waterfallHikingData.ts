@@ -3260,7 +3260,7 @@ export const WATERFALL_HIKING_DATA: Record<string, WaterfallHikingSpec> = {
   },
   "677041e5-cfa4-4cdd-8755-c2e8528f0ff2": {
     "id": "677041e5-cfa4-4cdd-8755-c2e8528f0ff2",
-    "name": "Harley Falls #1",
+    "name": "Harley Falls",
     "county": "Baraga",
     "region": "Upper Peninsula",
     "latitude": 46.68812,
@@ -3276,7 +3276,7 @@ export const WATERFALL_HIKING_DATA: Record<string, WaterfallHikingSpec> = {
     "trail_surface": "Granite bedrock ledges, mossy stream banks, and unmaintained forest footpaths.",
     "best_season": "Spring Snowmelt (May - June) for peak water volume; Autumn for hardwood foliage.",
     "trailhead_tips": "Bring insect repellent from June to July. Rugged terrain makes ankle-supporting boots essential.",
-    "description": "Harley Falls #1 is a scenic wilderness waterfall situated in Baraga County, Michigan. Flowing across ancient Precambrian bedrock and surrounded by dense northern hemlock, cedar, and sugar maple forest, it offers an authentic Upper Peninsula outdoor hiking experience.",
+    "description": "Harley Falls is a scenic wilderness waterfall situated in Baraga County, Michigan. Flowing across ancient Precambrian bedrock and surrounded by dense northern hemlock, cedar, and sugar maple forest, it offers an authentic Upper Peninsula outdoor hiking experience.",
     "historical_notes": "Preserved within Michigan's Upper Peninsula wilderness corridor, featuring natural bedrock geology carved by post-glacial runoff."
   },
   "c5b944e6-d4b0-451d-85a8-89165230cf3f": {
@@ -4096,69 +4096,6 @@ export const WATERFALL_HIKING_DATA: Record<string, WaterfallHikingSpec> = {
     "best_season": "Spring Snowmelt (May - June) for peak water volume; Autumn for hardwood foliage.",
     "trailhead_tips": "Take extra care on wet rocks near the river edge. High-clearance vehicle recommended on seasonal forest roads.",
     "description": "Granite Falls is a scenic wilderness waterfall situated in Gogebic County, Michigan. Flowing across ancient Precambrian bedrock and surrounded by dense northern hemlock, cedar, and sugar maple forest, it offers an authentic Upper Peninsula outdoor hiking experience.",
-    "historical_notes": "Preserved within Michigan's Upper Peninsula wilderness corridor, featuring natural bedrock geology carved by post-glacial runoff."
-  },
-  "f01905c5-54dd-4d9f-9cfb-960e19e889a0": {
-    "id": "f01905c5-54dd-4d9f-9cfb-960e19e889a0",
-    "name": "Harley Falls #2",
-    "county": "Baraga",
-    "region": "Upper Peninsula",
-    "latitude": 46.68682,
-    "longitude": -88.32253,
-    "drop_height": "20 ft",
-    "hike_difficulty": "Moderate",
-    "trail_length_miles": 0.8,
-    "estimated_time_minutes": "35 - 50 min",
-    "route_type": "Out & Back",
-    "parking_type": "State Forest Road Turnout",
-    "pass_required": "None (Free Public Access)",
-    "dog_friendly": "Leashed Dogs Welcome",
-    "trail_surface": "Granite bedrock ledges, mossy stream banks, and unmaintained forest footpaths.",
-    "best_season": "Spring Snowmelt (May - June) for peak water volume; Autumn for hardwood foliage.",
-    "trailhead_tips": "Bring insect repellent from June to July. Rugged terrain makes ankle-supporting boots essential.",
-    "description": "Harley Falls #2 is a scenic wilderness waterfall situated in Baraga County, Michigan. Flowing across ancient Precambrian bedrock and surrounded by dense northern hemlock, cedar, and sugar maple forest, it offers an authentic Upper Peninsula outdoor hiking experience.",
-    "historical_notes": "Preserved within Michigan's Upper Peninsula wilderness corridor, featuring natural bedrock geology carved by post-glacial runoff."
-  },
-  "d4e9aa92-d5cf-4593-ad73-d66a9000e921": {
-    "id": "d4e9aa92-d5cf-4593-ad73-d66a9000e921",
-    "name": "Harley Falls #3",
-    "county": "Baraga",
-    "region": "Upper Peninsula",
-    "latitude": 46.68659,
-    "longitude": -88.32179,
-    "drop_height": "20 ft",
-    "hike_difficulty": "Moderate",
-    "trail_length_miles": 0.8,
-    "estimated_time_minutes": "35 - 50 min",
-    "route_type": "Out & Back",
-    "parking_type": "State Forest Road Turnout",
-    "pass_required": "None (Free Public Access)",
-    "dog_friendly": "Leashed Dogs Welcome",
-    "trail_surface": "Granite bedrock ledges, mossy stream banks, and unmaintained forest footpaths.",
-    "best_season": "Spring Snowmelt (May - June) for peak water volume; Autumn for hardwood foliage.",
-    "trailhead_tips": "Bring insect repellent from June to July. Rugged terrain makes ankle-supporting boots essential.",
-    "description": "Harley Falls #3 is a scenic wilderness waterfall situated in Baraga County, Michigan. Flowing across ancient Precambrian bedrock and surrounded by dense northern hemlock, cedar, and sugar maple forest, it offers an authentic Upper Peninsula outdoor hiking experience.",
-    "historical_notes": "Preserved within Michigan's Upper Peninsula wilderness corridor, featuring natural bedrock geology carved by post-glacial runoff."
-  },
-  "f0a4c8f7-6897-40cf-b967-d21127cf5ba7": {
-    "id": "f0a4c8f7-6897-40cf-b967-d21127cf5ba7",
-    "name": "Harley Falls #4",
-    "county": "Baraga",
-    "region": "Upper Peninsula",
-    "latitude": 46.68589,
-    "longitude": -88.31884,
-    "drop_height": "20 ft",
-    "hike_difficulty": "Moderate",
-    "trail_length_miles": 0.8,
-    "estimated_time_minutes": "35 - 50 min",
-    "route_type": "Out & Back",
-    "parking_type": "State Forest Road Turnout",
-    "pass_required": "None (Free Public Access)",
-    "dog_friendly": "Leashed Dogs Welcome",
-    "trail_surface": "Granite bedrock ledges, mossy stream banks, and unmaintained forest footpaths.",
-    "best_season": "Spring Snowmelt (May - June) for peak water volume; Autumn for hardwood foliage.",
-    "trailhead_tips": "Bring insect repellent from June to July. Rugged terrain makes ankle-supporting boots essential.",
-    "description": "Harley Falls #4 is a scenic wilderness waterfall situated in Baraga County, Michigan. Flowing across ancient Precambrian bedrock and surrounded by dense northern hemlock, cedar, and sugar maple forest, it offers an authentic Upper Peninsula outdoor hiking experience.",
     "historical_notes": "Preserved within Michigan's Upper Peninsula wilderness corridor, featuring natural bedrock geology carved by post-glacial runoff."
   },
   "1dc19bd9-fa40-4a12-85cc-8ca78e83038e": {
@@ -6142,3 +6079,6 @@ export const WATERFALL_NAME_LOOKUP: Record<string, WaterfallHikingSpec> = {};
 Object.values(WATERFALL_HIKING_DATA).forEach(item => {
   WATERFALL_NAME_LOOKUP[item.name.toLowerCase().trim()] = item;
 });
+if (WATERFALL_HIKING_DATA['677041e5-cfa4-4cdd-8755-c2e8528f0ff2']) {
+  WATERFALL_NAME_LOOKUP['harley falls #1'] = WATERFALL_HIKING_DATA['677041e5-cfa4-4cdd-8755-c2e8528f0ff2'];
+}

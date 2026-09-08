@@ -2,7 +2,7 @@ import { useEffect, useState, useMemo, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 import { getThumbnailUrl } from '../lib/utils'
-import { enrichWaterfall, type EnrichedWaterfall } from '../lib/enrichWaterfall'
+import { enrichWaterfall, REMOVED_WATERFALL_IDS, type EnrichedWaterfall } from '../lib/enrichWaterfall'
 
 const ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
 
@@ -41,7 +41,7 @@ export default function Directory() {
       if (error) {
         console.error('Error fetching waterfalls:', error)
       } else if (data) {
-        setWaterfalls(data.map(enrichWaterfall))
+        setWaterfalls(data.filter(w => !REMOVED_WATERFALL_IDS.has(w.id)).map(enrichWaterfall))
       }
       setLoading(false)
     }

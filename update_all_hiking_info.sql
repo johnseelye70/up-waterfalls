@@ -1696,13 +1696,14 @@ UPDATE waterfalls SET
 WHERE id = '942b8efa-e414-4dff-afbe-a6ef34a2cfc5';
 
 UPDATE waterfalls SET
+  name = 'Harley Falls',
   drop_height = '6 ft',
   hike_difficulty = 'Moderate',
   trail_length_miles = 0.8,
   parking_type = 'State Forest Road Turnout',
   pass_required = 'None (Free Public Access)',
   county = 'Baraga',
-  description = 'Harley Falls #1 is a scenic wilderness waterfall situated in Baraga County, Michigan. Flowing across ancient Precambrian bedrock and surrounded by dense northern hemlock, cedar, and sugar maple forest, it offers an authentic Upper Peninsula outdoor hiking experience.',
+  description = 'Harley Falls is a scenic wilderness waterfall situated in Baraga County, Michigan. Flowing across ancient Precambrian bedrock and surrounded by dense northern hemlock, cedar, and sugar maple forest, it offers an authentic Upper Peninsula outdoor hiking experience.',
   historical_notes = 'Preserved within Michigan''s Upper Peninsula wilderness corridor, featuring natural bedrock geology carved by post-glacial runoff.'
 WHERE id = '677041e5-cfa4-4cdd-8755-c2e8528f0ff2';
 
@@ -2135,38 +2136,11 @@ UPDATE waterfalls SET
   historical_notes = 'Preserved within Michigan''s Upper Peninsula wilderness corridor, featuring natural bedrock geology carved by post-glacial runoff.'
 WHERE id = 'eb01cf53-7c0b-44b8-97b0-89c25969bb9d';
 
-UPDATE waterfalls SET
-  drop_height = '20 ft',
-  hike_difficulty = 'Moderate',
-  trail_length_miles = 0.8,
-  parking_type = 'State Forest Road Turnout',
-  pass_required = 'None (Free Public Access)',
-  county = 'Baraga',
-  description = 'Harley Falls #2 is a scenic wilderness waterfall situated in Baraga County, Michigan. Flowing across ancient Precambrian bedrock and surrounded by dense northern hemlock, cedar, and sugar maple forest, it offers an authentic Upper Peninsula outdoor hiking experience.',
-  historical_notes = 'Preserved within Michigan''s Upper Peninsula wilderness corridor, featuring natural bedrock geology carved by post-glacial runoff.'
-WHERE id = 'f01905c5-54dd-4d9f-9cfb-960e19e889a0';
-
-UPDATE waterfalls SET
-  drop_height = '20 ft',
-  hike_difficulty = 'Moderate',
-  trail_length_miles = 0.8,
-  parking_type = 'State Forest Road Turnout',
-  pass_required = 'None (Free Public Access)',
-  county = 'Baraga',
-  description = 'Harley Falls #3 is a scenic wilderness waterfall situated in Baraga County, Michigan. Flowing across ancient Precambrian bedrock and surrounded by dense northern hemlock, cedar, and sugar maple forest, it offers an authentic Upper Peninsula outdoor hiking experience.',
-  historical_notes = 'Preserved within Michigan''s Upper Peninsula wilderness corridor, featuring natural bedrock geology carved by post-glacial runoff.'
-WHERE id = 'd4e9aa92-d5cf-4593-ad73-d66a9000e921';
-
-UPDATE waterfalls SET
-  drop_height = '20 ft',
-  hike_difficulty = 'Moderate',
-  trail_length_miles = 0.8,
-  parking_type = 'State Forest Road Turnout',
-  pass_required = 'None (Free Public Access)',
-  county = 'Baraga',
-  description = 'Harley Falls #4 is a scenic wilderness waterfall situated in Baraga County, Michigan. Flowing across ancient Precambrian bedrock and surrounded by dense northern hemlock, cedar, and sugar maple forest, it offers an authentic Upper Peninsula outdoor hiking experience.',
-  historical_notes = 'Preserved within Michigan''s Upper Peninsula wilderness corridor, featuring natural bedrock geology carved by post-glacial runoff.'
-WHERE id = 'f0a4c8f7-6897-40cf-b967-d21127cf5ba7';
+DELETE FROM waterfalls WHERE id IN (
+  'f01905c5-54dd-4d9f-9cfb-960e19e889a0', -- Harley Falls #2
+  'd4e9aa92-d5cf-4593-ad73-d66a9000e921', -- Harley Falls #3
+  'f0a4c8f7-6897-40cf-b967-d21127cf5ba7'  -- Harley Falls #4
+);
 
 UPDATE waterfalls SET
   drop_height = '20 ft',

@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { supabase } from '../lib/supabase'
+import { REMOVED_WATERFALL_IDS } from '../lib/enrichWaterfall'
 
 // Helper to hash passcode
 async function hashPasscode(passcode: string) {
@@ -131,7 +132,15 @@ export default function Admin() {
       console.error("Error fetching waterfalls:", error)
       setUploadStatus(`❌ DB Error: ${error.message}`)
     }
-    if (data) setWaterfalls(data as any)
+    if (data) {
+      const cleaned = data
+        .filter(w => !REMOVED_WATERFALL_IDS.has(w.id))
+        .map(w => ({
+          ...w,
+          name: (w.id === '677041e5-cfa4-4cdd-8755-c2e8528f0ff2' || w.name === 'Harley Falls #1') ? 'Harley Falls' : w.name
+        }))
+      setWaterfalls(cleaned as any)
+    }
   }
 
   useEffect(() => {
