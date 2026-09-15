@@ -1,0 +1,26 @@
+name: Keep Supabase Active
+
+# Run every 3 days at 08:00 UTC to prevent Supabase free-tier auto-pause.
+# Supabase pauses projects after 7 days of inactivity — this runs well within that window.
+on:
+  schedule:
+    - cron: '0 8 */3 * *'
+  # Allow manual trigger from the GitHub Actions tab
+  workflow_dispatch:
+
+jobs:
+  ping-database:
+    name: Ping Supabase via API
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping /api/keep-alive (triggers live Supabase query)
+        run: |
+          echo "Pinging up.seelye.info to keep Supabase active..."
+          RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" https://up.seelye.info/api/keep-alive)
+          echo "HTTP status: $RESPONSE"
+          if [ "$RESPONSE" -ge 200 ] && [ "$RESPONSE" -lt 400 ]; then
+            echo "Supabase ping successful."
+          else
+            echo "Unexpected HTTP status: $RESPONSE"
+            exit 1
+          fi

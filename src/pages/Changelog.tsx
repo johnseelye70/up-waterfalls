@@ -22,14 +22,35 @@ export default function Changelog() {
             🔐
           </div>
           <div className="space-y-12">
-          {/* Version 0.21.0 */}
+          {/* Version 0.22.0 */}
           <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
             <div className="bg-pinery-green px-6 py-4 border-b border-emerald-800">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <h3 className="font-serif text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-copper-orange">★</span> Beta 0.21.0
+                  <span className="text-copper-orange">★</span> Beta 0.22.0
                 </h3>
                 <span className="text-emerald-100 font-semibold text-sm">September 2026</span>
+              </div>
+            </div>
+            <div className="p-6 md:p-8 space-y-6">
+              <p className="text-base font-semibold text-slate-800">Automated Supabase Keep-Alive Architecture: Native Vercel Cron & GitHub Actions Backup Workflow</p>
+              <ul className="text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                <li><strong>Native Vercel Cron Job:</strong> Configured a daily scheduled job in <code className="bg-slate-100 px-1 rounded text-slate-700">vercel.json</code> running at 08:00 UTC (<code className="bg-slate-100 px-1 rounded text-slate-700">0 8 * * *</code>) to ping the database via Vercel's edge infrastructure.</li>
+                <li><strong>Dedicated Serverless Ping Endpoint (<code className="bg-slate-100 px-1 rounded text-slate-700">/api/keep-alive</code>):</strong> Implemented an automated Vercel serverless function that executes an active live query on the <code className="bg-slate-100 px-1 rounded text-slate-700">waterfalls</code> table with automatic REST fallback, resetting the Supabase 7-day inactivity pause timer.</li>
+                <li><strong>GitHub Actions Redundant Safety Net:</strong> Added <code className="bg-slate-100 px-1 rounded text-slate-700">.github/workflows/keep-alive.yml</code> running every 3 days at 08:00 UTC (<code className="bg-slate-100 px-1 rounded text-slate-700">0 8 */3 * *</code>) with manual <code className="bg-slate-100 px-1 rounded text-slate-700">workflow_dispatch</code> trigger support.</li>
+                <li><strong>Vercel API Rewrite Routing:</strong> Configured URL rewriting in <code className="bg-slate-100 px-1 rounded text-slate-700">vercel.json</code> ensuring <code className="bg-slate-100 px-1 rounded text-slate-700">/api/*</code> routes execute as serverless functions while preserving client-side SPA routing for all page URLs.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Version 0.21.0 */}
+          <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="font-serif text-2xl font-bold text-slate-800 flex items-center gap-2">
+                  Beta 0.21.0
+                </h3>
+                <span className="text-slate-500 font-semibold text-sm">September 2026</span>
               </div>
             </div>
             <div className="p-6 md:p-8 space-y-6">
