@@ -22,14 +22,33 @@ export default function Changelog() {
             🔐
           </div>
           <div className="space-y-12">
-          {/* Version 0.22.0 */}
+          {/* Version 0.23.0 */}
           <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
             <div className="bg-pinery-green px-6 py-4 border-b border-emerald-800">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <h3 className="font-serif text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-copper-orange">★</span> Beta 0.22.0
+                  <span className="text-copper-orange">★</span> Beta 0.23.0
                 </h3>
                 <span className="text-emerald-100 font-semibold text-sm">September 2026</span>
+              </div>
+            </div>
+            <div className="p-6 md:p-8 space-y-6">
+              <p className="text-base font-semibold text-slate-800">Database Security & RLS Policy Governance: Public Read Permissions & PostGIS Guidance</p>
+              <ul className="text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                <li><strong>Public Read RLS Policy on <code className="bg-slate-100 px-1 rounded text-slate-700">waterfall_blogs</code>:</strong> Created SQL migration scripts granting public and authenticated read permissions for curated travel blogs and field journals, restoring public article displays after enabling Row Level Security.</li>
+                <li><strong>PostGIS System Table Resolution (<code className="bg-slate-100 px-1 rounded text-slate-700">spatial_ref_sys</code>):</strong> Documented and confirmed the PostgreSQL 42501 ownership error on <code className="bg-slate-100 px-1 rounded text-slate-700">spatial_ref_sys</code> as an officially recognized Supabase Security Advisor false positive on internal extension metadata, requiring zero changes or manual intervention.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Version 0.22.0 */}
+          <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="font-serif text-2xl font-bold text-slate-800 flex items-center gap-2">
+                  Beta 0.22.0
+                </h3>
+                <span className="text-slate-500 font-semibold text-sm">September 2026</span>
               </div>
             </div>
             <div className="p-6 md:p-8 space-y-6">
