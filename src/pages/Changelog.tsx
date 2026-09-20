@@ -22,14 +22,39 @@ export default function Changelog() {
             🔐
           </div>
           <div className="space-y-12">
-          {/* Version 1.0.0 */}
+          {/* Version 1.1.0 */}
           <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
             <div className="bg-pinery-green px-6 py-4 border-b border-emerald-800">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <h3 className="font-serif text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-copper-orange">★</span> Beta 1.0.0
+                  <span className="text-copper-orange">★</span> Beta 1.1.0
                 </h3>
                 <span className="text-emerald-100 font-semibold text-sm">September 2026</span>
+              </div>
+            </div>
+            <div className="p-6 md:p-8 space-y-6">
+              <p className="text-base font-semibold text-slate-800">Major Feature Release: Wilderness Intelligence Suite, Real-Time USGS Telemetry, Aurora Predictor, Continental Rift Slicer & Yooper Trail Passport</p>
+              <ul className="text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                <li><strong>Live USGS River Flow & Torrent Tracker (/flow):</strong> Direct integration with 12 USGS gauging stations across the Upper Peninsula. Calculates real-time discharge in cubic feet per second (CFS), flow stages (Torrential Roar, Peak Runoff, Prime Cascading, Moderate, Low Flow), % of median, and interactive hydrographs with offline seasonal hydrologic fallbacks.</li>
+                <li><strong>Dark Sky & Aurora Cascade Predictor (/aurora):</strong> Real-time NOAA Space Weather Prediction Center Planetary Kp-index telemetry, mathematical lunar illumination algorithms, Bortle dark sky ratings, and night photography field cheat-sheets tailored to northern horizon viewing over Lake Superior waterfalls.</li>
+                <li><strong>Bedrock Geology & Continental Rift Slicer (/geology):</strong> Interactive 1.1-Billion-Year Midcontinent Rift System (MRS) stratigraphic slicer detailing the 4 waterfall mechanical engines (Basalt Undercut, Fault Rift Thrust, Stepped Terraces, Pictured Rocks Sea Cliffs) with direct bedrock-to-waterfall bindings.</li>
+                <li><strong>Yooper Trail Passport & Scramble Journal (/passport):</strong> 100% inline passport stamp book and logbook tracking explorer scout ranks (Porcupine Tenderfoot to Master Yooper Sovereign), 15-county completion badges, trail scramble ratings, personal ratings, notes, and local JSON backup/restore.</li>
+                <li><strong>Winter Ice Climbing & Frozen Cataracts (/winter):</strong> Sub-zero conditions registry tracking freeze stages (Open Water to Solid Frozen Pillar), technical Water Ice ratings (WI2–WI5), vertical ice pitch heights, and winter trailhead plowing advisories.</li>
+                <li><strong>Printable Ranger Pocket Pamphlets:</strong> 1-click tri-fold field dossiers with high-contrast ink-saving print mode, WGS84 GPS decimal & DMS coordinates, off-grid directions, DNR/MSP emergency radio frequencies, and on-site ranger observation logs.</li>
+                <li><strong>Deep Dossier Integration:</strong> Every individual waterfall dossier now features an inline Backcountry Ranger Quick-Action ribbon, live telemetry badges, expandable pocket pamphlets, and 1-click passport check-ins.</li>
+                <li><strong>Wilderness Navigation Ribbon:</strong> Persistent secondary subnav bar across all pages providing instant access to all wilderness intelligence tools.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Version 1.0.0 */}
+          <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="font-serif text-2xl font-bold text-slate-800 flex items-center gap-2">
+                  Beta 1.0.0
+                </h3>
+                <span className="text-slate-500 font-semibold text-sm">September 2026</span>
               </div>
             </div>
             <div className="p-6 md:p-8 space-y-6">

@@ -42,6 +42,28 @@ export default function Layout({ children }: LayoutProps) {
         </div>
       </header>
 
+      {/* Wilderness Tools Secondary Navigation Strip */}
+      <div className="bg-emerald-900 text-emerald-100 text-xs px-4 py-2 border-b border-emerald-800/80 overflow-x-auto whitespace-nowrap flex items-center justify-start sm:justify-center gap-4 sm:gap-6 font-medium shadow-inner z-40 relative">
+        <span className="text-[10px] font-mono text-copper-orange font-bold uppercase tracking-wider hidden sm:inline">
+          Wilderness Tools:
+        </span>
+        <Link to="/flow" className="hover:text-copper-orange transition flex items-center gap-1">
+          <span>🌊</span> River Flow
+        </Link>
+        <Link to="/aurora" className="hover:text-copper-orange transition flex items-center gap-1">
+          <span>🌌</span> Aurora Predictor
+        </Link>
+        <Link to="/geology" className="hover:text-copper-orange transition flex items-center gap-1">
+          <span>🌋</span> Rift Geology
+        </Link>
+        <Link to="/passport" className="hover:text-copper-orange transition flex items-center gap-1">
+          <span>🥾</span> Yooper Passport
+        </Link>
+        <Link to="/winter" className="hover:text-copper-orange transition flex items-center gap-1">
+          <span>🧊</span> Winter Ice
+        </Link>
+      </div>
+
       <main className="flex-grow flex flex-col relative z-10">
         {children}
       </main>
@@ -79,7 +101,7 @@ export default function Layout({ children }: LayoutProps) {
               to="/changelog"
               className="bg-emerald-900/60 hover:bg-emerald-800 text-white px-6 py-3 rounded-lg border border-emerald-800/50 shadow-lg transition flex items-center gap-3 font-semibold"
             >
-              <span>📋</span> Beta 1.0.0
+              <span>📋</span> Beta 1.1.0
             </Link>
           </div>
 

@@ -6,6 +6,12 @@ import { useTrip } from '../lib/TripContext'
 import { getThumbnailUrl } from '../lib/utils'
 import { enrichWaterfall, type EnrichedWaterfall } from '../lib/enrichWaterfall'
 import { TRAVEL_GUIDES, WATERFALL_BLOG_ARTICLES } from '../data/travelGuidesData'
+import PrintablePamphlet from '../components/PrintablePamphlet'
+import { getStationForWaterfall } from '../data/usgsGaugesData'
+import { fetchSingleStationFlow, type UsgsReading } from '../services/usgsService'
+import { getGeologyForWaterfall } from '../data/geologyData'
+import { getWinterConditionForWaterfall } from '../data/winterClimbingData'
+import { getStampForWaterfall, savePassportStamp, removePassportStamp, type PassportStamp } from '../lib/passportStorage'
 
 interface NearbyPlace {
   id: string
@@ -71,6 +77,14 @@ export default function WaterfallDetail() {
   const [showForecast, setShowForecast] = useState(false)
   const [activePhoto, setActivePhoto] = useState<string>('')
   const [loading, setLoading] = useState(true)
+  const [showPamphlet, setShowPamphlet] = useState(false)
+  const [usgsReading, setUsgsReading] = useState<UsgsReading | null>(null)
+  const [passportStamp, setPassportStamp] = useState<PassportStamp | undefined>(undefined)
+  const [showStampForm, setShowStampForm] = useState(false)
+  const [stampFlow, setStampFlow] = useState<PassportStamp['flowObserved']>('Moderate')
+  const [stampScramble, setStampScramble] = useState<PassportStamp['scrambleRating']>('Rugged Root Trail')
+  const [stampRating, setStampRating] = useState<number>(5)
+  const [stampNotes, setStampNotes] = useState<string>('')
   
   const { addToTrip, tripItems } = useTrip()
   
@@ -89,6 +103,13 @@ export default function WaterfallDetail() {
         console.error('Error fetching waterfall:', wfError)
       } else {
         setWaterfall(enrichWaterfall(wfData))
+        
+        // Fetch USGS Streamflow Telemetry if monitored
+        const station = getStationForWaterfall(wfData.name)
+        if (station) {
+          fetchSingleStationFlow(station.siteId).then((r: UsgsReading | null) => setUsgsReading(r)).catch(() => {})
+        }
+        setPassportStamp(getStampForWaterfall(wfData.id))
         
         // Fetch Weather Data from Open-Meteo
         try {
@@ -203,6 +224,10 @@ export default function WaterfallDetail() {
     return combined
   }, [waterfall, blogs])
 
+  const geology = useMemo(() => waterfall ? getGeologyForWaterfall(waterfall.name, waterfall.county) : undefined, [waterfall])
+  const winter = useMemo(() => waterfall ? getWinterConditionForWaterfall(waterfall.id) : undefined, [waterfall])
+  const usgsStation = useMemo(() => waterfall ? getStationForWaterfall(waterfall.name) : undefined, [waterfall])
+
   if (loading) {
     return (
       <div className="flex-grow flex items-center justify-center font-serif text-xl text-slate-500">
@@ -217,6 +242,30 @@ export default function WaterfallDetail() {
         Waterfall not found.
       </div>
     )
+  }
+
+  const handleSaveStamp = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!waterfall) return
+    const newStamp: PassportStamp = {
+      waterfallId: waterfall.id,
+      waterfallName: waterfall.name,
+      county: waterfall.county,
+      visitedAt: new Date().toISOString().split('T')[0],
+      flowObserved: stampFlow,
+      scrambleRating: stampScramble,
+      personalRating: stampRating,
+      trailNotes: stampNotes
+    }
+    savePassportStamp(newStamp)
+    setPassportStamp(newStamp)
+    setShowStampForm(false)
+  }
+
+  const handleRemoveStamp = () => {
+    if (!waterfall) return
+    removePassportStamp(waterfall.id)
+    setPassportStamp(undefined)
   }
 
   const handleAddToTrip = () => {
@@ -295,10 +344,278 @@ export default function WaterfallDetail() {
         </div>
       </div>
 
+      {/* Backcountry Ranger Quick-Action Ribbon */}
+      <div className="bg-emerald-950 text-parchment p-3.5 sm:p-4 rounded-xl border border-copper-orange/50 shadow-lg flex flex-wrap items-center justify-between gap-3">
+        <div className="flex flex-wrap items-center gap-2 text-xs">
+          <button
+            onClick={() => setShowPamphlet(!showPamphlet)}
+            className="px-3 py-1.5 rounded-lg bg-copper-orange hover:bg-tahquamenon-amber text-white font-bold transition flex items-center gap-1.5 shadow"
+          >
+            <span>📜</span> {showPamphlet ? 'Hide Field Pamphlet' : 'Print Ranger Pocket Pamphlet'}
+          </button>
+
+          <button
+            onClick={() => setShowStampForm(!showStampForm)}
+            className={`px-3 py-1.5 rounded-lg font-bold transition flex items-center gap-1.5 border shadow ${
+              passportStamp 
+                ? 'bg-emerald-800 text-white border-emerald-500' 
+                : 'bg-emerald-900/80 hover:bg-emerald-800 text-emerald-200 border-emerald-700'
+            }`}
+          >
+            <span>🥾</span> {passportStamp ? `✓ Stamped (${passportStamp.personalRating}★)` : 'Stamp in Yooper Passport'}
+          </button>
+        </div>
+
+        {/* Telemetry Quick Badges */}
+        <div className="flex flex-wrap items-center gap-2 text-[11px] font-mono">
+          <Link
+            to="/flow"
+            className="bg-emerald-900/60 hover:bg-emerald-800 text-slate-200 px-2.5 py-1 rounded border border-emerald-700/60 transition flex items-center gap-1"
+          >
+            <span>🌊</span> USGS Flow: <span className="font-bold text-copper-orange">{usgsReading?.stageDescription || 'Monitored'}</span>
+          </Link>
+          <Link
+            to="/aurora"
+            className="bg-emerald-900/60 hover:bg-emerald-800 text-slate-200 px-2.5 py-1 rounded border border-emerald-700/60 transition flex items-center gap-1"
+          >
+            <span>🌌</span> Dark Sky: <span className="font-bold text-emerald-300">Bortle {waterfall.latitude > 47 ? '1-2' : '2-3'}</span>
+          </Link>
+          <Link
+            to="/geology"
+            className="bg-emerald-900/60 hover:bg-emerald-800 text-slate-200 px-2.5 py-1 rounded border border-emerald-700/60 transition flex items-center gap-1"
+          >
+            <span>🌋</span> Rift Strata: <span className="font-bold text-amber-300">{geology ? geology.name.split(' ')[0] : 'MRS Rift'}</span>
+          </Link>
+          <Link
+            to="/winter"
+            className="bg-emerald-900/60 hover:bg-emerald-800 text-slate-200 px-2.5 py-1 rounded border border-emerald-700/60 transition flex items-center gap-1"
+          >
+            <span>🧊</span> Winter Ice: <span className="font-bold text-sky-300">{winter ? winter.iceGrade : 'Seasonal'}</span>
+          </Link>
+        </div>
+      </div>
+
+      {/* 100% Inline Printable Pamphlet Display */}
+      {showPamphlet && (
+        <PrintablePamphlet waterfall={waterfall} onClose={() => setShowPamphlet(false)} />
+      )}
+
+      {/* 100% Inline Yooper Passport Stamping Drawer */}
+      {showStampForm && (
+        <form
+          onSubmit={handleSaveStamp}
+          className="bg-white rounded-xl border-2 border-copper-orange p-5 sm:p-6 shadow-xl space-y-4 text-xs"
+        >
+          <div className="flex items-center justify-between border-b border-slate-200 pb-2">
+            <h4 className="font-serif font-bold text-base text-slate-900 flex items-center gap-2">
+              <span>🥾</span> Log {waterfall.name} in your Yooper Trail Passport
+            </h4>
+            <span className="text-[11px] font-mono text-slate-500">Official Trail Check-in</span>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="space-y-1">
+              <label className="font-bold text-slate-700 uppercase tracking-wide">Observed Flow:</label>
+              <select
+                value={stampFlow}
+                onChange={e => setStampFlow(e.target.value as any)}
+                className="w-full border border-slate-300 rounded p-2 bg-slate-50 text-xs"
+              >
+                <option value="Trickle">Trickle / Exposed Strata</option>
+                <option value="Moderate">Moderate / Scenic Ribbons</option>
+                <option value="Roaring Peak">Roaring Peak / Heavy Spray</option>
+                <option value="Frozen Cascade">Frozen Cascade / Winter Ice</option>
+              </select>
+            </div>
+
+            <div className="space-y-1">
+              <label className="font-bold text-slate-700 uppercase tracking-wide">Trail Scramble:</label>
+              <select
+                value={stampScramble}
+                onChange={e => setStampScramble(e.target.value as any)}
+                className="w-full border border-slate-300 rounded p-2 bg-slate-50 text-xs"
+              >
+                <option value="Easy Boardwalk">Easy Boardwalk / Paved</option>
+                <option value="Rugged Root Trail">Rugged Root Trail</option>
+                <option value="Bushwhack Scramble">Bushwhack Scramble</option>
+                <option value="Rope & Boulder Canyon">Rope & Boulder Canyon</option>
+              </select>
+            </div>
+
+            <div className="space-y-1">
+              <label className="font-bold text-slate-700 uppercase tracking-wide">Your Rating:</label>
+              <div className="flex items-center gap-1.5 pt-1">
+                {[1, 2, 3, 4, 5].map(star => (
+                  <button
+                    type="button"
+                    key={star}
+                    onClick={() => setStampRating(star)}
+                    className="text-xl transition hover:scale-110"
+                  >
+                    {star <= stampRating ? '⭐' : '☆'}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="sm:col-span-3 space-y-1">
+              <label className="font-bold text-slate-700 uppercase tracking-wide">Scramble Log & Wilderness Notes:</label>
+              <input
+                type="text"
+                value={stampNotes}
+                onChange={e => setStampNotes(e.target.value)}
+                placeholder="Log parking conditions, wildlife sighted, water clarity, or route hazards..."
+                className="w-full border border-slate-300 rounded p-2.5 bg-slate-50 text-xs"
+              />
+            </div>
+          </div>
+
+          <div className="flex items-center justify-between pt-2 border-t border-slate-200">
+            {passportStamp ? (
+              <button
+                type="button"
+                onClick={handleRemoveStamp}
+                className="text-red-600 hover:underline font-bold text-xs"
+              >
+                Remove Existing Stamp
+              </button>
+            ) : <span />}
+
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={() => setShowStampForm(false)}
+                className="px-3 py-1.5 rounded border border-slate-300 text-slate-700 hover:bg-slate-100 font-medium"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className="px-5 py-1.5 rounded bg-copper-orange hover:bg-tahquamenon-amber text-white font-bold shadow"
+              >
+                Save Stamp
+              </button>
+            </div>
+          </div>
+        </form>
+      )}
+
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
         {/* Left Column */}
         <div className="lg:col-span-2 space-y-8">
+          
+          {/* Wilderness Intelligence & Backcountry Analytics Card */}
+          <div className="bg-gradient-to-br from-slate-900 via-emerald-950 to-slate-950 text-white rounded-xl shadow-lg border border-copper-orange/40 p-6 space-y-5">
+            <div className="border-b border-emerald-800/80 pb-3 flex flex-wrap items-center justify-between gap-2">
+              <h3 className="font-serif text-lg sm:text-xl font-bold text-parchment flex items-center gap-2">
+                <span>🧭</span> Wilderness Intelligence & Telemetry
+              </h3>
+              <span className="text-[11px] font-mono text-copper-orange uppercase tracking-wider font-semibold">
+                Live Backcountry Sensors
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              
+              {/* Telemetry 1: River Flow */}
+              <div className="bg-black/40 border border-emerald-700/50 p-3.5 rounded-lg space-y-1.5">
+                <div className="flex justify-between items-center">
+                  <span className="font-bold text-copper-orange uppercase tracking-wide text-[10px]">
+                    🌊 USGS River Flow
+                  </span>
+                  <Link to="/flow" className="text-[10px] text-emerald-400 hover:underline">
+                    View Tracker →
+                  </Link>
+                </div>
+                {usgsStation ? (
+                  <>
+                    <div className="text-base font-serif font-bold text-white">
+                      {usgsReading?.flowCfs ? `${usgsReading.flowCfs.toLocaleString()} CFS` : `Median ${usgsStation.medianCfs} CFS`}
+                    </div>
+                    <div className="text-[11px] text-emerald-200">
+                      Stage: <strong>{usgsReading?.stageDescription || 'Prime Cascading'}</strong> ({usgsStation.name})
+                    </div>
+                  </>
+                ) : (
+                  <div className="text-[11px] text-slate-300">
+                    Watershed: <strong>{waterfall.county} County River Basin</strong>. Spring snowmelt brings roaring peak volume.
+                  </div>
+                )}
+              </div>
+
+              {/* Telemetry 2: Rift Geology */}
+              <div className="bg-black/40 border border-emerald-700/50 p-3.5 rounded-lg space-y-1.5">
+                <div className="flex justify-between items-center">
+                  <span className="font-bold text-amber-400 uppercase tracking-wide text-[10px]">
+                    🌋 Rift Strata Engine
+                  </span>
+                  <Link to="/geology" className="text-[10px] text-amber-300 hover:underline">
+                    Slicer Model →
+                  </Link>
+                </div>
+                {geology ? (
+                  <>
+                    <div className="text-base font-serif font-bold text-white truncate">
+                      {geology.strataUnit}
+                    </div>
+                    <div className="text-[11px] text-stone-300">
+                      Engine: <strong>{geology.engine}</strong> ({geology.ageEon})
+                    </div>
+                  </>
+                ) : (
+                  <div className="text-[11px] text-slate-300">
+                    Bedrock: <strong>Precambrian Laurentian Shield</strong> carved by Wisconsin glaciation runoff.
+                  </div>
+                )}
+              </div>
+
+              {/* Telemetry 3: Winter Ice */}
+              <div className="bg-black/40 border border-emerald-700/50 p-3.5 rounded-lg space-y-1.5">
+                <div className="flex justify-between items-center">
+                  <span className="font-bold text-sky-400 uppercase tracking-wide text-[10px]">
+                    🧊 Winter Cataract & Ice
+                  </span>
+                  <Link to="/winter" className="text-[10px] text-sky-300 hover:underline">
+                    Ice Board →
+                  </Link>
+                </div>
+                {winter ? (
+                  <>
+                    <div className="text-base font-serif font-bold text-white">
+                      {winter.iceGrade} • {winter.freezeStage}
+                    </div>
+                    <div className="text-[11px] text-sky-200">
+                      Plowing: <strong>{winter.winterTrailheadPlowed ? 'Plowed Lot' : 'Backcountry Access'}</strong>
+                    </div>
+                  </>
+                ) : (
+                  <div className="text-[11px] text-slate-300">
+                    Freezes mid-December through late March into frozen spray shelf.
+                  </div>
+                )}
+              </div>
+
+              {/* Telemetry 4: Dark Sky */}
+              <div className="bg-black/40 border border-emerald-700/50 p-3.5 rounded-lg space-y-1.5">
+                <div className="flex justify-between items-center">
+                  <span className="font-bold text-emerald-400 uppercase tracking-wide text-[10px]">
+                    🌌 Dark Sky & Aurora
+                  </span>
+                  <Link to="/aurora" className="text-[10px] text-emerald-300 hover:underline">
+                    NOAA Predictor →
+                  </Link>
+                </div>
+                <div className="text-base font-serif font-bold text-white">
+                  Bortle Class {waterfall.latitude > 47 ? '1 (Pristine)' : '2 (Truly Dark)'}
+                </div>
+                <div className="text-[11px] text-emerald-200">
+                  Northern Horizon: <strong>{waterfall.latitude.toFixed(3)}°N</strong> (Prime auroral curtain viewing)
+                </div>
+              </div>
+
+            </div>
+          </div>
           
           {/* Overview Card */}
           <div className="bg-white p-6 rounded-lg shadow border border-slate-200 space-y-4">
