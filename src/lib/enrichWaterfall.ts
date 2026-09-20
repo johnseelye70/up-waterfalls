@@ -175,6 +175,50 @@ export function enrichWaterfall(raw: any): EnrichedWaterfall {
     }
   }
 
+  // Explicitly ensure Piers Gorge Falls (Dickinson County) has its authentic hero photo and county hero designation
+  if (raw.id === '480328b4-7018-4d3a-9fed-c5ac18be40da' || name.toLowerCase().includes('piers gorge')) {
+    const piersUrl = 'https://upload.wikimedia.org/wikipedia/commons/f/fd/Menominee_Recreational_River%2C_Wisconsin_%2836735891975%29.jpg'
+    const existingIndex = photos.findIndex((p: any) => p.image_url === piersUrl)
+    if (existingIndex >= 0) {
+      photos[existingIndex] = {
+        ...photos[existingIndex],
+        is_hero: true,
+        is_county_hero: true
+      }
+    } else {
+      photos.unshift({
+        id: '0118cb64-f91b-4c9a-8152-b25c9c0c1a32',
+        image_url: piersUrl,
+        caption: 'The roaring whitewater rapids and scenic rocky pine bluffs of Piers Gorge along the Menominee River in Dickinson County',
+        credit_name: 'Bob Wick / Bureau of Land Management',
+        is_hero: true,
+        is_county_hero: true
+      })
+    }
+  }
+
+  // Explicitly ensure Chicagon Falls (Iron County) has its authentic hero photo and county hero designation
+  if (raw.id === '49381d34-00c8-4325-971e-7921c3739f23' || name.toLowerCase().includes('chicagon falls')) {
+    const chicagonUrl = 'https://upload.wikimedia.org/wikipedia/commons/7/7f/170919-FS-Ottawa-SH-026_%2837349708485%29.jpg'
+    const existingIndex = photos.findIndex((p: any) => p.image_url === chicagonUrl)
+    if (existingIndex >= 0) {
+      photos[existingIndex] = {
+        ...photos[existingIndex],
+        is_hero: true,
+        is_county_hero: true
+      }
+    } else {
+      photos.unshift({
+        id: 'ba3018c8-da53-4988-8797-666f37ca31b5',
+        image_url: chicagonUrl,
+        caption: 'Rushing waters and ancient bedrock rapids on the South Branch Paint River corridor in Iron County, Ottawa National Forest',
+        credit_name: 'U.S. Forest Service Eastern Region',
+        is_hero: true,
+        is_county_hero: true
+      })
+    }
+  }
+
   return {
     ...raw,
     name,

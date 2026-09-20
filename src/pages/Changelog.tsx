@@ -22,14 +22,35 @@ export default function Changelog() {
             🔐
           </div>
           <div className="space-y-12">
-          {/* Version 0.25.0 */}
+          {/* Version 0.26.0 */}
           <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
             <div className="bg-pinery-green px-6 py-4 border-b border-emerald-800">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <h3 className="font-serif text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-copper-orange">★</span> Beta 0.25.0
+                  <span className="text-copper-orange">★</span> Beta 0.26.0
                 </h3>
                 <span className="text-emerald-100 font-semibold text-sm">September 2026</span>
+              </div>
+            </div>
+            <div className="p-6 md:p-8 space-y-6">
+              <p className="text-base font-semibold text-slate-800">100% Authentic Photo Coverage Across All 11 Upper Peninsula County Hubs</p>
+              <ul className="text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                <li><strong>Dickinson County Hub Hero & Piers Gorge Coverage:</strong> Discovered, vetted, and ingested authentic Bureau of Land Management (BLM) high-resolution field photography by Bob Wick capturing the Class IV whitewater cascades and rugged cedar-bluff canyon of Piers Gorge on the Menominee River (<code className="bg-slate-100 px-1 rounded text-slate-700">Piers Gorge Falls</code>), eliminating the blank county card on the homepage hub grid.</li>
+                <li><strong>Iron County Hub Hero & Ottawa National Forest Coverage:</strong> Ingested authentic U.S. Forest Service Eastern Region field photography of rushing bedrock rapids along the South Branch Paint River corridor in the Iron River Ranger District (<code className="bg-slate-100 px-1 rounded text-slate-700">Chicagon Falls</code> and <code className="bg-slate-100 px-1 rounded text-slate-700">Margeson Falls</code>), alongside high-resolution CC BY-SA 4.0 photography of Chicagon Creek.</li>
+                <li><strong>100% UP County Hub Photo Completion:</strong> Every single one of Michigan's 11 Upper Peninsula waterfall counties (Alger, Baraga, Chippewa, Delta, Dickinson, Gogebic, Houghton, Iron, Keweenaw, Luce, Marquette) now features verified, high-resolution authentic hero photography across both the homepage Explore by County Hub grid and county landing views.</li>
+                <li><strong>Dual-Layer Database & Enrichment Integrity:</strong> Both Supabase <code className="bg-slate-100 px-1 rounded text-slate-700">waterfall_photos</code> records and client-side <code className="bg-slate-100 px-1 rounded text-slate-700">enrichWaterfall</code> guards were updated with <code className="bg-slate-100 px-1 rounded text-slate-700">is_hero: true</code> and <code className="bg-slate-100 px-1 rounded text-slate-700">is_county_hero: true</code> flags, ensuring reliable rendering across all network and cache states.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Version 0.25.0 */}
+          <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="font-serif text-2xl font-bold text-slate-800 flex items-center gap-2">
+                  Beta 0.25.0
+                </h3>
+                <span className="text-slate-500 font-semibold text-sm">September 2026</span>
               </div>
             </div>
             <div className="p-6 md:p-8 space-y-6">
