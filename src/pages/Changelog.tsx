@@ -22,14 +22,34 @@ export default function Changelog() {
             🔐
           </div>
           <div className="space-y-12">
-          {/* Version 0.23.0 */}
+          {/* Version 0.24.0 */}
           <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
             <div className="bg-pinery-green px-6 py-4 border-b border-emerald-800">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <h3 className="font-serif text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-copper-orange">★</span> Beta 0.23.0
+                  <span className="text-copper-orange">★</span> Beta 0.24.0
                 </h3>
                 <span className="text-emerald-100 font-semibold text-sm">September 2026</span>
+              </div>
+            </div>
+            <div className="p-6 md:p-8 space-y-6">
+              <p className="text-base font-semibold text-slate-800">Phase 4 Authentic Waterfall Photography: Expanded Coverage Across Missing Wilderness Falls</p>
+              <ul className="text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                <li><strong>Curated Verified High-Resolution Photography:</strong> Discovered, vetted, and added 12 authentic, high-resolution photographs (resolutions up to 7928×5152) across previously unphotographed waterfalls including Sturgeon Falls (Houghton), Upper Sturgeon Falls (Baraga), Trap Falls (Ontonagon), Upper & Lower Montreal Falls (Keweenaw), Chapel Beach Falls (Alger), West Branch Falls (Baraga), Lower Yellow Dog Falls (Marquette), and Sandstone Falls (Gogebic).</li>
+                <li><strong>Public Agency & Verified Sources:</strong> Sourced strictly from verified U.S. Forest Service Eastern Region field photography, National Park Service Digital Image Archives, U.S. Fish & Wildlife Service, and verified outdoor photographers with full licensing attribution and descriptive wilderness captions.</li>
+                <li><strong>Expanded Visual Directory:</strong> Increased total database photographic assets to 223 photos, expanding photo coverage to 82 Upper Peninsula waterfalls.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Version 0.23.0 */}
+          <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="font-serif text-2xl font-bold text-slate-800 flex items-center gap-2">
+                  Beta 0.23.0
+                </h3>
+                <span className="text-slate-500 font-semibold text-sm">September 2026</span>
               </div>
             </div>
             <div className="p-6 md:p-8 space-y-6">
