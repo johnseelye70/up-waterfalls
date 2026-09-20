@@ -1597,6 +1597,1634 @@ export const TRAVEL_GUIDES: TravelGuide[] = [
         "answer": "During the 19th and early 20th centuries, water was harnessed above waterfalls to create hydraulic head pressure for powering sawmills, copper stamp mills, and early hydroelectric generators."
       }
     ]
+  },
+{
+    id: 'tahquamenon-amber-river-basin',
+    slug: 'tahquamenon-amber-river-basin',
+    title: 'The Great Tahquamenon Basin & Whitefish Bay Wilderness Expedition',
+    subtitle: 'From the 200-foot amber crest of Upper Tahquamenon to the forested river bend islands and Whitefish Point',
+    category: 'Regional Expeditions',
+    author: {
+      name: 'Erik Santtila',
+      role: 'Boreal Hydrologist & Forest Ranger',
+      avatarEmoji: '🌲'
+    },
+    readTime: '14 min read',
+    publishedDate: 'September 2026',
+    heroImageUrl: 'https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80',
+    heroCaption: 'The golden-amber rush of Upper Tahquamenon Falls plunging 50 feet over sandstones.',
+    excerpt: 'Spanning over 40,000 acres of boreal tamarack, hemlock, and peat bogs, the Tahquamenon River drainage is Michigan\'s mightiest natural water system. Here is the comprehensive field expedition guide to conquering the Upper Falls, hiking the 4-mile river trail, paddling around Lower Falls Island, and tracing the river to Whitefish Bay.',
+    tags: ['Tahquamenon', 'Chippewa County', 'Luce County', 'Tannin Rivers', 'Lake Superior', 'State Parks'],
+    associatedWaterfallIds: [
+      '2ab152d2-a814-478d-b01a-e88f7ea22719', // Upper Tahquamenon
+      '8664d95b-2df6-4813-9439-404102b86e31'  // Lower Tahquamenon
+    ],
+    chapters: [
+      {
+        id: 'the-tannin-kettle-engine',
+        title: 'Chapter 1: The Organic Kettle Engine: How Peat Swamps Brew Amber Water',
+        subtitle: 'The biochemical origin of the Midwest\'s largest volume waterfall',
+        content: [
+          'The iconic golden-brown hue of the Tahquamenon River is not soil erosion or sediment; it is pure organic chemistry. Draining hundreds of square miles of boreal tamarack and northern white cedar peatlands, decomposing hemlock needles and moss beds leach rich humic and tannic acids directly into the watershed.',
+          'As the Tahquamenon approaches its 200-foot-wide sandstone crest, it funnels an astonishing 50,000 gallons of water per second during spring peak. The sheer drop of nearly 50 feet aerates the tannin-rich liquid like a vigorously pulled draught, churning up towering drifts of creamy foam that drift downstream like snowbanks.',
+          'Native Ojibwe lore celebrated the Tahquamenon as the river of golden water, immortalized in Henry Wadsworth Longfellow\'s The Song of Hiawatha as the rushing stream down which the legendary birchbark canoe sailed.'
+        ],
+        proTip: 'Visit in early morning just as sunrise illuminates the mist rising from the gorge; the amber foam glows brilliant copper-gold against dark spruce boughs.'
+      },
+      {
+        id: 'hiking-the-river-trail',
+        title: 'Chapter 2: Conquering the 4-Mile River Corridor Wilderness Trail',
+        subtitle: 'Connecting Upper and Lower Falls through primitive hemlock groves',
+        content: [
+          'While 95% of state park tourists drive between the Upper and Lower parking lots, true hikers take the 4-mile (8-mile round trip) North Country Trail connector that clings directly to the river bluff.',
+          'Beginning at the Upper Falls parking area, the singletrack weaves beneath towering virgin eastern hemlocks and yellow birches, climbing undulating sandstone ridges with uninterrupted views of the deep river oxbows below.',
+          'The middle two miles traverse dense river floodplain where wooden boardwalks cross tea-colored tributaries. Watch for mink scurrying across fallen logs, river otters playing in the eddies, and majestic bald eagles nesting in the high white pine canopy.'
+        ],
+        proTip: 'In peak summer (late June through August), a park shuttle van runs between the Upper and Lower concessions, allowing you to hike one-way (4 miles) without having to backtrack.'
+      },
+      {
+        id: 'lower-falls-island-exploration',
+        title: 'Chapter 3: Lower Falls Island Sanctuary & Pedestrian Passage',
+        subtitle: 'Standing amid five interlocking cascades in the river basin',
+        content: [
+          'Four miles downstream from the big drop, the Tahquamenon River splits around a heavily wooded island, tumbling over five distinct stepped sandstone cataracts that form Lower Tahquamenon Falls.',
+          'Historically accessible only by renting wooden rowboats, a modern engineered pedestrian bridge now connects the south mainland bank directly to the island, opening a panoramic 0.5-mile loop trail through pristine cedar glades.',
+          'The island trail allows you to stand within inches of the rushing rapids where amber water sheets across tiered rock ledges, creating ideal natural wading pools along the calmer gravel sandbars downstream.'
+        ],
+        proTip: 'Bring water shoes with neoprene soles if visiting in late summer. Wading along the gravel flats below the Lower Falls island provides a refreshing, low-velocity dip in pristine cedar water.'
+      },
+      {
+        id: 'emerson-to-whitefish-point',
+        title: 'Chapter 4: Tracing the Outflow to Emerson & Whitefish Point',
+        subtitle: 'Where the amber river collides with Lake Superior\'s Shipwreck Coast',
+        content: [
+          'Following the river east along M-123 brings you to the abandoned 19th-century sawmill boomtown of Emerson, where the Tahquamenon discharges its golden current into the deep turquoise waters of Whitefish Bay.',
+          'Just 10 miles north lies Whitefish Point—the graveyard of Lake Superior. Here, the Great Lakes Shipwreck Museum preserves the bell of the Edmund Fitzgerald, which sank in a ferocious November hurricane just 17 miles northwest.',
+          'The windswept point is also an internationally renowned migratory bird sanctuary; spring and autumn bring thousands of raptors, waterbirds, and owls resting on the dunes before crossing the open lake.'
+        ],
+        proTip: 'Stop at the Whitefish Point bird observatory boardwalk around dusk; the wide open Lake Superior sunset over the dunes is one of the most sublime vistas in North America.'
+      }
+    ],
+    recommendedGear: [
+      'GORE-TEX waterproof hiking boots for muddy riverbank trail sections',
+      'Wide-angle landscape lens for capturing the expansive 200-foot Upper Falls crest',
+      'Binoculars for spotting nesting bald eagles and migratory raptors',
+      'Insect repellent headnet for June black fly season along the cedar lowlands',
+      'Recreation Passport (Michigan State Parks vehicle sticker)'
+    ],
+    faqs: [
+      {
+        question: 'Can you swim or kayak at Tahquamenon Falls?',
+        answer: 'Swimming and paddling are strictly prohibited in the turbulent gorge directly above and below the Upper Falls due to lethal currents and undertows. However, paddling and shallow wading are permitted below the Lower Falls island.'
+      },
+      {
+        question: 'Is Tahquamenon Falls accessible in the winter?',
+        answer: 'Yes! The paved walkway to the Upper Falls brink overlook is plowed year-round. In winter, the massive plume forms giant ice mounds and hanging icicles, and the park rents snowshoes at the Upper Falls brewery concession.'
+      }
+    ]
+  },
+  {
+    id: 'black-river-national-scenic-byway',
+    slug: 'black-river-national-scenic-byway',
+    title: 'The Black River National Forest Scenic Byway: Ottawa\'s Basalt Cataracts',
+    subtitle: 'A 14-mile designated wilderness corridor stringing together five world-class cascades on the Gogebic Range',
+    category: 'Regional Expeditions',
+    author: {
+      name: 'Janice Morrow',
+      role: 'Ottawa National Forest Geologist',
+      avatarEmoji: '🏔️'
+    },
+    readTime: '13 min read',
+    publishedDate: 'September 2026',
+    heroImageUrl: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80',
+    heroCaption: 'Ancient volcanic conglomerates and rushing whitewater along the Black River Scenic Byway.',
+    excerpt: 'Carving a precipitous trench through the billion-year-old basalt lava flows of the Midcontinent Rift, the Black River descends over 200 vertical feet across a chain of dramatic cascades. This dossier breaks down trail access, photography vantages, and geological formations from Great Conglomerate to the suspension bridge at Black River Harbor.',
+    tags: ['Black River', 'Gogebic County', 'Ottawa National Forest', 'Scenic Byways', 'Basalt', 'Conglomerate'],
+    associatedWaterfallIds: [
+      '27d5be10-9954-4bf4-96da-c17a27be8a80', // Great Conglomerate
+      'c53947b5-f38f-4135-af73-558a45044edc', // Potawatomi
+      'd326788e-c027-4b39-8616-1fad3bac4c7b', // Gorge
+      'fe8ac0ba-b534-4b3e-99ee-c5c6477d3038', // Sandstone
+      '9768a31f-0db9-404f-bac7-af97b4dd7dfa'  // Rainbow
+    ],
+    chapters: [
+      {
+        id: 'volcanic-rift-geology',
+        title: 'Chapter 1: The Volcanic Rift Valley: Billion-Year-Old Basalts & Puddingstone',
+        subtitle: 'Reading the ancient lava flows of the Keweenawan Rift',
+        content: [
+          'The Black River does not flow across gentle sandstone; it tears through colossal Precambrian volcanic flood basalts created 1.1 billion years ago when North America nearly tore in half.',
+          'Between the basalt sheets lie thick strata of Keweenaw Copper Harbor Conglomerate—popularly called puddingstone—comprising rounded granite, jasper, and basalt pebbles cemented together by ancient volcanic gravels.',
+          'At Great Conglomerate Falls, the river slams against a 40-foot monolith of this conglomerate, splitting into two foaming channels before plunging into an elliptical amphitheater.'
+        ],
+        proTip: 'Look closely at the dry conglomerate walls above the river: you can spot rounded pink granite boulders embedded like raisins in a dark basaltic cake.'
+      },
+      {
+        id: 'conquering-the-byway-sequence',
+        title: 'Chapter 2: Conquering the 5-Falls Byway: Trailhead Sequencing',
+        subtitle: 'Optimizing your stops from Bessemer to Lake Superior',
+        content: [
+          'Heading north from Bessemer along County Road 513, the five waterfalls appear in rapid succession: Great Conglomerate (0.75-mile hike), Potawatomi (ADA boardwalk), Gorge (steep stair canyon), Sandstone (intimate shelf cascades), and Rainbow (200-stair mist descent).',
+          'Instead of driving between each trailhead, experienced hikers can hike the North Country Trail segment that parallels the river, connecting Great Conglomerate, Potawatomi, and Gorge Falls in a scenic 2.5-mile point-to-point traverse.',
+          'Potawatomi Falls is the widest and most majestic drop on the byway, tumbling 130 feet across a tiered amphitheater into an emerald pool ringed by ancient white pines.'
+        ],
+        proTip: 'Visit Potawatomi and Gorge from the shared central parking lot. A paved trail leads left to Potawatomi, while a dirt spur connects directly to the Gorge Falls stairs, saving you 20 minutes of driving.'
+      },
+      {
+        id: 'gorge-and-rainbow-mist',
+        title: 'Chapter 3: The Pressure Cooker of Gorge & Rainbow Falls',
+        subtitle: 'Experiencing raw hydraulic velocity in sheer rock slots',
+        content: [
+          'Gorge Falls provides the most visceral auditory experience on the river: the entire volume of the stream funnels into a narrow 20-foot cleft between sheer volcanic canyon walls, creating a reverberating hydraulic roar.',
+          'Two miles north, Rainbow Falls marks the river\'s final dramatic drop before meeting Lake Superior. Dropping 40 feet over a concave basalt lip, late-afternoon sun rays pierce the gorge to create vivid rainbows in the perpetual mist bowl.',
+          'The west bank trail offers the classic postcard perspective looking back into the roaring throat of the falls.'
+        ],
+        proTip: 'For Rainbow Falls, arrive between 3:00 PM and 5:00 PM on sunny days to catch the maximum prismatic rainbow effect refracting through the rising mist.'
+      },
+      {
+        id: 'black-river-harbor-terminus',
+        title: 'Chapter 4: Black River Harbor & Suspension Bridge Crossing',
+        subtitle: 'Where mountain torrents meet Lake Superior cobblestone beaches',
+        content: [
+          'The scenic byway dead-ends at Black River Harbor Recreation Area, an active fishing harbor and marina nestled between steep forested ridges.',
+          'A pedestrian wood-and-cable suspension bridge spans the river mouth, swaying gently as you walk across toward Lake Superior\'s driftwood-strewn shoreline.',
+          'The adjacent beach is renowned for beachcombing: after northwest storms, polished Lake Superior agates, native copper float nuggets, and banded unakite wash up among the dark volcanic pebbles.'
+        ],
+        proTip: 'Cross the suspension bridge and follow the trail north 200 yards to the secluded cobblestone beach. It is one of the quietest Lake Superior sunset perches in Michigan.'
+      }
+    ],
+    recommendedGear: [
+      'Sturdy hiking shoes with non-slip vibram rubber for damp wooden stairs',
+      'Polarized sunglasses for cutting river glare and spotting submerged rock ribs',
+      'Telescoping trekking poles for descending the 200 wooden steps at Rainbow Falls',
+      'Small rock hammer or field loupe for examining conglomerate pebbles',
+      'Cash or recreation pass for Ottawa National Forest day use sites'
+    ],
+    faqs: [
+      {
+        question: 'Are the waterfalls on the Black River Byway wheelchair accessible?',
+        answer: 'Potawatomi Falls features a paved, barrier-free boardwalk leading to an elevated observation deck. The other four waterfalls involve wooden stairways and natural dirt trails with exposed roots.'
+      },
+      {
+        question: 'Is camping available along the Black River Byway?',
+        answer: 'Yes! Black River Harbor Campground (Ottawa National Forest) offers 40 forested rustic campsites with fire rings, water pumps, and direct trail access to Rainbow Falls and the harbor beach.'
+      }
+    ]
+  },
+  {
+    id: 'marquette-granite-highlands-guide',
+    slug: 'marquette-granite-highlands-guide',
+    title: 'The Marquette Granite Highlands: Canyon Scrambles & Hidden River Drops',
+    subtitle: 'Navigating 2-billion-year-old metamorphic escarpments, secret gorges, and pristine plunges in Marquette County',
+    category: 'Regional Expeditions',
+    author: {
+      name: 'Brett Kolasinski',
+      role: 'Marquette Trail Runner & Backcountry Scout',
+      avatarEmoji: '🥾'
+    },
+    readTime: '15 min read',
+    publishedDate: 'September 2026',
+    heroImageUrl: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80',
+    heroCaption: 'Granite domes and tumbling rapids of Marquette County backcountry.',
+    excerpt: 'While tourists flock to paved roadside viewing platforms, true adventurers head into Marquette County\'s rugged Canadian Shield outcroppings. From the multi-tier rock scrambles of Dead River Falls to the trackless boreal sands of the Yellow Dog Plains and secluded Morgan Falls, discover the wildest drops in the central U.P.',
+    tags: ['Marquette County', 'Dead River', 'Yellow Dog', 'Granite Highlands', 'Backcountry Scrambles'],
+    associatedWaterfallIds: [
+      '49452338-6e6e-4bbd-9967-bcd60642131b', // Dead River Falls
+      '9e15a7c5-8573-4c26-8c63-ac6498830d0b', // Yellow Dog Falls
+      '8782c8f8-4554-4cdc-9e56-bb027baa6a9d', // Lower Yellow Dog
+      '7fcdf4e3-7010-41fb-b8e2-811a9906cf31', // Morgan Falls
+      '146d68b1-e772-4804-8150-b87510054b9b'  // Alder Falls
+    ],
+    chapters: [
+      {
+        id: 'penokean-metamorphic-bedrock',
+        title: 'Chapter 1: The Penokean Basement: 2-Billion-Year-Old Granite & Gneiss',
+        subtitle: 'Why Marquette\'s waterfalls feature extreme relief and rocky chutes',
+        content: [
+          'Unlike the flat sedimentary sandstone layers of eastern Alger County, Marquette County sits astride the southern fringe of the Canadian Shield—the exposed ancient metamorphic core of North America.',
+          'Two billion years ago, the Penokean Orogeny smashed island arcs into the continent, uplifting immense granite mountains that were later sheared and gouged by glaciers.',
+          'Where modern waterways like the Dead River, Carp River, and Yellow Dog River cut across these fractured bedrock faults, the water plunges through rugged chutes, granite steps, and narrow gorges with tremendous kinetic force.'
+        ],
+        proTip: 'Wear trail shoes with sticky climbing-compound rubber soles. The polished quartzite and granite outcroppings along the Dead River can be slick when dry and treacherous when wet.'
+      },
+      {
+        id: 'dead-river-falls-scramble',
+        title: 'Chapter 2: Conquering Dead River Falls: The 8-Pitch Canyon Scramble',
+        subtitle: 'Marquette\'s most technical and exhilarating river hike',
+        content: [
+          'Dead River Falls is not a single drop—it is a continuous 1.5-mile staircase of over eight major waterfalls, boiling rapids, and tranquil deep pools tucked inside a precipitous granite canyon.',
+          'Departing from the Forestville Road trailhead, the trail immediately launches into steep climbs over exposed hemlock roots, loose shale ledges, and sheer rock scrambles with no handrails or stairs.',
+          'The fourth drop features a sweeping 25-foot plunge into an immense natural swimming basin bordered by smooth sunbathing granite slabs, making it a legendary summer destination for northern backcountry swimmers.'
+        ],
+        proTip: 'Take your time on the upper pitches. Many hikers turn around after the second fall, missing the towering third and fourth cascades and the serene upper canyon pools.'
+      },
+      {
+        id: 'yellow-dog-plains-expedition',
+        title: 'Chapter 3: The Yellow Dog Plains: Wilderness River of the North',
+        subtitle: 'Navigating deep sand logging roads to Michigan\'s cleanest river',
+        content: [
+          'Thirty miles northwest of Marquette lies the Yellow Dog Plains—a vast, uninhabited sandy outwash plain dotted with jack pine, blueberry barrens, and pristine coldwater trout streams.',
+          'The Yellow Dog River is classified as one of Michigan\'s wildest watersheds. At Yellow Dog Falls, the river thunders over a 20-foot granite drop flanked by immense moss-carpeted boulders and virgin eastern white pines.',
+          'Further downstream, Lower Yellow Dog Falls tumbles through a secluded boulder garden where clear amber water rushes through dense spruce thickets far from any paved road.'
+        ],
+        proTip: 'A high-clearance vehicle is recommended for County Road 510 and the Yellow Dog Plains forest tracks, especially following heavy rains when sandy logging roads turn into deep rutted mud.'
+      },
+      {
+        id: 'marquette-south-trails-and-alder',
+        title: 'Chapter 4: The South Trails & Northern Wilderness Cascades',
+        subtitle: 'From peaceful Morgan Creek footbridges to the 30-foot slide of Alder Falls',
+        content: [
+          'Just minutes south of downtown Marquette, the South Trails network leads hikers and mountain bikers along Morgan Creek to Morgan Falls—an intimate 20-foot drop framed by a rustic timber footbridge.',
+          'Further north near Big Bay, Alder Creek plunges down a 30-foot stepped granite wall hidden inside a dense hemlock hollow at Alder Falls.',
+          'These quieter cascades offer solitary contemplation, wild blackberry picking along the trail shoulders, and cool shade on hot summer afternoons.'
+        ],
+        proTip: 'After hiking the Big Bay cascades, stop at the historic Thunder Bay Inn for a Lake Superior whitefish sandwich overlooking Lake Independence.'
+      }
+    ],
+    recommendedGear: [
+      'Rugged trail running shoes or approach shoes with aggressive sticky lugs',
+      'Downloadable offline GPS maps (Avenza or Gaia GPS) due to spotty cell service on the plains',
+      'Compact first aid kit with blister tape and elastic bandages for ankle support',
+      'Water purification squeeze filter for long days on the Yellow Dog River',
+      'Bear spray or bell for remote backcountry travel north of Marquette'
+    ],
+    faqs: [
+      {
+        question: 'Is Dead River Falls safe for children and dogs?',
+        answer: 'Dead River Falls features several steep drop-offs, loose gravel ledges, and scrambles requiring hands-and-feet climbing. It is suitable for athletic older children and sure-footed dogs, but not recommended for toddlers or anyone with mobility limitations.'
+      },
+      {
+        question: 'Are there swimming holes at Dead River Falls?',
+        answer: 'Yes! The deep basins below the second and fourth falls are popular natural plunge pools in mid-summer. Always check water depth and never jump into unknown water due to submerged granite boulders.'
+      }
+    ]
+  },
+  {
+    id: 'backcountry-navigation-and-scrambling',
+    slug: 'backcountry-navigation-and-scrambling',
+    title: 'Backcountry Navigation & Canyon Scrambles: The Off-Trail Explorer\'s Manual',
+    subtitle: 'Bushwhacking, GPS tracking, river fording, and safe rock ascents in unmarked Upper Peninsula wilderness',
+    category: 'Trail Craft & Safety',
+    author: {
+      name: 'Wayne Hentunen',
+      role: 'Search & Rescue Specialist & Woodsman',
+      avatarEmoji: '🧭'
+    },
+    readTime: '16 min read',
+    publishedDate: 'September 2026',
+    heroImageUrl: 'https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=1200&q=80',
+    heroCaption: 'Dense cedar wetlands and slippery granite terrain require vigilant trailcraft.',
+    excerpt: 'More than half of the Upper Peninsula\'s 300+ waterfalls have zero marked trails, signage, or cell reception. Stepping off the two-track requires disciplined orienteering, specialized foot traction, and swiftwater risk management. Here is your essential survival guide for deep-woods bushwhacks.',
+    tags: ['Trail Safety', 'Navigation', 'Bushwhacking', 'Orienteering', 'Swiftwater', 'Off-Grid'],
+    associatedWaterfallIds: [
+      '1c288e5a-a4b1-4882-af68-450bde588974', // Sturgeon Falls
+      '49452338-6e6e-4bbd-9967-bcd60642131b', // Dead River Falls
+      '4e34904d-ccaa-486c-aaaf-826bce2ceb55', // O Kun de Kun
+      '30cbe235-452e-4298-af64-30255cc4ec63'  // Canyon Falls
+    ],
+    chapters: [
+      {
+        id: 'offline-topo-and-declination',
+        title: 'Chapter 1: Beyond the Blazes: Offline Topo, GPS, & Magnetic Declination',
+        subtitle: 'Never rely on live cell data in northern forest valleys',
+        content: [
+          'The moment you descend into a river gorge in Baraga, Ontonagon, or Houghton counties, cellular signals vanish completely. Navigating wilderness falls requires redundant tools: a reliable satellite GPS receiver or pre-downloaded offline USGS topographic tiles, paired with a physical baseplate compass.',
+          'In the Upper Peninsula, magnetic declination ranges between 4° and 6° West. Failing to account for declination over a 2-mile cross-country bushwhack will place you hundreds of yards off-target in impenetrable tag alder swamps.',
+          'Always mark your vehicle\'s exact coordinates as a waypoint before stepping into the timber, and identify prominent handrails (e.g., following a river upstream or utilizing an old logging grade).'
+        ],
+        proTip: 'Keep your smartphone in airplane mode while navigating with offline GPS apps; searching for absent cellular towers drains battery charge in less than two hours in cold northern air.'
+      },
+      {
+        id: 'footwear-traction-and-wet-rock',
+        title: 'Chapter 2: Footwear Friction: Navigating Slick Basalt & Wet Sandstone',
+        subtitle: 'Maintaining 3 points of contact on vertical gorge trails',
+        content: [
+          'Northwoods waterfalls are coated in a micro-film of microscopic algae, wet clay, and decomposing cedar tannins, creating frictionless surfaces that mimic black ice.',
+          'Hard, rigid mountaineering boots with hard plastic soles perform poorly on wet smooth river boulders. Instead, select footwear with sticky, compliant Vibram Megagrip or soft climbing-rubber compounds that deform around rock contours.',
+          'When scrambling up steep canyon slopes—such as the 300-foot walls of Sturgeon River Gorge—always maintain three points of solid physical contact, testing every root and rock handhold before weighting it with your full pack.'
+        ],
+        proTip: 'Never trust a decaying cedar root hanging over an escarpment. White cedar wood rots from the interior out, looking solid on the surface while snapping instantly under body weight.'
+      },
+      {
+        id: 'river-fording-and-swiftwater',
+        title: 'Chapter 3: Swiftwater Safety: When and How to Ford Wilderness Streams',
+        subtitle: 'Assessing velocity, depth, and riverbed entrapment hazards',
+        content: [
+          'Reaching remote waterfalls often requires crossing cold, rushing rivers. Never attempt to ford water that is deeper than mid-thigh if the current is moving faster than an easy walking pace.',
+          'Always unbuckle your backpack\'s waist and sternum straps before entering the water. If you slip and fall into a deep eddy, a buckled 40-pound pack will submerge you and drag you under like an anchor.',
+          'Use a sturdy hardwood staff or trekking pole planted firmly upstream to create a stabilizing tripod with your legs. Face upstream, shuffling your feet across the gravel rather than taking high steps that can catch the current.'
+        ],
+        proTip: 'Always wear closed-toe river shoes when fording. Submerged logs with broken sharp branches and jagged slate edges can inflict deep puncture wounds in remote backcountry.'
+      },
+      {
+        id: 'northwoods-hazards-and-wildlife',
+        title: 'Chapter 4: Northwoods Hazards: Insects, Hypothermia, & Wildlife',
+        subtitle: 'Separating wilderness myths from genuine backcountry risks',
+        content: [
+          'The greatest hazard in the Upper Peninsula is not black bears or wolves; it is sudden hypothermia caused by unexpected rain and cold water immersion, even during midsummer.',
+          'Lake Superior water rarely exceeds 55°F (12°C). A hiker who slips into a gorge pool on a 65°F day can experience cognitive impairment and shivering within 20 minutes if wearing cotton clothing.',
+          'Black flies peak from late May through mid-June, followed by stable flies and mosquitoes. A fine-mesh bug jacket and permethrin-treated trail pants are far more effective than chemical DEET sprays.'
+        ],
+        proTip: 'Pack a waterproof dry bag inside your backpack containing a dry wool base layer, fleece beanie, fire starter, and emergency space blanket on every wilderness outing.'
+      }
+    ],
+    recommendedGear: [
+      'Baseplate sighting compass with adjustable declination',
+      'Dedicated satellite communicator (Garmin inReach or SPOT) for SOS beaconing',
+      'Pair of heavy-duty aluminum trekking poles with rubber rock tips',
+      'Waterproof roll-top dry bag for electronics and spare wool clothing',
+      'Packable insect bug headnet and permethrin-treated apparel'
+    ],
+    faqs: [
+      {
+        question: 'Are there venomous snakes in the Upper Peninsula?',
+        answer: 'No. The Eastern Massasauga rattlesnake exists in parts of Michigan\'s Lower Peninsula, but there are no verified populations in the Upper Peninsula. Any snake you encounter near waterfalls is harmless (typically eastern garter or northern water snakes).'
+      },
+      {
+        question: 'What should I do if I encounter a black bear on a waterfall trail?',
+        answer: 'U.P. black bears are generally shy and will flee if alerted. Never run. Stand tall, talk in a calm, firm voice, wave your arms to appear larger, and back away slowly. Carrying bear spray is a wise precaution in remote national forest tracts.'
+      }
+    ]
+  },
+  {
+    id: 'accessible-waterfalls-and-family-trails',
+    slug: 'accessible-waterfalls-and-family-trails',
+    title: 'Accessible Cascades & Family Treks: Boardwalks, Paved Paths, & Stroller Routes',
+    subtitle: 'How to experience the majesty of Upper Peninsula waterfalls with strollers, mobility aids, young children, and elders',
+    category: 'Trail Craft & Safety',
+    author: {
+      name: 'Sarah Lindquist',
+      role: 'Adaptive Wilderness Guide & Family Educator',
+      avatarEmoji: '♿'
+    },
+    readTime: '11 min read',
+    publishedDate: 'September 2026',
+    heroImageUrl: 'https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80',
+    heroCaption: 'Engineered timber boardwalks allow every explorer to experience the rush of northern cascades.',
+    excerpt: 'Backcountry exploration shouldn\'t be restricted to mountain athletes. Michigan\'s state parks and national forests have invested in world-class ADA boardwalks, gently graded pathways, and scenic overlooks that bring the roar of falling water within reach of all abilities. Plan the ultimate inclusive U.P. road trip.',
+    tags: ['Accessibility', 'ADA Trails', 'Boardwalks', 'Family Hikes', 'Stroller Friendly', 'State Parks'],
+    associatedWaterfallIds: [
+      '2ab152d2-a814-478d-b01a-e88f7ea22719', // Upper Tahquamenon
+      'da36e4f3-d295-4e09-a5d4-91ec4701d423', // Bond Falls
+      '78a26f63-e56c-4648-a3d6-250f61593596', // Miners Falls
+      '05a0a9ef-bf55-4e40-ab89-2f39479c5a7f', // Scott Falls
+      'cf82a777-92dc-4c8c-a62b-93a10628ef99'  // Munising Falls
+    ],
+    chapters: [
+      {
+        id: 'ada-engineering-in-the-north',
+        title: 'Chapter 1: Universal Access: Boardwalk Engineering & Trail Grading',
+        subtitle: 'Understanding trail accessibility ratings across Michigan parks',
+        content: [
+          'True accessibility in nature requires thoughtful design: maximum slope grades under 5%, wide turning radii for wheelchairs, textured non-slip decking, and railed viewing platforms with clear lines of sight.',
+          'Michigan State Parks and the U.S. Forest Service have spearheaded extensive barrier-free trail construction across the Upper Peninsula, transforming previously impassable gorges into universally welcoming outdoor classrooms.',
+          'Knowing which waterfalls offer paved surfaces versus crushed aggregate or stairs helps families with strollers and travelers with limited mobility explore with complete confidence.'
+        ],
+        proTip: 'Look for trail descriptions specifying "Barrier-Free" or "ADA Accessible" rather than merely "Easy"; "Easy" trails may still contain tree roots, steps, or narrow footbridges.'
+      },
+      {
+        id: 'top-five-boardwalk-waterfalls',
+        title: 'Chapter 2: The Premier 5 Fully Accessible Boardwalk Falls',
+        subtitle: 'Bond Falls, Upper Tahquamenon, Munising, Miners, and Laughing Whitefish',
+        content: [
+          'Bond Falls in Ontonagon County stands as the gold standard of accessible waterfall infrastructure: a wide 600-foot elevated wooden boardwalk hugs the base of the cataract, offering barrier-free ramp access right to the water\'s edge.',
+          'Upper Tahquamenon Falls features a wide paved path leading 0.4 miles through towering shade trees from the concession lot directly to the brink overlook platform.',
+          'In Pictured Rocks, Munising Falls provides an 800-foot paved, shaded canyon trail with minimal elevation change leading to two viewing platforms beneath a 50-foot sandstone amphitheater.'
+        ],
+        proTip: 'Bond Falls features accessible parking at both the top flowage lot and the lower gorge boardwalk lot. For wheelchair or stroller access, park at the lower lot along Bond Falls Road.'
+      },
+      {
+        id: 'roadside-instant-wonders',
+        title: 'Chapter 3: Zero-Step Wonders: Cascades Viewed from the Vehicle or Pull-Off',
+        subtitle: 'Experiencing spectacular drops without walking more than 50 feet',
+        content: [
+          'For travelers with severe mobility restrictions or fussy infants in car seats, several of the U.P.\'s most enchanting waterfalls sit literally feet from the highway pavement.',
+          'Scott Falls on M-28 west of Munising tumbles 10 feet over an undercut sandstone grotto directly across the road from the H-03 roadside park; you can admire the falls directly from your car window.',
+          'Alger Falls, located at the junction of M-28 and M-94, cascades down a 30-foot rocky hillside just 20 feet from the highway shoulder, complete with a paved viewing turnout.'
+        ],
+        proTip: 'The roadside park across from Scott Falls features accessible picnic tables and an open sandy beach on Lake Superior, making it the perfect picnic lunch rest stop.'
+      },
+      {
+        id: 'kid-friendly-trailcraft',
+        title: 'Chapter 4: Trail Games, Sensory Exploration, & Safety Boundaries',
+        subtitle: 'Engaging children\'s curiosity while maintaining safe gorge habits',
+        content: [
+          'Waterfall trails are magical playgrounds for children: the sensory roar of crashing water, floating foam cakes, moss carpets, and mysterious stone hollows ignite youthful imaginations.',
+          'Introduce scavenger hunt games: searching for smooth skipping stones, identifying paper birch vs yellow birch bark, and spotting colored mineral stripes in the sandstone.',
+          'Establish clear safety rules before leaving the vehicle: never climbing over wooden safety fences, holding hands near wet boardwalk edges, and respecting wet stone ledges.'
+        ],
+        proTip: 'Pack a small magnifying glass and a field notebook with crayons for leaf and rock rubbings. It transforms a simple walk into an engaging scientific expedition for kids.'
+      }
+    ],
+    recommendedGear: [
+      'All-terrain stroller with large pneumatic tires for crushed gravel paths',
+      'Collapsible lightweight camp chairs for taking rests at scenic overlooks',
+      'Kid-friendly binoculars and pocket field guides to Northwoods wildlife',
+      'Non-toxic bug wipes (safer for toddlers than chemical aerosol sprays)',
+      'Waterproof bibs or change of clothes for kids who love playing in mist'
+    ],
+    faqs: [
+      {
+        question: 'Are motorized mobility scooters permitted on state park boardwalks?',
+        answer: 'Yes! Michigan State Parks and National Park Service sites permit electric mobility scooters and motorized wheelchairs on all designated barrier-free trails and boardwalks.'
+      },
+      {
+        question: 'Which waterfall has the shortest walk from parking?',
+        answer: 'Scott Falls (Alger County) has zero walking distance, located 15 feet from M-28. Munising Falls (Alger County) is a level 800-foot paved walk, and Bond Falls lower boardwalk is under 200 feet from the parking area.'
+      }
+    ]
+  },
+  {
+    id: 'autumn-foliage-waterfall-expeditions',
+    slug: 'autumn-foliage-waterfall-expeditions',
+    title: 'Autumn Splendor & Peak Fall Foliage: Chasing Crimson Canopy & Amber Torrents',
+    subtitle: 'Timing your late September & October expedition to capture glowing sugar maples, roaring autumn flows, and crisp north breezes',
+    category: 'Seasonal Tactics',
+    author: {
+      name: 'Arvo Mikkola',
+      role: 'Superior Fall Color Tracker & Landscape Naturalist',
+      avatarEmoji: '🍁'
+    },
+    readTime: '12 min read',
+    publishedDate: 'September 2026',
+    heroImageUrl: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
+    heroCaption: 'Golden sugar maples canopy dark cedar streams during autumn in the high country.',
+    excerpt: 'When autumn sweeps across Lake Superior, the Northwoods hardwood canopy ignites into brilliant scarlet, flame orange, and radiant gold. Combined with autumn rains that replenish river volumes and crisp bug-free air, late September through mid-October is the premier window for chasing Upper Peninsula cascades.',
+    tags: ['Autumn Colors', 'Fall Foliage', 'Leaf Peeping', 'Seasonal Tactics', 'October Travel'],
+    associatedWaterfallIds: [
+      'da36e4f3-d295-4e09-a5d4-91ec4701d423', // Bond Falls
+      '22ab77c2-ece7-428b-a547-17fe4a5af4db', // Agate Falls
+      'b00b2bfa-6c37-4fce-ab53-0a52f24cf723', // Manabezho Falls
+      '926d0234-8962-4c36-be79-ce40cacb7588', // Laughing Whitefish Falls
+      '30cbe235-452e-4298-af64-30255cc4ec63'  // Canyon Falls
+    ],
+    chapters: [
+      {
+        id: 'the-autumn-color-timeline',
+        title: 'Chapter 1: The Foliage Progression: Interior Ridges vs Superior Shoreline',
+        subtitle: 'Understanding the 3-week color wave rolling across the peninsula',
+        content: [
+          'Fall color does not arrive simultaneously across the Upper Peninsula. The interior highlands—the Porcupine Mountains ridges, Gogebic Range, and Huron Mountain foothills—peak first, usually between September 25 and October 5.',
+          'In contrast, the massive thermal inertia of Lake Superior insulates coastal shorelines, delaying peak foliage at Pictured Rocks, Grand Marais, and the tip of the Keweenaw Peninsula until October 10 through October 20.',
+          'By understanding this two-tier progression, agile waterfall chasers can experience peak color for three consecutive weeks by starting inland and migrating toward the Great Lakes coasts.'
+        ],
+        proTip: 'If your trip falls in early October, head west toward Bond, Agate, and the Presque Isle River. If traveling in mid-to-late October, head to the coastal shores of Pictured Rocks and Marquette.'
+      },
+      {
+        id: 'color-contrast-and-basalt',
+        title: 'Chapter 2: Visual Harmony: Fiery Maples Against Dark Basalt & White Foam',
+        subtitle: 'Why autumn creates the most dramatic contrast in landscape photography',
+        content: [
+          'In summer, waterfalls are surrounded by a monochromatic sea of green foliage. In autumn, that palette transforms into intense chromatic contrast: flaming orange sugar maples and lemon-yellow birches set against jet-black volcanic basalt and churning white foam.',
+          'At Bond Falls, floating amber maple leaves collect in the slow-moving eddies along the boardwalk, creating natural swirling leaf trails in long-exposure captures.',
+          'At Laughing Whitefish Falls, the 100-foot limestone amphitheater is crowned by a fiery halo of old-growth hardwoods, casting glowing golden reflections across the stepped rock face.'
+        ],
+        proTip: 'Look for calm backwater pools downstream from cascades where drifting fallen leaves gather in slow circular currents. A 2-to-4-second exposure turns them into swirling vortex trails.'
+      },
+      {
+        id: 'autumn-weather-dynamics',
+        title: 'Chapter 3: Autumn Weather Dynamics: Glares, Mists, & The Gales of November',
+        subtitle: 'Preparing for rapid temperature swings and roaring autumn flows',
+        content: [
+          'Autumn brings frequent cold fronts that drop heavy soaking rains, dramatically recharging river flows after the late summer doldrums.',
+          'Crisp mornings frequently hover near freezing, producing dense ground fog that hovers over warm river currents until the sun crests the forest ridges.',
+          'By late October, the legendary "Gales of November" begin to stir: fierce north winds whip Lake Superior into 15-foot breakers that crash against coastal waterfalls like Spray Falls and Superior Falls.'
+        ],
+        proTip: 'Pack versatile layers: morning temperatures can be 32°F with frost on the boardwalks, warming up to a balmy 60°F by 2:00 PM under clear northern skies.'
+      },
+      {
+        id: 'scenic-byways-and-cider-stops',
+        title: 'Chapter 4: The Ultimate Scenic Byways & Local Harvest Stops',
+        subtitle: 'M-26, US-2, and county forest roads under the autumn canopy',
+        content: [
+          'The drives between waterfalls in autumn are as breathtaking as the destinations themselves. M-26 through the Keweenaw, US-2 across the southern forest belt, and the Seney Stretch offer tunnel-of-trees vistas.',
+          'Local farm stands and roadside markets feature fresh-pressed apple cider, warm cinnamon sugar donuts, and jars of wild thimbleberry and blackberry preserves.',
+          'Crisp evenings are best spent around a crackling campfire listening to the distant roar of rapids echoing through the bare hardwood canopy.'
+        ],
+        proTip: 'Take the Brockway Mountain Drive outside Copper Harbor on your way to Manganese Falls for a 360-degree panoramic tapestry of glowing forest stretching all the way to Lake Superior.'
+      }
+    ],
+    recommendedGear: [
+      'Circular polarizing filter to remove leaf glare and enhance saturated foliage colors',
+      'Merino wool base layers and windproof fleece jacket for frosty morning hikes',
+      'Thermal thermos filled with hot coffee or spiced cider for backcountry trail breaks',
+      'Microspikes or slip-on traction cleats for boardwalks with morning frost or black ice',
+      'Weather-resistant camera rain cover for wet autumn drizzle'
+    ],
+    faqs: [
+      {
+        question: 'Are ticks or black flies a problem during autumn waterfall hikes?',
+        answer: 'No! The first hard frost in mid-September eliminates virtually all mosquitoes and black flies, making autumn the most comfortable season for hiking without bug spray.'
+      },
+      {
+        question: 'When do state park campgrounds close for the winter in the U.P.?',
+        answer: 'Most modern state park campgrounds remain open through mid-to-late October, though some shut down running water systems after the first hard freeze. Rustic forest campgrounds remain accessible until heavy snow accumulates.'
+      }
+    ]
+  },
+  {
+    id: 'long-exposure-and-low-light-field-craft',
+    slug: 'long-exposure-and-low-light-field-craft',
+    title: 'The Long-Exposure & Low-Light Field Craft: Shutter Timing, Polarizers, & Wet Basalt',
+    subtitle: 'Dialing in camera settings, neutral density filters, and composition techniques in deep shady gorges and bright spray bowls',
+    category: 'Photography',
+    author: {
+      name: 'Ray Koskela',
+      role: 'Fine Art Landscape Photographer',
+      avatarEmoji: '📷'
+    },
+    readTime: '14 min read',
+    publishedDate: 'September 2026',
+    heroImageUrl: 'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80',
+    heroCaption: 'Silky water ribbons cascading over dark fractured rock shelves caught with slow shutter exposure.',
+    excerpt: 'Moving water is one of nature\'s greatest photographic subjects, but without proper exposure calibration, digital sensors easily blow out highlights or produce lifeless muddy sludge. Master the balance between shutter speed, polarizing glass, and tripod stabilization to capture the ethereal motion of Northwoods cataracts.',
+    tags: ['Photography', 'Long Exposure', 'Camera Settings', 'Filters', 'Low Light', 'Composition'],
+    associatedWaterfallIds: [
+      'fcd86b67-70a7-4c02-8225-e4eb1944e694', // Sable Falls
+      'bf905ef2-70a7-4c02-8225-e4eb1944e694', // Lower Hungarian
+      '08ebbfc4-84b9-4bfb-9ffb-790b176abed8', // Tannery Falls
+      '88e9a73f-9e5b-444c-a687-3e6915523d91', // Wagner Falls
+      'd3992fd5-c852-464a-b75a-869c7a034ce0'  // Superior Falls
+    ],
+    chapters: [
+      {
+        id: 'shutter-speed-spectrum',
+        title: 'Chapter 1: The Shutter Speed Spectrum: Silky Ribbons vs Dynamic Texture',
+        subtitle: 'Choosing the exact exposure time for your waterfall\'s character',
+        content: [
+          'The biggest mistake novice photographers make is defaulting to extreme 30-second exposures on every waterfall. Overly long exposures eliminate all water texture, transforming rushing torrents into flat, featureless white fog.',
+          'For fast-moving, high-volume drops (like Upper Tahquamenon or Gorge Falls), shutter speeds between 1/4 second and 1/2 second preserve kinetic spray textures while softening harsh droplet freezes.',
+          'For delicate, stepped cascades and bridal veils (such as Wagner Falls or Hungarian Falls), slower exposures between 1 second and 3 seconds emphasize graceful ribbon patterns flowing over stone terraces.'
+        ],
+        proTip: 'Always bracket your shutter speeds: take shots at 1/8s, 1/4s, 1/2s, 1s, and 2s. What looks like great motion on a tiny camera LCD can feel either too blurred or too chaotic on a calibrated monitor.'
+      },
+      {
+        id: 'circular-polarizers-and-glare',
+        title: 'Chapter 2: The Magic of Polarizers: Eliminating Wet Stone Reflections',
+        subtitle: 'How optical polarization reveals true rock colors beneath foam',
+        content: [
+          'A Circular Polarizing Filter (CPL) is the single most vital piece of glass in a waterfall photographer\'s kit. Wet basalt, shale, and sandstone act as natural mirrors, bouncing harsh sky glare directly into your lens.',
+          'Rotating your CPL eliminates this glare, instantly transforming shiny white rock surfaces into rich, saturated chocolate browns, deep jades, and charcoal blacks.',
+          'A CPL also cuts through river surface reflections, revealing golden gravel beds, submerged river stones, and amber tannin colors that are invisible to the naked eye, while naturally reducing exposure by 1.5 to 2 full stops.'
+        ],
+        proTip: 'Do not always dial your polarizer to maximum effect. Dialing it back to 70% leaves a subtle glint of light on wet rock contours, maintaining natural dimensionality and wet sheen.'
+      },
+      {
+        id: 'gorge-contrast-management',
+        title: 'Chapter 3: Managing Dynamic Range in Deep Shaded Gorges',
+        subtitle: 'Overcoming bright canopy skylight and shadow-drenched canyon floors',
+        content: [
+          'Waterfalls nestled in deep canyons—like Tannery Falls or Miners Falls—suffer from extreme dynamic range: bright midday sunlight blows out the upper tree canopy while the deep pool remains shrouded in near-darkness.',
+          'Shoot exclusively during overcast conditions, early mornings before direct sunlight enters the gorge, or on drizzly days when the entire scene is bathed in a massive, soft-box diffused light.',
+          'If forced to shoot in high contrast, use exposure bracketing (3 or 5 frames at -2, -1, 0, +1, +2 EV) and blend the exposures in post-processing using natural HDR techniques.'
+        ],
+        proTip: 'Rainy and overcast days are a landscape photographer\'s best friend in the U.P. Colors are deeper, contrast is manageable, and trails are completely free of crowds.'
+      },
+      {
+        id: 'protecting-gear-in-heavy-mist',
+        title: 'Chapter 4: Gear Defense in the Splash Zone: Rain Sleeves & Hydrophobic Glass',
+        subtitle: 'Keeping front elements crystal clean in 40-foot spray basins',
+        content: [
+          'Standing in the mist bowl of powerful falls like Manabezho or Potawatomi quickly covers your front lens element in fine water droplets that produce soft, ruined images.',
+          'Keep your camera covered with a silicone rain sleeve or micro-fiber towel between frames. Frame your composition, check focus, and only wipe the front lens element clean with a dry microfiber cloth immediately before pressing the shutter.',
+          'Apply an optical-grade hydrophobic lens protector filter so stray droplets bead up and slide off without smearing across the glass.'
+        ],
+        proTip: 'Use a 2-second shutter delay or a remote cable release. This eliminates camera shake caused by pressing the shutter button and gives you time to step back from the spray.'
+      }
+    ],
+    recommendedGear: [
+      'High-quality Circular Polarizer (CPL) matched to your widest lens thread',
+      'Solid carbon-fiber tripod with spiked rubber feet for riverbed stability',
+      'Pack of 6 individually wrapped microfiber lens cloths in a ziplock bag',
+      '3-Stop (0.9) and 6-Stop (1.8) Neutral Density (ND) filters',
+      'Waterproof camera rain sleeve or dedicated dry cover'
+    ],
+    faqs: [
+      {
+        question: 'Do I need an expensive camera to take great waterfall photos?',
+        answer: 'No! Modern smartphones equipped with "Live Photo" mode can convert images into long exposures with a single swipe. For DSLR and mirrorless shooters, a sturdy tripod and a polarizing filter matter far more than camera sensor megapixels.'
+      },
+      {
+        question: 'Why are my waterfall long exposures coming out completely white?',
+        answer: 'In daylight, leaving the shutter open for 1 or 2 seconds lets in too much light, overexposing the sensor. You must lower your ISO to 100 or 50, stop down your aperture to f/8 or f/11, and use a Neutral Density (ND) filter to block incoming light.'
+      }
+    ]
+  },
+  {
+    id: 'smoked-whitefish-and-local-flavor-trail',
+    slug: 'smoked-whitefish-and-local-flavor-trail',
+    title: 'Smoked Whitefish, Thimbleberry Jam, & Craft Breweries: The Waterfall Forager\'s Guide',
+    subtitle: 'Historic smokehouses, wild berry harvesting, and craft brewery pitstops to celebrate a long day in the backcountry',
+    category: 'Culinary & Culture',
+    author: {
+      name: 'Maija Leppanen',
+      role: 'U.P. Heritage Chef & Culinary Historian',
+      avatarEmoji: '🫐'
+    },
+    readTime: '12 min read',
+    publishedDate: 'September 2026',
+    heroImageUrl: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80',
+    heroCaption: 'Warm campfires, fresh Lake Superior whitefish, and northern hospitality after a day on the trail.',
+    excerpt: 'No wilderness trek across the Upper Peninsula is complete without savoring its rich culinary terroir. From century-old dockside smokehouses along Lake Superior to secret thimbleberry thickets on Keweenaw ridge-lines and independent craft taprooms, discover where local woodsmen and waterfall hunters recharge.',
+    tags: ['Culinary', 'Smoked Whitefish', 'Thimbleberry', 'Breweries', 'Food Trail', 'Local Culture'],
+    associatedWaterfallIds: [
+      '29294467-23f9-42a4-9a09-4db99c84b104', // Jacobs Falls
+      'be9008a8-d854-4538-b261-31736a128682', // Manganese Falls
+      'b89f02f1-69f0-47ee-9482-04c0bef56b25', // Eagle River Falls
+      'cf82a777-92dc-4c8c-a62b-93a10628ef99', // Munising Falls
+      '49452338-6e6e-4bbd-9967-bcd60642131b'  // Dead River Falls
+    ],
+    chapters: [
+      {
+        id: 'superior-smoked-whitefish',
+        title: 'Chapter 1: The Superior Smokehouse: Hard Maple-Smoked Whitefish & Trout',
+        subtitle: 'The timeless commercial fishing heritage of Lake Superior ports',
+        content: [
+          'For over 150 years, commercial gillnetters have harvested coldwater lake whitefish (Coregonus clupeaformis) and lake trout from the icy depths of Lake Superior.',
+          'Dockside smokehouses in Munising, Big Bay, Hancock, and Naubinway brine fresh fillets in brown sugar and sea salt before slow-smoking them for hours over native sugar maple sawdust.',
+          'The result is a tender, flaky, golden delicacy packed with healthy omega-3 oils—the quintessential trail lunch when paired with crusty sourdough bread and sharp cheddar cheese.'
+        ],
+        proTip: 'Stop at VanLandschoot & Sons in Munising or Peterson\'s Fish Market in Hancock on your way to the trails. Grab a paper-wrapped smoked whitefish chunk to enjoy at a waterfall overlook.'
+      },
+      {
+        id: 'foraging-keweenaw-thimbleberry',
+        title: 'Chapter 2: The Elusive Thimbleberry: Foraging the Keweenaw\'s Red Gold',
+        subtitle: 'The delicate wild berry that refuses to be commercially cultivated',
+        content: [
+          'Growing exclusively in cool, humid microclimates along Lake Superior shorelines and old logging roads, Rubus parviflorus—the wild thimbleberry—is the culinary crown jewel of the Keweenaw Peninsula.',
+          'Unlike commercial raspberries, thimbleberries are too fragile to be packed or shipped; they must be hand-harvested in late July and August and immediately simmered into sweet-tart preserves.',
+          'At Jacobs Falls on M-26, the Holy Transfiguration Skete of the Society of Saint John operates The Jampot, an Orthodox monastic bakery world-famous for wild thimbleberry jam, berry muffins, and rich fruitcakes.'
+        ],
+        proTip: 'Visit The Jampot bakery early in the day when hiking near Jacobs Falls. Their fresh thimbleberry potica and berry turnovers sell out rapidly during peak summer.'
+      },
+      {
+        id: 'backcountry-craft-breweries',
+        title: 'Chapter 3: The Northwoods Craft Ale Trail: From Porcupine to Tahquamenon',
+        subtitle: 'Independent taprooms celebrating local pine, spruce, and crisp well water',
+        content: [
+          'After logging 10 rugged miles over rocks and roots, nothing restores the spirit like a locally brewed pint crafted from pure Lake Superior basin water.',
+          'Tahquamenon Falls Brewery & Pub sits literally yards from the Upper Falls brink, serving rustic Porcupine Pale Ale and Blueberry Wheat alongside fresh whitefish baskets.',
+          'In Marquette, Blackrocks Brewery and Ore Dock Brewing Company celebrate the outdoor community with taprooms filled with ski wax, trail maps, and rotating seasonal IPAs.',
+          'Further north in Copper Harbor, Brickside Brewery claims the title of Michigan\'s northernmost microbrewery, pouring unfiltered ales for mountain bikers and waterfall wanderers.'
+        ],
+        proTip: 'Ore Dock Brewing in downtown Marquette regularly hosts trail community meetups and live music, making it the perfect hub to trade trail beta with local hikers.'
+      },
+      {
+        id: 'campfire-camp-cuisine',
+        title: 'Chapter 4: Campfire Iron Craft: Searing Fresh Trout Over Embers',
+        subtitle: 'Preparing backcountry meals worthy of the northern wilderness',
+        content: [
+          'Eating well in the woods does not require freeze-dried pouches. With a well-seasoned 10-inch cast iron skillet and a bed of glowing hardwood coals, campsite cooking becomes an art form.',
+          'Dust fresh brook trout caught below wilderness falls in cornmeal, salt, and freshly cracked black pepper, then sear in bubbling butter with wild leeks (ramps) foraged in spring.',
+          'Pair with a traditional pasty reheated on the fire grate, wrapped in foil and flipped until the suet crust is golden and the beef-and-rutabaga filling is piping hot.'
+        ],
+        proTip: 'Always pack real butter in a sealed container for camp cooking. Butter browns and caramelizes beautifully over wood embers, elevating simple fish and potatoes into a feast.'
+      }
+    ],
+    recommendedGear: [
+      '10-inch pre-seasoned cast iron skillet with silicone handle cover',
+      'Reusable stainless steel camping fork, spoon, and pocket folding knife',
+      'Insulated cooler bag for keeping fresh smoked fish cold in your vehicle',
+      'Enamelware camp mugs for hot coffee and campsite brews',
+      'Small collapsible foraging basket or canvas pouch for wild berry picking'
+    ],
+    faqs: [
+      {
+        question: 'When is wild thimbleberry season in the Upper Peninsula?',
+        answer: 'Thimbleberries typically ripen between late July and mid-August, depending on spring warmth and rainfall. Look for them along shaded forest edges, hiking trail borders, and roadside cuts in the Keweenaw and Marquette counties.'
+      },
+      {
+        question: 'What is the proper way to eat a traditional U.P. pasty?',
+        answer: 'Locals eat pasties hot, either straight from the wax paper sleeve with hands or on a plate. The classic accompaniment is either beef gravy or ketchup—a friendly regional debate that has persisted in the U.P. for over a century!'
+      }
+    ]
+  },
+  {
+      "id": "huron-mountains-and-canyon-wilderness",
+      "slug": "huron-mountains-and-canyon-wilderness",
+      "title": "The Huron Mountains & Baraga Canyon Wilderness: Deep Slate Rifts and Ancient Pines",
+      "subtitle": "Navigating dramatic Precambrian metamorphic gorges, private club boundaries, and the Grand Canyon of the U.P.",
+      "category": "Regional Expeditions",
+      "author": {
+          "name": "Einar Lindquist",
+          "role": "Senior Northwoods Trail Scout & Geologist",
+          "avatarEmoji": "🌲"
+      },
+      "readTime": "15 min read",
+      "publishedDate": "September 2026",
+      "heroImageUrl": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=1200&q=80",
+      "heroCaption": "Towering eastern hemlocks framing deep slate chasms in the Baraga wilderness.",
+      "excerpt": "Rising abruptly above Lake Superior, the Huron Mountains represent the ancient granite and slate core of northern Michigan. From the roaring box canyon of Canyon Falls on the Sturgeon River to secluded wilderness plunges on the Slate and Silver rivers, explore the wild heart of Baraga County.",
+      "tags": [
+          "Baraga County",
+          "Huron Mountains",
+          "Canyon Falls",
+          "Slate River",
+          "Wilderness"
+      ],
+      "associatedWaterfallIds": [
+          "30cbe235-452e-4298-af64-30255cc4ec63",
+          "42a1462b-7da0-4ae4-940c-2c0357cedc50",
+          "de9c01fa-fe27-4ced-acbd-68f51bd3a8dd"
+      ],
+      "chapters": [
+          {
+              "id": "ancient-slate-geology",
+              "title": "Chapter 1: The Michigamme Slate Chasm: Geology of the Sturgeon Gorge",
+              "subtitle": "How 1.8-billion-year-old metamorphic slate creates sheer vertical box canyons",
+              "content": [
+                  "The bedrock of Baraga County belongs primarily to the Michigamme Formation—deep-water sedimentary mudstones that were compressed into jet-black metamorphic slate during ancient tectonic collisions.",
+                  "Unlike soft sandstone that erodes into rounded bowls, slate fractures along vertical cleavage planes, producing sheer, knife-edged box canyons with plumb vertical walls.",
+                  "At Canyon Falls, the Sturgeon River drops over a 15-foot cascade before charging through a 50-foot-deep, mile-long chasm often called \"The Grand Canyon of the Upper Peninsula.\""
+              ],
+              "proTip": "Hike past the railed observation deck at Canyon Falls. An unpaved singletrack continues for a mile along the rim, offering dizzying views straight down into the roaring slot canyon."
+          },
+          {
+              "id": "navigating-huron-club-boundaries",
+              "title": "Chapter 2: The Huron Mountain Club & Public Backcountry Access",
+              "subtitle": "Understanding private wilderness reserves and respecting land boundaries",
+              "content": [
+                  "The high peaks of the Huron Mountains contain some of the most pristine old-growth hardwood stands in the eastern United States, much of it preserved within the private 13,000-acre Huron Mountain Club.",
+                  "While club lands are strictly private, vast tracts of public land managed by the Michigan Department of Natural Resources and Ottawa National Forest surround the perimeter.",
+                  "Public waterfalls such as Canyon Falls, Power House Falls, and Silver Falls offer legal, unrestricted access to the same majestic mountain river corridors."
+              ],
+              "proTip": "Always carry an offline mapping app with updated parcel boundaries (such as onX Backcountry) to ensure you remain on public forest land when hiking remote Baraga County streams."
+          },
+          {
+              "id": "slate-river-cascades",
+              "title": "Chapter 3: The Secret Waterfalls of the Slate & Silver River Basins",
+              "subtitle": "Discovering remote cascades tucked away in commercial timberlands",
+              "content": [
+                  "Flowing north into Keweenaw Bay, the Slate and Silver rivers cut through rugged, heavily timbered valleys with numerous unnamed cascades and chutes.",
+                  "Slate River Falls features a serene 25-foot slide over polished black bedrock shelves shaded by towering hemlock boughs.",
+                  "These waterways offer world-class wild brook trout fishing and total solitude, with hours passing without seeing another human soul on the trail."
+              ],
+              "proTip": "Pack light fly-fishing tackle or ultra-light spinning gear; the deep, cold pools beneath the slate cascades harbor eager native brook trout."
+          },
+          {
+              "id": "baraga-post-trail-hubs",
+              "title": "Chapter 4: L'Anse, Keweenaw Bay, & Ojibwe Heritage",
+              "subtitle": "Connecting wilderness exploration with local cultural history",
+              "content": [
+                  "At the head of Keweenaw Bay, the twin towns of L'Anse and Baraga serve as the historic crossroads of the northern peninsula.",
+                  "Home to the Keweenaw Bay Indian Community (KBIC), the area is rich in Anishinaabe culture, historic copper trade routes, and sacred wild-rice waters.",
+                  "Stop at the Bishop Baraga Shrine perched high on the red sandstone bluffs overlooking the bay for sweeping vistas across the water toward the Huron Mountain peaks."
+              ],
+              "proTip": "Stop at the Ojibwa Casino or local fish markets along US-41 in Baraga for fresh-caught Lake Superior whitefish and homemade smoked fish dips."
+          }
+      ],
+      "recommendedGear": [
+          "Sturdy boots with aggressive lug depth for slippery slate ledges",
+          "Offline cadastral GPS map showing public vs private timberland parcels",
+          "Ultra-light fly fishing rod (3-weight) for mountain stream brookies",
+          "Heavy-duty insect repellent for dense river bottomlands",
+          "Polarized sunglasses for inspecting canyon depth and underwater hazards"
+      ],
+      "faqs": [
+          {
+              "question": "Is Canyon Falls safe for dogs?",
+              "answer": "Yes, but dogs must be kept on a short leash at all times. Beyond the railed platform, the trail hugs the edge of 50-foot vertical drop-offs with no safety fences."
+          },
+          {
+              "question": "How long is the hike to Canyon Falls?",
+              "answer": "The boardwalk hike from the roadside rest stop on US-41 to the main falls is roughly 0.5 miles (1 mile round trip) over an easy, gently graded path."
+          }
+      ]
+  },
+  {
+      "id": "delta-and-menominee-river-corridors",
+      "slug": "delta-and-menominee-river-corridors",
+      "title": "Southern U.P. River Corridors: From Piers Gorge Rapids to Rapid River Terraces",
+      "subtitle": "Exploring the mighty Menominee boundary river, Class IV whitewater canyons, and southern limestone shelves",
+      "category": "Regional Expeditions",
+      "author": {
+          "name": "Derek Lind",
+          "role": "Whitewater Kayaker & River Scout",
+          "avatarEmoji": "🛶"
+      },
+      "readTime": "13 min read",
+      "publishedDate": "September 2026",
+      "heroImageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+      "heroCaption": "Roaring Class IV whitewater rapids surging through the rocky canyon of Piers Gorge.",
+      "excerpt": "While the northern rim of the Upper Peninsula drains into Lake Superior, the southern watershed flows south into Lake Michigan through massive river systems. Experience Michigan's most powerful whitewater rapids at Piers Gorge, peaceful limestone terraces on the Rapid River, and historic iron mining towns.",
+      "tags": [
+          "Dickinson County",
+          "Delta County",
+          "Menominee River",
+          "Whitewater",
+          "Piers Gorge"
+      ],
+      "associatedWaterfallIds": [
+          "480328b4-7018-4d3a-9fed-c5ac18be40da",
+          "06ebf7f5-be56-4498-883d-b8af0a1ffdaa"
+      ],
+      "chapters": [
+          {
+              "id": "piers-gorge-whitewater",
+              "title": "Chapter 1: Piers Gorge & Misicot Falls: Michigan's Most Powerful Rapids",
+              "subtitle": "Standing above 10-foot river hydraulics on the Menominee River",
+              "content": [
+                  "Forming the state boundary between Michigan and Wisconsin, the Menominee River drains over 4,000 square miles of northern forest, carrying immense hydraulic volume.",
+                  "At Piers Gorge near Norway, Michigan, this colossal river is forced through a narrow, sheer-walled chasm of ancient bedrock, generating four sequential Class IV rapids known as \"Piers.\"",
+                  "The second pier—Misicot Falls—is a terrifyingly violent 10-foot sheer river ledge where thousands of cubic feet of water per second plunge into a boiling reversal wave."
+              ],
+              "proTip": "Hike the rim trail during mid-day when commercial rafting companies run the gorge; watching 6-person rafts plunge through Misicot Falls provides thrilling spectator action."
+          },
+          {
+              "id": "trailcraft-on-the-menominee-bluffs",
+              "title": "Chapter 2: Hiking the Cedar Bluff Rim Trail",
+              "subtitle": "A scenic 2-mile woodland walk with dramatic gorge overlooks",
+              "content": [
+                  "Managed as a natural scenic area, the Piers Gorge trail weaves through majestic red pines, eastern white cedars, and mossy rock outcroppings high above the churning water.",
+                  "Natural stone overlooks provide clear views into each of the four piers, with wooden benches situated at key vantage points.",
+                  "In autumn, the hardwood ridges on the Wisconsin side of the river ignite into vibrant orange and yellow, reflecting across the swirling white eddies below."
+              ],
+              "proTip": "Wear trail shoes with solid traction. Several vantage spurs require stepping across smooth granite outcroppings with steep drops down to the river."
+          },
+          {
+              "id": "rapid-river-limestone-flats",
+              "title": "Chapter 3: The Shallow Limestone Terraces of Rapid River Falls",
+              "subtitle": "A gentle, child-friendly wading paradise in Delta County",
+              "content": [
+                  "Fifty miles east in Delta County, the Rapid River showcases a completely different geological character: flat, stepped Paleozoic limestone strata.",
+                  "At Rapid River Falls Park, the river spreads out over 100 feet wide, cascading down a series of 2-to-4-foot limestone shelves into wide, shallow gravel pools.",
+                  "During warm summer months, the ankle-to-knee-deep water warms rapidly, making it the premier natural water park for families and young children to wade and search for fossils."
+              ],
+              "proTip": "Inspect the dry limestone bedrock slabs near the picnic area; you can find ancient fossilized corals (Favosites and rugose corals) embedded in the stone."
+          },
+          {
+              "id": "iron-mountain-and-norway-heritage",
+              "title": "Chapter 4: The Historic Iron Mountain & Menominee Mining Belt",
+              "subtitle": "Historic Cornish mining lore, pasties, and timber trestles",
+              "content": [
+                  "The southern U.P. was built on the rich hematite and magnetite deposits of the Menominee Iron Range in the late 19th century.",
+                  "Visit the historic Chapin Mine Steam Pump Engine (The Cornish Pump) in Iron Mountain—the largest reciprocating steam engine ever built in North America.",
+                  "Local bakeries in Norway and Iron Mountain serve authentic Cornish pasties made with hand-rolled suet dough and traditional root vegetables."
+              ],
+              "proTip": "Stop at the historic Fumee Falls roadside park on US-2 between Iron Mountain and Norway for an easy 5-minute leg stretcher with an arched footbridge."
+          }
+      ],
+      "recommendedGear": [
+          "Sturdy hiking shoes with vibram soles for blufftop trails",
+          "Water shoes with secure rubber outsoles for wading at Rapid River Falls",
+          "Binoculars for watching bald eagles and ospreys hunting along the river",
+          "Wide-brimmed sun hat for exposed river overlooks",
+          "Camera with fast shutter speed capability to freeze explosive whitewater waves"
+      ],
+      "faqs": [
+          {
+              "question": "Can you kayak or raft Piers Gorge without a guide?",
+              "answer": "Only expert whitewater kayakers with swiftwater rescue certification should attempt Piers Gorge. Misicot Falls contains dangerous hydraulic keeper holes. Beginners and families should book a trip with licensed commercial outfitters."
+          },
+          {
+              "question": "Is there a park fee for visiting Piers Gorge?",
+              "answer": "No! Piers Gorge is managed by the Dickinson County Parks department and offers free public access, parking, and pit toilets at the trailhead."
+          }
+      ]
+  },
+  {
+      "id": "cold-water-immersion-and-hypothermia-safety",
+      "slug": "cold-water-immersion-and-hypothermia-safety",
+      "title": "Cold Water Immersion & River Safety: Surviving Superior's Sub-50°F Mountain Drainage",
+      "subtitle": "The physiological stages of cold shock, the 1-10-1 rule, river self-rescue, and rewarming protocols in remote backcountry",
+      "category": "Trail Craft & Safety",
+      "author": {
+          "name": "Wayne Hentunen",
+          "role": "Search & Rescue Specialist & Woodsman",
+          "avatarEmoji": "🧭"
+      },
+      "readTime": "14 min read",
+      "publishedDate": "September 2026",
+      "heroImageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1200&q=80",
+      "heroCaption": "Glacial melt and shaded boreal river currents rarely exceed 50 degrees Fahrenheit.",
+      "excerpt": "The crystal-clear streams feeding Lake Superior are undeniably alluring, but they carry a hidden danger: bone-chilling cold that can incapacitate a fallen hiker within minutes. Learn the medical physics of cold shock, swiftwater entrapment defense, and field hypothermia management.",
+      "tags": [
+          "Safety",
+          "Hypothermia",
+          "Cold Water",
+          "First Aid",
+          "Swiftwater",
+          "Backcountry"
+      ],
+      "associatedWaterfallIds": [
+          "2ab152d2-a814-478d-b01a-e88f7ea22719",
+          "b00b2bfa-6c37-4fce-ab53-0a52f24cf723",
+          "1c288e5a-a4b1-4882-af68-450bde588974"
+      ],
+      "chapters": [
+          {
+              "id": "cold-shock-physiology",
+              "title": "Chapter 1: The Cold Water Shock Reflex & The 1-10-1 Rule",
+              "subtitle": "What happens to the human body during sudden water immersion",
+              "content": [
+                  "When you slip off a wet boulder into 45°F water, your body experiences an involuntary gasp reflex. Inhaling just a cup of cold water into your lungs can cause instantaneous drowning.",
+                  "Remember the 1-10-1 Rule: 1 Minute of cold shock (focus on controlling your breathing and not panicking); 10 Minutes of meaningful muscle movement (swim to shore before extremities become paralyzed); 1 Hour before unconsciousness from hypothermia.",
+                  "Understanding this timeline prevents panic: do not thrash wildly in the first 60 seconds; float on your back, get your breathing under control, and locate your exit point."
+              ],
+              "proTip": "If you fall into deep water, never attempt to remove your hiking boots while in the current. Modern boots provide neutral buoyancy and protect your feet from jagged rocks when kicking toward shore."
+          },
+          {
+              "id": "river-entrapment-and-hydraulics",
+              "title": "Chapter 2: River Hazards: Strainers, Foot Entrapment, & Keeper Holes",
+              "subtitle": "The deadly physical forces hidden beneath rushing cascades",
+              "content": [
+                  "A \"strainer\" is any submerged object that allows water to pass through while trapping solid objects—typically fallen cedar trees or root wads. Never swim toward a fallen tree; swim vigorously around or scramble over it.",
+                  "Never stand up in fast-moving water that is deeper than knee-deep. If your foot gets wedged between riverbed boulders, the force of the current will push your upper body downstream and hold you under.",
+                  "Adopt the defensive swimming position: float on your back with your feet pointing downstream, toes pointed up, and arms paddling gently to steer yourself toward calm bank eddies."
+              ],
+              "proTip": "Always treat hydraulic keeper holes below waterfalls as no-go zones. The recirculating backwash can trap swimmers indefinitely regardless of swimming ability."
+          },
+          {
+              "id": "field-hypothermia-management",
+              "title": "Chapter 3: Field Hypothermia Protocol: The Hypothermia Wrap",
+              "subtitle": "How to rewarm a soaked victim in 40-degree woods",
+              "content": [
+                  "Once a fallen hiker is pulled from the water, time is critical. Wet clothing conducts heat away from the body 25 times faster than dry air.",
+                  "Immediately strip off all wet clothing and replace it with dry wool or synthetic layers. Never use cotton denim or cotton sweatshirts, which retain moisture and accelerate cooling.",
+                  "Construct a \"Hypothermia Wrap\": place an insulating foam sleeping pad on the ground, lay down a waterproof tarp, position the victim inside a mummy sleeping bag with hot water bottles near the groin and armpits, and wrap the entire package like a burrito to block wind."
+              ],
+              "proTip": "Give conscious shivering victims warm, sugary liquids (hot cider, tea, or cocoa). Never give alcohol or caffeine, which dilate peripheral blood vessels and worsen core heat loss."
+          },
+          {
+              "id": "preventative-trailcraft",
+              "title": "Chapter 4: Preventative Trailcraft: Staying Dry and Safe",
+              "subtitle": "Gear choices and terrain assessment to prevent accidental falls",
+              "content": [
+                  "Nearly all cold-water emergencies begin with a simple slip on wet rock. Use two trekking poles to establish a wide, stable base of support whenever walking near drop-offs or river banks.",
+                  "Pack a complete change of clothes inside a heavy-duty waterproof dry bag inside your backpack on every wilderness hike, regardless of the weather forecast.",
+                  "Respect warning signs and boundary railings: 90% of state park waterfall injuries occur when visitors climb over wooden fences to take selfies on wet stone ledges."
+              ],
+              "proTip": "Always check water temperatures before allowing dogs or children to play in river shallows. What feels refreshing for 5 minutes can cause rapid shivering in 15 minutes."
+          }
+      ],
+      "recommendedGear": [
+          "Roll-top waterproof dry bag (20L) packed with dry wool socks, base layer, and fleece",
+          "Pair of heavy-duty aluminum trekking poles for 3-point stability on wet riverbanks",
+          "Compact emergency space blanket and fire-starter kit",
+          "Small microfiber camp towel for rapid drying",
+          "Waterproof phone pouch with neck lanyard to prevent dropped electronics"
+      ],
+      "faqs": [
+          {
+              "question": "Can you get hypothermia in 70°F weather?",
+              "answer": "Yes! If you are soaked in cold river water (50°F) and exposed to a 15-mph wind, your body temperature will plummet rapidly even on a warm 70°F summer afternoon."
+          },
+          {
+              "question": "Should you rub someone's arms and legs to warm them up from hypothermia?",
+              "answer": "No! Vigorous rubbing can damage cold, fragile skin tissues and forces cold, stagnant blood from the limbs back into the core, potentially triggering cardiac arrest (known as \"afterdrop\"). Warm the core gently."
+          }
+      ]
+  },
+  {
+      "id": "mud-season-and-unimproved-road-driving",
+      "slug": "mud-season-and-unimproved-road-driving",
+      "title": "Mud Season & Two-Track Overlanding: Navigating Unpaved U.P. Forest Roads Without Getting Stranded",
+      "subtitle": "Tire pressures, high-clearance 4WD tactics, rut navigation, recovery gear, and logging company gate protocols",
+      "category": "Trail Craft & Safety",
+      "author": {
+          "name": "Greg Koski",
+          "role": "Overland Guide & Northwoods Mechanic",
+          "avatarEmoji": "🚙"
+      },
+      "readTime": "13 min read",
+      "publishedDate": "September 2026",
+      "heroImageUrl": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=1200&q=80",
+      "heroCaption": "Dense boreal forest tracks and sandy logging ruts require disciplined driving tactics.",
+      "excerpt": "Many of the Upper Peninsula's most magnificent wilderness cascades require driving 10 to 20 miles down unmarked gravel logging roads, sand plains, and spring mud ruts. Here is your essential guide to backcountry vehicle preparation, self-recovery, and avoiding costly off-grid tow bills.",
+      "tags": [
+          "Overlanding",
+          "4WD",
+          "Mud Season",
+          "Forest Roads",
+          "Vehicle Prep",
+          "Backcountry"
+      ],
+      "associatedWaterfallIds": [
+          "9e15a7c5-8573-4c26-8c63-ac6498830d0b",
+          "1c288e5a-a4b1-4882-af68-450bde588974",
+          "767ad250-74d3-4470-8089-c41b4d311574"
+      ],
+      "chapters": [
+          {
+              "id": "the-three-dirt-road-seasons",
+              "title": "Chapter 1: The Three Forest Road Seasons: Dust, Ruts, & Deep Mud",
+              "subtitle": "Understanding the seasonal cycles of unpaved Upper Peninsula roads",
+              "content": [
+                  "U.P. gravel and dirt roads undergo extreme seasonal changes. In spring (April through early June), frost heaves and snowmelt create \"breakup season\"—deep, greasy clay soup where low-clearance passenger sedans easily high-center.",
+                  "Midsummer dries the tracks into washboard gravel and deep loose sugar sand on outwash plains (such as the Yellow Dog Plains), where standard street tires can spin and dig down to the axles.",
+                  "Autumn brings soaking rains that fill potholes with opaque brown water, hiding axle-snapping rocks and deep tire ruts beneath seemingly harmless puddles."
+              ],
+              "proTip": "Never drive through a standing puddle in the middle of a forest road at speed. Walk it first or straddle the center ridge; submerged potholes can be 18 inches deep with razor-sharp boulders."
+          },
+          {
+              "id": "tire-pressure-and-traction",
+              "title": "Chapter 2: Tire Pressure Tactics: Airing Down for Flotation & Grip",
+              "subtitle": "The single most effective off-road improvement costs zero dollars",
+              "content": [
+                  "Airing down your vehicle's tires from standard highway pressure (35-40 PSI) down to 20-25 PSI dramatically expands the tire's contact footprint, providing natural flotation across soft sand and mud.",
+                  "Lower tire pressure also softens the ride over relentless washboard corrugations, protecting your suspension components and preventing tire punctures from sharp fractured basalt gravel.",
+                  "Carry a portable 12V air compressor in your trunk so you can air back up to highway pressures before returning to paved high-speed state highways."
+              ],
+              "proTip": "When driving deep sand tracks on the Yellow Dog Plains, maintain steady forward momentum. Avoid sudden braking or full-throttle accelerations, which cause tires to dig trenches."
+          },
+          {
+              "id": "essential-backcountry-recovery-kit",
+              "title": "Chapter 3: The Off-Grid Recovery Kit: Self-Extraction in Zero Cell Zones",
+              "subtitle": "What to carry when a tow truck is 40 miles away and $1,000 to summon",
+              "content": [
+                  "If you get stuck on a remote logging road in Baraga or Iron County, calling AAA is usually impossible due to zero cell coverage. Self-reliance is mandatory.",
+                  "Carry a pair of heavy-duty traction boards (like MAXTRAX), a folding spade or shovel, a heavy-duty tow strap with soft shackles, and a battery jump-starter pack.",
+                  "If stuck in mud: dig out the mud in front of all four tires, wedge traction boards tightly beneath the drive tires, engage 4WD low range, and gently feather the throttle to crawl out."
+              ],
+              "proTip": "A simple folding pruning saw or bow saw in your trunk is worth its weight in gold; northern summer storms frequently drop hemlock branches across one-lane forest roads."
+          },
+          {
+              "id": "logging-road-etiquette-and-gates",
+              "title": "Chapter 4: Logging Road Etiquette & Gate Protocols",
+              "subtitle": "Sharing active commercial timber tracks with 80,000-pound log haulers",
+              "content": [
+                  "Many forest roads are actively used by industrial logging operations. Loaded semi log trucks have the absolute right-of-way; they weigh 80,000 pounds and cannot stop quickly on loose gravel.",
+                  "Drive with headlights on at all times, keep speeds under 25 MPH on blind curves, and pull completely onto the shoulder if you hear or see an oncoming timber truck.",
+                  "Pay close attention to gate signs: roads marked with orange paint or \"Closed\" signs are actively being harvested or washed out. Never park in front of a forest gate, even if it is open."
+              ],
+              "proTip": "If driving along active logging corridors, listen for CB radio chatter (many U.P. loggers communicate on CB Channel 19) to alert drivers of your position."
+          }
+      ],
+      "recommendedGear": [
+          "Pair of rugged polymer traction recovery boards with mounting brackets",
+          "Portable 12-volt tire inflator compressor with alligator battery clips",
+          "Heavy-duty 30-foot kinetic recovery snatch strap and two soft shackles",
+          "Folding entrenching tool or square-point camp shovel",
+          "Digital tire pressure gauge with brass screw-on air-down deflators"
+      ],
+      "faqs": [
+          {
+              "question": "Do I need a 4x4 truck to reach U.P. waterfalls?",
+              "answer": "For 80% of popular waterfalls (Tahquamenon, Miners, Bond, Agate, Presque Isle), paved highways or smooth county gravel roads lead right to the parking lot. High clearance or 4WD is only necessary for remote backcountry falls like Yellow Dog, Sturgeon Falls, or West Branch Falls."
+          },
+          {
+              "question": "How do I know if a forest road is open in the spring?",
+              "answer": "Check the Ottawa or Hiawatha National Forest website for seasonal \"Motor Vehicle Use Maps\" (MVUM) and road closure alerts. County road commissions also post seasonal spring weight restrictions and road closures."
+          }
+      ]
+  },
+  {
+      "id": "midsummer-twilight-and-firefly-expeditions",
+      "slug": "midsummer-twilight-and-firefly-expeditions",
+      "title": "Midsummer Twilight & Northern Fireflies: Chasing Sunset Afterglow and Night Cascades",
+      "subtitle": "Exploring waterfalls during the extended 10:30 PM northern twilight, summer firefly displays in cedar river bottoms, and cooling breezes",
+      "category": "Seasonal Tactics",
+      "author": {
+          "name": "Laura Higgins",
+          "role": "Northwoods Naturalist & Dark-Sky Enthusiast",
+          "avatarEmoji": "✨"
+      },
+      "readTime": "11 min read",
+      "publishedDate": "September 2026",
+      "heroImageUrl": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+      "heroCaption": "Late twilight afterglow lingering over dark forest waters in the northern sky.",
+      "excerpt": "Because the Upper Peninsula sits on the far western edge of the Eastern Time Zone and high in northern latitude, midsummer days feature nearly 16 hours of sunlight. Experience the magic of twilight waterfall hikes, glowing bio-luminescent fireflies, and cooling river air long after the crowds have departed.",
+      "tags": [
+          "Summer",
+          "Twilight",
+          "Fireflies",
+          "Night Hikes",
+          "Dark Sky",
+          "Solitude"
+      ],
+      "associatedWaterfallIds": [
+          "fcd86b67-70a7-4c02-8225-e4eb1944e694",
+          "cf82a777-92dc-4c8c-a62b-93a10628ef99",
+          "05a0a9ef-bf55-4e40-ab89-2f39479c5a7f"
+      ],
+      "chapters": [
+          {
+              "id": "the-prolonged-northern-dusk",
+              "title": "Chapter 1: The Magic of 10:30 PM Dusk: Western Time Zone Geometry",
+              "subtitle": "Why summer evenings in the western U.P. linger for hours",
+              "content": [
+                  "Positioned at roughly 47° North latitude and at the far western boundary of the Eastern Time Zone, sunset in places like Copper Harbor and Ironwood doesn't occur until nearly 10:00 PM in late June and July.",
+                  "Civil and nautical twilight extend deep past 11:00 PM, casting a soft, ethereal indigo-and-crimson afterglow across Lake Superior and river gorges.",
+                  "Hiking during this twilight window allows you to explore popular waterfalls in absolute peaceful solitude, completely free of daytime heat and mid-afternoon crowds."
+              ],
+              "proTip": "Start your hike around 8:30 PM. You'll enjoy golden hour light on the trail, twilight at the falls, and a gentle dusk walk back to the vehicle without needing headlamps until the very end."
+          },
+          {
+              "id": "firefly-displays-in-cedar-hollows",
+              "title": "Chapter 2: Bioluminescent River Basins: The Northern Firefly Dance",
+              "subtitle": "Witnessing thousands of glowing lightning bugs over mist pools",
+              "content": [
+                  "In early to mid-July, the humid, sheltered microclimates of northern white cedar gorges become prime habitat for native lightning bugs (Photinus pyralis).",
+                  "As twilight deepens into night, thousands of synchronized golden-green flashes illuminate the dark ferns, mossy rock walls, and river mist around cascades like Wagner Falls and Munising Falls.",
+                  "The contrast of glowing bioluminescence flickering against the dark, roaring silhouette of the waterfall is an unforgettable sensory experience."
+              ],
+              "proTip": "Use a red-light headlamp when walking near firefly habitats. White LED light disrupts the beetles' mating flashes and causes them to stop glowing."
+          },
+          {
+              "id": "night-cooling-and-thermal-relief",
+              "title": "Chapter 3: Microclimatic Air Conditioning: Escaping Summer Heat",
+              "subtitle": "How cold mountain water cools deep river canyons by 15 degrees",
+              "content": [
+                  "On hot July days when inland temperatures climb into the mid-80s, descending into a waterfall gorge provides instant natural air conditioning.",
+                  "The constant plunging of 50°F water chills the ambient air in enclosed amphitheaters by 10 to 15 degrees, while downdrafts generated by falling water push cool, oxygen-rich breezes down the trail.",
+                  "At dusk, cool air drains downward into canyon bottoms (katabatic flow), providing crisp, comfortable hiking conditions that make steep stairs feel effortless."
+              ],
+              "proTip": "Bring a lightweight windbreaker or long-sleeve fleece, even on a warm 80-degree day. The combination of mist and night canyon downdrafts can feel surprisingly chilly once you stop moving."
+          },
+          {
+              "id": "stargazing-and-the-milky-way",
+              "title": "Chapter 4: The Night Sky Emerges: Stargazing from River Overlooks",
+              "subtitle": "Watching the Milky Way arch over dark forest gorges",
+              "content": [
+                  "By midnight, the twilight afterglow finally yields to some of the darkest skies in North America. The Upper Peninsula contains minimal artificial light pollution, making the Milky Way visible as a glowing silver cloud spanning horizon to horizon.",
+                  "Waterfalls with open northern or southern horizons—such as Sable Falls overlooking Lake Superior or Bond Falls across its wide flowage—offer world-class stargazing perches.",
+                  "Listen to the nighttime chorus of northern green frogs, wood thrushes, and the distant, primeval calls of common loons echoing across the dark water."
+              ],
+              "proTip": "Download a stargazing app (like Stellarium or SkySafari) before leaving cell coverage so you can identify constellations, passing satellites, and planets glowing above the falls."
+          }
+      ],
+      "recommendedGear": [
+          "Headlamp with dedicated red-light night vision mode",
+          "Lightweight packable windbreaker or fleece hoodie for cool canyon drafts",
+          "Natural citronella or eucalyptus bug spray for evening mosquitoes",
+          "Wide foam sit pad for resting comfortably on dewy wooden viewing platforms",
+          "Thermal mug with iced tea or cold brew coffee for twilight relaxation"
+      ],
+      "faqs": [
+          {
+              "question": "Are state park waterfall trails open after dark?",
+              "answer": "Most Michigan State Parks and National Lakeshore trails are open from 8:00 AM to 10:00 PM, and hikers returning from twilight outings are common. Check specific park day-use rules; overnight camping is restricted to designated campgrounds."
+          },
+          {
+              "question": "Are bears active near waterfalls at night?",
+              "answer": "Black bears are primarily crepuscular (most active at dawn and dusk). Making gentle conversation, using a headlamp, and wearing a bear bell on your pack will ensure wildlife hears your approach and moves away into the timber."
+          }
+      ]
+  },
+  {
+      "id": "spring-thaw-wildflower-walks",
+      "slug": "spring-thaw-wildflower-walks",
+      "title": "Spring Ephemerals & Rushing Torrents: Trilliums, Marsh Marigolds, & Early Cascades",
+      "subtitle": "Walking trails carpeted with large-flowered trillium, yellow trout lily, Dutchman's breeches, and hepatica as spring waters crest over limestone and basalt",
+      "category": "Seasonal Tactics",
+      "author": {
+          "name": "Laura Higgins",
+          "role": "Northwoods Naturalist & Botanical Scout",
+          "avatarEmoji": "🌸"
+      },
+      "readTime": "12 min read",
+      "publishedDate": "September 2026",
+      "heroImageUrl": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1200&q=80",
+      "heroCaption": "Lush green mosses, rushing spring meltwater, and early Northwoods woodland blooms.",
+      "excerpt": "Before the summer hardwood canopy leafs out and blocks the sun, a fleeting botanical window opens in late May and early June. The forest floor erupts in millions of delicate spring ephemerals, blooming alongside maximum spring waterfall flows before mosquitoes emerge in force.",
+      "tags": [
+          "Spring",
+          "Wildflowers",
+          "Trilliums",
+          "Botanical Hikes",
+          "Seasonal Tactics",
+          "Early Season"
+      ],
+      "associatedWaterfallIds": [
+          "926d0234-8962-4c36-be79-ce40cacb7588",
+          "78a26f63-e56c-4648-a3d6-250f61593596",
+          "88e9a73f-9e5b-444c-a687-3e6915523d91"
+      ],
+      "chapters": [
+          {
+              "id": "the-ephemeral-window",
+              "title": "Chapter 1: The Spring Ephemeral Window: Sunlit Hardwood Canopies",
+              "subtitle": "The 3-week botanical race against the closing forest canopy",
+              "content": [
+                  "Spring ephemerals are woodland perennial wildflowers that emerge, bloom, set seed, and die back all within a narrow 3-to-4-week window in May and early June.",
+                  "They take advantage of direct sunlight warming the rich forest humus before the high sugar maple and beech canopy unfurls its summer leaves.",
+                  "Pairing a wildflower walk with waterfall chasing means experiencing maximum river volume from melting high-country snowpacks while walking through carpets of white, yellow, and violet blossoms."
+              ],
+              "proTip": "The peak window for spring wildflowers in the central and western U.P. is typically May 15 through June 5, depending on the timing of spring snowpack melt."
+          },
+          {
+              "id": "identifying-northwoods-wildflowers",
+              "title": "Chapter 2: Identifying Key Native Blooms Along Waterfall Trails",
+              "subtitle": "Trillium, Yellow Trout Lily, Bloodroot, and Marsh Marigold",
+              "content": [
+                  "Large-Flowered Trillium (Trillium grandiflorum) is the undisputed queen of the northern spring woods, displaying brilliant white three-petaled flowers that fade to pale pink with age.",
+                  "Along damp river floodplains and mist zones, look for glowing golden clusters of Marsh Marigold (Caltha palustris) thriving directly in saturated gravel channels.",
+                  "On rich hardwood ridges, spot delicate nodding Yellow Trout Lilies with mottled leaves, fringed Dutchman's Breeches, and lavender Sharp-Lobed Hepatica pushing up through dead maple leaves."
+              ],
+              "proTip": "Never pick wild trilliums or woodland ephemerals. Picking a trillium blossom removes the plant's entire photosynthetic leaf set, killing an underground root system that may have taken 7 to 10 years to mature."
+          },
+          {
+              "id": "top-spring-wildflower-trails",
+              "title": "Chapter 3: Premier Wildflower & Waterfall Circuits",
+              "subtitle": "Miners Falls, Laughing Whitefish, and Wagner Falls in May",
+              "content": [
+                  "The 1.2-mile trail to Miners Falls passes through one of the most magnificent mature sugar maple stands in Pictured Rocks, lined with thousands of blooming trilliums.",
+                  "Laughing Whitefish Falls State Scenic Site features a mile-long trail winding through old-growth hardwoods where colonies of wild leeks (ramps) scent the cool spring air.",
+                  "At Wagner Falls, moisture-rich cedar spray sustains vibrant green mosses, wild violets, and miniature maidenhair ferns uncurling from wet rock fissures."
+              ],
+              "proTip": "Bring a pocket macro lens or set your smartphone to macro focus mode (hold the camera 2 inches from the bloom) to capture intricate flower stamens and visiting native bumblebees."
+          },
+          {
+              "id": "spring-trailcraft-and-temperatures",
+              "title": "Chapter 4: Spring Trail Conditions: Mud, Snowbanks, & Crisp Air",
+              "subtitle": "Preparing for lingering snowdrifts and saturated forest trails",
+              "content": [
+                  "May in the Upper Peninsula is a season of dramatic contrast: north-facing ravines and deep cedar swamps often hold lingering snowbanks well into Memorial Day weekend.",
+                  "Waterproof hiking boots with ankle gaiters are essential for crossing saturated mud puddles and wet snowmelt runoff without soaking your socks.",
+                  "The reward for braving early-season conditions is unmatched: zero summer humidity, crisp 60°F hiking weather, roaring maximum flow, and complete absence of annoying biting insects."
+              ],
+              "proTip": "Watch for wild ramps (Allium tricoccum) along the trail edges. Their tender green leaves have a delicious wild onion-garlic flavor and are traditionally foraged for spring camp dinners."
+          }
+      ],
+      "recommendedGear": [
+          "GORE-TEX waterproof hiking boots paired with breathable trail gaiters",
+          "Pocket botanical field guide to Northwoods wildflowers (Peterson or Newcomb)",
+          "Clip-on smartphone macro lens for detailed floral photography",
+          "Sturdy trekking poles for probing depth in muddy trail depressions",
+          "Small knee pad or foam cushion for kneeling on damp forest floors to take photos"
+      ],
+      "faqs": [
+          {
+              "question": "Are black flies out during the spring wildflower bloom?",
+              "answer": "Usually no! Early May through mid-May is typically bug-free. Black flies generally emerge when daily temperatures consistently reach the upper 60s and 70s in late May or early June."
+          },
+          {
+              "question": "Can you forage wild ramps in Michigan state parks?",
+              "answer": "Foraging for personal consumption (a small handful for campfire cooking) is generally permitted in Michigan state parks and national forests, but commercial harvesting or digging up large root patches is strictly prohibited."
+          }
+      ]
+  },
+  {
+      "id": "macro-and-spray-mist-photography",
+      "slug": "macro-and-spray-mist-photography",
+      "title": "The Macro World of Northern Waterfalls: Lichens, Dewdrops, & Frothing Eddies",
+      "subtitle": "Capturing close-up textures: colorful crustose lichens on basalt, air bubbles suspended in golden tannin foam, and delicate ferns in mist zones",
+      "category": "Photography",
+      "author": {
+          "name": "Ray Koskela",
+          "role": "Fine Art Landscape Photographer",
+          "avatarEmoji": "📷"
+      },
+      "readTime": "13 min read",
+      "publishedDate": "September 2026",
+      "heroImageUrl": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80",
+      "heroCaption": "Intricate patterns of swirling foam bubbles and wet rock textures captured up close.",
+      "excerpt": "While wide-angle landscape shots capture the grandeur of waterfalls, an entire hidden world exists at your feet. Explore the micro-geology of ancient basalt bubbles, abstract patterns in spinning tannin foam, and dew-drenched mosses thriving in constant cataract spray.",
+      "tags": [
+          "Macro",
+          "Photography",
+          "Textures",
+          "Lichens",
+          "Mist",
+          "Abstract Art"
+      ],
+      "associatedWaterfallIds": [
+          "08ebbfc4-84b9-4bfb-9ffb-790b176abed8",
+          "fe8ac0ba-b534-4b3e-99ee-c5c6477d3038",
+          "bf905ef2-70a7-4c02-8225-e4eb1944e694"
+      ],
+      "chapters": [
+          {
+              "id": "the-intimate-waterfall-landscape",
+              "title": "Chapter 1: Beyond the Grand Vista: Discovering Intimate Landscapes",
+              "subtitle": "Training your artistic eye to spot micro-compositions in the spray zone",
+              "content": [
+                  "Most photographers arrive at a waterfall, plant their tripod at the main overlook, shoot a wide-angle frame, and leave. But waterfalls are rich tapestries of micro-landscapes that tell deeper ecological stories.",
+                  "Look for the junction where land meets water: tiny green liverworts clinging to wet sandstone, miniature cascades tumbling over single pebbles, and swirling foam whirlpools trapped in bedrock hollows.",
+                  "An intimate composition isolating a 2-foot section of rushing water or wet rock can convey far more mood and mystery than an expansive wide view."
+              ],
+              "proTip": "Switch to a 70-200mm telephoto lens or a dedicated 90mm/100mm macro lens. Compressing the scene allows you to isolate abstract patterns in plunging water ribbons and spray curtains."
+          },
+          {
+              "id": "tannin-foam-abstracts",
+              "title": "Chapter 2: Abstract Foam Art: Swirling Tannin Vortexes & Bubble Mosaics",
+              "subtitle": "Capturing nature's ephemeral liquid latte art in river eddies",
+              "content": [
+                  "Cedar tannins act as natural organic surfactants, creating thick, long-lasting foam blankets that gather in slow-moving river eddies downstream from cascades.",
+                  "As the eddy slowly rotates, it sculpts the white foam into mesmerizing spiral galaxies, concentric rings, and intricate geometric filigrees.",
+                  "Using a fast shutter speed (1/500s) freezes the razor-sharp cellular structure of individual iridescent bubbles; a slow shutter speed (2-4 seconds) blends the spinning foam into an ethereal cream spiral."
+              ],
+              "proTip": "Look for calm backwater pockets downstream from waterfalls like Bond Falls or Presque Isle River. Shoot directly downward (perpendicular to the water surface) for stunning abstract geometric art."
+          },
+          {
+              "id": "lichens-mosses-and-ferns",
+              "title": "Chapter 3: The Micro-Flora: Basalt Lichens, Sphagnum, & Maidenhair Ferns",
+              "subtitle": "Exploring the vibrant botanical tapestries thriving in perpetual mist",
+              "content": [
+                  "Constant humidity from waterfall mist creates luxuriant botanical micro-climates where rare mosses, lichens, and ferns flourish on sheer rock faces.",
+                  "Notice the electric orange Xanthoria lichens contrasting against charcoal-black Keweenawan basalt, and delicate maidenhair spleenwort ferns sprouting from paper-thin rock fissures.",
+                  "Early morning backlighting illuminates tiny dew droplets suspended on fern fronds, creating natural diamond bokeh in shallow-depth-of-field captures."
+              ],
+              "proTip": "Use a small reflector panel (or a piece of white cardboard) to bounce soft natural light into dark rock crevices where mosses and ferns grow, revealing rich emerald details without flash."
+          },
+          {
+              "id": "technical-macro-fieldcraft",
+              "title": "Chapter 4: Technical Macro Craft: Focus Stacking & Wind Defense",
+              "subtitle": "Overcoming shallow depth-of-field and breeze vibrations in the gorge",
+              "content": [
+                  "At 1:1 macro magnification, depth-of-field is razor-thin—often less than a millimeter at f/2.8. To achieve front-to-back sharpness on an intricate rock-and-moss subject, utilize focus stacking.",
+                  "Take a sequence of 5 to 15 frames, incrementally shifting focus from the closest foreground element to the background, and merge them in Lightroom or Helicon Focus.",
+                  "Air turbulence generated by crashing waterfalls creates constant micro-breezes that vibrate delicate ferns. Wait patiently for lulls in the wind, or shoot at higher ISOs (400-800) with fast shutter speeds to freeze motion."
+              ],
+              "proTip": "Use a plamp (articulating clamp attached to your tripod) to gently secure a vibrating fern stem during macro exposures without damaging the plant."
+          }
+      ],
+      "recommendedGear": [
+          "Dedicated macro lens (90mm, 100mm, or 105mm with 1:1 magnification)",
+          "Sturdy tripod capable of low-angle ground positioning (legs splayed flat)",
+          "Collapsible 12-inch 5-in-1 light reflector / diffuser disc",
+          "Knee pads or waterproof garden kneeling mat for working at ground level",
+          "Electronic remote shutter release cable or wireless remote"
+      ],
+      "faqs": [
+          {
+              "question": "Can I do macro photography with a smartphone?",
+              "answer": "Yes! Modern smartphones with dedicated ultra-wide macro lenses can focus within 2 centimeters of rock surfaces and mosses, producing stunning high-resolution close-up detail."
+          },
+          {
+              "question": "How do I protect my macro lens from constant waterfall spray?",
+              "answer": "Keep the lens hood attached at all times—it provides substantial physical shielding from drifting mist. Keep a dry microfiber cloth in your pocket and wipe the front glass immediately before firing."
+          }
+      ]
+  },
+  {
+      "id": "smartphone-waterfall-photography-mastery",
+      "slug": "smartphone-waterfall-photography-mastery",
+      "title": "Smartphone Waterfall Masterclass: Capturing Long Exposures, 4K Video, & Slow-Mo on iOS & Android",
+      "subtitle": "Live Photo long exposure tricks, cinematic 4K video slow-motion at 120fps/240fps, lens flare reduction, waterproof cases, and audio settings to record deep bass rumblings",
+      "category": "Photography",
+      "author": {
+          "name": "Ray Koskela",
+          "role": "Fine Art Landscape Photographer",
+          "avatarEmoji": "📷"
+      },
+      "readTime": "11 min read",
+      "publishedDate": "September 2026",
+      "heroImageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+      "heroCaption": "Modern smartphone camera capturing silky long-exposure cascades with computational photography.",
+      "excerpt": "You don't need a $3,000 professional camera rig to capture magazine-worthy waterfall images and cinematic video. With computational photography, built-in optical image stabilization, and simple exposure adjustments, your smartphone can produce stunning silky water shots and high-frame-rate slow motion.",
+      "tags": [
+          "Smartphone",
+          "iPhone",
+          "Android",
+          "Mobile Photography",
+          "Long Exposure",
+          "Video"
+      ],
+      "associatedWaterfallIds": [
+          "cf82a777-92dc-4c8c-a62b-93a10628ef99",
+          "da36e4f3-d295-4e09-a5d4-91ec4701d423",
+          "78a26f63-e56c-4648-a3d6-250f61593596"
+      ],
+      "chapters": [
+          {
+              "id": "iphone-live-photo-long-exposure",
+              "title": "Chapter 1: The iOS Live Photo Secret: Instant Handheld Long Exposures",
+              "subtitle": "Turning ordinary photos into silky water masterpieces with zero filters",
+              "content": [
+                  "If you use an iPhone, you carry a powerful long-exposure tool that requires no tripod or neutral density filter. Ensure \"Live Photo\" is turned ON (the yellow concentric rings icon at the top of your camera app).",
+                  "Frame your waterfall shot, brace your elbows against your ribs, hold completely still, and press the shutter button.",
+                  "Open the image in the Photos app, tap the \"Live\" dropdown menu in the upper-left corner, and select \"Long Exposure.\" The iPhone's neural engine automatically aligns the static rocks and blurs the moving water into a gorgeous, silky cascade!"
+              ],
+              "proTip": "Stand completely motionless for 1.5 seconds before and after pressing the shutter button. This gives the camera enough temporal data to calculate clean, sharp rock edges."
+          },
+          {
+              "id": "android-long-exposure-and-pro-modes",
+              "title": "Chapter 2: Android Pro Mode & Action Pan Tactics",
+              "subtitle": "Unlocking manual ISO, shutter speeds, and computational motion modes",
+              "content": [
+                  "On Google Pixel devices, select the \"Motion\" tab in the camera app and choose \"Long Exposure.\" The computational software detects moving water and applies artistic motion blur while keeping background trees sharp.",
+                  "On Samsung Galaxy devices, open \"Pro Mode.\" Manually set ISO to its lowest setting (ISO 50), set shutter speed to 1/2s or 1s, and mount your phone on a small pocket tripod or rest it on a flat wooden railing.",
+                  "Use the 0.5x Ultra-Wide lens to exaggerate the vertical height of towering canyon cataracts like Miners Falls or Douglass - Houghton Falls."
+              ],
+              "proTip": "Use a Bluetooth remote shutter button or set a 2-second timer so you don't shake the phone when tapping the screen."
+          },
+          {
+              "id": "cinematic-slow-motion-video",
+              "title": "Chapter 3: Cinematic Slow-Motion: 120fps & 240fps Water Dynamics",
+              "subtitle": "Capturing the kinetic explosion of droplets and turbulent foam crests",
+              "content": [
+                  "While still photography freezes or blurs motion, high-speed video reveals the mesmerizing physics of falling water.",
+                  "Switch your phone to \"Slo-Mo\" video at 120fps or 240fps in 1080p or 4K resolution. Film powerful cascades where water crashes against protruding rocks (such as Potawatomi Falls or Upper Tahquamenon).",
+                  "Playback reveals individual water droplets suspended in mid-air like floating liquid glass beads, moving with hypnotic, balletic grace."
+              ],
+              "proTip": "Keep your video pans slow and steady. Slow-motion looks best when the camera moves slowly and smoothly across the roaring cascade from base to crest."
+          },
+          {
+              "id": "recording-deep-bass-waterfall-audio",
+              "title": "Chapter 4: Capturing Rich Acoustic Sound & Wind Mitigation",
+              "subtitle": "Preventing wind distortion and recording the deep sub-bass roar",
+              "content": [
+                  "Smartphone microphones are prone to harsh wind noise when recording near roaring river gorges.",
+                  "Cover your phone's microphone ports with a small strip of faux-fur windscreen material (often called a \"deadcat\") or shield the phone body with your hands while recording.",
+                  "To capture the deep, chest-thumping bass frequencies of major waterfalls, hold the phone within 20 feet of the plunge pool where low-frequency sound waves reverberate."
+              ],
+              "proTip": "Turn on \"Stereo Audio Recording\" in your phone's camera settings to capture a wide, immersive spatial soundstage that places listeners right in the mist."
+          }
+      ],
+      "recommendedGear": [
+          "Compact folding pocket phone tripod with flexible articulating legs",
+          "Spring-loaded metal smartphone tripod clamp mount with cold shoe",
+          "Small clip-on windshield sponge for phone microphones",
+          "Waterproof phone case with clear optical glass lens window",
+          "Compact high-capacity power bank (10,000mAh) to counteract cold-weather battery drain"
+      ],
+      "faqs": [
+          {
+              "question": "Will waterfall mist damage my smartphone?",
+              "answer": "Most modern smartphones have IP68 water resistance, meaning they can survive splashes and rain. However, dry your charging port thoroughly before plugging in a lightning or USB-C cable to prevent moisture alert warnings."
+          },
+          {
+              "question": "Why does my Live Photo Long Exposure look blurry all over?",
+              "answer": "If the rocks or trees look blurry along with the water, the phone moved during the 3-second capture window. Rest your phone firmly on a trail railing or tripod for rock-solid stability."
+          }
+      ]
+  },
+  {
+      "id": "finnish-sauna-and-cold-river-plunge-culture",
+      "slug": "finnish-sauna-and-cold-river-plunge-culture",
+      "title": "The Yooper Sauna & River Plunge Tradition: Woodsmoke, Cedar Whisks, & Glacial Rapids",
+      "subtitle": "The deep Finnish cultural roots of the wood-fired cedar sauna followed by an invigorating leap into a cold waterfall pool or Lake Superior",
+      "category": "Culinary & Culture",
+      "author": {
+          "name": "Toivo Niemi",
+          "role": "Copper Country Cultural Historian & Craftsman",
+          "avatarEmoji": "🔥"
+      },
+      "readTime": "13 min read",
+      "publishedDate": "September 2026",
+      "heroImageUrl": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80",
+      "heroCaption": "Rustic cedar-clad wood-fired sauna nestled along a northern forest riverbank.",
+      "excerpt": "Nowhere else in the United States is Finnish sauna culture as revered and deeply woven into everyday life as Michigan's Upper Peninsula. Learn the sacred traditions of löyly (steam), birch vihta whisks, and the euphoric physiological reset of leaping from a 200°F sauna into a rushing 50°F wilderness cataract.",
+      "tags": [
+          "Sauna",
+          "Finnish Culture",
+          "Cold Plunge",
+          "Keweenaw",
+          "Yooper Traditions",
+          "Wellness"
+      ],
+      "associatedWaterfallIds": [
+          "29294467-23f9-42a4-9a09-4db99c84b104",
+          "bf905ef2-70a7-4c02-8225-e4eb1944e694",
+          "49452338-6e6e-4bbd-9967-bcd60642131b"
+      ],
+      "chapters": [
+          {
+              "id": "the-finnish-migration-and-sauna-hearth",
+              "title": "Chapter 1: The Finnish Hearth: Why the U.P. is America's Sauna Capital",
+              "subtitle": "How 19th-century copper miners brought their sacred steam tradition to the Northwoods",
+              "content": [
+                  "In the late 19th and early 20th centuries, tens of thousands of Finnish immigrants crossed the Atlantic to work the deep copper and iron mines of the Upper Peninsula.",
+                  "Upon claiming a homestead or building a forest cabin, the sauna was historically the very first building constructed—often before the family home itself.",
+                  "Pronounced correctly as \"SOW-nah\" (rhymes with now, never saw-na), the bathhouse was not merely a luxury; it was a sacred sanctuary for cleansing, childbirth, community bonding, and spiritual renewal."
+              ],
+              "proTip": "Never pronounce it \"saw-na\" in front of a Yooper! SOW-nah is the authentic Finnish pronunciation and a badge of regional respect."
+          },
+          {
+              "id": "the-anatomy-of-proper-loyly",
+              "title": "Chapter 2: The Art of Löyly: Wood, Granite Stones, & Cedar Whisks",
+              "subtitle": "Crafting the perfect soft, enveloping heat in a traditional wood-fired hot room",
+              "content": [
+                  "A genuine Northwoods sauna is heated by a heavy cast iron or welded steel woodstove fueled by well-seasoned northern hardwoods: sugar maple, yellow birch, or red oak.",
+                  "The top of the stove is piled high with dense igneous rocks (typically volcanic Keweenawan basalt or gabbro collected from local riverbeds) that absorb intense heat without cracking.",
+                  "When pure well water is ladled over the glowing stones, it produces \"löyly\"—a gentle, fragrant cloud of superheated steam that rolls across the wooden cedar benches, opening pores and soothing tired muscles after miles on the trail."
+              ],
+              "proTip": "Gather fresh young paper birch boughs in early summer and bind them into a whisk (called a \"vihta\" or \"vasta\"). Gently tapping yourself with the leaves releases fragrant birch oils that invigorate the skin."
+          },
+          {
+              "id": "the-cold-river-plunge-reset",
+              "title": "Chapter 3: The Cold River Plunge: The Physiology of Extreme Thermotherapy",
+              "subtitle": "The euphoric dopamine surge of transitioning from 200°F heat to 48°F river water",
+              "content": [
+                  "The true magic of northern sauna culture lies in the contrast: heating the body to a deep sweat for 15 to 20 minutes, followed immediately by rapid immersion in cold water.",
+                  "Cottages and rustic saunas built along streams like the Eagle River, Hungarian Creek, or Dead River allow bathers to sprint straight from the hot room and dive into deep, cold bedrock plunge pools.",
+                  "The immediate cold immersion constricts blood vessels, surges blood to the core, and triggers a massive release of endorphins, norepinephrine, and dopamine, leaving bathers in a state of tranquil euphoria locals call \"sauna bliss.\""
+              ],
+              "proTip": "Never jump headfirst into an unfamiliar natural river pool. Always wade in deliberately to check depth and avoid submerged boulders."
+          },
+          {
+              "id": "sauna-community-and-public-access",
+              "title": "Chapter 4: Finding Authentic Sauna Experiences Across the U.P.",
+              "subtitle": "Public saunas, mobile wood-fired units, and rental cabins on the water",
+              "content": [
+                  "While many saunas are private family heirlooms, visitors can experience authentic public and mobile saunas throughout the peninsula.",
+                  "In Marquette and Houghton, mobile wood-fired sauna trailers operate near public beaches, offering scheduled community sweat-and-plunge sessions right on Lake Superior.",
+                  "Historic lakeside resort cabins in Copper Harbor and Munising feature private wood-fired saunas steps from the water's edge, providing the ultimate conclusion to a day of waterfall hiking."
+              ],
+              "proTip": "Hydrate constantly! Drink at least two glasses of water or electrolyte-rich cider for every 15 minutes spent in the sauna to maintain hydration."
+          }
+      ],
+      "recommendedGear": [
+          "100% linen or Turkish cotton sauna towel (lighter and faster drying than terrycloth)",
+          "Traditional wool sauna hat to protect hair and keep your head comfortable in high heat",
+          "Slip-on rubber sandals for walking safely over wet pine needle trails to the river",
+          "Stainless steel insulated water bottle filled with ice water",
+          "Breathable cotton robe or flannel shirt for cooling off on the outdoor porch"
+      ],
+      "faqs": [
+          {
+              "question": "Why do people wear felt hats in the sauna?",
+              "answer": "A wool sauna hat acts as an insulator, protecting your head and brain from overheating in the high ambient heat (where temperatures near the ceiling can reach 210°F), allowing you to relax comfortably for longer."
+          },
+          {
+              "question": "Is it safe to jump into cold river water right after a hot sauna?",
+              "answer": "For healthy individuals without cardiovascular conditions, the hot-to-cold transition is safe, deeply invigorating, and practiced daily across Finland and the U.P. Those with high blood pressure or heart conditions should consult a physician."
+          }
+      ]
+  },
+  {
+      "id": "native-copper-mining-ghost-towns-and-waterfalls",
+      "slug": "native-copper-mining-ghost-towns-and-waterfalls",
+      "title": "Ghost Towns, Stamp Sands, & Waterways: The Copper Rush Ruins Along Northern Cascades",
+      "subtitle": "Exploring abandoned 19th-century mining communities like Central, Delaware, and Freda, where industrial ruins sit beside cascading streams",
+      "category": "Culinary & Culture",
+      "author": {
+          "name": "Donovan Pentti",
+          "role": "Keweenaw Historian & Industrial Archaeologist",
+          "avatarEmoji": "⚒️"
+      },
+      "readTime": "14 min read",
+      "publishedDate": "September 2026",
+      "heroImageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+      "heroCaption": "Weathered stone masonry ruins and historic mining relics nestled in northern hardwood forests.",
+      "excerpt": "Long before the California Gold Rush, America's first great mining boom erupted in the 1840s across the Keweenaw Peninsula. Vast industrial empires arose to extract millions of pounds of 99% pure native copper, damming waterfalls to power massive steam-driven stamp mills. Wander among moss-covered stone arches and ghost towns.",
+      "tags": [
+          "History",
+          "Copper Rush",
+          "Ghost Towns",
+          "Industrial Ruins",
+          "Keweenaw",
+          "Mining Heritage"
+      ],
+      "associatedWaterfallIds": [
+          "b89f02f1-69f0-47ee-9482-04c0bef56b25",
+          "bf905ef2-70a7-4c02-8225-e4eb1944e694",
+          "d603a7c9-385f-4519-aee0-1337975e0d26"
+      ],
+      "chapters": [
+          {
+              "id": "the-native-copper-boom",
+              "title": "Chapter 1: The Red Metal Rush: America's First Mineral Boom",
+              "subtitle": "Why pure elemental copper deposits in Michigan transformed the industrial world",
+              "content": [
+                  "In 1841, Michigan's first state geologist, Douglass Houghton, published a landmark report confirming vast deposits of pure, metallic \"native copper\" embedded in the ancient volcanic basalt flows of the Keweenaw Peninsula.",
+                  "Unlike copper deposits elsewhere on earth that exist as chemical ores requiring complex smelting, Keweenaw copper existed as solid masses of 99.9% pure elemental metal—some single boulders weighing over 400 tons!",
+                  "Miners, prospectors, and immigrants flooded into the trackless wilderness, carving roads, founding towns, and harnessing every rushing stream to power mining machinery."
+              ],
+              "proTip": "Visit Douglass - Houghton Falls near Lake Linden—Michigan's tallest waterfall at 110 feet—named in honor of the brilliant state geologist who drowned in a Lake Superior storm near Eagle River in 1845."
+          },
+          {
+              "id": "stamp-mills-and-water-power",
+              "title": "Chapter 2: Water Power: How Cascades Crushed the Copper Rock",
+              "subtitle": "The engineering marvels of Victorian dams, wooden flumes, and stamp mills",
+              "content": [
+                  "To separate native copper nodules from the dense basaltic rock, mining companies built massive \"stamp mills\" powered by water and steam.",
+                  "Dams were erected directly above waterfalls—such as the historic timber and masonry dams at Hungarian Falls and Eagle River Falls—to create immense hydraulic reservoirs.",
+                  "High-pressure water was funneled through giant wooden flumes to drive multi-ton steam stamps that pulverized raw rock into fine sand 24 hours a day, dumping dark \"stamp sands\" into Lake Superior."
+              ],
+              "proTip": "Look closely at the rock walls surrounding Hungarian Falls: you can still see the hand-hewn red sandstone dam masonry and iron bolts drilled directly into the living bedrock."
+          },
+          {
+              "id": "walking-among-keweenaw-ghost-towns",
+              "title": "Chapter 3: Ghost Towns of the High Ridge: Central, Delaware, & Phoenix",
+              "subtitle": "Exploring abandoned stone foundations and cemetery groves in the woods",
+              "content": [
+                  "As the rich copper lodes played out in the early 20th century, once-bustling boomtowns with churches, opera houses, and thousands of residents faded into ghost towns.",
+                  "At Central Mine on US-41, several original miners' timber cottages still stand, maintained by historical societies, while stone engine-house ruins are slowly reclaimed by sugar maples.",
+                  "Near Delaware, old mine adits and tailings piles line the creeks, where amateur rockhounds still find glittering pieces of green malachite, red cuprite, and native copper nuggets."
+              ],
+              "proTip": "Bring a high-powered metal detector or UV flashlight. Searching the historic mine waste rock piles (poor rock piles) near ghost towns often yields collectible native copper and glowing datolite specimens."
+          },
+          {
+              "id": "preserving-industrial-heritage",
+              "title": "Chapter 4: The Keweenaw National Historical Park: Living Legacy",
+              "subtitle": "Connecting trail adventures with the story of Northwoods mining families",
+              "content": [
+                  "Established in 1992, the Keweenaw National Historical Park preserves the historic commercial districts, mining headquarters, and residential neighborhoods of Calumet and Houghton.",
+                  "The colossal Calumet & Hecla General Office and the Quincy Mine Hoist (the largest steam-powered mine hoist ever constructed) showcase the staggering wealth generated by northern copper.",
+                  "Exploring waterfalls alongside these ruins connects modern hikers with the grit, resilience, and ingenuity of the pioneer families who shaped northern Michigan."
+              ],
+              "proTip": "Stop at the historic Calumet Theatre—the first municipal opera house in North America—to marvel at its ornate gilded plasterwork, copper chandeliers, and historic stage."
+          }
+      ],
+      "recommendedGear": [
+          "Metal detector or neodymium magnet for beachcombing historic copper stamp sands",
+          "UV 365nm flashlight for night hunting fluorescent minerals (like sodalite/yooperlite)",
+          "Historical trail guide: \"A Guide to Michigan's Copper Country Ghost Towns\"",
+          "Sturdy leather work gloves for handling sharp copper rock specimens",
+          "Field magnifying loupe (10x) for inspecting micro-crystals of native copper and malachite"
+      ],
+      "faqs": [
+          {
+              "question": "Can you take rocks or copper from historic mine ruins?",
+              "answer": "Collecting rocks from public \"poor rock piles\" on state forest or designated rockhound sites (such as the Central Mine pile) is generally permitted for personal hobbyists. Removing artifacts from historic buildings or National Park Service land is strictly illegal."
+          },
+          {
+              "question": "Are there guided underground mine tours near the waterfalls?",
+              "answer": "Yes! The Quincy Mine in Hancock and the Delaware Mine near Copper Harbor both offer guided underground tours down into historic 19th-century copper shafts."
+          }
+      ]
   }
 ]
 
@@ -1997,7 +3625,7 @@ export const WATERFALL_BLOG_ARTICLES: WaterfallBlogArticle[] = [
     "category": "Scenic Byways"
   },
   {
-    "id": "art-dead-river-scramble",
+    "id": "art-dead-river-falls-scramble-guide",
     "waterfallId": "49452338-6e6e-4bbd-9967-bcd60642131b",
     "waterfallName": "Dead River Falls",
     "title": "The Ultimate Guide to Scrambling Marquette's Dead River Falls",
@@ -2121,5 +3749,509 @@ export const WATERFALL_BLOG_ARTICLES: WaterfallBlogArticle[] = [
     "publishedDate": "August 2026",
     "readingTime": "4 min read",
     "category": "Family Hikes"
+  },
+  {
+      "id": "art-spray-falls-lake-superior-plunge",
+      "waterfallId": "7fb3998a-98fc-4861-be4a-51bf4e9c3735",
+      "waterfallName": "Spray Falls",
+      "title": "Leaping into the Inland Sea: The 70-Foot Lake Superior Plunge of Spray Falls",
+      "sourceSite": "Lake Superior Magazine",
+      "author": "Christine Braddock",
+      "url": "https://www.lakesuperior.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Few sights in North America match Spray Creek launching directly off the 70-foot Pictured Rocks sandstone cliffs into the crystalline turquoise swells of Lake Superior.",
+      "publishedDate": "July 2026",
+      "readingTime": "6 min read",
+      "category": "Coastal Cataracts"
+  },
+  {
+      "id": "art-jasper-falls-red-grotto",
+      "waterfallId": "38b5d4d1-bdb2-435e-9de5-bddf78d633e0",
+      "waterfallName": "Jasper Falls",
+      "title": "The Iron-Stained Sandstone Amphitheater of Jasper Falls",
+      "sourceSite": "Pure Michigan Wilderness",
+      "author": "Mark VanDorn",
+      "url": "https://www.michigan.org",
+      "coverImageUrl": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Hidden in the hemlock valleys south of Munising, Jasper Falls carves through deep red ferruginous sandstone shelves rich in ancient iron-oxide deposits.",
+      "publishedDate": "August 2026",
+      "readingTime": "5 min read",
+      "category": "Hidden Gems"
+  },
+  {
+      "id": "art-little-miners-secluded-glen",
+      "waterfallId": "4368e524-2556-4ff4-a7cf-70b40613c895",
+      "waterfallName": "Little Miners Falls",
+      "title": "Beyond the Overlook: Finding the Secluded Glen of Little Miners Falls",
+      "sourceSite": "Mitten State Wanderer",
+      "author": "Laura Higgins",
+      "url": "https://www.mittenstatewanderer.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Just downriver from the thunderous main Miners Falls platform, this quiet feeder cascade tumbles over mossy sandstone steps in a tranquil cedar basin.",
+      "publishedDate": "June 2026",
+      "readingTime": "4 min read",
+      "category": "Family Hikes"
+  },
+  {
+      "id": "art-alger-falls-roadside-stair",
+      "waterfallId": "2181f2b7-d639-46df-abca-09db2f012855",
+      "waterfallName": "Alger Falls",
+      "title": "A 30-Foot Stepped Hillside Stair: The Story of Roadside Alger Falls",
+      "sourceSite": "Midwest Living Outdoors",
+      "author": "Evelyn St. Claire",
+      "url": "https://www.midwestliving.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Welcoming travelers at the junction of M-28 and M-94, Alger Falls drops 30 feet across a tiered sequence of mossy rock ledges that roar during spring runoff.",
+      "publishedDate": "May 2026",
+      "readingTime": "4 min read",
+      "category": "Roadside Stops"
+  },
+  {
+      "id": "art-horseshoe-falls-spring-fed",
+      "waterfallId": "ce80985c-31d7-409d-9256-99542d798eb7",
+      "waterfallName": "Horseshoe Falls",
+      "title": "Spring-Fed Serenity in Munising: The Botanical Oasis of Horseshoe Falls",
+      "sourceSite": "Awesome Mitten",
+      "author": "Laura Higgins",
+      "url": "https://www.awesomemitten.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Fed by pure subterranean artesian springs, Horseshoe Falls flows consistently throughout every season across a lush 20-foot garden canyon.",
+      "publishedDate": "September 2026",
+      "readingTime": "4 min read",
+      "category": "Family Hikes"
+  },
+  {
+      "id": "art-rock-river-wilderness-grotto",
+      "waterfallId": "7997cb8a-fe71-4203-b33e-53178772ed96",
+      "waterfallName": "Rock River Falls",
+      "title": "Deep in the Rock River Wilderness: The 15-Foot Undercut Grotto",
+      "sourceSite": "Upper Peninsula Trail Journal",
+      "author": "Brett Kolasinski",
+      "url": "https://www.uptrailjournal.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Trekking through five miles of designated federal wilderness leads hikers to a sweeping 15-foot cascade where amber water spills over a cavernous sandstone overhang.",
+      "publishedDate": "August 2026",
+      "readingTime": "7 min read",
+      "category": "Wilderness Treks"
+  },
+  {
+      "id": "art-lower-canyon-falls-box-canyon",
+      "waterfallId": "42a1462b-7da0-4ae4-940c-2c0357cedc50",
+      "waterfallName": "Lower Canyon Falls",
+      "title": "Downstream in the Sturgeon Chasm: The Hidden Drops of Lower Canyon Falls",
+      "sourceSite": "Lake Superior Action Magazine",
+      "author": "Derek Lind",
+      "url": "https://www.lakesuperioraction.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Beyond the boardwalk overlook of Canyon Falls, the Sturgeon River cuts through a sheer 50-foot slate box canyon featuring violent, boiling whitewater chutes.",
+      "publishedDate": "July 2026",
+      "readingTime": "6 min read",
+      "category": "Canyon Scrambles"
+  },
+  {
+      "id": "art-middle-canyon-falls-rapids",
+      "waterfallId": "de9c01fa-fe27-4ced-acbd-68f51bd3a8dd",
+      "waterfallName": "Middle Canyon Falls",
+      "title": "The Churning Mid-Sturgeon Rapids: Navigating Middle Canyon Falls",
+      "sourceSite": "Upper Peninsula Trail Journal",
+      "author": "Greg Koski",
+      "url": "https://www.uptrailjournal.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+      "snippet": "A rugged fisherman's path follows the rim of the Sturgeon River gorge to this powerful intermediate chute where the river funnels through dark metamorphic slate.",
+      "publishedDate": "June 2026",
+      "readingTime": "5 min read",
+      "category": "River Expeditions"
+  },
+  {
+      "id": "art-power-house-falls-historic-dam",
+      "waterfallId": "778a6058-b0d2-473b-ba6c-3a44399a0dc0",
+      "waterfallName": "Power House Falls",
+      "title": "Lumber Days on the Falls River: The Industrial History of Power House Falls",
+      "sourceSite": "Keweenaw Heritage Magazine",
+      "author": "Donovan Pentti",
+      "url": "https://www.keweenawheritage.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Exploring the stone masonry footings and roaring 15-foot cascade where early L'Anse settlers harnessed hydraulic energy to power historic turn-of-the-century mills.",
+      "publishedDate": "May 2026",
+      "readingTime": "5 min read",
+      "category": "Mining Heritage"
+  },
+  {
+      "id": "art-o-kun-de-kun-suspension-bridge",
+      "waterfallId": "4e34904d-ccaa-486c-aaaf-826bce2ceb55",
+      "waterfallName": "O Kun de Kun Falls",
+      "title": "Across the Suspension Bridge: The Plunge & Sandstone Arch of O Kun de Kun",
+      "sourceSite": "Pure Michigan Wilderness",
+      "author": "Mark VanDorn",
+      "url": "https://www.michigan.org",
+      "coverImageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Hike 1.3 miles on the North Country Trail through Ottawa National Forest, crossing a sweeping foot suspension bridge to reach this 15-foot plunge over Jacobsville sandstone.",
+      "publishedDate": "September 2026",
+      "readingTime": "6 min read",
+      "category": "Trail Guide"
+  },
+  {
+      "id": "art-saxon-falls-border-abyss",
+      "waterfallId": "cc0b19c0-e2a4-41d1-9fb0-0d6beb577c74",
+      "waterfallName": "Saxon Falls",
+      "title": "Standing Above the 90-Foot Chasm: The Geological Rift of Saxon Falls",
+      "sourceSite": "Lake Superior Action Magazine",
+      "author": "Derek Lind",
+      "url": "https://www.lakesuperioraction.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Straddling the Michigan-Wisconsin state line on the Montreal River, Saxon Falls plunges 90 feet through one of the deepest and most sheer rock gorges in the Midwest.",
+      "publishedDate": "July 2026",
+      "readingTime": "6 min read",
+      "category": "Canyon Scrambles"
+  },
+  {
+      "id": "art-little-union-gorge-porkies",
+      "waterfallId": "dee0c193-e32c-4e7a-8931-50f3a720e63e",
+      "waterfallName": "Little Union Gorge Falls",
+      "title": "Secret Hemlock Hollows: Tucked Away at Little Union Gorge Falls",
+      "sourceSite": "Porcupine Mountains Backpacker",
+      "author": "Janice Morrow",
+      "url": "https://www.porkiesbackpacker.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=600&q=80",
+      "snippet": "A tranquil foot trail in the eastern Porcupine Mountains leads down into a steep hemlock-shaded gorge where Little Union Creek dances over dark Nonesuch shale.",
+      "publishedDate": "June 2026",
+      "readingTime": "4 min read",
+      "category": "State Park Trails"
+  },
+  {
+      "id": "art-kakabika-falls-slate-rapids",
+      "waterfallId": "01f3bdf2-2b3b-4acf-bd9b-e405a8148dce",
+      "waterfallName": "Kakabika Falls",
+      "title": "The Stepped S-Curve Rapids of Kakabika Falls on the Cisco Branch",
+      "sourceSite": "Ottawa Forest Explorer",
+      "author": "Janice Morrow",
+      "url": "https://www.fs.usda.gov/ottawa",
+      "coverImageUrl": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+      "snippet": "The Cisco Branch of the Ontonagon River threads through an ancient slate narrows, cascading down a series of dramatic stepped shelves surrounded by pristine northern pines.",
+      "publishedDate": "August 2026",
+      "readingTime": "5 min read",
+      "category": "National Forest Byways"
+  },
+  {
+      "id": "art-powder-horn-falls-gogebic",
+      "waterfallId": "bf3b608b-2429-43a2-a79d-8a72613340cc",
+      "waterfallName": "Powder Horn Falls",
+      "title": "Hidden Near the Ski Slopes: The 20-Foot Drop of Powder Horn Falls",
+      "sourceSite": "Midwest Living Outdoors",
+      "author": "Evelyn St. Claire",
+      "url": "https://www.midwestliving.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Tucked inside a residential valley north of Ironwood, a short woodland scramble reveals a 20-foot curtain waterfall spilling over dark volcanic bedrock.",
+      "publishedDate": "July 2026",
+      "readingTime": "4 min read",
+      "category": "Hidden Gems"
+  },
+  {
+      "id": "art-haven-falls-lac-la-belle",
+      "waterfallId": "a0c6ce11-71b0-406c-a3bc-3d0c46071725",
+      "waterfallName": "Haven Falls",
+      "title": "The Roadside Charm of Haven Falls at Lac La Belle",
+      "sourceSite": "Keweenaw Heritage Magazine",
+      "author": "Donovan Pentti",
+      "url": "https://www.keweenawheritage.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Set within a manicured county park with rustic timber footbridges, Haven Falls drops 20 feet through cedar roots into a pebble pool just steps from the Lac La Belle shoreline.",
+      "publishedDate": "August 2026",
+      "readingTime": "4 min read",
+      "category": "Family Hikes"
+  },
+  {
+      "id": "art-lower-montreal-falls-superior-coast",
+      "waterfallId": "de018d3a-e31a-44c4-a72f-fc2d19323999",
+      "waterfallName": "Lower Montreal Falls",
+      "title": "At the Keweenaw's Edge: Where Lower Montreal Falls Greets Lake Superior",
+      "sourceSite": "Lake Superior Magazine",
+      "author": "Christine Braddock",
+      "url": "https://www.lakesuperior.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+      "snippet": "A rugged 6-mile coastal round-trip trek from Smith Fisheries brings intrepid hikers to this wild cascade plunging directly onto Lake Superior's cobblestone surf.",
+      "publishedDate": "September 2026",
+      "readingTime": "7 min read",
+      "category": "Coastal Cataracts"
+  },
+  {
+      "id": "art-upper-hungarian-falls-dam-spill",
+      "waterfallId": "bc13e687-14f7-4380-9bd8-593663afa92b",
+      "waterfallName": "Upper Hungarian Falls",
+      "title": "The Reservoir Dam & 20-Foot Drop of Upper Hungarian Falls",
+      "sourceSite": "Keweenaw Heritage Magazine",
+      "author": "Toivo Niemi",
+      "url": "https://www.keweenawheritage.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Climbing above the middle gorge reveals the historic 1880s sandstone dam and the 20-foot upper cascade that once stored water for the Calumet & Hecla stamp mills.",
+      "publishedDate": "June 2026",
+      "readingTime": "5 min read",
+      "category": "Mining Heritage"
+  },
+  {
+      "id": "art-middle-hungarian-falls-staircase",
+      "waterfallId": "2c5540bb-63e7-4507-a07d-658ed49d10ff",
+      "waterfallName": "Middle Hungarian Falls",
+      "title": "The 25-Foot Tiered Sandstone Staircase of Middle Hungarian Falls",
+      "sourceSite": "Pure Michigan Wilderness",
+      "author": "Mark VanDorn",
+      "url": "https://www.michigan.org",
+      "coverImageUrl": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80",
+      "snippet": "The most photogenic tier of the Hungarian Creek corridor, featuring multiple staggered basalt shelves flanked by cedar roots and historic stone ruins.",
+      "publishedDate": "July 2026",
+      "readingTime": "4 min read",
+      "category": "Historic Ruins"
+  },
+  {
+      "id": "art-alder-falls-big-bay-slide",
+      "waterfallId": "146d68b1-e772-4804-8150-b87510054b9b",
+      "waterfallName": "Alder Falls",
+      "title": "Tucked into the Huron Foothills: The 30-Foot Slide of Alder Falls",
+      "sourceSite": "Upper Peninsula Trail Journal",
+      "author": "Brett Kolasinski",
+      "url": "https://www.uptrailjournal.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Just outside the historic lumber town of Big Bay, Alder Creek shoots down a 30-foot polished granite slide into an emerald hemlock basin.",
+      "publishedDate": "June 2026",
+      "readingTime": "4 min read",
+      "category": "Hidden Gems"
+  },
+  {
+      "id": "art-reany-falls-dead-river-basin",
+      "waterfallId": "61c61fb6-4c2a-41bd-ac41-9dfac9dc9cc1",
+      "waterfallName": "Reany Falls",
+      "title": "A Hidden Tributary Cascade: Discovering Reany Falls in Marquette",
+      "sourceSite": "Awesome Mitten",
+      "author": "Laura Higgins",
+      "url": "https://www.awesomemitten.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Hidden along an unmarked tributary of the Dead River Basin, Reany Falls spills 15 feet over mossy granitic rocks surrounded by dense birch forests.",
+      "publishedDate": "August 2026",
+      "readingTime": "4 min read",
+      "category": "Hidden Gems"
+  },
+  {
+      "id": "art-lower-yellow-dog-rapids",
+      "waterfallId": "8782c8f8-4554-4cdc-9e56-bb027baa6a9d",
+      "waterfallName": "Lower Yellow Dog Falls",
+      "title": "Solitude on the Yellow Dog Plains: Lower Yellow Dog Falls",
+      "sourceSite": "Lake Superior Action Magazine",
+      "author": "Derek Lind",
+      "url": "https://www.lakesuperioraction.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Navigating deep sand logging tracks leads intrepid explorers to this secluded boulder-strewn rapid where the Yellow Dog River carves through dense spruce forests.",
+      "publishedDate": "September 2026",
+      "readingTime": "5 min read",
+      "category": "Wilderness Rivers"
+  },
+  {
+      "id": "art-chicagon-falls-ottawa-forest",
+      "waterfallId": "49381d34-00c8-4325-971e-7921c3739f23",
+      "waterfallName": "Chicagon Falls",
+      "title": "Iron County Wilderness: The 20-Foot Drop of Chicagon Falls",
+      "sourceSite": "Ottawa Forest Explorer",
+      "author": "Janice Morrow",
+      "url": "https://www.fs.usda.gov/ottawa",
+      "coverImageUrl": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80",
+      "snippet": "A scenic hike along Chicagon Creek in the Iron River Ranger District brings visitors to this wide 20-foot cascade tumbling over ancient Precambrian bedrock.",
+      "publishedDate": "August 2026",
+      "readingTime": "5 min read",
+      "category": "National Forest Trails"
+  },
+  {
+      "id": "art-margeson-falls-paint-river",
+      "waterfallId": "b24a8637-99a9-4dec-afcd-9211e9a5b943",
+      "waterfallName": "Margeson Falls",
+      "title": "Deep in the Iron River District: The Hidden Rhythms of Margeson Falls",
+      "sourceSite": "Upper Peninsula Trail Journal",
+      "author": "Greg Koski",
+      "url": "https://www.uptrailjournal.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Tucked inside Ottawa National Forest near Iron River, Margeson Falls plunges down a steep 25-foot staircase of dark jagged metamorphic rock.",
+      "publishedDate": "July 2026",
+      "readingTime": "4 min read",
+      "category": "Hidden Gems"
+  },
+  {
+      "id": "art-rapid-river-falls-limestone-steps",
+      "waterfallId": "06ebf7f5-be56-4498-883d-b8af0a1ffdaa",
+      "waterfallName": "Rapid River Falls",
+      "title": "The Shallow Limestone Terraces of Rapid River Falls",
+      "sourceSite": "Pure Michigan Wilderness",
+      "author": "Mark VanDorn",
+      "url": "https://www.michigan.org",
+      "coverImageUrl": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=600&q=80",
+      "snippet": "In Delta County, the Rapid River spreads out over a broad, stepped limestone riverbed, creating a series of shallow churning drops ideal for summer wading.",
+      "publishedDate": "June 2026",
+      "readingTime": "4 min read",
+      "category": "Family Hikes"
+  },
+  {
+      "id": "art-lower-tahquamenon-five-falls",
+      "waterfallId": "8664d95b-2df6-4813-9439-404102b86e31",
+      "waterfallName": "Lower Tahquamenon Falls",
+      "title": "Five Cascades in One: Exploring the Island Sanctuary of Lower Tahquamenon",
+      "sourceSite": "Lake Superior Magazine",
+      "author": "Christine Braddock",
+      "url": "https://www.lakesuperior.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Walk the modern timber pedestrian bridge out to Lower Falls Island to stand surrounded by five interlocking cascades churning with rich amber foam.",
+      "publishedDate": "July 2026",
+      "readingTime": "6 min read",
+      "category": "State Park Trails"
+  },
+  {
+      "id": "art-nawadaha-falls-presque-isle",
+      "waterfallId": "43097673-73c6-45cf-a169-001240128d58",
+      "waterfallName": "Nawadaha Falls",
+      "title": "The Upper Roar of the Presque Isle: Nawadaha Falls",
+      "sourceSite": "Porcupine Mountains Backpacker",
+      "author": "Janice Morrow",
+      "url": "https://www.porkiesbackpacker.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+      "snippet": "The uppermost of the three great Presque Isle cataracts, Nawadaha Falls drops 15 feet over a jagged rock crest into a foaming, turbulent natural gorge.",
+      "publishedDate": "August 2026",
+      "readingTime": "5 min read",
+      "category": "Wilderness Areas"
+  },
+  {
+      "id": "art-overlooked-falls-iron-river-bridge",
+      "waterfallId": "4a4809f4-d75f-4a92-8a5b-39c7f9ab91ac",
+      "waterfallName": "Overlooked Falls",
+      "title": "Quiet Magic in the Porkies: The Intimate Ledges of Overlooked Falls",
+      "sourceSite": "Porcupine Mountains Backpacker",
+      "author": "Arvo Mikkola",
+      "url": "https://www.porkiesbackpacker.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Located on the Little Iron River, Overlooked Falls lives up to its name—a serene, secluded multi-tier drop rarely visited by crowds on the western edge of the park.",
+      "publishedDate": "July 2026",
+      "readingTime": "4 min read",
+      "category": "Hidden Gems"
+  },
+  {
+      "id": "art-greenstone-falls-little-carp",
+      "waterfallId": "c2f3c031-13d8-4d26-bd23-e00ade219c56",
+      "waterfallName": "Greenstone Falls",
+      "title": "Backcountry Solitude on the Little Carp: Greenstone Falls",
+      "sourceSite": "Porcupine Mountains Backpacker",
+      "author": "Mark VanDorn",
+      "url": "https://www.porkiesbackpacker.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80",
+      "snippet": "A peaceful 1-mile backcountry walk through virgin hemlocks brings backpackers to this 8-foot drop flowing over dark volcanic greenstone bedrock.",
+      "publishedDate": "September 2026",
+      "readingTime": "4 min read",
+      "category": "Backcountry Treks"
+  },
+  {
+      "id": "art-trap-falls-bergland-scenic",
+      "waterfallId": "795640a6-0a1a-4f87-8352-30a2e469c5c0",
+      "waterfallName": "Trap Falls",
+      "title": "Trekking to Trap Falls: Ottawa National Forest's Hidden Cataract",
+      "sourceSite": "Ottawa Forest Explorer",
+      "author": "Janice Morrow",
+      "url": "https://www.fs.usda.gov/ottawa",
+      "coverImageUrl": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Follow the North Country Trail north of Bergland into a deep forested valley where the West Branch of the Ontonagon River tumbles over stepped basalt ledges.",
+      "publishedDate": "June 2026",
+      "readingTime": "5 min read",
+      "category": "National Forest Trails"
+  },
+  {
+      "id": "art-upper-sturgeon-falls-baraga",
+      "waterfallId": "61d20f75-f700-4c17-b5aa-05e4b238c6be",
+      "waterfallName": "Upper Sturgeon Falls",
+      "title": "Above the Great Gorge: The Roaring Rapids of Upper Sturgeon Falls",
+      "sourceSite": "Upper Peninsula Trail Journal",
+      "author": "Greg Koski",
+      "url": "https://www.uptrailjournal.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Before plunging into the 300-foot Sturgeon River Canyon, the upper river races through a series of broad, powerful chutes framed by old-growth white pines.",
+      "publishedDate": "August 2026",
+      "readingTime": "5 min read",
+      "category": "Wilderness Gorges"
+  },
+  {
+      "id": "art-west-branch-falls-baraga-remoteness",
+      "waterfallId": "767ad250-74d3-4470-8089-c41b4d311574",
+      "waterfallName": "West Branch Falls",
+      "title": "True Off-Grid Backcountry: Navigating to West Branch Falls",
+      "sourceSite": "Lake Superior Action Magazine",
+      "author": "Derek Lind",
+      "url": "https://www.lakesuperioraction.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Deep within Baraga County's trackless timber holdings, West Branch Falls rewards self-reliant navigators with an undisturbed 20-foot drop echoing in silent woods.",
+      "publishedDate": "July 2026",
+      "readingTime": "5 min read",
+      "category": "Off-Grid Treks"
+  },
+  {
+      "id": "art-upper-montreal-falls-keweenaw",
+      "waterfallId": "03711364-a8eb-4340-97b3-daefbfee9c38",
+      "waterfallName": "Upper Montreal Falls",
+      "title": "The Secluded Upper Chutes: Hiking to Upper Montreal Falls",
+      "sourceSite": "Keweenaw Heritage Magazine",
+      "author": "Toivo Niemi",
+      "url": "https://www.keweenawheritage.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=600&q=80",
+      "snippet": "A half-mile upstream from the Lake Superior shore, Upper Montreal Falls spills 20 feet over mossy conglomerate rocks in a secluded northern cedar hollow.",
+      "publishedDate": "September 2026",
+      "readingTime": "5 min read",
+      "category": "Coastal Cataracts"
+  },
+  {
+      "id": "art-chapel-beach-falls-sand-cascade",
+      "waterfallId": "ac665e50-c52a-410a-8a06-cdba4b5b400f",
+      "waterfallName": "Chapel Beach Falls",
+      "title": "Where Creek Meets Surf: The Sandstone Slide of Chapel Beach Falls",
+      "sourceSite": "Lake Superior Magazine",
+      "author": "Christine Braddock",
+      "url": "https://www.lakesuperior.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
+      "snippet": "At the end of the 3-mile Chapel Trail, Chapel Creek glides over smooth sandstone shelving directly onto the wide golden sand beach of Lake Superior.",
+      "publishedDate": "June 2026",
+      "readingTime": "5 min read",
+      "category": "Coastal Cataracts"
+  },
+  {
+      "id": "art-mosquito-falls-beaver-meadows",
+      "waterfallId": "b885b4cf-7db6-45eb-a97f-c4a706923b1e",
+      "waterfallName": "Mosquito Falls",
+      "title": "Through Beaver Meadows: The Shaded Cataracts of Mosquito Falls",
+      "sourceSite": "Mitten State Wanderer",
+      "author": "Laura Higgins",
+      "url": "https://www.mittenstatewanderer.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=600&q=80",
+      "snippet": "A quiet alternative to the crowded lake trails, Mosquito Falls drops 10 feet over two stepped sandstone ledges where river otters frequently hunt.",
+      "publishedDate": "July 2026",
+      "readingTime": "4 min read",
+      "category": "State Park Trails"
+  },
+  {
+      "id": "art-bridal-veil-cliffside-streamer",
+      "waterfallId": "80e758c4-4a34-462e-ab4a-0388566004a2",
+      "waterfallName": "Bridal Veil Falls",
+      "title": "The 140-Foot Cliffside Ribbon: Capturing Bridal Veil Falls from the Water",
+      "sourceSite": "Lake Superior Magazine",
+      "author": "Christine Braddock",
+      "url": "https://www.lakesuperior.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Best observed from a kayak or Pictured Rocks cruise boat, Bridal Veil Falls drapes 140 feet down sheer multicolored cliffs into the emerald lake swells.",
+      "publishedDate": "May 2026",
+      "readingTime": "5 min read",
+      "category": "Boat-Only Sights"
+  },
+  {
+      "id": "art-pinnacle-falls-yellow-dog-gorge",
+      "waterfallId": "126f80b9-e519-4085-809e-d3083e22b773",
+      "waterfallName": "Pinnacle Falls",
+      "title": "The Solitary Sentry: Trekking into the Gorge of Pinnacle Falls",
+      "sourceSite": "Upper Peninsula Trail Journal",
+      "author": "Brett Kolasinski",
+      "url": "https://www.uptrailjournal.com",
+      "coverImageUrl": "https://images.unsplash.com/photo-1511497584788-87676104235f?auto=format&fit=crop&w=600&q=80",
+      "snippet": "Guarded by a dramatic 100-foot volcanic rock pinnacle, this 25-foot cascade on the Yellow Dog River is one of Marquette County's most awe-inspiring hidden treasures.",
+      "publishedDate": "August 2026",
+      "readingTime": "6 min read",
+      "category": "Wilderness Gorges"
   }
 ]

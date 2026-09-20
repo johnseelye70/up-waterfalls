@@ -22,14 +22,35 @@ export default function Changelog() {
             🔐
           </div>
           <div className="space-y-12">
-          {/* Version 0.26.0 */}
+          {/* Version 0.27.0 */}
           <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
             <div className="bg-pinery-green px-6 py-4 border-b border-emerald-800">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <h3 className="font-serif text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-copper-orange">★</span> Beta 0.26.0
+                  <span className="text-copper-orange">★</span> Beta 0.27.0
                 </h3>
                 <span className="text-emerald-100 font-semibold text-sm">September 2026</span>
+              </div>
+            </div>
+            <div className="p-6 md:p-8 space-y-6">
+              <p className="text-base font-semibold text-slate-800">2x Content Expansion: 36 Comprehensive Field Guides & 73 Curated Travel Journals</p>
+              <ul className="text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                <li><strong>Comprehensive Field Guides Doubled (18 → 36):</strong> Expanded the authoritative field guide catalog to 36 multi-chapter dossiers across all five editorial categories (<code className="bg-slate-100 px-1 rounded text-slate-700">Regional Expeditions</code>, <code className="bg-slate-100 px-1 rounded text-slate-700">Trail Craft & Safety</code>, <code className="bg-slate-100 px-1 rounded text-slate-700">Seasonal Tactics</code>, <code className="bg-slate-100 px-1 rounded text-slate-700">Photography</code>, and <code className="bg-slate-100 px-1 rounded text-slate-700">Culinary & Culture</code>). Each guide features in-depth chapters, geological explanations, pro tips, gear checklists, and FAQ knowledge bases.</li>
+                <li><strong>Curated Travel Journals Doubled (37 → 73):</strong> Doubled the waterfall-specific editorial journal articles across 73 individual waterfalls, each linking directly to its respective interactive waterfall dossier with vetted author credits, reading times, publication badges, and rich Northwoods descriptions.</li>
+                <li><strong>New Backcountry Topics:</strong> Introduced specialized field guides covering the Tahquamenon Amber Basin, Black River National Scenic Byway, Marquette Granite Highlands, Off-Trail Canyon Navigation, Universal Accessibility & Stroller Boardwalks, Autumn Foliage Timelines, Long-Exposure Shutter Calculations, Superior Smoked Fish & Foraged Berries, Finnish Sauna & River Plunge Traditions, and Keweenaw Copper Ghost Towns.</li>
+                <li><strong>Zero-Collision Article Indexing:</strong> Resolved legacy duplicate article keys and normalized ID structures to guarantee instant, seamless client-side search filtering across both tabs.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Version 0.26.0 */}
+          <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="font-serif text-2xl font-bold text-slate-800 flex items-center gap-2">
+                  Beta 0.26.0
+                </h3>
+                <span className="text-slate-500 font-semibold text-sm">September 2026</span>
               </div>
             </div>
             <div className="p-6 md:p-8 space-y-6">
