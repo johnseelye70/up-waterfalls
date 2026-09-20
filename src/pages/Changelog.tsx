@@ -22,14 +22,37 @@ export default function Changelog() {
             🔐
           </div>
           <div className="space-y-12">
-          {/* Version 0.29.0 */}
+          {/* Version 1.0.0 */}
           <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
             <div className="bg-pinery-green px-6 py-4 border-b border-emerald-800">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <h3 className="font-serif text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-copper-orange">★</span> Beta 0.29.0
+                  <span className="text-copper-orange">★</span> Beta 1.0.0
                 </h3>
                 <span className="text-emerald-100 font-semibold text-sm">September 2026</span>
+              </div>
+            </div>
+            <div className="p-6 md:p-8 space-y-6">
+              <p className="text-base font-semibold text-slate-800">Milestone Release: Complete Upper Peninsula Wilderness Platform & Field Scout System</p>
+              <ul className="text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                <li><strong>Major Milestone (Beta 1.0.0):</strong> The UP Waterfalls wilderness planning platform attains its landmark 1.0.0 milestone, delivering a comprehensive, production-grade guide to all 291 waterfalls across Michigan's Upper Peninsula.</li>
+                <li><strong>Full Editorial Publication Library:</strong> Features 36 multi-chapter Field Guides and 73 Curated Travel Journals backed by 100% unique, verified authentic photography and zero placeholder recycling.</li>
+                <li><strong>Interactive Directory Navigation Suite:</strong> Dual view modes (Visual Cards vs. Compact iOS-optimized Tables), real-time keyword search, live category count pills, 26-letter A–Z quick-jump strips, and responsive pagination across both directories.</li>
+                <li><strong>Complete County Hub Coverage:</strong> 100% authentic hero photographic coverage across all 11 Upper Peninsula county hubs, from the Lake Superior sandstone cliffs of Alger County to the remote river gorges of Iron and Dickinson counties.</li>
+                <li><strong>Interactive Route & Trip Planner:</strong> End-to-end trip creation with automated driving calculations, waypoint ordering, fuel estimates, elevation profiles, and GPX export.</li>
+                <li><strong>Strict Inline Architecture & Security:</strong> Built 100% inline without intrusive popup modals or fixed scroll-traps, backed by SHA-256 Web Crypto authentication, brute-force rate-limiting, and non-destructive sync reconciliation.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Version 0.29.0 */}
+          <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="font-serif text-2xl font-bold text-slate-800 flex items-center gap-2">
+                  Beta 0.29.0
+                </h3>
+                <span className="text-slate-500 font-semibold text-sm">September 2026</span>
               </div>
             </div>
             <div className="p-6 md:p-8 space-y-6">
