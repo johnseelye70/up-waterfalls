@@ -143,6 +143,38 @@ export function enrichWaterfall(raw: any): EnrichedWaterfall {
     name = 'Harley Falls'
   }
 
+  // Known broken 404 image URLs to filter out
+  const BROKEN_PHOTO_URLS = new Set([
+    'https://upload.wikimedia.org/wikipedia/commons/0/06/Dead_River_Wright_Street_Falls_Marquette_Michigan_2024-09-22.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/8/81/Dead_River_Wright_Street_Falls_Marquette_Michigan_2024-09-22.jpg'
+  ])
+
+  let photos = (raw.waterfall_photos || []).filter(
+    (p: any) => p && p.image_url && !BROKEN_PHOTO_URLS.has(p.image_url)
+  )
+
+  // Explicitly ensure Lower Yellow Dog Falls (Marquette County) has its authentic hero photo and county hero designation
+  if (raw.id === '8782c8f8-4554-4cdc-9e56-bb027baa6a9d' || name.toLowerCase().includes('lower yellow dog')) {
+    const lydPhotoUrl = 'https://upload.wikimedia.org/wikipedia/commons/6/66/Yellow_dog_falls.jpg'
+    const existingIndex = photos.findIndex((p: any) => p.image_url === lydPhotoUrl)
+    if (existingIndex >= 0) {
+      photos[existingIndex] = {
+        ...photos[existingIndex],
+        is_hero: true,
+        is_county_hero: true
+      }
+    } else {
+      photos.unshift({
+        id: '3db195af-26c8-4f94-93df-548b7f6df15d',
+        image_url: lydPhotoUrl,
+        caption: 'Lower rapids and cascades on the Yellow Dog River flowing through dense northern boreal forest in Marquette County',
+        credit_name: 'Myself / Wikimedia Commons',
+        is_hero: true,
+        is_county_hero: true
+      })
+    }
+  }
+
   return {
     ...raw,
     name,
@@ -160,6 +192,6 @@ export function enrichWaterfall(raw: any): EnrichedWaterfall {
     trailhead_tips: catalogEntry?.trailhead_tips || 'Wear sturdy waterproof boots and download offline maps before driving out.',
     description,
     historical_notes,
-    waterfall_photos: raw.waterfall_photos || []
+    waterfall_photos: photos
   }
 }

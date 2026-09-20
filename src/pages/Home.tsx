@@ -69,9 +69,8 @@ export default function Home() {
     return undefined // Will fallback to default style if none exist
   }
 
-  // Render a single waterfall card
   const renderWaterfallCard = (wf: EnrichedWaterfall) => {
-    const heroPhoto = wf.waterfall_photos?.find(p => p.is_hero)?.image_url
+    const heroPhoto = wf.waterfall_photos?.find(p => p.is_hero)?.image_url || wf.waterfall_photos?.[0]?.image_url
     
     return (
       <div key={wf.id} className="bg-white rounded-lg shadow-md border-2 border-slate-200 overflow-hidden hover:border-copper-orange transition flex flex-col justify-between group">

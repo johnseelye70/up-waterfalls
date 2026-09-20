@@ -1,12 +1,10 @@
 export function getThumbnailUrl(url: string, width: number = 800): string {
   if (!url) return url
 
-  // Handle Wikimedia Commons images via public resizing proxy
+  // Wikimedia Commons images: load directly via Wikimedia's global CDN.
+  // Avoid third-party resizing proxies (e.g. wsrv.nl) which frequently trigger Wikimedia bot rate-limits (HTTP 429/404).
   if (url.includes('upload.wikimedia.org/wikipedia/commons/')) {
-    // Strip https:// or http:// for the proxy
-    const cleanUrl = url.replace(/^https?:\/\//, '')
-    // Use wsrv.nl (Images.weserv.nl) public caching and resizing proxy
-    return `https://wsrv.nl/?url=${encodeURIComponent(cleanUrl)}&w=${width}&output=webp`
+    return url
   }
 
   // Handle Unsplash images

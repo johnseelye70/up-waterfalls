@@ -22,14 +22,35 @@ export default function Changelog() {
             🔐
           </div>
           <div className="space-y-12">
-          {/* Version 0.24.0 */}
+          {/* Version 0.25.0 */}
           <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
             <div className="bg-pinery-green px-6 py-4 border-b border-emerald-800">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <h3 className="font-serif text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-copper-orange">★</span> Beta 0.24.0
+                  <span className="text-copper-orange">★</span> Beta 0.25.0
                 </h3>
                 <span className="text-emerald-100 font-semibold text-sm">September 2026</span>
+              </div>
+            </div>
+            <div className="p-6 md:p-8 space-y-6">
+              <p className="text-base font-semibold text-slate-800">High-Performance Direct CDN Image Delivery & Marquette County Hub Hero Synchronization</p>
+              <ul className="text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                <li><strong>Direct Wikimedia CDN Image Pipeline:</strong> Upgraded <code className="bg-slate-100 px-1 rounded text-slate-700">getThumbnailUrl</code> to serve Wikimedia Commons imagery directly via Wikimedia's global CDN, eliminating third-party proxy (<code className="bg-slate-100 px-1 rounded text-slate-700">wsrv.nl</code>) HTTP 429 rate-limiting and 404 thumbnail failures.</li>
+                <li><strong>Marquette County Hub Hero Alignment:</strong> Designated Lower Yellow Dog Falls with explicit <code className="bg-slate-100 px-1 rounded text-slate-700">is_hero: true</code> and <code className="bg-slate-100 px-1 rounded text-slate-700">is_county_hero: true</code> flags in the client-side data enrichment layer, guaranteeing its authentic wilderness photo renders on both the main Explore by County Hub card and inside the Marquette County detail view.</li>
+                <li><strong>Resilient Media Filtering:</strong> Filtered out obsolete non-resolving image URLs for Dead River Falls, preventing broken assets from blocking valid county hero photo selection.</li>
+                <li><strong>Directory Hero Synchronization:</strong> Updated Directory data queries and thumbnail bindings to prioritize verified hero photos across both Table and Visual Card views and the 100% inline photo showcase.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Version 0.24.0 */}
+          <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="font-serif text-2xl font-bold text-slate-800 flex items-center gap-2">
+                  Beta 0.24.0
+                </h3>
+                <span className="text-slate-500 font-semibold text-sm">September 2026</span>
               </div>
             </div>
             <div className="p-6 md:p-8 space-y-6">

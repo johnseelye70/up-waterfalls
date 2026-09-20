@@ -35,7 +35,7 @@ export default function Directory() {
     async function fetchWaterfalls() {
       const { data, error } = await supabase
         .from('waterfalls')
-        .select('*, waterfall_photos(image_url, caption)')
+        .select('*, waterfall_photos(image_url, caption, is_hero, is_county_hero)')
         .order('name', { ascending: true })
       
       if (error) {
@@ -616,7 +616,7 @@ export default function Directory() {
             <tbody className="divide-y divide-slate-100 text-sm">
               {paginatedWaterfalls.map((wf, idx) => {
                 const photoCount = wf.waterfall_photos?.length || 0
-                const heroPhoto = photoCount > 0 ? wf.waterfall_photos![0].image_url : null
+                const heroPhoto = wf.waterfall_photos?.find(p => p.is_hero)?.image_url || (photoCount > 0 ? wf.waterfall_photos![0].image_url : null)
 
                 return (
                   <tr key={wf.id} className={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50 hover:bg-slate-100/80 transition'}>
@@ -737,7 +737,7 @@ export default function Directory() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {paginatedWaterfalls.map((wf) => {
             const photoCount = wf.waterfall_photos?.length || 0
-            const heroPhoto = photoCount > 0 ? wf.waterfall_photos![0].image_url : null
+            const heroPhoto = wf.waterfall_photos?.find(p => p.is_hero)?.image_url || (photoCount > 0 ? wf.waterfall_photos![0].image_url : null)
 
             return (
               <div 
