@@ -22,14 +22,36 @@ export default function Changelog() {
             🔐
           </div>
           <div className="space-y-12">
-          {/* Version 0.28.0 */}
+          {/* Version 0.29.0 */}
           <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
             <div className="bg-pinery-green px-6 py-4 border-b border-emerald-800">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <h3 className="font-serif text-2xl font-bold text-white flex items-center gap-2">
-                  <span className="text-copper-orange">★</span> Beta 0.28.0
+                  <span className="text-copper-orange">★</span> Beta 0.29.0
                 </h3>
                 <span className="text-emerald-100 font-semibold text-sm">September 2026</span>
+              </div>
+            </div>
+            <div className="p-6 md:p-8 space-y-6">
+              <p className="text-base font-semibold text-slate-800">Interactive Field Guide Navigation Suite, Dual View Modes, A-Z Quick-Jump & Dynamic Directory Binding</p>
+              <ul className="text-sm text-slate-600 space-y-2 list-disc list-inside leading-relaxed">
+                <li><strong>Dynamic Homepage Guide Link:</strong> Updated the homepage link to dynamically bind to <code className="bg-slate-100 px-1 rounded text-slate-700">TRAVEL_GUIDES.length</code> ("Browse All 36 Guides"), ensuring the displayed count automatically stays synchronized whenever new field guides are added.</li>
+                <li><strong>Directory-Style Navigation Suite for Field Guides:</strong> Overhauled the "All Guides" section with real-time keyword search, category filter pills with live item count badges, multi-criteria sorting (Title A–Z, Title Z–A, Quickest Read, In-Depth Read, Most Featured Drops, Category), and active filter dismissal chips.</li>
+                <li><strong>Dual View Modes (Visual Cards vs. Compact Table):</strong> Introduced a responsive view mode switcher allowing explorers to switch seamlessly between rich photographic card grids and a compact, scannable directory table engineered with iOS Safari-safe fixed column widths and optimized cell padding.</li>
+                <li><strong>A–Z Alphabetical Quick-Jump Navigation:</strong> Integrated interactive 26-letter quick-jump strips with letter count badges for both Field Guides (alphabetized by title) and Curated Travel Articles (alphabetized by waterfall name), enabling instant 1-click filtering.</li>
+                <li><strong>Smart Pagination & Back-to-Top Anchor:</strong> Replaced endless scrolling with responsive pagination (configurable to 9, 18, 36, or Show All per page) featuring numeric page buttons, windowed ellipsis, and automatic smooth-scroll to top on navigation.</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Version 0.28.0 */}
+          <div className="bg-white rounded-xl shadow border border-slate-200 overflow-hidden">
+            <div className="bg-slate-50 px-6 py-4 border-b border-slate-200">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <h3 className="font-serif text-2xl font-bold text-slate-800 flex items-center gap-2">
+                  Beta 0.28.0
+                </h3>
+                <span className="text-slate-500 font-semibold text-sm">September 2026</span>
               </div>
             </div>
             <div className="p-6 md:p-8 space-y-6">

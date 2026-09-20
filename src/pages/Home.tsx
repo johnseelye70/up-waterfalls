@@ -295,7 +295,7 @@ export default function Home() {
                 to="/guides"
                 className="text-xs font-bold text-copper-orange hover:text-tahquamenon-amber flex items-center gap-1 transition self-start sm:self-auto"
               >
-                <span>Browse All 8 Guides</span> ➔
+                <span>Browse All {TRAVEL_GUIDES.length} Guides</span> ➔
               </Link>
             </div>
 
